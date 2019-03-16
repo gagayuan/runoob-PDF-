@@ -1,0 +1,1080 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>C 指针 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="c-pointers.html" />
+<meta name="keywords" content="C 指针">
+<meta name="description" content="C 指针   学习 C 语言的指针既简单又有趣。通过指针，可以简化一些 C 编程任务的执行，还有一些任务，如动态内存分配，没有指针是无法执行的。所以，想要成为一名优秀的 C 程序员，学习指针是很有必要的。 正如您所知道的，每一个变量都有一个内存位置，每一个内存位置都定义了可使用连字号（&amp;amp;）运算符访问的地址，它表示了在内存中的一个地址。请看下面的实例，它将输出定义的变量地址：  实例  [mycode3 type=&#03..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/cprogramming/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">C 教程 <a data-cate="157" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="157" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="C 语言教程" href="http://www.runoob.com/cprogramming/c-tutorial.html">
+C 语言教程 </a>
+<a target="_top" title="C 简介" href="http://www.runoob.com/cprogramming/c-intro.html">
+C 简介 </a>
+<a target="_top" title="C 环境设置" href="http://www.runoob.com/cprogramming/c-environment-setup.html">
+C 环境设置 </a>
+<a target="_top" title="C 程序结构" href="http://www.runoob.com/cprogramming/c-program-structure.html">
+C 程序结构 </a>
+<a target="_top" title="C 基本语法" href="http://www.runoob.com/cprogramming/c-basic-syntax.html">
+C 基本语法 </a>
+<a target="_top" title="C 数据类型" href="http://www.runoob.com/cprogramming/c-data-types.html">
+C 数据类型 </a>
+<a target="_top" title="C 变量" href="http://www.runoob.com/cprogramming/c-variables.html">
+C 变量 </a>
+<a target="_top" title="C 常量" href="http://www.runoob.com/cprogramming/c-constants.html">
+C 常量 </a>
+<a target="_top" title="C 存储类" href="http://www.runoob.com/cprogramming/c-storage-classes.html">
+C 存储类 </a>
+<a target="_top" title="C 运算符" href="http://www.runoob.com/cprogramming/c-operators.html">
+C 运算符 </a>
+<a target="_top" title="C 判断" href="http://www.runoob.com/cprogramming/c-decision.html">
+C 判断 </a>
+<a target="_top" title="C 循环" href="http://www.runoob.com/cprogramming/c-loops.html">
+C 循环 </a>
+<a target="_top" title="C 函数" href="http://www.runoob.com/cprogramming/c-functions.html">
+C 函数 </a>
+<a target="_top" title="C 作用域规则" href="http://www.runoob.com/cprogramming/c-scope-rules.html">
+C 作用域规则 </a>
+<a target="_top" title="C 数组" href="http://www.runoob.com/cprogramming/c-arrays.html">
+C 数组 </a>
+<a target="_top" title="C enum(枚举)" href="http://www.runoob.com/cprogramming/c-enum.html">C enum(枚举)</a> <a target="_top" title="C 指针" href="c-pointers.html">
+C 指针 </a>
+<a target="_top" title="C 函数指针与回调函数" href="http://www.runoob.com/cprogramming/c-fun-pointer-callback.html">C 函数指针与回调函数</a> <a target="_top" title="C 字符串" href="http://www.runoob.com/cprogramming/c-strings.html">
+C 字符串 </a>
+<a target="_top" title="C 结构体" href="http://www.runoob.com/cprogramming/c-structures.html">
+C 结构体 </a>
+<a target="_top" title="C 共用体" href="http://www.runoob.com/cprogramming/c-unions.html">
+C 共用体 </a>
+<a target="_top" title="C 位域" href="http://www.runoob.com/cprogramming/c-bit-fields.html">
+C 位域 </a>
+<a target="_top" title="C typedef" href="http://www.runoob.com/cprogramming/c-typedef.html">
+C typedef </a>
+<a target="_top" title="C 输入 &#038; 输出" href="http://www.runoob.com/cprogramming/c-input-output.html">
+C 输入 & 输出 </a>
+<a target="_top" title="C 文件读写" href="http://www.runoob.com/cprogramming/c-file-io.html">
+C 文件读写 </a>
+<a target="_top" title="C 预处理器" href="http://www.runoob.com/cprogramming/c-preprocessors.html">
+C 预处理器 </a>
+<a target="_top" title="C 头文件" href="http://www.runoob.com/cprogramming/c-header-files.html">
+C 头文件 </a>
+<a target="_top" title="C 强制类型转换" href="http://www.runoob.com/cprogramming/c-type-casting.html">
+C 强制类型转换 </a>
+<a target="_top" title="C 错误处理" href="http://www.runoob.com/cprogramming/c-error-handling.html">
+C 错误处理 </a>
+<a target="_top" title="C 递归" href="http://www.runoob.com/cprogramming/c-recursion.html">
+C 递归 </a>
+<a target="_top" title="C 可变参数" href="http://www.runoob.com/cprogramming/c-variable-arguments.html">
+C 可变参数 </a>
+<a target="_top" title="C 内存管理" href="http://www.runoob.com/cprogramming/c-memory-management.html">
+C 内存管理 </a>
+<a target="_top" title="C 命令行参数" href="http://www.runoob.com/cprogramming/c-command-line-arguments.html">
+C 命令行参数 </a>
+<a target="_top" title="C 排序算法" href="http://www.runoob.com/cprogramming/c-sort-algorithm.html">C 排序算法</a>
+<a target="_top" title="C 语言实例" href="http://www.runoob.com/cprogramming/c-examples.html">C 语言实例 </a>
+<a target="_top" title="C 语言经典100例" href="http://www.runoob.com/cprogramming/c-100-examples.html"> C 经典100例 </a>
+<br><h2 class="left">C <span class="left_h2">标准库</span></h2> <a target="_top" title="C 标准库 &#8211; 参考手册" href="http://www.runoob.com/cprogramming/c-standard-library.html">
+C 标准库 - 参考手册 </a>
+<a target="_top" title="C 标准库 &#8211; &lt;assert.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-assert-h.html">
+C 标准库 - &lt;assert.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;ctype.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-ctype-h.html">
+C 标准库 - &lt;ctype.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;errno.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-errno-h.html">
+C 标准库 - &lt;errno.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;float.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-float-h.html">
+C 标准库 - &lt;float.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;limits.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-limits-h.html">
+C 标准库 - &lt;limits.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;locale.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-locale-h.html">
+C 标准库 - &lt;locale.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;math.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-math-h.html">
+C 标准库 - &lt;math.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;setjmp.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-setjmp-h.html">
+C 标准库 - &lt;setjmp.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;signal.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-signal-h.html">
+C 标准库 - &lt;signal.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;stdarg.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-stdarg-h.html">
+C 标准库 - &lt;stdarg.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;stddef.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-stddef-h.html">
+C 标准库 - &lt;stddef.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;stdio.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-stdio-h.html">
+C 标准库 - &lt;stdio.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;stdlib.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-stdlib-h.html">
+C 标准库 - &lt;stdlib.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;string.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-string-h.html">
+C 标准库 - &lt;string.h&gt; </a>
+<a target="_top" title="C 标准库 &#8211; &lt;time.h&gt;" href="http://www.runoob.com/cprogramming/c-standard-library-time-h.html">
+C 标准库 - &lt;time.h&gt; </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/cprogramming/c-arrays.html" rel="prev"> C 数组</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/cprogramming/c-strings.html" rel="next"> C 字符串</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>C <span class="color_h1">指针</span></h1>
+<div class="tutintro">
+<p>学习 C 语言的指针既简单又有趣。通过指针，可以简化一些 C 编程任务的执行，还有一些任务，如动态内存分配，没有指针是无法执行的。所以，想要成为一名优秀的 C 程序员，学习指针是很有必要的。</p>
+<p>正如您所知道的，每一个变量都有一个内存位置，每一个内存位置都定义了可使用连字号（&amp;）运算符访问的地址，它表示了在内存中的一个地址。请看下面的实例，它将输出定义的变量地址：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-prepro">#include</span><span class="hl-prepro"> </span><span class="hl-quotes">&lt;</span><span class="hl-string">stdio.h</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">var1</span><span class="hl-code">;
+</span><span class="hl-types">char</span><span class="hl-code"> </span><span class="hl-identifier">var2</span><span class="hl-brackets">[</span><span class="hl-number">10</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">var1 变量的地址： %p</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, &amp;</span><span class="hl-identifier">var1</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">var2 变量的地址： %p</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, &amp;</span><span class="hl-identifier">var2</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre>
+var1 变量的地址： 0x7fff5cc109d4
+var2 变量的地址： 0x7fff5cc109de
+</pre>
+<p>通过上面的实例，我们了解了什么是内存地址以及如何访问它。接下来让我们看看什么是指针。</p>
+</div>
+<h2 class="tutheader">什么是指针？</h2>
+<p><b>指针</b>是一个变量，其值为另一个变量的地址，即，内存位置的直接地址。就像其他变量或常量一样，您必须在使用指针存储其他变量地址之前，对其进行声明。指针变量声明的一般形式为：</p>
+<pre>
+type *var-name;
+</pre>
+<p>在这里，<b>type</b> 是指针的基类型，它必须是一个有效的 C 数据类型，<b>var-name</b> 是指针变量的名称。用来声明指针的星号 * 与乘法中使用的星号是相同的。但是，在这个语句中，星号是用来指定一个变量是指针。以下是有效的指针声明：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-types">int</span><span class="hl-code"> *</span><span class="hl-identifier">ip</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 一个整型的指针 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-types">double</span><span class="hl-code"> *</span><span class="hl-identifier">dp</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 一个 double 型的指针 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-types">float</span><span class="hl-code"> *</span><span class="hl-identifier">fp</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 一个浮点型的指针 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-types">char</span><span class="hl-code"> *</span><span class="hl-identifier">ch</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 一个字符型的指针 </span><span class="hl-mlcomment">*/</span></div>
+</div>
+</div>
+<p>所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。不同数据类型的指针之间唯一的不同是，指针所指向的变量或常量的数据类型不同。</p>
+<h2 class="tutheader">如何使用指针？</h2>
+<p>使用指针时会频繁进行以下几个操作：定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。这些是通过使用一元运算符 <b>*</b> 来返回位于操作数所指定地址的变量的值。下面的实例涉及到了这些操作：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-prepro">#include</span><span class="hl-prepro"> </span><span class="hl-quotes">&lt;</span><span class="hl-string">stdio.h</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">var</span><span class="hl-code"> = </span><span class="hl-number">20</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 实际变量的声明 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> *</span><span class="hl-identifier">ip</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 指针变量的声明 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-identifier">ip</span><span class="hl-code"> = &amp;</span><span class="hl-identifier">var</span><span class="hl-code">; </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 在指针变量中存储 var 的地址 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Address of var variable: %p</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, &amp;</span><span class="hl-identifier">var</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 在指针变量中存储的地址 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Address stored in ip variable: %p</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">ip</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 使用指针访问值 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Value of *ip variable: %d</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, *</span><span class="hl-identifier">ip</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre>
+Address of var variable: bffd8b3c
+Address stored in ip variable: bffd8b3c
+Value of *ip variable: 20
+</pre>
+<h2 class="tutheader">C 中的 NULL 指针</h2>
+<p>在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为<b>空</b>指针。</p>
+<p>NULL 指针是一个定义在标准库中的值为零的常量。请看下面的程序：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-prepro">#include</span><span class="hl-prepro"> </span><span class="hl-quotes">&lt;</span><span class="hl-string">stdio.h</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-types">int</span><span class="hl-code"> *</span><span class="hl-identifier">ptr</span><span class="hl-code"> = </span><span class="hl-prepro">NULL</span><span class="hl-code">;
+</span><span class="hl-identifier">printf</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">ptr 的地址是 %p</span><span class="hl-special">\</span><span class="hl-string">n</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">ptr</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre>
+ptr 的地址是 0x0
+</pre>
+<p>在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为该内存是操作系统保留的。然而，内存地址 0 有特别重要的意义，它表明该指针不指向一个可访问的内存位置。但按照惯例，如果指针包含空值（零值），则假定它不指向任何东西。</p>
+<p>如需检查一个空指针，您可以使用 if 语句，如下所示：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-identifier">ptr</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 如果 p 非空，则完成 </span><span class="hl-mlcomment">*/</span><span class="hl-code">
+</span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-code">!</span><span class="hl-identifier">ptr</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-mlcomment">/*</span><span class="hl-mlcomment"> 如果 p 为空，则完成 </span><span class="hl-mlcomment">*/</span></div>
+</div>
+</div>
+<h2 class="tutheader">C 指针详解</h2>
+<p>在 C 中，有很多指针相关的概念，这些概念都很简单，但是都很重要。下面列出了 C 程序员必须清楚的一些与指针相关的重要概念：</p>
+<table class="reference notranslate">
+<tr><th style="width:35%">概念</th><th>描述</th></tr>
+<tr><td> <a href="http://www.runoob.com/cprogramming/c-pointer-arithmetic.html" title="指针的算术运算">指针的算术运算</a></td><td>可以对指针进行四种算术运算：++、--、+、-</td> </tr>
+<tr><td> <a href="http://www.runoob.com/cprogramming/c-array-of-pointers.html" title="指针数组">指针数组</a></td><td>可以定义用来存储指针的数组。</td> </tr>
+<tr><td> <a href="http://www.runoob.com/cprogramming/c-pointer-to-pointer.html" title="指向指针的指针">指向指针的指针</a></td><td>C 允许指向指针的指针。</td> </tr>
+<tr><td> <a href="http://www.runoob.com/cprogramming/c-passing-pointers-to-functions.html" title="传递指针给函数">传递指针给函数</a></td><td>通过引用或地址传递参数，使传递的参数在调用函数中被改变。</td> </tr>
+<tr><td> <a href="http://www.runoob.com/cprogramming/c-return-pointer-from-functions.html" title="从函数返回指针">从函数返回指针</a></td><td>C 允许函数返回指针到局部变量、静态变量和动态内存分配。</td> </tr>
+</table> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/cprogramming/c-arrays.html" rel="prev"> C 数组</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/cprogramming/c-strings.html" rel="next"> C 字符串</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">9 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-10377"><span class="comt-f">#9</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;STM小菜鸟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;578***539@qq.com</p></div></div><div class="comt-main" id="div-comment-10377"><p>指针是一个变量，其值为另一个变量的地址，即，内存位置的直接地址。就像其他变量或常量一样，您必须在使用指针存储其他变量地址之前，对其进行声明。</p><p>
+要理解指针就要先理解计算机的内存。计算机内存会被划分为按顺序编号的内存单元。每个变量都是存储在内存单元中的，称之为地址。
+</p><pre>
+#include &lt;stdio.h&gt;
+
+int main ()
+{
+&nbsp;&nbsp;&nbsp;&nbsp;int var = 20;   /* 实际变量的声明 此时的 VAR 这个变量是存在某个地址的，地址对应某个内存单元，该单元中存储了数据20 */
+&nbsp;&nbsp;&nbsp;&nbsp;int *ip;         /* 指针变量的声明 定义了一个指针 即一个内存单元的地址变量 */
+
+&nbsp;&nbsp;&nbsp;&nbsp;ip = &amp;var;      /* 在指针变量中存储 var 的地址 就是将地址值赋值给指针这个变量*/
+
+&nbsp;&nbsp;&nbsp;&nbsp;/* 在指针变量中存储的地址 利用&amp;符号直接输出了var所存储的数据的内存单元的地址*/
+&nbsp;&nbsp;&nbsp;&nbsp;printf("Address of var variable: %p\n", &amp;var );
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;/* 在指针变量中存储的地址 ip代表的是这个赋值到的地址的值 所以输出的是地址值 */
+&nbsp;&nbsp;&nbsp;&nbsp;printf("Address stored in ip variable: %p\n", ip );
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;/* 使用指针访问值 *ip代表的是定义到这个内存单元之后，内存单元中所存储的数据的值也就是将20赋值给var中20这个值 */
+&nbsp;&nbsp;&nbsp;&nbsp;printf("Value of *ip variable: %d\n", *ip );
+
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+}
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">STM小菜鸟</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;STM小菜鸟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;578***539@qq.com</p></div></span>2年前 (2017-03-24)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10381"><span class="comt-f">#8</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;STM小菜鸟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;578***539@qq.com</p></div></div><div class="comt-main" id="div-comment-10381"><p>指针是一个变量，所以可以使用任何合法的变量名。在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为该内存是操作系统保留的。</p>
+<p>然而，内存地址 0 有特别重要的意义，它表明该指针不指向一个可访问的内存位置。</p>
+<p>但按照惯例，如果指针包含空值（零值），则假定它不指向任何东西。</p>
+<p>所有指针在创建时都要初始化，如果不知道他指向什么就将 0 赋值给他。必须初始化指针，没有被初始化的指针被称为失控指针(野指针）。</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main ()
+{
+&nbsp;&nbsp;&nbsp;&nbsp;int *p = 0;
+&nbsp;&nbsp;&nbsp;&nbsp;int a ;
+&nbsp;&nbsp;&nbsp;&nbsp;p = &amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;printf ("输入一个数字\n");
+&nbsp;&nbsp;&nbsp;&nbsp;scanf ("%d",p);
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%d\n",*p);
+}
+</pre>
+<p>实例定义了变量 a 和指针变量 p。<b>p = &a;</b>表示指针变量指向了变量 a，p 中存放的地址为 a 的地址 &a，*p 所指的是 p 中存放的地址 a 内存单元中的值。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">STM小菜鸟</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;STM小菜鸟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;578***539@qq.com</p></div></span>2年前 (2017-03-24)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-11551"><span class="comt-f">#7</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;HBR1</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;238***9419@qq.com</p></div></div><div class="comt-main" id="div-comment-11551"><pre>/*按照偏移值访问函数形参内容实验*/
+//二级指针
+void Pros(char* a,int b,int e,char et)
+{
+&nbsp;&nbsp;&nbsp;&nbsp;char **p=&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;//a==*p
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %p %p %p \n%p\n",&amp;a,p,a,*p,&amp;b);
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%s\n",*p);
+&nbsp;&nbsp;&nbsp;&nbsp;p++;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%d\n",*p);
+&nbsp;&nbsp;&nbsp;&nbsp;p++;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%d\n",*p);
+&nbsp;&nbsp;&nbsp;&nbsp;p++;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%c\n",*p);
+&nbsp;&nbsp;&nbsp;&nbsp;return;
+}
+
+//一级指针访问
+void Test(char* a,int b)
+{
+&nbsp;&nbsp;&nbsp;&nbsp;char *p=(char*)&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;//a!=*p;
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%p %p %p %p\n",&amp;a,p,a,*p);
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%p\n",&amp;b);
+&nbsp;&nbsp;&nbsp;&nbsp;//得出结果一级指针自加+1 二级指针自按照元素内容大小自加
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%d %p\n",*(++p),p);
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%d %p\n",*(p+8),p+8);
+&nbsp;&nbsp;&nbsp;&nbsp;//a=a[0]一个printf函数以'\0'结束
+&nbsp;&nbsp;&nbsp;&nbsp;//此时p=&amp;a把元素首地址给了p或者说a只记录一个元素首地址的地址
+&nbsp;&nbsp;&nbsp;&nbsp;//同等汇编语句 a：db 'Hello' b:db '16'
+&nbsp;&nbsp;&nbsp;&nbsp;//所以 p=&amp;a != p=a ;
+&nbsp;&nbsp;&nbsp;&nbsp;/*
+&nbsp;&nbsp;&nbsp;&nbsp;char *a="Hello";
+&nbsp;&nbsp;&nbsp;&nbsp;char *b=(char*)&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %p %p %p",&amp;a,b,a,&amp;(a[0]));
+&nbsp;&nbsp;&nbsp;&nbsp;*/
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%c %p %p\n",*a,a,&amp;(a[0]));
+&nbsp;&nbsp;&nbsp;&nbsp;//printf("%c %p %p\n",*(a+1),a+1,&amp;(a[1]));
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%c\n",*(*(char**)p));
+&nbsp;&nbsp;&nbsp;&nbsp;//if p=a; *p=a;
+&nbsp;&nbsp;&nbsp;&nbsp;p=a;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%s",p);
+&nbsp;&nbsp;&nbsp;&nbsp;return;
+}
+
+int main()
+{
+&nbsp;&nbsp;&nbsp;&nbsp;//Pros("Hello",5,66666,'a');
+&nbsp;&nbsp;&nbsp;&nbsp;Test("Hello",16);
+&nbsp;&nbsp;&nbsp;&nbsp;//指针转换问题
+&nbsp;&nbsp;&nbsp;&nbsp;/*
+&nbsp;&nbsp;&nbsp;&nbsp;char *a="Hello";//&amp;a变量里面存储着a所指向的变量地址
+&nbsp;&nbsp;&nbsp;&nbsp;//char **p=&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;char *b=(char*)&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;char **p=&amp;a;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %p %p %p\n",&amp;a,b,a,*b);
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %c\n",&amp;(*a),*(&amp;(*(a+1))));
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %c\n",a,*a);//此时a-&gt;H，*a=H;
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%p %c\n",(*p),*(*p));
+&nbsp;&nbsp;&nbsp;&nbsp;//p=&amp;a,*p=a所指向的第一个元素的地址还需要一解才能访问正确数据
+&nbsp;&nbsp;&nbsp;&nbsp;//所以1级指针需要解2次 所以进行强制转换
+&nbsp;&nbsp;&nbsp;&nbsp;printf("%c \n",*(*(char**)b));
+&nbsp;&nbsp;&nbsp;&nbsp;//原试解 现在b=&amp;a,*b= &amp;a-&gt;a所以如果此时想正确访问H必须在解
+&nbsp;&nbsp;&nbsp;&nbsp;*/
+&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">HBR1</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;HBR1</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;238***9419@qq.com</p></div></span>2年前 (2017-05-01)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-22131"><span class="comt-f">#6</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;humen_robot</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;562***709@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://www.runoob.com/w3cnote/c-pointer-detail.html">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-22131"><p><strong>指针的一些复杂说明：</strong></p>
+<ul><li>
+<span class="marked">int p;</span> -- 这是一个普通的整型变量</li><li>
+<span class="marked">int *p;</span> -- 首先从 p 处开始,先与*结合,所以说明 p 是一个指针, 然后再与 int 结合, 说明指针所指向的内容的类型为 int 型。所以 p 是一个返回整型数据的指针。</li><li>
+<span class="marked">int p[3]</span> -- 首先从 p 处开始,先与[] 结合,说明 p 是一个数组, 然后与 int 结合, 说明数组里的元素是整型的, 所以 p 是一个由整型数据组成的数组。</li><li>
+<span class="marked">int *p[3];</span> -- 首先从 p 处开始, 先与 [] 结合, 因为其优先级比 * 高,所以 p 是一个数组, 然后再与 * 结合, 说明数组里的元素是指针类型, 然后再与 int 结合, 说明指针所指向的内容的类型是整型的, 所以 p 是一个由返回整型数据的指针所组成的数组。</li><li>
+<span class="marked">int (*p)[3];</span> -- 首先从 p 处开始, 先与 * 结合,说明 p 是一个指针然后再与 [] 结合(与"()"这步可以忽略,只是为了改变优先级), 说明指针所指向的内容是一个数组, 然后再与int 结合, 说明数组里的元素是整型的。所以 p 是一个指向由整型数据组成的数组的指针。</li><li>
+<span class="marked">int **p;</span> -- 首先从 p 开始, 先与 * 结合, 说是 p 是一个指针, 然后再与 * 结合, 说明指针所指向的元素是指针, 然后再与 int 结合, 说明该指针所指向的元素是整型数据。由于二级指针以及更高级的指针极少用在复杂的类型中, 所以后面更复杂的类型我们就不考虑多级指针了, 最多只考虑一级指针。</li><li>
+<span class="marked">int p(int);</span> -- 从 p 处起,先与 () 结合, 说明 p 是一个函数, 然后进入 () 里分析, 说明该函数有一个整型变量的参数, 然后再与外面的 int 结合, 说明函数的返回值是一个整型数据。</li><li>
+<span class="marked">int (*p)(int);</span> -- 从 p 处开始, 先与指针结合, 说明 p 是一个指针, 然后与()结合, 说明指针指向的是一个函数, 然后再与()里的 int 结合, 说明函数有一个int 型的参数, 再与最外层的 int 结合, 说明函数的返回类型是整型, 所以 p 是一个指向有一个整型参数且返回类型为整型的函数的指针。</li><li>
+<span class="marked">int *(*p(int))[3];</span> -- 可以先跳过, 不看这个类型, 过于复杂从 p 开始,先与 () 结合, 说明 p 是一个函数, 然后进入 () 里面, 与 int 结合, 说明函数有一个整型变量参数, 然后再与外面的 * 结合, 说明函数返回的是一个指针, 然后到最外面一层, 先与[]结合, 说明返回的指针指向的是一个数组, 然后再与 * 结合, 说明数组里的元素是指针, 然后再与 int 结合, 说明指针指向的内容是整型数据。所以 p 是一个参数为一个整数据且返回一个指向由整型指针变量组成的数组的指针变量的函数。</li></ul>
+<p><strong>更多内容参考：</strong><a href="http://www.runoob.com/w3cnote/c-pointer-detail.html" target="_blank" rel="noopener nofollow">C 指针详解</a></p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">humen_robot</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;humen_robot</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;562***709@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://www.runoob.com/w3cnote/c-pointer-detail.html">&nbsp;&nbsp;参考地址</a></p></div></span>1年前 (2017-12-26)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-27559"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;狂吠的小疯狗</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;342***965@qq.com</p></div></div><div class="comt-main" id="div-comment-27559"><p>指针实例说明：</p>
+<pre>int board[8][8];    /* int 数组的数组 */ 
+int ** ptr;         /* 指向 int 指针的指针 */
+int * risks[10];    /* 具有 10 个元素的数组, 每个元素是一个指向 int 的指针 */
+int (* rusks) [10];  /* 一个指针, 指向具有 10 个元素的 int 数组 */
+int * oof[3][4];    /* 一个 3 x 4 的数组, 每个元素是一个指向 int 的指针 */ 
+int (* uuf) [3][4]; /* 一个指针, 指向 3 X 4 的 int 数组 */
+int (* uof[3]) [4]; /* 一个具有 3 个元素的数组, 每个元素是一个指向具有 4 个元素的int 数组的指针 */ </pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">狂吠的小疯狗</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;狂吠的小疯狗</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;342***965@qq.com</p></div></span>10个月前 (05-21)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-29238"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;玲珑争</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;694***356@qq.com</p></div></div><div class="comt-main" id="div-comment-29238"><p><strong>指向函数的指针</strong></p>
+<p>代码和数据是一样的，都需要占据一定内存，那当然也会有一个基地址，所以我们可以定义一个指针来指向这个基地址，这就是所谓的函数指针。</p>
+<p>假设有函数：</p>
+<pre>double func(int a,char c);
+double (*p)(int a,char c);
+p=&amp;func;</pre>
+<p>即可以定义一个函数指针。</p>
+<p><strong>调用函数</strong></p>
+<pre>double s1=func(100,'x');
+double s2=(*p)(100,'x');</pre>
+<p>上面两个语句是等价的。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">玲珑争</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;玲珑争</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;694***356@qq.com</p></div></span>8个月前 (07-06)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-30104"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;CoolLoser</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;103***3350@qq.com</p></div></div><div class="comt-main" id="div-comment-30104"><p>函数指针形式的传递，实质却是地址传递的一个例子：</p>
+<pre>#include &lt;stdio.h&gt;
+
+void func1(int *a, int **b);
+
+void func1(int *a, int **b)
+{
+   (*a)++;
+   (*b)++;//这里虽然传进来的是指针的形式，但其实是指针c的地址，
+          //可以认为这里本质还是值传递，只不过这个值是地址值
+}
+
+int main()
+{
+    int a[2] = {10, 20};
+    int *b = &amp;a[0];
+    int *c = a+1;
+    int **d = &amp;c;
+    
+    func1(b, d);
+    printf("a[0] = %d   a[1] = %d\n", a[0], a[1]);
+
+    return 0;
+}</pre>
+<p>执行结果：<strong>a[0] = 11 a[1] = 20</strong></p>
+<p>由上可知，虽然传递参数时，是以指针形式进行的，但有时候会发现其实还是值传递，是地址值的传递，特别是在多维数组进行参数传递的时候，特别容易出现这种情况。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">CoolLoser</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;CoolLoser</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;103***3350@qq.com</p></div></span>8个月前 (07-24)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-35476"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;指针初学者</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;282***0762@qq.com</p></div></div><div class="comt-main" id="div-comment-35476"><p><strong>数组指针</strong></p>
+<p>给定义好的数组中赋值时, 指针可以通过调整地址给数组赋值。</p>
+<p>例: 创建一个包含 3 个元素的一维数组, 并给它赋值。</p>
+<pre>int* array0 = (int*)malloc(sizeof(int) *3);
+for(int i=0; i&lt;3; i++){
+    scanf("%d", array0+i);
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">指针初学者</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;指针初学者</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;282***0762@qq.com</p></div></span>6个月前 (09-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-37483"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Jalr4ever</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;rou***hex@qq.com</p></div></div><div class="comt-main" id="div-comment-37483"><p>2016 年接触 C 语言 ，当年愣是看不懂！尤其是指针，到现在 2 年多了，有点小理解。回顾一下，一说到指针就会说到地址的概念，所以跟指针有关的概念，跟 C 的内存管理结合起来理解会更好点，下面说说如何更好的理解指针。</p>
+<p>为什么叫指针，指针其实是一种很形象的比喻，下面说说我的个人理解。</p>
+<p>int 变量存的是 int 型的值，char 变量存的是 char 型的值，而指针，它是一种特殊的变量，存的是内存地址，按照这个模板可以把它理解为：<strong>“内存地址变量” 存的是 “内存地址”，等价于：“指针变量” 存的是 “内存地址”</strong></p>
+<p>操作系统进行资源调度时，会根据这些变量存的地址去请求和使用那个地址代表的内存区域，这就仿佛像是这个变量存的地址指向了某片内存，人们用 “指针” 来统称所谓的 “内存地址变量” </p>
+<p>因此，<strong>任何跟指针有关的概念，都可以联系内存地址加以理解</strong>，二者必然有联系，数组与指针，函数与指针，都是如此。</p>
+<ul><li>
+<strong>内存是线性的</strong>，内存以地址空间的形式呈现给我们看的，所以可以说所谓的地址空间也是线性的，指针存放的是内存地址，所以你可以对地址做 ++，或者 -- 这样的运算。</li><li>
+<strong>两个指针不赋 NULL，是坏习惯</strong></li><li>
+<strong>初始化指针不赋 NULL</strong>，因为这样的指针会指向一片未知的区域，这样的指针不是空指针，但指向一片访问受限制的内存区域，你无法使用它，这样的情况下的指针，业界给了它一个形象的名字：“野指针”，而且难以调试，在许多编译器单步 debug 会出现奇怪的错误，但经常看见的 "Segmentation Fault" 这样的错误，实测当代码多的时候，这是一个非常蛋疼的错误，野指针就是成因之一，所以看到这样的错误，首先是想想，是否有某些指针没有初始化引起的</li><li>
+<strong>free() 后指针不赋 NULL</strong>，为指针分配内存后，指针便可以指向一片合法可使用的内存，但使用 free() 释放那片内存时，指针依旧存放着那片内存的地址，也就是依旧指向那片内存，但这片内存已经释放，不可访问，这时若不小心使用了这个指针，便会内存错误，又是会有奇怪的 bug ，代码几百行多点就会难以调试，业界给这样的指针也有个统称：“悬空指针”，为了避免这种蛋疼的情况出现，一定要释放内存后，给指向这片内存的指针，都赋值为 NULL，从中也可以看出，free() 这个函数释放内存时跟指向这片内存的指针并没有什么卵关系，不会连着把指针一起搞定掉的！ <strong>珍爱生命，远离 "野指针" 与 "悬空指针" ！</strong></li><li>
+<strong>多级指针</strong>，指向指针的指针，有时人们也管它叫多维指针。既然指针变量是一个变量，指针变量能存变量的内存的地址。</li></ul>
+<p>像 int * 存 int 型变量的地址，char * 存 char 型的地址，那指针理所当然可以存指针变量的地址啊。</p>
+<p>例如，int ** 存 int * 的地址，int *** 存 int ** 的地址。</p>
+<p>这就是一个二级指针存一级指针的地址，三级指针存二级指针的地址，人们把这样的过程叫指向指针的指针，但其实也就是一个上一级的指针存了下一级的指针的地址而已。</p>
+<p>因此，像上面说的，你存了它的地址，你就是指向它，所以：</p>
+<ul><li>
+二级指针存一级指针的地址，那么可以说二级指针指向一级指针
+</li><li>
+三级指针存二级指针的地址，那么可以说二级指针指向一级指针
+</li><li>
+多级指针用处多多， 这里暂不举例详细说明。
+</li></ul>
+<p>个人认为指针可以说是 C 的最伟大的特性，通过这样的一个模型可以形象地管理部分内存！</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Jalr4ever</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Jalr4ever</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;rou***hex@qq.com</p></div></span>4个月前 (11-28)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='9516' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  9516;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 9516;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

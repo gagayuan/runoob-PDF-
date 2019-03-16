@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>JSON 在线解析 | 菜鸟工具</title>
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://c.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="53" />
+<meta name="keywords" content="JSON 在线解析">
+<meta name="description" content="JSON 在线解析是一款 JSON 格式化工具，你可以在线验证、编辑和格式化 JSON 数据，格式化后的 JSON 数据以树形结构展示，更易于阅读，此外还可以将 JSON 转换为 XML、YAML、CSV格式。..">
+<link href="https://cdn.staticfile.org/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://c.runoob.com/wp-content/themes/toolrunoob/startbootstrap/css/modern-business.css" rel="stylesheet">
+<link href="https://c.runoob.com/wp-content/themes/toolrunoob/assets/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+        <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+        <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="https://c.runoob.com/wp-content/themes/toolrunoob/style.css?version=1.03">
+<script src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top runoob-header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">菜单切换</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand runoob-title" href="https://c.runoob.com/">菜鸟工具</a>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a target="_blank" href="https://c.runoob.com/front-end/61">WEB 在线编辑器</a></li>
+<li><a target="_blank" href="https://c.runoob.com/more/svgeditor">SVG 在线编辑器</a></li>
+<li><a target="_blank" href="https://c.runoob.com/examples">实例归档</a></li>
+<li><a href="http://www.runoob.com" target="_blank">菜鸟教程</a></li>
+</ul>
+<div class="col-sm-3 col-md-3">
+<form class="navbar-form" role="search" action="https://c.runoob.com/index.php" method="get">
+<div class="input-group">
+<input type="text" class="form-control" name="s" value="" placeholder="输入关键字……">
+<div class="input-group-btn">
+<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+</div>
+</div>
+</form>
+</div>
+<form class="navbar-form">
+<button onclick="dashangToggle()" type="button" class="btn btn-warning pull-right">赞赏工具 <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+</button>
+</form>
+</div>
+</div>
+</nav>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="https://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="https://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="https://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item " data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="https://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">微信</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="https://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+<p>Powered by <a href="http://www.runoob.com" target="_blank" title="菜鸟教程">RUNOOB.COM</a>，学的不仅是技术，更是梦想！！！</p>
+</div>
+</div>
+<script>
+$(function(){
+    $(".pay_item").click(function(){
+        $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+        var dataid=$(this).attr('data-id');
+        $(".shang_payimg img").attr("src","https://static.runoob.com/images/dashang/"+dataid+"img.png");
+        $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+    });
+});
+function dashangToggle(){
+    $(".hide_box").fadeToggle();
+    $(".shang_box").fadeToggle();
+}
+</script>
+<div class="container">
+<br>
+<link rel="stylesheet" type="text/css" href="https://static.runoob.com/assets/jsoneditor/jsoneditor.min.css" />
+<script type="text/javascript" src="https://static.runoob.com/assets/jsoneditor/jsoneditor.min.js"></script>
+<style type="text/css">
+.container {
+	width: 98%;
+}
+.jsoneditor-poweredBy {
+	display: none;
+}
+div.jsoneditor-menu {
+  background-color: #96b97d;
+  
+}
+div.jsoneditor {
+	border: 1px solid #96b97d;
+}
+@media (min-width: 768px) {
+	.col-sm-2 {
+	    width: 4%;
+	    margin-left: -15px;
+	}
+	.col-sm-5 {
+		width: 48%
+	}
+}
+</style>
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+<form class="form-inline" role="form">
+<button type="button" class="btn btn-success" id="submitBTN" onclick="beautify();"><i class="fa fa-expand"></i> 格式化</button>
+<button type="button" class="btn btn-default" id="submitBTN2" onclick="minify();"><i class="fa fa-compress"></i> 压缩</button>
+<button type="button" class="btn btn-warning" id="submitBTN3">验证</button>
+<button type="button" class="btn btn-warning" onclick="jsonToxml();">JSON 转 XML</button>
+<button type="button" class="btn btn-warning" onclick="jsonTocsv();">JSON 转 CSV</button>
+<button type="button" class="btn btn-warning" onclick="jsonToyaml();">JSON 转 YAML</button>
+<a href="http://www.runoob.com/json/json-tutorial.html" target="_blank" class="btn btn-info" role="button">JSON 教程</a>
+<label class="pull-right"><strong style="font-size: 16px"><i class="fa fa-cogs"></i> JSON 在线解析</strong></label>
+</form>
+</div>
+<div class="panel-body">
+<div class="col-md-12" id="warning" style="display: none;">
+<div class="alert alert-warning">
+<a href="53#" class="close" data-dismiss="alert">
+&times;
+</a>
+<p><strong>警告！</strong>JSON 格式错误。</p>
+<p id="warning-info"></p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-5"><div id="jsoneditor1" style="height: 600px; width: 100%"></div></div>
+<div class="col-sm-2">
+<button id="toTree"><span class="glyphicon glyphicon-arrow-right"></span></button><p></p>
+<p><button id="toCode"><span class="glyphicon glyphicon-arrow-left"></span></button></p>
+</div>
+<div class="col-sm-5"><div id="jsoneditor2" style="height: 600px; width: 100%"></div></div>
+</div>
+</div>
+<div class="panel-footer"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://static.runoob.com/assets/js/jquery.format.js"></script>
+<script type="text/javascript" src="https://static.runoob.com/assets/js/ObjTree.min.js"></script>
+<script>
+
+// create the editor
+var container1 = document.getElementById('jsoneditor1');
+var container2 = document.getElementById('jsoneditor2');
+
+var optionsOutput1 = {
+	mode : 'code',
+	error : function(err) {
+		alert('EF1 ->' + err.toString());
+	}
+};
+
+var optionsOutput2 = {
+	mode : 'tree',
+	modes : [ 'view', 'form', 'text','code', 'tree'], // allowed modes
+	error : function(err) {
+		alert('EF1 ->' + err.toString());
+	}
+};
+var json ={"sites":{"site":[{"id":"1","name":"菜鸟教程","url":"www.runoob.com"},{"id":"2","name":"菜鸟工具","url":"c.runoob.com"},{"id":"3","name":"Google","url":"www.google.com"}]}};
+
+var editor1 = new JSONEditor(container1, optionsOutput1, json);
+var editor2 = new JSONEditor(container2, optionsOutput2, json);
+editor2.expandAll();
+$("#toTree").click(function() {
+	var jsonStr = editor1.getText();
+	editor2.setText(jsonStr);
+	editor2.setMode("tree");
+	editor2.expandAll();
+});
+$("#toCode").click(function() {
+	var jsonStr = editor2.getText();
+	var jsonObject = JSON.parse(jsonStr);
+	editor1.setText(JSON.stringify(jsonObject, null, 2));
+	editor1.setMode("code");
+})
+
+
+
+function beautify() {
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+	try {
+
+		var jsonStr = editor1.getText();
+
+		var jsonObject = JSON.parse(jsonStr);
+		editor1.setMode("code");
+		editor1.setText(JSON.stringify(jsonObject, null, 2));
+		
+		editor2.setText(JSON.stringify(jsonObject, null, 0));
+		editor2.setMode("tree");
+		editor2.expandAll()
+
+		
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+}
+function minify() {
+
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+
+
+	try {
+		var jsonStr = editor1.getText();
+
+		var jsonObject = JSON.parse(jsonStr);
+		
+		editor1.setMode("code");
+		editor1.setText(JSON.stringify(jsonObject, null, 0));
+		editor2.setText(JSON.stringify(jsonObject, null, 0));
+		editor2.setMode("tree");
+		
+		editor2.expandAll()
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+}
+$("#submitBTN3").click(function() {
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+	
+	try {
+		var jsonStr = editor1.getText();
+		var json = JSON.parse(jsonStr);
+		$("#warning").html("<div class=\"alert alert-success\">JSON 数据合法</div>").show().delay(5000).fadeOut();
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+
+});
+function jsonToxml() {
+
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+
+
+	try {
+		var jsonStr = editor1.getText();
+		var json = JSON.parse(jsonStr);
+		var xotree = new XML.ObjTree();
+		var xml = xotree.writeXML(json);
+		xml = decodeSpecialCharacter(xml);
+		editor2.setMode("text");		
+		formatXML =  $.format(xml, {method: 'xml'});
+		editor2.setText(formatXML);
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+}
+function decodeSpecialCharacter(str) {
+	return str.replace(/\&amp;/g, '&').replace(/\&gt;/g, '>').replace(/\&lt;/g,
+			'<').replace(/\&quot;/g, '"');
+}
+
+function jsonTocsv() {
+
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+
+	try {
+		var jsonStr = editor1.getText();
+		var json = JSON.parse(jsonStr);
+		var csv = jsonTocsvbyjson(json);
+		editor2.setMode("text");	
+		editor2.setText(csv);
+
+		
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+}
+function jsonTocsvbyjson(data) {
+
+	arr = [];
+	flag = true;
+
+	var header = "";
+	var content = "";
+	var headFlag = true;
+
+	try {
+
+		var type1 = typeof data;
+
+		if (type1 != "object") {
+			data = processJSON($.parseJSON(data));
+		} else {
+			data = processJSON(data);
+		}
+
+	} catch (e) {
+		setMessage("error", "Error in Convert : add proper input format");
+		return false;
+	}
+
+	$.each(data, function(k, value) {
+		if (k % 2 == 0) {
+			if (headFlag) {
+				if (value != "end") {
+					header += value + ",";
+				} else {
+					// remove last colon from string
+					header = header.substring(0, header.length - 1);
+					headFlag = false;
+				}
+			}
+		} else {
+			if (value != "end") {
+				var temp = data[k - 1];
+				if (header.search(temp) != -1) {
+					content += value + ",";
+				}
+			} else {
+				// remove last colon from string
+				content = content.substring(0, content.length - 1);
+				content += "\n";
+			}
+		}
+
+	});
+
+	return (header + "\n" + content);
+}
+function processJSON(data) {
+
+	$.each(data, function(k, data1) {
+
+		var type1 = typeof data1;
+
+		if (type1 == "object") {
+
+			flag = false;
+			processJSON(data1);
+			arr.push("end");
+			arr.push("end");
+
+		} else {
+			arr.push(k, data1);
+		}
+
+	});
+
+	return arr;
+}
+
+function jsonToyaml() {
+
+	var content = editor1.getText();
+
+	if (content.trim().length == 0) {
+		return false;
+	}
+
+	try {
+		var jsonStr = editor1.getText();
+		var yaml = json2yaml(jsonStr);
+		editor2.setMode("text");
+		editor2.setText(yaml);
+	} catch (e) {
+		$("#warning").html("<div class=\"alert alert-danger\">JSON 数据错误："+e+"</div>").show().delay(5000).fadeOut();
+	}
+	last_action = "jsonToyaml";
+}
+
+var spacing = " ";
+function json2yaml(obj) {
+
+  if (typeof obj == 'string') {
+    obj = JSON.parse(obj);
+  }
+
+ 
+  var ret = [];
+  console.log(typeof obj);
+  convert(obj, ret);
+  return ret.join("\n");
+};
+
+
+function getType(obj) {
+  var type = typeof obj;
+  
+  if (obj instanceof Array) {
+    return 'array';
+  } else if (type == 'string') {
+    return 'string';
+  } else if (type == 'boolean') {
+    return 'boolean';
+  } else if (type == 'number') {
+    return 'number';
+  } else if (type == 'undefined' || obj === null) {
+    return 'null';
+  } else {
+    return 'hash';
+  }
+}
+
+function convert(obj, ret) {
+  var type = getType(obj);
+
+  switch(type) {
+    case 'array':
+      convertArray(obj, ret);
+      break;
+    case 'hash':
+      convertHash(obj, ret);
+      break;
+    case 'string':
+      convertString(obj, ret);
+      break;
+    case 'null':
+      ret.push('null');
+      break;
+    case 'number':
+      ret.push(obj.toString());
+      break;
+    case 'boolean':
+      ret.push(obj ? 'true' : 'false');
+      break;
+  }
+}
+function convertArray(obj, ret) {
+  for (var i=0; i<obj.length; i++) {
+    var ele = obj[i];
+    var recurse = [];
+    convert(ele, recurse);
+
+    for (var j=0; j<recurse.length; j++) {
+      ret.push((j == 0 ? "- \n   " : spacing) + recurse[j]);
+    }
+  }
+}
+
+function convertHash(obj, ret) {
+  for (var k in obj) {
+    var recurse = [];
+    if (obj.hasOwnProperty(k)) {
+      var ele = obj[k];
+      convert(ele, recurse);
+      var type = getType(ele);
+      if (type == 'string' || type == 'null' || type == 'number' || type == 'boolean') {
+        ret.push(normalizeString(k) + ': ' + recurse[0]);
+      } else {
+        ret.push(normalizeString(k) + ': ');
+        for (var i=0; i<recurse.length; i++) {
+          ret.push(spacing + recurse[i]);
+        }
+      }
+    }
+  }
+}
+
+function normalizeString(str) {
+  if (str.match(/^[\w]+$/)) {
+    return str;
+  } else {
+    return JSON.stringify(str);
+  }
+}
+
+function convertString(obj, ret) {
+  ret.push(normalizeString(obj));
+}
+</script>
+<hr>
+<footer>
+<div class="row">
+<div class="col-lg-12">
+<p>Copyright &copy; <a href="https://www.runoob.com/">菜鸟教程</a> 2019</p>
+</div>
+</div>
+</footer>
+</div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+	// 统计
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?68c6d4f0f6c20c5974b17198fa6fd40a";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+
+</script>
+</div>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

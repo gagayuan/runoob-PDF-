@@ -1,0 +1,1736 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python3 函数 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="python3-function.html" />
+<meta name="keywords" content="Python3 函数">
+<meta name="description" content="Python3 函数 函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。函数能提高应用的模块性，和代码的重复利用率。你已经知道Python提供了许多内建函数，比如print()。但你也可以自己创建函数，这被叫做用户自定义函数。  定义一个函数  你可以定义一个由自己想要功能的函数，以下是简单的规则：  函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。  任何传入参数和自变量必须放在圆括号中间，圆括号之..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/python3/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">Python 3 教程 <a data-cate="124" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="124" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">
+Python3 教程 </a>
+<a target="_top" title=" Python3 环境搭建" href="http://www.runoob.com/python3/python3-install.html"> Python3 环境搭建</a>
+<a target="_top" title=" Python3 基础语法" href="http://www.runoob.com/python3/python3-basic-syntax.html"> Python3 基础语法 </a>
+<a target="_top" title=" Python3 基本数据类型" href="http://www.runoob.com/python3/python3-data-type.html"> Python3 基本数据类型 </a> <a target="_top" title="Python3 解释器" href="http://www.runoob.com/python3/python3-interpreter.html">
+Python3 解释器 </a>
+<a target="_top" title="Python3 注释" href="http://www.runoob.com/python3/python3-comment.html">
+Python3 注释 </a>
+<a target="_top" title="Python3 运算符" href="http://www.runoob.com/python3/python3-basic-operators.html"> Python3 运算符 </a> <a target="_top" title="Python3 数字(Number)" href="http://www.runoob.com/python3/python3-number.html">
+Python3 数字(Number) </a>
+<a target="_top" title="Python3 字符串" href="http://www.runoob.com/python3/python3-string.html">
+Python3 字符串 </a>
+<a target="_top" title="Python3 列表" href="http://www.runoob.com/python3/python3-list.html">
+Python3 列表 </a>
+<a target="_top" title="Python3 元组" href="http://www.runoob.com/python3/python3-tuple.html"> Python3 元组 </a>
+<a target="_top" title="Python3 字典" href="http://www.runoob.com/python3/python3-dictionary.html"> Python3 字典</a>
+<a target="_top" title="Python3 集合" href="http://www.runoob.com/python3/python3-set.html"> Python3 集合</a> <a target="_top" title="Python3 编程第一步" href="http://www.runoob.com/python3/python3-step1.html">
+Python3 编程第一步 </a>
+<a target="_top" title="Python3 条件控制" href="http://www.runoob.com/python3/python3-conditional-statements.html">
+Python3 条件控制 </a>
+<a target="_top" title="Python3 循环语句" href="http://www.runoob.com/python3/python3-loop.html">
+Python3 循环语句 </a>
+<a target="_top" title="Python3 迭代器与生成器" href="http://www.runoob.com/python3/python3-iterator-generator.html"> Python3 迭代器与生成器</a> <a target="_top" title="Python3 函数" href="python3-function.html">
+Python3 函数 </a>
+<a target="_top" title="Python3 数据结构" href="http://www.runoob.com/python3/python3-data-structure.html">
+Python3 数据结构 </a>
+<a target="_top" title="Python3 模块" href="http://www.runoob.com/python3/python3-module.html">
+Python3 模块 </a>
+<a target="_top" title="Python3 输入和输出" href="http://www.runoob.com/python3/python3-inputoutput.html">
+Python3 输入和输出 </a>
+<a target="_top" title="Python3 File" href="http://www.runoob.com/python3/python3-file-methods.html"> Python3 File </a>
+<a target="_top" title="Python3 OS" href="http://www.runoob.com/python3/python3-os-file-methods.html"> Python3 OS </a> <a target="_top" title="Python3 错误和异常" href="http://www.runoob.com/python3/python3-errors-execptions.html">
+Python3 错误和异常 </a>
+<a target="_top" title="Python3 面向对象" href="http://www.runoob.com/python3/python3-class.html">
+Python3 面向对象 </a>
+<a target="_top" title="Python3 标准库概览" href="http://www.runoob.com/python3/python3-stdlib.html">
+Python3 标准库概览 </a>
+<a target="_top" title="Python3 实例" href="http://www.runoob.com/python3/python3-examples.html">
+Python3 实例 </a>
+<a target="_blank" title="Python 测验" href="http://www.runoob.com/quiz/python-quiz.html"> Python 测验 </a>
+<br><h2 class="left"><span class="left_h2">Python3</span> 高级教程</h2> <a target="_top" title="Python3 正则表达式" href="http://www.runoob.com/python3/python3-reg-expressions.html">
+Python3 正则表达式 </a>
+<a target="_top" title="Python3 CGI编程" href="http://www.runoob.com/python3/python3-cgi-programming.html">
+Python3 CGI编程 </a>
+<a target="_top" title="Python MySQL - mysql-connector 驱动" href="http://www.runoob.com/python3/python-mysql-connector.html">Python3 MySQL(mysql-connector)</a> <a target="_top" title="Python3 MySQL 数据库连接 &#8211; PyMySQL 驱动" href="http://www.runoob.com/python3/python3-mysql.html">
+Python3 MySQL(PyMySQL) </a>
+<a target="_top" title="Python3 网络编程" href="http://www.runoob.com/python3/python3-socket.html">
+Python3 网络编程 </a>
+<a target="_top" title="Python3 SMTP发送邮件" href="http://www.runoob.com/python3/python3-smtp.html">
+Python3 SMTP发送邮件 </a>
+<a target="_top" title="Python3 多线程" href="http://www.runoob.com/python3/python3-multithreading.html">
+Python3 多线程 </a>
+<a target="_top" title="Python3 XML 解析" href="http://www.runoob.com/python3/python3-xml-processing.html">
+Python3 XML 解析 </a>
+<a target="_top" title="Python3 JSON 数据解析" href="http://www.runoob.com/python3/python3-json.html">
+Python3 JSON </a>
+<a target="_top" title="Python3 日期和时间" href="http://www.runoob.com/python3/python3-date-time.html">
+Python3 日期和时间 </a>
+<a target="_top" title="Python3 内置函数" href="http://www.runoob.com/python3/python3-built-in-functions.html">
+Python3 内置函数 </a>
+<a target="_top" title="Python MongoDB" href="http://www.runoob.com/python3/python-mongodb.html">
+Python MongoDB </a>
+<a target="_top" title="Python uWSGI  安装配置" href="http://www.runoob.com/python3/python-uwsgi.html">
+Python uWSGI 安装配置 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-loop.html" rel="prev"> Python3 循环语句</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-data-structure.html" rel="next"> Python3 数据结构</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>Python3 函数</h1>
+<p>函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。</p><p>函数能提高应用的模块性，和代码的重复利用率。你已经知道Python提供了许多内建函数，比如print()。但你也可以自己创建函数，这被叫做用户自定义函数。</p>
+<hr>
+<h2>定义一个函数</h2>
+<p>你可以定义一个由自己想要功能的函数，以下是简单的规则：</p>
+<ul>
+<li>函数代码块以 <b>def</b> 关键词开头，后接函数标识符名称和圆括号 <b>()</b>。</li>
+<li>任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。</li>
+<li>函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。</li>
+<li>函数内容以冒号起始，并且缩进。</li>
+<li><strong>return [表达式]</strong> 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。</li>
+</ul><hr>
+<h3>语法</h3>
+<p>Python 定义函数使用 def 关键字，一般格式如下：</p>
+<pre>
+def 函数名（参数列表）:
+    函数体
+</pre>
+<p>默认情况下，参数值和参数名称是按函数声明中定义的顺序匹配起来的。</p>
+<h3>实例</h3>
+<p>让我们使用函数来输出"Hello World！"：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">hello</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Hello World!</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">hello</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">Hello</span><span class="hl-code"> </span><span class="hl-identifier">World</span><span class="hl-code">!
+&gt;&gt;&gt;</span></div>
+</div>
+</div>
+<p>
+更复杂点的应用，函数中带上参数变量:</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 计算面积函数</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">area</span><span class="hl-brackets">(</span><span class="hl-identifier">width</span><span class="hl-code">, </span><span class="hl-identifier">height</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">width</span><span class="hl-code"> * </span><span class="hl-identifier">height</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">print_welcome</span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Welcome</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">name</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print_welcome</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Runoob</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">w</span><span class="hl-code"> = </span><span class="hl-number">4</span><span class="hl-code">
+</span><span class="hl-identifier">h</span><span class="hl-code"> = </span><span class="hl-number">5</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">width =</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">w</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string"> height =</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">h</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string"> area =</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">area</span><span class="hl-brackets">(</span><span class="hl-identifier">w</span><span class="hl-code">, </span><span class="hl-identifier">h</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+Welcome Runoob
+width = 4  height = 5  area = 20
+</pre>
+<hr>
+<h2>函数调用</h2>
+<p>定义一个函数：给了函数一个名称，指定了函数里包含的参数，和代码块结构。</p>
+<p>这个函数的基本结构完成以后，你可以通过另一个函数调用执行，也可以直接从 Python 命令提示符执行。</p>
+<p>如下实例调用了 <strong>printme()</strong> 函数：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 定义函数</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-comment"># 打印任何传入的字符串</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment"># 调用函数</span><span class="hl-code">
+</span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">我要调用用户自定义函数!</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">再次调用同一函数</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+我要调用用户自定义函数!
+再次调用同一函数
+</pre>
+<hr><h2>参数传递</h2>
+<p>在 python 中，类型属于对象，变量是没有类型的：</p>
+<pre>
+a=[1,2,3]
+
+a="Runoob"
+</pre>
+<p>以上代码中，<b>[1,2,3]</b> 是 List 类型，<b>"Runoob"</b> 是 String 类型，而变量 a 是没有类型，她仅仅是一个对象的引用（一个指针），可以是指向 List 类型对象，也可以是指向 String 类型对象。</p>
+<h3>可更改(mutable)与不可更改(immutable)对象</h3>
+<p>在 python 中，strings, tuples, 和 numbers 是不可更改的对象，而 list,dict 等则是可以修改的对象。</p>
+<ul><li><p><b>
+不可变类型：</b>变量赋值 <b>a=5</b> 后再赋值 <b>a=10</b>，这里实际是新生成一个 int 值对象 10，再让 a 指向它，而 5 被丢弃，不是改变a的值，相当于新生成了a。</p></li><li><p><b>
+可变类型：</b>变量赋值 <b>la=[1,2,3,4]</b> 后再赋值 <b>la[2]=5</b> 则是将 list la 的第三个元素值更改，本身la没有动，只是其内部的一部分值被修改了。</p></li></ul>
+<p>python 函数的参数传递：</p>
+<ul><li><p><b>
+不可变类型：</b>类似 c++ 的值传递，如 整数、字符串、元组。如fun（a），传递的只是a的值，没有影响a对象本身。比如在 fun（a）内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身。</p></li><li><p><b>
+可变类型：</b>类似 c++ 的引用传递，如 列表，字典。如 fun（la），则是将 la 真正的传过去，修改后fun外部的la也会受影响</p></li></ul>
+<p>python 中一切都是对象，严格意义我们不能说值传递还是引用传递，我们应该说传不可变对象和传可变对象。</p>
+<h3>python 传不可变对象实例</h3>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">ChangeInt</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">a</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-number">10</span><span class="hl-code">
+</span><span class="hl-identifier">b</span><span class="hl-code"> = </span><span class="hl-number">2</span><span class="hl-code">
+</span><span class="hl-identifier">ChangeInt</span><span class="hl-brackets">(</span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">b</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 结果是 2</span></div>
+</div>
+</div>
+<p>实例中有 int 对象 2，指向它的变量是 b，在传递给 ChangeInt 函数时，按传值的方式复制了变量 b，a 和 b 都指向了同一个 Int 对象，在 a=10 时，则新生成一个 int 值对象 10，并让 a 指向它。</p>
+<h3>传可变对象实例</h3>
+<p>可变对象在函数里修改了参数，那么在调用这个函数的函数里，原始的参数也被改变了。例如：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">changeme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">mylist</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">修改传入的列表</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">mylist</span><span class="hl-code">.</span><span class="hl-identifier">append</span><span class="hl-brackets">(</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">,</span><span class="hl-number">2</span><span class="hl-code">,</span><span class="hl-number">3</span><span class="hl-code">,</span><span class="hl-number">4</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数内取值: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">mylist</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment"># 调用changeme函数</span><span class="hl-code">
+</span><span class="hl-identifier">mylist</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-number">10</span><span class="hl-code">,</span><span class="hl-number">20</span><span class="hl-code">,</span><span class="hl-number">30</span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-identifier">changeme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">mylist</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数外取值: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">mylist</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>传入函数的和在末尾添加新内容的对象用的是同一个引用。故输出结果如下：</p>
+<pre>
+函数内取值:  [10, 20, 30, [1, 2, 3, 4]]
+函数外取值:  [10, 20, 30, [1, 2, 3, 4]]
+</pre><hr>
+<h2>参数</h2>
+<p>以下是调用函数时可使用的正式参数类型：</p>
+<ul>
+<li>必需参数</li>
+<li>关键字参数</li>
+<li>默认参数</li>
+<li>不定长参数</li>
+</ul>
+<h3>必需参数</h3>
+<p>必需参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。</p>
+<p>调用printme()函数，你必须传入一个参数，不然会出现语法错误：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment">#可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的字符串</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment">#调用printme函数</span><span class="hl-code">
+</span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+Traceback (most recent call last):
+  File "test.py", line 10, in &lt;module&gt;
+    printme()
+TypeError: printme() missing 1 required positional argument: 'str'
+</pre>
+<h3>关键字参数</h3>
+<p>关键字参数和函数调用关系紧密，函数调用使用关键字参数来确定传入的参数值。</p>
+<p>使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。</p>
+<p>以下实例在函数 printme() 调用时使用参数名：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment">#可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的字符串</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment">#调用printme函数</span><span class="hl-code">
+</span><span class="hl-identifier">printme</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：
+</p>
+<pre>
+菜鸟教程
+</pre>
+<p>以下实例中演示了函数参数的使用不需要使用指定顺序：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment">#可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-identifier">age</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的字符串</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">名字: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">name</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">年龄: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">age</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment">#调用printinfo函数</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">age</span><span class="hl-code">=</span><span class="hl-number">50</span><span class="hl-code">, </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">runoob</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+名字:  runoob
+年龄:  50
+</pre>
+<h3>默认参数</h3>
+<p>调用函数时，如果没有传递参数，则会使用默认参数。以下实例中如果没有传入 age 参数，则使用默认值：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment">#可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">, </span><span class="hl-identifier">age</span><span class="hl-code"> = </span><span class="hl-number">35</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的字符串</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">名字: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">name</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">年龄: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">age</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment">#调用printinfo函数</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">age</span><span class="hl-code">=</span><span class="hl-number">50</span><span class="hl-code">, </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">runoob</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">------------------------</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">runoob</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+名字:  runoob
+年龄:  50
+------------------------
+名字:  runoob
+年龄:  35
+</pre>
+<h3>不定长参数</h3>
+<p>你可能需要一个函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，和上述 2 种参数不同，声明时不会命名。基本语法如下：</p>
+<pre>
+def functionname([formal_args,] *var_args_tuple ):
+   "函数_文档字符串"
+   function_suite
+   return [expression]
+</pre>
+<p>加了星号 <span class="marked">*</span> 的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, *</span><span class="hl-identifier">vartuple</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的参数</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">输出: </span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">arg1</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">vartuple</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-comment"># 调用printinfo 函数</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">70</span><span class="hl-code">, </span><span class="hl-number">60</span><span class="hl-code">, </span><span class="hl-number">50</span><span class="hl-code"> </span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>输出: 
+70
+(60, 50)</pre>
+</p>如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, *</span><span class="hl-identifier">vartuple</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的参数</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">输出: </span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">arg1</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-identifier">var</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">vartuple</span><span class="hl-code">:
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">var</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code">
+</span><span class="hl-comment"># 调用printinfo 函数</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">10</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">70</span><span class="hl-code">, </span><span class="hl-number">60</span><span class="hl-code">, </span><span class="hl-number">50</span><span class="hl-code"> </span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+输出:
+10
+输出:
+70
+60
+50
+</pre><p>
+还有一种就是参数带两个星号 <span class="marked">**</span>基本语法如下：</p>
+<pre>
+def functionname([formal_args,] **var_args_dict ):
+   "函数_文档字符串"
+   function_suite
+   return [expression]
+</pre><p>加了两个星号 <span class="marked">**</span> 的参数会以字典的形式导入。</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, **</span><span class="hl-identifier">vardict</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-quotes">&quot;</span><span class="hl-string">打印任何传入的参数</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">输出: </span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">arg1</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">vardict</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-comment"># 调用printinfo 函数</span><span class="hl-code">
+</span><span class="hl-identifier">printinfo</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-identifier">a</span><span class="hl-code">=</span><span class="hl-number">2</span><span class="hl-code">,</span><span class="hl-identifier">b</span><span class="hl-code">=</span><span class="hl-number">3</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+输出: 
+1
+{'a': 2, 'b': 3}
+</pre>
+<p>声明函数时，参数中星号 <span class="marked">*</span> 可以单独出现，例如:</p>
+<pre>def f(a,b,*,c):
+    return a+b+c</pre>
+<p>如果单独出现星号 <span class="marked">*</span> 后的参数必须用关键字传入。</p>
+<pre>&gt;&gt;&gt; def f(a,b,*,c):
+...     return a+b+c
+... 
+&gt;&gt;&gt; f(1,2,3)   # 报错
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: f() takes 2 positional arguments but 3 were given
+&gt;&gt;&gt; f(1,2,c=3) # 正常
+6
+&gt;&gt;&gt;</pre>
+<hr><h2>匿名函数</h2>
+<p>python 使用 lambda 来创建匿名函数。</p>
+<p>所谓匿名，意即不再使用 def 语句这样标准的形式定义一个函数。</p>
+<ul>
+<li>lambda 只是一个表达式，函数体比 def 简单很多。
+</li><li>
+lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。
+</li><li>lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数。</li>
+<li>虽然lambda函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。</li>
+</ul>
+<h3>语法</h3>
+<p>lambda 函数的语法只包含一个语句，如下：</p>
+<pre>
+lambda [arg1 [,arg2,.....argn]]:expression
+</pre>
+<p>如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-identifier">sum</span><span class="hl-code"> = </span><span class="hl-reserved">lambda</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, </span><span class="hl-identifier">arg2</span><span class="hl-code">: </span><span class="hl-identifier">arg1</span><span class="hl-code"> + </span><span class="hl-identifier">arg2</span><span class="hl-code">
+</span><span class="hl-comment"># 调用sum函数</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">相加后的值为 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">10</span><span class="hl-code">, </span><span class="hl-number">20</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">相加后的值为 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">20</span><span class="hl-code">, </span><span class="hl-number">20</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+相加后的值为 :  30
+相加后的值为 :  40
+</pre>
+<hr>
+<h2>return语句</h2>
+<p><b>return [表达式]</b> 语句用于退出函数，选择性地向调用方返回一个表达式。不带参数值的return语句返回None。之前的例子都没有示范如何返回数值，以下实例演示了 return 语句的用法：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, </span><span class="hl-identifier">arg2</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-comment"># 返回2个参数的和.&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">total</span><span class="hl-code"> = </span><span class="hl-identifier">arg1</span><span class="hl-code"> + </span><span class="hl-identifier">arg2</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数内 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">total</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">total</span><span class="hl-code">
+</span><span class="hl-comment"># 调用sum函数</span><span class="hl-code">
+</span><span class="hl-identifier">total</span><span class="hl-code"> = </span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">10</span><span class="hl-code">, </span><span class="hl-number">20</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数外 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">total</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+函数内 :  30
+函数外 :  30
+</pre><hr>
+<h2>变量作用域</h2>
+<p>Python 中，程序的变量并不是在哪个位置都可以访问的，访问权限决定于这个变量是在哪里赋值的。</p>
+<p>变量的作用域决定了在哪一部分程序可以访问哪个特定的变量名称。Python的作用域一共有4种，分别是：</p>
+<ul>
+<li>L （Local） 局部作用域</li>
+<li>E （Enclosing） 闭包函数外的函数中</li>
+<li>G （Global） 全局作用域</li>
+<li>B （Built-in） 内置作用域（内置函数所在模块的范围）</li>
+</ul>
+<p>以 L –> E –> G –>B 的规则查找，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，再者去内置中找。</p>
+<pre>
+g_count = 0  # 全局作用域
+def outer():
+    o_count = 1  # 闭包函数外的函数中
+    def inner():
+        i_count = 2  # 局部作用域
+</pre>
+<p>内置作用域是通过一个名为 builtin 的标准模块来实现的，但是这个变量名自身并没有放入内置作用域内，所以必须导入这个文件才能够使用它。在Python3.0中，可以使用以下的代码来查看到底预定义了哪些变量:</p>
+<pre>&gt;&gt;&gt; import builtins
+&gt;&gt;&gt; dir(builtins)</pre>
+<p>Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这些语句内定义的变量，外部也可以访问，如下代码：</p>
+<pre>
+&gt;&gt;&gt; if True:
+...  msg = 'I am from Runoob'
+... 
+&gt;&gt;&gt; msg
+'I am from Runoob'
+&gt;&gt;&gt; 
+</pre>
+<p>实例中 msg 变量定义在 if 语句块中，但外部还是可以访问的。</p>
+<p>如果将 msg 定义在函数中，则它就是局部变量，外部不能访问：</p>
+<pre>
+&gt;&gt;&gt; def test():
+...     msg_inner = 'I am from Runoob'
+... 
+&gt;&gt;&gt; msg_inner
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'msg_inner' is not defined
+&gt;&gt;&gt; 
+</pre>
+<p>从报错的信息上看，说明了 msg_inner 未定义，无法使用，因为它是局部变量，只有在函数内可以使用。</p>
+<hr>
+<h3>全局变量和局部变量</h3>
+<p>定义在函数内部的变量拥有一个局部作用域，定义在函数外的拥有全局作用域。</p>
+<p>局部变量只能在其被声明的函数内部访问，而全局变量可以在整个程序范围内访问。调用函数时，所有在函数内声明的变量名称都将被加入到作用域中。如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">total</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code"> </span><span class="hl-comment"># 这是一个全局变量</span><span class="hl-code">
+</span><span class="hl-comment"># 可写函数说明</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-identifier">arg1</span><span class="hl-code">, </span><span class="hl-identifier">arg2</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-comment">#返回2个参数的和.&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">total</span><span class="hl-code"> = </span><span class="hl-identifier">arg1</span><span class="hl-code"> + </span><span class="hl-identifier">arg2</span><span class="hl-code"> </span><span class="hl-comment"># total在这里是局部变量.</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数内是局部变量 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">total</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">total</span><span class="hl-code">
+</span><span class="hl-comment">#调用sum函数</span><span class="hl-code">
+</span><span class="hl-builtin">sum</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-number">10</span><span class="hl-code">, </span><span class="hl-number">20</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">函数外是全局变量 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">total</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+函数内是局部变量 :  30
+函数外是全局变量 :  0
+</pre>
+<h3>global 和 nonlocal关键字 </h3>
+<p>当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了。</p>
+<p>以下实例修改全局变量 num：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">num</span><span class="hl-code"> = </span><span class="hl-number">1</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">fun1</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-reserved">global</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> </span><span class="hl-comment"># 需要使用 global 关键字声明</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">num</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">num</span><span class="hl-code"> = </span><span class="hl-number">123</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">num</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">fun1</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">num</span><span class="hl-brackets">)</span></div>
+</div>
+</div><p>以上实例输出结果：</p>
+<pre>
+1
+123
+123
+</pre>
+<p>如果要修改嵌套作用域（enclosing 作用域，外层非全局作用域）中的变量则需要 nonlocal 关键字了，如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">outer</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">num</span><span class="hl-code"> = </span><span class="hl-number">10</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">inner</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">nonlocal</span><span class="hl-code"> </span><span class="hl-identifier">num</span><span class="hl-code"> </span><span class="hl-comment"># nonlocal关键字声明</span><span class="hl-code">
+</span><span class="hl-identifier">num</span><span class="hl-code"> = </span><span class="hl-number">100</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">num</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">inner</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">num</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">outer</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+100
+100
+</pre>
+<p>另外有一种特殊情况，假设下面这段代码被运行：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-number">10</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">test</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-identifier">a</span><span class="hl-code"> + </span><span class="hl-number">1</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">test</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>
+以上程序执行，报错信息如下：</p>
+<pre>
+Traceback (most recent call last):
+  File "test.py", line 7, in &lt;module&gt;
+    test()
+  File "test.py", line 5, in test
+    a = a + 1
+UnboundLocalError: local variable 'a' referenced before assignment
+</pre>
+<p>错误信息为局部作用域引用错误，因为 test 函数中的 a 使用的是局部，未定义，无法修改。</p>
+<p>修改 a 为全局变量，通过函数参数传递，可以正常执行输出结果为：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-number">10</span><span class="hl-code">
+</span><span class="hl-reserved">def</span><span class="hl-code"> </span><span class="hl-identifier">test</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-identifier">a</span><span class="hl-code"> + </span><span class="hl-number">1</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">test</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span></div>
+</div>
+<p>执行输出结果为：</p>
+<div class="example_code">
+11
+</div>
+</div> 
+<hr>
+<pre id="py-qa-1" style="display:none;">x = True
+def printLine(text):
+    print(text, ' Runoob')
+printLine('Python')
+</pre>
+<pre id="py-qa-2" style="display:none;">
+def greetPerson(*name):
+    print('Hello', name)
+  
+greetPerson('Runoob', 'Google')
+</pre>
+<pre id="py-qa-3" style="display:none;">
+result = lambda x: x * x
+print(result(5))
+</pre>
+<pre id="py-qa-4" style="display:none;">
+def Foo(x):
+    if (x==1):
+        return 1
+    else:
+        return x+Foo(x-1)
+
+print(Foo(4))
+</pre>
+<pre id="py-qa-5" style="display:none;">
+numbers = [1, 3, 6]
+newNumbers = tuple(map(lambda x: x , numbers))
+print(newNumbers)
+</pre>
+<div id="quiz">
+<div id="quiz-start-screen">
+<p><a href="python3-function.html#" id="quiz-start-btn" class="quiz-button">课后练习</a></p>
+</div>
+</div>
+<script>
+$(function() {
+code1= '<pre>' + $("#py-qa-1").html() + '</pre>';
+code2= '<pre>' + $("#py-qa-2").html() + '</pre>';
+code3= '<pre>' + $("#py-qa-3").html() + '</pre>';
+code4= '<pre>' + $("#py-qa-4").html() + '</pre>';
+code5= '<pre>' + $("#py-qa-5").html() + '</pre>';
+  $('#quiz').quiz({
+    counterFormat: '第 %current 题，共 %total 题',
+    resultsFormat: '回答正确 %score 题，总共 %total 题！',
+    nextButtonText: '下一题',
+    finishButtonText: '完成',
+    restartButtonText: '重新测验',
+    questions: [
+      {
+        'q':  '<p>以下内容关于函数描述正确的是？</p>',
+        'options': [
+          '函数用于创建对象',
+          '函数可以让重新执行的更快',
+          '函数是一段代码用于执行特定的任务',
+          '以上说法都是正确的'
+        ],
+        'correctIndex': 2,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，函数是一段代码用于执行特定的任务。'
+      },
+      {
+        'q': code1 + '<p>以上代码输出结果为？</p>',
+        'options': [
+          'Python',
+          'Python Runoob',
+          'text Runoob',
+          'Runoob'
+        ],
+        'correctIndex': 1,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确的是 Python Runoob。'
+      },
+      {
+        'q':  '<p>如果函数没有使用 return 语句，则函数返回的是？</p>',
+        'options': [
+          '0',
+          'None 对象',
+          '任意的整数',
+          '错误! 函数必须要有返回值。'
+        ],
+        'correctIndex': 1,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确的是 None 对象。'
+      },
+      {
+        'q': code2 + '<p>以上代码输出结果为？</p>',
+        'options': [
+          'Hello Runoob<br>Hello Google',
+          'Hello (\'Runoob\', \'Google\')',
+          'Hello Runoob',
+          '错误！函数只能接收一个参数。'
+        ],
+        'correctIndex': 1,
+        'correctResponse': '回答正确，加了星号 * 的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。',
+        'incorrectResponse': '回答错误，正确的为第二个选项，加了星号 * 的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。'
+      },
+      {
+        'q':  '<p>关于递归函数描述正确的是？</p>',
+        'options': [
+          '递归函数可以调用程序的使用函数。',
+          '递归函数用于调用函数的本身。',
+          '递归函数除了函数本身，可以调用程序的其他所有函数。',
+          'Python 中没有递归函数。'
+        ],
+        'correctIndex': 1,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，递归函数用于调用函数的本身。'
+      },
+      {
+        'q': code3 + '<p>以上代码输出结果为？</p>',
+        'options': [
+          'lambda x: x*x',
+          '10',
+          '25',
+          '5*5'
+        ],
+        'correctIndex': 2,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确为 25。'
+      },
+      {
+        'q': code4 + '<p>以上代码输出结果为？</p>',
+        'options': [
+          '10',
+          '24',
+          '7',
+          '1'
+        ],
+        'correctIndex': 0,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确为 10。'
+      },
+      {
+        'q':  '<p>如果我们需要从 math 模块中输出 pi 常量，以下代码正确的是？</p>',
+        'options': [
+          'print(math.pi)',
+          'print(pi)',
+          'from math import pi<br>print(pi)',
+          'from math import pi<br>print(math.pi)'
+        ],
+        'correctIndex': 2,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确为第三个选项。'
+      },
+      {
+        'q':  '<p>以下哪个符号用于从包中导入模块？</p>',
+        'options': [
+          '<strong>.</strong>',
+          '<strong>*</strong>',
+          '<strong>-&gt;</strong>',
+          '<strong>,</strong>'
+        ],
+        'correctIndex': 0,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确为点号 .'
+      },
+      {
+        'q': code5 + '<p>以上代码输出结果为？</p>',
+        'options': [
+          '[1, 3, 6]',
+          '(1, 3, 6)',
+          '[2, 6, 12]',
+          '(2, 6, 12)'
+        ],
+        'correctIndex': 1,
+        'correctResponse': '回答正确。',
+        'incorrectResponse': '回答错误，正确为 (1, 3, 6)。'
+      },
+    ]
+  });
+})
+</script>
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-loop.html" rel="prev"> Python3 循环语句</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-data-structure.html" rel="next"> Python3 数据结构</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">14 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-15519"><span class="comt-f">#14</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;不跟随</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;368***608@qq.com</p></div></div><div class="comt-main" id="div-comment-15519"><p>默认参数必须放在最后面，否则会报：</p>
+<pre>
+SyntaxError: non-default argument follows default argument
+</pre><pre>
+# 可写函数说明
+def printinfo( age=35,name):   # 默认参数不在最后，会报错
+    "打印任何传入的字符串"
+    print("名字: ", name)
+    print("年龄: ", age)
+    return</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">不跟随</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;不跟随</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;368***608@qq.com</p></div></span>2年前 (2017-07-28)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-15532"><span class="comt-f">#13</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;夏老爷</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;112***6553@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://www.cnblogs.com/dukeidea/p/6396980.html">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-15532"><p><strong>def(**kwargs)</strong> 把N个关键字参数转化为字典:</p>
+<pre>
+&gt;&gt;&gt; def func(country,province,**kwargs):
+...     print(country,province,kwargs)
+... 
+&gt;&gt;&gt; func("China","Sichuan",city = "Chengdu", section = "JingJiang")
+China Sichuan {'city': 'Chengdu', 'section': 'JingJiang'}
+&gt;&gt;&gt; 
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">夏老爷</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;夏老爷</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;112***6553@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://www.cnblogs.com/dukeidea/p/6396980.html">&nbsp;&nbsp;参考地址</a></p></div></span>2年前 (2017-07-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-16344"><span class="comt-f">#12</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;dessertfox</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;che***anren@tju.edu.cn</p></div></div><div class="comt-main" id="div-comment-16344"><p>lambda 匿名函数也是可以使用"<strong>关键字参数</strong>"进行参数传递</p>
+<pre>&gt;&gt;&gt; g= lambda x,y : x**2+y**2
+&gt;&gt;&gt; g(2,3)
+13
+&gt;&gt;&gt; g(y=3,x=2)
+13</pre>
+<p>同样地，lambda 匿名函数也可以设定默认值</p>
+<pre>&gt;&gt;&gt; g= lambda x=0,y=0 : x**2+y**2
+&gt;&gt;&gt; g(2,3)
+13
+&gt;&gt;&gt; g(2)
+4
+&gt;&gt;&gt; g(y=3)
+9</pre>
+<p><strong>注意：</strong>如果只打算给其中一部分参数设定默认值，那么应当将其放在靠后的位置（和定义函数时一样，避免歧义），否则会报错。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">dessertfox</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;dessertfox</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;che***anren@tju.edu.cn</p></div></span>2年前 (2017-08-14)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-20599"><span class="comt-f">#11</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wang</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;992***591@qq.com</p></div></div><div class="comt-main" id="div-comment-20599"><p>关于可更改与不可更改类型， 以及其它语言的值类型与引用类型的介绍，一直一来感觉都不太严谨， 说法是否正确有待验证。</p>
+<p>简单的说就是，不可更改类型传到函数里重新赋值后，两次输出值不一样，而可更改类型传到函数里对对象的"属性" 重新赋值后输出值一样。</p>
+<p>这里照搬一下例子：</p>
+<pre># 可写函数说明
+def changeme( mylist ):
+   "修改传入的列表"
+   mylist.append([1,2,3,4])
+   print ("函数内取值: ", mylist)
+   return
+ 
+# 调用changeme函数
+mylist = [10,20,30]
+changeme( mylist )
+print ("函数外取值: ", mylist)</pre>
+<p>请注意：上面特意用了引号标准的部分，对可变类型或者引用的操作修改的是传过来的对象的属性。</p>
+<p>可以这么理解(例子有点随意)：我在画画，小明来了说他也要画，我让他和我一起画，他如果和我在同一个画板上画，那么我们两的画就会同时改变。 而如果他说不，我要另外用一块画板，然后重新拿了块画板画起来了，那么我们两的画自然就不一样了。</p>
+<p>同理可更改类型 的属性进行操作，这只是对引用的内存块里面的值进行操作，引用并没变，自然所有引用它的对象的值都变了。而对不可更改的对象进行操作，因为它引用的内存块只是对应一个固定的值，不能进行修改，要重新复制实际上就是更新引用。</p>
+<p>如果我们运行下面的例子，对可更改类型的引用进行修改，结果就不一样了。</p>
+<pre># 可写函数说明
+def changeme( mylist ):
+   "修改传入的列表"
+   mylist = [1,2,3,4]
+   print ("函数内取值: ", mylist)
+   return
+ 
+# 调用changeme函数
+mylist = [10,20,30]
+changeme( mylist )
+print ("函数外取值: ", mylist)</pre>
+<p>结果</p>
+<pre>函数内取值:  [1, 2, 3, 4]
+函数外取值:  [10, 20, 30]</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Mr.Wang</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wang</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;992***591@qq.com</p></div></span>1年前 (2017-11-21)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-21605"><span class="comt-f">#10</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Rosevil1874</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;157***11424@163.com</p></div></div><div class="comt-main" id="div-comment-21605"><p>对于变量作用域，变量的访问以 <strong>L（Local） –> E（Enclosing） –> G（Global） –>B（Built-in）</strong> 的规则查找，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，再者去内建中找。</p>
+<p>观察以下几个例子，均从内部函数输出变量 x：</p>
+<p><strong>1. 局部作用域</strong></p>
+<pre>x = int(3.3)
+
+x = 0
+def outer():
+    x = 1
+    def inner():
+        x = 2
+        print(x)
+    inner()
+
+outer()</pre>
+<p>执行结果为 2，因为此时直接在函数 inner 内部找到了变量 x。</p>
+<p><strong>2.闭包函数外的函数中</strong></p>
+<pre>x = int(3.3)
+
+x = 0
+def outer():
+    x = 1
+    def inner():
+        i = 2
+        print(x)
+    inner()
+
+outer()</pre>
+<p>执行结果为 1，因为在内部函数 inner 中找不到变量 x，继续去局部外的局部——函数 outer 中找，这时找到了，输出 1。</p>
+<p><strong>3.全局作用域</strong></p>
+<pre>x = int(3.3)
+x = 0
+def outer():
+    o = 1
+    def inner():
+        i = 2
+        print(x)
+    inner()
+
+outer()</pre>
+<p>执行结果为 0，在局部（inner函数）、局部的局部（outer函数）都没找到变量 x，于是访问全局变量，此时找到了并输出。</p>
+<p><strong>4. 内建作用域</strong></p>
+<pre>x = int(3.3)
+g = 0
+def outer():
+    o = 1
+    def inner():
+        i = 2
+        print(x)
+    inner()
+
+outer()</pre>
+<p>执行结果为 3，在局部（inner函数）、局部的局部（outer函数）以及全局变量中都没有找到变量x，于是访问内建变量，此时找到了并输出。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Rosevil1874</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Rosevil1874</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;157***11424@163.com</p></div></span>1年前 (2017-12-13)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-22272"><span class="comt-f">#9</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ls</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;moo***huan@foxmail.com</p></div></div><div class="comt-main" id="div-comment-22272"><p><strong>函数内可以访问全局变量，但不能更新(修改)其值！</strong></p>
+<p>例 :</p>
+<pre>a = 10
+def sum ( n ) :
+   n += a
+   print ('a = ', a, end = ' , ' )
+   print ( 'n = ', n )
+  
+sum(3)</pre>
+<p>输出 :</p>
+<pre>a =  10 , n =  13</pre>
+<p>如果引用了还没更新的值则会报错 :</p>
+<pre>a = 10
+def sum ( n ) :
+   n += a
+   a = 11
+   print ('a = ', a, end = ' , ' )
+   print ( 'n = ', n )
+  
+sum(3)</pre>
+<p>输出 :</p>
+...
+<pre>UnboundLocalError: local variable 'a' referenced before assignment</pre>
+<p>可以加上 global 引用以更新变量值 :</p>
+<pre>a = 10
+def sum ( n ) :
+   global a
+   n += a
+   a = 11
+   print ('a = ', a, end = ' , ' )
+   print ( 'n = ', n )
+
+sum ( 3 )
+print ( '外 a = ', a )</pre>
+<p>输出:</p>
+<p>a = 11 , n = 13
+外 a = 11</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">ls</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ls</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;moo***huan@foxmail.com</p></div></span>1年前 (2017-12-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-24169"><span class="comt-f">#8</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;FVortex</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;hty***80402@qq.com</p></div></div><div class="comt-main" id="div-comment-24169"><p>函数也可以以一个函数为其参数:</p>
+<pre>def hello () :
+  print ("Hello, world!")
+
+def execute(f):
+  "执行一个没有参数的函数"
+  f()
+
+execute(hello)</pre>
+<p>输出：</p>
+<pre>Hello, world!</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">FVortex</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;FVortex</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;hty***80402@qq.com</p></div></span>1年前 (2018-02-16)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-29888"><span class="comt-f">#7</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wu</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;928***263@qq.com</p></div></div><div class="comt-main" id="div-comment-29888"><p>可以通过 <span class="marked">函数名.__doc__</span> 的方式来显示函数的说明文档，感觉这个如果在阅读比较大的程序时应该会有用，同时也在提示自己在写函数时注意添加文档说明。</p>
+<pre>def add(a,b):
+    "这是 add 函数文档"
+    return a+b
+
+print (add.__doc__)</pre>
+<p>输出结果为：</p>
+<pre>这是 add 函数文档</pre>
+<blockquote><p>更多内容可参考：<a href="http://www.runoob.com/w3cnote/python-docstrings.html" target="_blank" rel="noopener nofollow">Python 文档字符串(DocStrings)</a></p></blockquote>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Mr.Wu</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wu</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;928***263@qq.com</p></div></span>8个月前 (07-20)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-29889"><span class="comt-f">#6</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wu</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;928***263@qq.com</p></div></div><div class="comt-main" id="div-comment-29889"><p data-title="Python 函数返回多个值">函数返回值的注意事项: 不同于 C 语言，Python 函数可以返回多个值，多个值以元组的方式返回:</p>
+<pre>
+def fun(a,b):    
+    "返回多个值，结果以元组形式表示"
+    return a,b,a+b
+print(fun(1,2))
+</pre>
+<p>输出结果为：</p>
+<pre>(1, 2, 3)</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/29889">Mr.Wu</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mr.Wu</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;928***263@qq.com</p></div></span>8个月前 (07-20)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-30597"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;sprinkle</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;117***1554@qq.com</p></div></div><div class="comt-main" id="div-comment-30597"><p><strong>函数的装饰器</strong></p>
+<p>在不改变当前函数的情况下, 给其增加新的功能:</p>
+<pre>def log(pr):#将被装饰函数传入
+&nbsp;&nbsp;&nbsp;&nbsp;def wrapper():
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("**********")      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return pr()#执行被装饰的函数
+&nbsp;&nbsp;&nbsp;&nbsp;return wrapper#将装饰完之后的函数返回（返回的是函数名）
+@log
+def pr():
+    print("我是小小洋")
+
+pr()</pre>
+<p>回调函数和返回函数的实例就是装饰器。</p>
+<blockquote><p>更多内容可参考：<a href="http://www.runoob.com/w3cnote/python-func-decorators.html" target="_blank" rel="noopener nofollow">Python 函数装饰器</a></p></blockquote>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">sprinkle</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;sprinkle</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;117***1554@qq.com</p></div></span>8个月前 (07-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-34820"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Null</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wuh***ing2012@163.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.runoob.com/w3cnote/python-unboundlocalerror.html">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-34820"><p data-title="Python 内部函数">1.内部函数，不修改全局变量可以访问全局变量</p>
+<pre>a = 10
+def test():
+    b = a + 2 #仅仅访问全局变量 a
+    print(b)
+test()</pre>
+<p>输出结果为：</p>
+<pre>12</pre>
+<p>2.内部函数，修改同名全局变量，则python会认为它是一个局部变量（同教程最后一个例子）</p>
+<pre>#!/usr/bin/python3
+ 
+a = 10
+def test():
+    a = a + 1 #修改同名的全局变量，则认为是一个局部变量
+    print(a)
+test()</pre>
+<p>3.在内部函数修改同名全局变量之前调用变量名称（如print sum），则引发Unbound-LocalError</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/34820">Null</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Null</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wuh***ing2012@163.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.runoob.com/w3cnote/python-unboundlocalerror.html">&nbsp;&nbsp;参考地址</a></p></div></span>6个月前 (09-06)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-37802"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;richael</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;ric***l0302@163.com</p></div></div><div class="comt-main" id="div-comment-37802"><p>在这里补充一点关于 global 和 nonlocal 的知识：</p>
+<p>nonlocal 只能修改外层函数的变量而不能修改外层函数所引用的全局变量，给一个例子如下：</p>
+<pre>x = 0
+def outer():
+    global x
+    x = 1    
+    def inner():
+        nonlocal x
+        x = 2        
+        print(x)
+    inner()
+
+outer()
+print(x)</pre>
+<p>结果会报错：</p>
+<pre>line 6
+    nonlocal x
+    ^
+SyntaxError: no binding for nonlocal 'x' found</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">richael</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;richael</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;ric***l0302@163.com</p></div></span>3个月前 (12-06)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-39046"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;爱睡觉的猫</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;199***09662@163.com</p></div></div><div class="comt-main" id="div-comment-39046"><p><strong>global</strong> 关键字会跳过中间层直接将嵌套作用域内的局部变量变为全局变量:</p>
+<p>测试代码如下:</p>
+<pre>num = 20
+def outer():
+    num = 10
+    def inner():
+        global num
+        print (num)
+        num = 100
+        print (num)
+    inner()
+    print(num)
+outer()
+print (num)</pre>
+结果如下：
+<pre>20
+100
+10
+100</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">爱睡觉的猫</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;爱睡觉的猫</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;199***09662@163.com</p></div></span>2个月前 (01-16)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-40479"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;濤聲依舊</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;152***4927@qq.com</p></div></div><div class="comt-main" id="div-comment-40479"><p>Python 定义一个 class 可以编写一个它的构造函数 _init_() 其中形参 self 在实例化时相当于 myname：</p>
+<pre>class demo:
+    name = ""
+    def _init_(self):
+        self.ex()
+        self.start()
+    def inputName(self):
+        global name
+        name = input("輸入您的姓名：")
+    def getFirstName(self):
+        if len(name) &lt;= 0:
+            x = "別鬧！請輸入姓名！"
+            return x
+        else:
+            x = name[0]
+            return x
+    def getLastName(self):
+        if len(name) &lt;= 1:
+            y = "別鬧！長度不夠！"
+            return y
+        else:
+            y = name[1:]
+            return y
+myname = demo()
+myname.inputName()
+print(myname.getFirstName())
+print(myname.getLastName())</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">濤聲依舊</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;濤聲依舊</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;152***4927@qq.com</p></div></span>1周前 (03-07)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='7303' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  7303;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 7303;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

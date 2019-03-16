@@ -1,0 +1,1363 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Highcharts 配置选项详细说明 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="highcharts-setting-detail.html" />
+<meta name="keywords" content="Highcharts 配置选项详细说明">
+<meta name="description" content="Highcharts 配置选项详细说明 Highcharts 提供大量的配置选项参数，您可以轻松定制符合用户要求的图表，本章节为大家详细介绍Highcharts 配置选项使用说明：  参数配置(属性+事件)   chart.events.addSeries：添加数列到图表中。   chart.events.click：整个图表的绘图区上所发生的点击事件。   chart.events.load：图表加载事件。   chart.event..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/highcharts/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">Highcharts 教程 <a data-cate="179" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="179" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">
+Highcharts 教程 </a>
+<a target="_top" title="Highcharts 环境配置" href="http://www.runoob.com/highcharts/highcharts-setup.html">
+Highcharts 环境配置 </a>
+<a target="_top" title="Highcharts 配置语法" href="http://www.runoob.com/highcharts/highcharts-configuration-syntax.html">
+Highcharts 配置语法 </a>
+<a target="_top" title="Highcharts 配置说明" href="highcharts-setting-detail.html"> Highcharts 配置说明</a> <a target="_top" title="Highcharts 曲线图" href="http://www.runoob.com/highcharts/highcharts-line-charts.html">
+Highcharts 曲线图 </a>
+<a target="_top" title="Highcharts 区域图" href="http://www.runoob.com/highcharts/highcharts-area-charts.html">
+Highcharts 区域图 </a>
+<a target="_top" title="Highcharts 条形图" href="http://www.runoob.com/highcharts/highcharts-bar-charts.html">
+Highcharts 条形图 </a>
+<a target="_top" title="Highcharts 柱形图" href="http://www.runoob.com/highcharts/highcharts-column-charts.html">
+Highcharts 柱形图 </a>
+<a target="_top" title="Highcharts 饼图" href="http://www.runoob.com/highcharts/highcharts-pie-charts.html">
+Highcharts 饼图 </a>
+<a target="_top" title="Highcharts 散点图" href="http://www.runoob.com/highcharts/highcharts-scatter-basic.html">
+Highcharts 散点图 </a>
+<a target="_top" title="Highcharts 气泡图" href="http://www.runoob.com/highcharts/highcharts-bubble-charts.html">
+Highcharts 气泡图 </a>
+<a target="_top" title="Highcharts 动态图" href="http://www.runoob.com/highcharts/highcharts-dynamic-click.html">
+Highcharts 动态图 </a>
+<a target="_top" title="Highcharts 组合图" href="http://www.runoob.com/highcharts/highcharts-combinations.html">
+Highcharts 组合图 </a>
+<a target="_top" title="Highcharts 3D图" href="http://www.runoob.com/highcharts/highcharts-3d-charts.html">
+Highcharts 3D图 </a>
+<a target="_top" title="Highcharts 测量图" href="http://www.runoob.com/highcharts/highcharts-angular-gauges.html">
+Highcharts 测量图 </a>
+<a target="_top" title="Highcharts 树状图(Treemap)" href="http://www.runoob.com/highcharts/highcharts-tree-maps.html">
+Highcharts 树状图(Treemap) </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/highcharts/highcharts-pie-basic.html" rel="prev"> Highcharts 基本饼图</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/highcharts/highcharts-pie-legends.html" rel="next"> Highcharts 显示图例饼图</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>Highcharts 配置选项详细说明</h1>
+<p>Highcharts 提供大量的配置选项参数，您可以轻松定制符合用户要求的图表，本章节为大家详细介绍Highcharts 配置选项使用说明：</p>
+<hr>
+<h2>参数配置(属性+事件)</h2>
+<ol>
+<li>
+<p>chart.events.addSeries：添加数列到图表中。</p>
+</li>
+<li>
+<p>chart.events.click：整个图表的绘图区上所发生的点击事件。</p>
+</li>
+<li>
+<p>chart.events.load：图表加载事件。</p>
+</li>
+<li>
+<p>chart.events.redraw：图表重画事件，当点击图注显示和隐藏绘图时可以触发。</p>
+</li>
+<li>
+<p>chart.events.selection：当图表曲线可选择放大时，当选择图表操作时，可以触发该事件。</p>
+</li>
+<li>
+<p>chart.height：所绘制图表的高度值。</p>
+</li>
+<li>
+<p>chart.inverted：图表中的x，y轴对换。</p>
+</li>
+<li>
+<p>chart.polar：是否为极性图表。</p>
+</li>
+<li>
+<p>chart.reflow：当窗口大小改变时，图表宽度自适应窗口大小改变。</p>
+</li>
+<li>
+<p>chart.renderTo：图表加载的位置，是页面上的一个DOM对象。</p>
+</li>
+<li>
+<p>chart.showAxes：在空白图表中，是否显示坐标轴。</p>
+</li>
+<li>
+<p>chart.type：图表的类型，默认为line，还有<span>bar/column/pie……</span></p>
+</li>
+<li>
+<p>chart.width：图表绘图区的宽度，默认为自适应。</p>
+</li>
+<li>
+<p>chart.zoomType：图表中数据报表的放大类型，可以以X轴放大，或是以Y轴放大，还可以以XY轴同时放大。</p>
+</li>
+<li>
+<p>colors：图表中多数列时，各数列之间的颜色。是一个数组，一般不动。</p>
+</li>
+<li>
+<p><span>credits</span>.enabled：是否允许显示版权信息。</p>
+</li>
+<li>
+<p>credits.href：版权所有的链接。</p>
+</li>
+<li>
+<p>credits.text：版权信息显示文字。</p>
+</li>
+<li>
+<p><span>exporting</span>.buttons.exportButton.enabled：是否允许显示导出按钮。</p>
+</li>
+<li>
+<p>exporting.buttons.exportButton.menuItems：导出按钮的菜单选项。</p>
+</li>
+<li>
+<p>exporting.buttons.exportButton.onclick：导出按钮被点击的事件，不是内部的菜单。</p>
+</li>
+<li>
+<p>exporting.buttons.printButton.enabled：是否允许打印按钮。</p>
+</li>
+<li>
+<p>exporting.buttons.printButton.onclick：打印按钮的点击事件。</p>
+</li>
+<li>
+<p>exporting.enabled：打印和导出按钮是否被允许。</p>
+</li>
+<li>
+<p>exporting.filename：被导出文件的文件名。</p>
+</li>
+<li>
+<p>exporting.type：默认导出图片的文件格式。</p>
+</li>
+<li>
+<p>exporting.url：SVG图表转换并导出的接口处理地址。</p>
+</li>
+<li>
+<p>exporing.width：默认导出图片的宽度。</p>
+</li>
+<li>
+<p><span>labels</span>：标签，可以加载到图表的任何位置，里面有items，style。</p>
+</li>
+<li>
+<p>lang：语言参数配置，与导出按钮菜单有关的配置，时间名称的配置等。</p>
+</li>
+<li>
+<p>legend.enabled：是否允许图注。</p>
+</li>
+<li>
+<p>navigation.buttonOptions.enabled：图表中所有导航中的按钮是否可被点击。</p>
+</li>
+<li>
+<p><span>plotOptions</span>.area.allowPointSelect：是否允许数据点的点击。</p>
+</li>
+<li>
+<p>plotOptions.area.color：绘图的颜色。</p>
+</li>
+<li>
+<p>plotOptions.area.dataLabels.enabled：是否允许数据标签。</p>
+</li>
+<li>
+<p>plotOptions.area.enableMouseTracking：是否允许数据图表中，数据点的鼠标跟踪气泡显示。</p>
+</li>
+<li>
+<p>plotOptions.area.events.checkboxClick：数据图表中图注中复选框的点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.click：数据图表中，数据点的点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.hide：数据图表中，某一数据序列隐藏时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.show：数据图表中，某一数据序列显示时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.legendItemClick：数据图表中，图注中的项目被点击时的事件，直接赋值false，则不可点击。</p>
+</li>
+<li>
+<p>plotOptions.area.events.mouseOut：数据点的鼠标移出事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.mouseOver：数据点的鼠标经过事件。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.enabled：图表中绘图中是否显示点的标记符。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.states.hover.enabled：是否允许标记符的鼠标经过状态。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.states.select.enabled：是否允许标记符的选择状态。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.click：图表中每一个单独的点点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.mouseOut</p>
+</li>
+<li>
+<p>plotOptions.area.point.events..mouseOver</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.remove：删除图表中的点时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.select：图表中点选择事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.unselect：图表中点取消选择时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.update：图表中数据发生更新时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.visible：加载时，数据序列默认是显示还是隐藏。</p>
+</li>
+<li>
+<p>plotOptions.area.zIndex：在多序列的情况下，调整每一个序列的层叠顺序。</p>
+</li>
+<li>
+<p>以上的point.events同样还适用于其他面积类图表（arearange、areaspline、areasplinerange），其他的柱状图（bar、column）及所有图表。</p>
+</li>
+<li>
+<p>plotOptions.area.showInLegend：是否在图注中显示。</p>
+</li>
+<li>
+<p>plotOptions.area.stacking：是以值堆叠，还是以百分比堆叠。</p>
+</li>
+<li>
+<p>plotOptions.area.states.hover.enabled：鼠标放上的状态是否允许。</p>
+</li>
+<li>
+<p>plotOptions.area.stickyTracking：鼠标粘性跟踪数据点。</p>
+</li>
+<li>
+<p>plotOptions.arearange，plotOptions.areaspline，plotOptions.areasplinerange类同于plotOptions.area</p>
+</li>
+<li>
+<p>plotOptions.bar.groupPadding：对于柱状图分组，每个分组之间的间隔。</p>
+</li>
+<li>
+<p>plotOptions.bar.grouping：是否对数据进行分组。</p>
+</li>
+<li>
+<p>plotOptions.bar.minPointLength:：定义当point值为零时，点的最小长度为多少</p>
+</li>
+<li>
+<p>plotOptions.bar.showInLegend：是否在图注中显示。</p>
+</li>
+<li>
+<p>plotOptions.bar.stacking：是以值堆叠，还是以百分比堆叠（normal/percent）。</p>
+</li>
+<li>
+<p>plotOptions.column，plotOptions.columnrange类同于plotOptions.bar</p>
+</li>
+<li>
+<p>plotOptions.line的相关配置类似于plotOptions.area配置。</p>
+</li>
+<li>
+<p>plotOptions.pie.ignoreHiddenPoint：在饼状图中，某一个序列经图注点击隐藏后，整个饼状图是重新以100%分配，还是只在原图基础上隐藏，呈现一个缺口。</p>
+</li>
+<li>
+<p>plotOptions.pie.innerSize：绘制饼状图时，饼状图的圆心预留多大的空白。</p>
+</li>
+<li>
+<p>plotOptions.pie.slicedOffset：与allowPointSelect结合使用，当点被点击时，对应的扇区剥离，这个参数即配置离开的距离。</p>
+</li>
+<li>
+<p>plotOptions.pie的其他常用配置参数类同于plotOptions.area,plotOptions.scatter，plotOptions.series，plotOptions.spline的相关配置类似于plotOptions.area配置。</p>
+</li>
+<li>
+<p><span>series</span>：是一个数组。</p>
+</li>
+<li>
+<p>series.data.color：某一个数据的颜色。</p>
+</li>
+<li>
+<p>series.data.dataLabels：序列中某一个数据的数据标签。</p>
+</li>
+<li>
+<p>series.data.events类同于plotOptions.area.point.events的相关配置。</p>
+</li>
+<li>
+<p>series.data.marker类同于plotOptions.area.marker的相关配置。</p>
+</li>
+<li>
+<p>series.data.name：配置数据点的名称。</p>
+</li>
+<li>
+<p>series.data.sliced：配置在饼图中，扇区的分离距离大小。</p>
+</li>
+<li>
+<p>series.data.x：点的x值。</p>
+</li>
+<li>
+<p>series.data.y：点的y值。</p>
+</li>
+<li>
+<p>series.name：数据序列的名称。</p>
+</li>
+<li>
+<p>series.stack：堆叠的分组索引。</p>
+</li>
+<li>
+<p>series.type：数据序列的展示类型。</p>
+</li>
+<li>
+<p>series.xAxis，series.yAxis：当使用多坐标轴时，指定某个数列对应哪个坐标轴。</p>
+</li>
+<li>
+<p><span>subtitle</span>：配置图表的子标题。</p>
+</li>
+<li>
+<p><span>title</span>：配置图表的标题。</p>
+</li>
+<li>
+<p><span>tooltip</span>：配置图表中数据的气泡提示。</p>
+</li>
+<li>
+<p>tooltip.valueDecimals：允许的小数点位数。</p>
+</li>
+<li>
+<p>tooltip.percentageDecimals：允许百分比的小数点后位数。</p>
+</li>
+<li>
+<p><span>xAxis</span>，yAxis配置设置坐标轴</p>
+</li>
+<li>
+<p>allowDecimals：坐标轴上是否允许小数。</p>
+</li>
+<li>
+<p>categories：是一个数组，坐标轴的分类。</p>
+</li>
+<li>
+<p>plotLines：绘制主线。</p>
+</li>
+<li>
+<p>tickColor：刻度颜色。</p>
+</li>
+<li>
+<p>tickInterval：刻度的步进值。</p>
+</li>
+<li>
+<p>labels.rotation：刻度标签旋转度数</p>
+</li>
+</ol>
+<h2>Chart：图表区选项</h2>
+<p>Chart图表区选项用于设置图表区相关属性。</p>
+<table class="reference">
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td align="center">backgroundColor</td>
+<td>设置图表区背景色</td>
+<td align="center">#FFFFFF</td>
+</tr>
+<tr>
+<td align="center">borderWidth</td>
+<td>设置图表边框宽度</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">borderRadius</td>
+<td>设置图表边框圆角角度</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">renderTo</td>
+<td>图表放置的容器，一般在html中放置一个DIV，获取DIV的id属性值</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">defaultSeriesType</td>
+<td>默认图表类型line, spline, area, areaspline, column, bar, pie , scatter</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">width</td>
+<td>图表宽度，默认根据图表容器自适应宽度</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td>图表高度，默认根据图表容器自适应高度</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">margin</td>
+<td>设置图表与其他元素之间的间距，数组，如[0,0,0,0]</td>
+<td align="center">[null]</td>
+</tr>
+<tr>
+<td align="center">plotBackgroundColor</td>
+<td>主图表区背景色，即X轴与Y轴围成的区域的背景色</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">plotBorderColor</td>
+<td>主图表区边框的颜色，即X轴与Y轴围成的区域的边框颜色</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">plotBorderWidth</td>
+<td>主图表区边框的宽度</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">shadow</td>
+<td>是否设置阴影，需要设置背景色backgroundColor。</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">reflow</td>
+<td>是否自使用图表区域高度和宽度，如果没有设置width和height时，会自适应大小。</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">zoomType</td>
+<td>拖动鼠标进行缩放，沿x轴或y轴进行缩放，可以设置为：'x','y','xy'</td>
+<td align="center">''</td>
+</tr>
+<tr>
+<td align="center">events</td>
+<td>事件回调，支持addSeries方法，click方法，load方法，selection方法等的回调函数。</td>
+<td align="center">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>Color：颜色选项</h2>
+<p>Color颜色选项用于设置图表的颜色方案。</p>
+<table class="reference">
+<tbody>
+<tr class="table_title">
+<td width="25%">参数</td>
+<td>描述</td>
+<td width="10%">默认值</td>
+</tr>
+<tr>
+<td align="center">color</td>
+<td>用于展示图表，折线/柱状/饼状等图的颜色，数组形式。</td>
+<td align="center">array</td>
+</tr>
+</tbody>
+</table>
+<p>Highcharts已经默认提供了多种颜色方案，当要显示的图形多于颜色种类时，多出的图形会自动从第一种颜色方案开始选取。自定义颜色方案的方法：</p>
+<pre>
+Highcharts.setOptions({
+    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655',
+'#FFF263', '#6AF9C4']
+});</pre>
+<hr><h2>Title：标题选项</h2>
+<p>Title标题选项用于设置图表的标题相关属性。</p>
+<table class="reference">
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td align="center">text</td>
+<td>标题文本内容。</td>
+<td align="center">Chart title</td>
+</tr>
+<tr>
+<td align="center">align</td>
+<td>水平对齐方式。</td>
+<td align="center">center</td>
+</tr>
+<tr>
+<td align="center">verticalAlign</td>
+<td>垂直对齐方式。</td>
+<td align="center">top</td>
+</tr>
+<tr>
+<td align="center">margin</td>
+<td>标题与副标题之间或者主图表区间的间距。</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="center">floating</td>
+<td>是否浮动，如果为true，则标题可以偏离主图表区，可配合x,y属性使用。</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">style</td>
+<td>设置CSS样式。</td>
+<td align="center">{color: '#3E576F',<br />
+fontSize: '16px'}</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>Subtitle：副标题选项</h2>
+<p>副标题提供的属性选项与标题title大致相同，可参照上述标题选项，值得一提的是副标题的text选项默认为''，即空的，所以默认情况下副标题不显示。</p>
+<hr><h2>xAxis：X轴选项</h2>
+<p>X轴选项用于设置图表X轴相关属性。</p>
+<table class="reference">
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td align="center">categories</td>
+<td>设置X轴分类名称，数组，例如：categories: ['Apples', 'Bananas', 'Oranges']</td>
+<td align="center">[]</td>
+</tr>
+<tr>
+<td align="center">title</td>
+<td>X轴名称，支持text、enabled、align、rotation、style等属性</td>
+<td align="center">&nbsp;</td>
+</tr>
+<tr>
+<td align="center">labels</td>
+<td>设置X轴各分类名称的样式style，格式formatter，角度rotation等。</td>
+<td align="center">array</td>
+</tr>
+<tr>
+<td align="center">max</td>
+<td>X轴最大值(categories为空时)，如果为null，则最大值会根据X轴数据自动匹配一个最大值。</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">min</td>
+<td>X轴最小值(categories为空时)，如果为null，则最小值会根据X轴数据自动匹配一个最小值。</td>
+<td align="center">array</td>
+</tr>
+<tr>
+<td align="center">gridLineColor</td>
+<td>网格（竖线）颜色</td>
+<td align="center">#C0C0C0</td>
+</tr>
+<tr>
+<td align="center">gridLineWidth</td>
+<td>网格(竖线)宽度</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">lineColor</td>
+<td>基线颜色</td>
+<td align="center">#C0D0E0</td>
+</tr>
+<tr>
+<td align="center">lineWidth</td>
+<td>基线宽度</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>yAxis：Y轴选项</h2>
+<p>Y轴选项与上述xAxis选项基本一致，请参照上表中的参数设置，不再单独列出。</p>
+<hr><h2>Series：数据列选项</h2>
+<p>数据列选项用于设置图表中要展示的数据相关的属性。</p>
+<table class="reference">
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td align="center">data</td>
+<td>显示在图表中的数据列，可以为数组或者JSON格式的数据。如：data:[0, 5, 3, 5]，或<br />
+data: [{name: 'Point 1',y: 0}, {name: 'Point 2',y: 5}]</td>
+<td align="center">''</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td>显示数据列的名称。</td>
+<td align="center">''</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td>数据列类型，支持 area, areaspline, bar, column, line, pie, scatter or spline</td>
+<td align="center">line</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>plotOptions：数据点选项</h2>
+<p>plotOptions用于设置图表中的数据点相关属性。plotOptions根据各种图表类型，其属性设置略微有些差异，现将常用选项列出来。</p>
+<table class="reference">
+<tbody>
+<tr class="table_title">
+<td width="25%">参数</td>
+<td>描述</td>
+<td width="10%">默认值</td>
+</tr>
+<tr>
+<td align="center">enabled</td>
+<td>是否在数据点上直接显示数据</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">allowPointSelect</td>
+<td>是否允许使用鼠标选中数据点</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">formatter</td>
+<td>回调函数，格式化数据显示内容</td>
+<td align="center">formatter: function() {return this.y;}</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>Tooltip：数据点提示框</h2>
+<p>Tooltip用于设置当鼠标滑向数据点时显示的提示框信息。</p>
+<table class="reference">
+<tbody>
+<tr class="table_title">
+<td width="25%">参数</td>
+<td>描述</td>
+<td width="10%">默认值</td>
+</tr>
+<tr>
+<td align="center">enabled</td>
+<td>是否显示提示框</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">backgroundColor</td>
+<td>设置提示框的背景色</td>
+<td align="center">rgba(255, 255, 255, .85)</td>
+</tr>
+<tr>
+<td align="center">borderColor</td>
+<td>提示框边框颜色，默认自动匹配数据列的颜色</td>
+<td align="center">auto</td>
+</tr>
+<tr>
+<td align="center">borderRadius</td>
+<td>提示框圆角度</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">shadow</td>
+<td>是否显示提示框阴影</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">style</td>
+<td>设置提示框内容样式，如字体颜色等</td>
+<td align="center">color:'#333'</td>
+</tr>
+<tr>
+<td align="center">formatter</td>
+<td>回调函数，用于格式化输出提示框的显示内容。返回的内容支持html标签如：&lt;b&gt;, &lt;strong&gt;, &lt;i&gt;, &lt;em&gt;, &lt;br/&gt;, &lt;span&gt;</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>Legend：图例选项</h2>
+<p>legend用于设置图例相关属性。</p>
+<table class="reference">
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td align="center">layout</td>
+<td>显示形式，支持水平horizontal和垂直vertical</td>
+<td align="center">horizontal</td>
+</tr>
+<tr>
+<td align="center">align</td>
+<td>对齐方式。</td>
+<td align="center">center</td>
+</tr>
+<tr>
+<td align="center">backgroundColor</td>
+<td>图例背景色。</td>
+<td align="center">null</td>
+</tr>
+<tr>
+<td align="center">borderColor</td>
+<td>图例边框颜色。</td>
+<td align="center">#909090</td>
+</tr>
+<tr>
+<td align="center">borderRadius</td>
+<td>图例边框角度</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">enabled</td>
+<td>是否显示图例</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">floating</td>
+<td>是否可以浮动，配合x，y属性。</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">shadow</td>
+<td>是否显示阴影</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">style</td>
+<td>设置图例内容样式</td>
+<td align="center">''</td>
+</tr>
+</tbody>
+</table>
+<p>更多详细信息请参照highcharts官网英文文档：<a target="_blank" href="http://api.highcharts.com/highcharts">http://api.highcharts.com/highcharts</a></p>
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/highcharts/highcharts-pie-basic.html" rel="prev"> Highcharts 基本饼图</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/highcharts/highcharts-pie-legends.html" rel="next"> Highcharts 显示图例饼图</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style=" padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='12860' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  12860;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 12860;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

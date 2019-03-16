@@ -1,0 +1,1206 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>C++ 数据类型 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="cpp-data-types.html" />
+<meta name="keywords" content="C++ 数据类型">
+<meta name="description" content="C++ 数据类型   使用编程语言进行编程时，需要用到各种变量来存储各种信息。变量保留的是它所存储的值的内存位置。这意味着，当您创建一个变量时，就会在内存中保留一些空间。 您可能需要存储各种数据类型（比如字符型、宽字符型、整型、浮点型、双浮点型、布尔型等）的信息，操作系统会根据变量的数据类型，来分配内存和决定在保留内存中存储什么。   基本的内置类型 C++ 为程序员提供了种类丰富的内置数据类型和用户自定义的数据类型。下表列出了七种基本..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/cplusplus/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">C++ 教程 <a data-cate="166" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="166" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">
+C++ 教程 </a>
+<a target="_top" title="C++ 简介" href="http://www.runoob.com/cplusplus/cpp-intro.html">
+C++ 简介 </a>
+<a target="_top" title="C++ 环境设置" href="http://www.runoob.com/cplusplus/cpp-environment-setup.html">
+C++ 环境设置 </a>
+<a target="_top" title="C++ 基本语法" href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html">
+C++ 基本语法 </a>
+<a target="_top" title="C++ 注释" href="http://www.runoob.com/cplusplus/cpp-comments.html">
+C++ 注释 </a>
+<a target="_top" title="C++ 数据类型" href="cpp-data-types.html">
+C++ 数据类型 </a>
+<a target="_top" title="C++ 变量类型" href="http://www.runoob.com/cplusplus/cpp-variable-types.html">
+C++ 变量类型 </a>
+<a target="_top" title="C++ 变量作用域" href="http://www.runoob.com/cplusplus/cpp-variable-scope.html">
+C++ 变量作用域 </a>
+<a target="_top" title="C++ 常量" href="http://www.runoob.com/cplusplus/cpp-constants-literals.html">
+C++ 常量 </a>
+<a target="_top" title="C++ 修饰符类型" href="http://www.runoob.com/cplusplus/cpp-modifier-types.html">
+C++ 修饰符类型 </a>
+<a target="_top" title="C++ 存储类" href="http://www.runoob.com/cplusplus/cpp-storage-classes.html">
+C++ 存储类 </a>
+<a target="_top" title="C++ 运算符" href="http://www.runoob.com/cplusplus/cpp-operators.html">
+C++ 运算符 </a>
+<a target="_top" title="C++ 循环" href="http://www.runoob.com/cplusplus/cpp-loops.html">
+C++ 循环 </a>
+<a target="_top" title="C++ 判断" href="http://www.runoob.com/cplusplus/cpp-decision.html">
+C++ 判断 </a>
+<a target="_top" title="C++ 函数" href="http://www.runoob.com/cplusplus/cpp-functions.html">
+C++ 函数 </a>
+<a target="_top" title="C++ 数字" href="http://www.runoob.com/cplusplus/cpp-numbers.html">
+C++ 数字 </a>
+<a target="_top" title="C++ 数组" href="http://www.runoob.com/cplusplus/cpp-arrays.html">
+C++ 数组 </a>
+<a target="_top" title="C++ 字符串" href="http://www.runoob.com/cplusplus/cpp-strings.html">
+C++ 字符串 </a>
+<a target="_top" title="C++ 指针" href="http://www.runoob.com/cplusplus/cpp-pointers.html">
+C++ 指针 </a>
+<a target="_top" title="C++ 引用" href="http://www.runoob.com/cplusplus/cpp-references.html">
+C++ 引用 </a>
+<a target="_top" title="C++ 日期 &#038; 时间" href="http://www.runoob.com/cplusplus/cpp-date-time.html">
+C++ 日期 & 时间 </a>
+<a target="_top" title="C++ 基本的输入输出" href="http://www.runoob.com/cplusplus/cpp-basic-input-output.html">
+C++ 基本的输入输出 </a>
+<a target="_top" title="C++ 数据结构" href="http://www.runoob.com/cplusplus/cpp-data-structures.html">
+C++ 数据结构 </a>
+<br><h2 class="left"><span class="left_h2">C++</span> 面向对象</h2> <a target="_top" title="C++ 类 &#038; 对象" href="http://www.runoob.com/cplusplus/cpp-classes-objects.html">
+C++ 类 & 对象 </a>
+<a target="_top" title="C++ 继承" href="http://www.runoob.com/cplusplus/cpp-inheritance.html">
+C++ 继承 </a>
+<a target="_top" title="C++ 重载运算符和重载函数" href="http://www.runoob.com/cplusplus/cpp-overloading.html">
+C++ 重载运算符和重载函数 </a>
+<a target="_top" title="C++ 多态" href="http://www.runoob.com/cplusplus/cpp-polymorphism.html">
+C++ 多态 </a>
+<a target="_top" title="C++ 数据抽象" href="http://www.runoob.com/cplusplus/cpp-data-abstraction.html">
+C++ 数据抽象 </a>
+<a target="_top" title="C++ 数据封装" href="http://www.runoob.com/cplusplus/cpp-data-encapsulation.html">
+C++ 数据封装 </a>
+<a target="_top" title="C++ 接口（抽象类）" href="http://www.runoob.com/cplusplus/cpp-interfaces.html">
+C++ 接口（抽象类） </a>
+<br><h2 class="left"><span class="left_h2">C++</span> 高级教程</h2> <a target="_top" title="C++ 文件和流" href="http://www.runoob.com/cplusplus/cpp-files-streams.html">
+C++ 文件和流 </a>
+<a target="_top" title="C++ 异常处理" href="http://www.runoob.com/cplusplus/cpp-exceptions-handling.html">
+C++ 异常处理 </a>
+<a target="_top" title="C++ 动态内存" href="http://www.runoob.com/cplusplus/cpp-dynamic-memory.html">
+C++ 动态内存 </a>
+<a target="_top" title="C++ 命名空间" href="http://www.runoob.com/cplusplus/cpp-namespaces.html">
+C++ 命名空间 </a>
+<a target="_top" title="C++ 模板" href="http://www.runoob.com/cplusplus/cpp-templates.html">
+C++ 模板 </a>
+<a target="_top" title="C++ 预处理器" href="http://www.runoob.com/cplusplus/cpp-preprocessor.html">
+C++ 预处理器 </a>
+<a target="_top" title="C++ 信号处理" href="http://www.runoob.com/cplusplus/cpp-signal-handling.html">
+C++ 信号处理 </a>
+<a target="_top" title="C++ 多线程" href="http://www.runoob.com/cplusplus/cpp-multithreading.html">
+C++ 多线程 </a>
+<a target="_top" title="C++ Web 编程" href="http://www.runoob.com/cplusplus/cpp-web-programming.html">
+C++ Web 编程 </a>
+<br><h2 class="left"><span class="left_h2">C++</span> 资源库</h2> <a target="_top" title="C++ STL 教程" href="http://www.runoob.com/cplusplus/cpp-stl-tutorial.html">
+C++ STL 教程 </a>
+<a target="_top" title="C++ 标准库" href="http://www.runoob.com/cplusplus/cpp-standard-library.html">
+C++ 标准库 </a>
+<a target="_top" title="C++ 有用的资源" href="http://www.runoob.com/cplusplus/cpp-useful-resources.html">
+C++ 有用的资源 </a>
+<a target="_top" title="C++ 实例" href="http://www.runoob.com/cplusplus/cpp-examples.html">
+C++ 实例 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/cplusplus/cpp-comments.html" rel="prev"> C++ 注释</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/cplusplus/cpp-variable-types.html" rel="next"> C++ 变量类型</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>C++ <span class="color_h1">数据类型</span></h1>
+<div class="tutintro">
+<p>使用编程语言进行编程时，需要用到各种变量来存储各种信息。变量保留的是它所存储的值的内存位置。这意味着，当您创建一个变量时，就会在内存中保留一些空间。</p>
+<p>您可能需要存储各种数据类型（比如字符型、宽字符型、整型、浮点型、双浮点型、布尔型等）的信息，操作系统会根据变量的数据类型，来分配内存和决定在保留内存中存储什么。</p>
+</div>
+<h2 class="tutheader">基本的内置类型</h2>
+<p>C++ 为程序员提供了种类丰富的内置数据类型和用户自定义的数据类型。下表列出了七种基本的 C++ 数据类型：</p>
+<table class="reference">
+<tr><th width="50%">类型</th><th>关键字</th></tr>
+<tr><td>布尔型</td><td>bool</td></tr>
+<tr><td>字符型</td><td>char</td></tr>
+<tr><td>整型</td><td>int</td></tr>
+<tr><td>浮点型</td><td>float</td></tr>
+<tr><td>双浮点型</td><td>double</td></tr>
+<tr><td>无类型</td><td> void</td></tr>
+<tr><td>宽字符型</td><td><p>wchar_t</p></td></tr>
+</table>
+<p>其实 wchar_t 是这样来的：</p>
+<pre>typedef wchar_t short int;</pre>
+<p>所以 wchar_t 实际上的空间是和 short int 一样。</p>
+<p>一些基本类型可以使用一个或多个类型修饰符进行修饰：</p>
+<ul>
+<li>signed</li>
+<li>unsigned</li>
+<li>short</li>
+<li>long</li>
+</ul>
+<p>下表显示了各种变量类型在内存中存储值时需要占用的内存，以及该类型的变量所能存储的最大值和最小值。</p>
+<p><strong>注意：</strong>不同系统会有所差异。</p>
+<table class="reference">
+<tr><th>类型</th><th>位</th><th>范围</th></tr>
+<tr><td>char</td><td>1 个字节</td><td>-128 到 127 或者 0 到 255</td></tr>
+<tr><td>unsigned char</td><td>1 个字节</td><td>0 到 255</td></tr>
+<tr><td>signed char</td><td>1 个字节</td><td>-128 到 127</td></tr>
+<tr><td>int</td><td>4 个字节</td><td>-2147483648 到 2147483647</td></tr>
+<tr><td>unsigned int</td><td>4 个字节</td><td>0 到 4294967295</td></tr>
+<tr><td>signed int</td><td>4 个字节</td><td>-2147483648 到 2147483647</td></tr>
+<tr><td>short int</td><td>2 个字节</td><td>-32768 到 32767</td></tr>
+<tr><td>unsigned short int</td><td>2 个字节</td><td>0 到 65,535</td></tr>
+<tr><td>signed short int</td><td>2 个字节</td><td>-32768 到 32767</td></tr>
+<tr><td>long int</td><td>8 个字节</td><td>-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807</td></tr>
+<tr><td>signed long int</td><td>8 个字节</td><td>-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807</td></tr>
+<tr><td>unsigned long int</td><td>8 个字节</td><td>0 to 18,446,744,073,709,551,615</td></tr>
+<tr><td>float</td><td>4 个字节</td><td>+/- 3.4e +/- 38 (~7 个数字)</td></tr>
+<tr><td>double</td><td>8 个字节</td><td>+/- 1.7e +/- 308 (~15 个数字)</td></tr>
+<tr><td>long double</td><td>16 个字节</td><td>+/- 1.7e +/- 308 (~15 个数字)</td></tr>
+<tr><td>wchar_t</td><td>2 或 4 个字节</td><td>1 个宽字符</td></tr>
+</table>
+<p>从上表可得知，变量的大小会根据编译器和所使用的电脑而有所不同。</p>
+<p>下面实例会输出您电脑上各种数据类型的大小。</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-prepro">#include</span><span class="hl-quotes">&lt;</span><span class="hl-string">iostream</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"> </span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-prepro">#include</span><span class="hl-quotes">&lt;</span><span class="hl-string">string</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"> </span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-prepro">#include</span><span class="hl-prepro"> </span><span class="hl-quotes">&lt;</span><span class="hl-string">limits</span><span class="hl-quotes">&gt;</span><span class="hl-prepro"> </span><span class="hl-prepro"></span><span class="hl-code">
+</span><span class="hl-reserved">using</span><span class="hl-code"> </span><span class="hl-types">namespace</span><span class="hl-code"> </span><span class="hl-identifier">std</span><span class="hl-code">;
+</span><span class="hl-types">int</span><span class="hl-code"> </span><span class="hl-identifier">main</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">type: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">************size**************</span><span class="hl-quotes">&quot;</span><span class="hl-code">&lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">bool: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">bool</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">bool</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">bool</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">char: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">char</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">signed char: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">signed</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">signed</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">signed</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">unsigned char: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">char</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">wchar_t: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">wchar_t</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">wchar_t</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">wchar_t</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">short: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">short</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">short</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">short</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">int: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">int</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">int</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">int</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">unsigned: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">unsigned</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">long: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">long</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">long</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">long</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">unsigned long: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">long</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">long</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">unsigned</span><span class="hl-code"> </span><span class="hl-types">long</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">double: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">double</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">double</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">double</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">long double: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">long</span><span class="hl-code"> </span><span class="hl-types">double</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">long</span><span class="hl-code"> </span><span class="hl-types">double</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">long</span><span class="hl-code"> </span><span class="hl-types">double</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">float: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-types">float</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">float</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-types">float</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">size_t: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-identifier">size_t</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最大值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-identifier">size_t</span><span class="hl-code">&gt;::</span><span class="hl-identifier">max</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-special">\</span><span class="hl-string">t最小值：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-brackets">(</span><span class="hl-identifier">numeric_limits</span><span class="hl-code">&lt;</span><span class="hl-identifier">size_t</span><span class="hl-code">&gt;::</span><span class="hl-identifier">min</span><span class="hl-brackets">)</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">string: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">所占字节数：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-reserved">sizeof</span><span class="hl-brackets">(</span><span class="hl-identifier">string</span><span class="hl-brackets">)</span><span class="hl-code"> &lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-comment">// &lt;&lt; &quot;\t最大值：&quot; &lt;&lt; (numeric_limits&lt;string&gt;::max)() &lt;&lt; &quot;\t最小值：&quot; &lt;&lt; (numeric_limits&lt;string&gt;::min)() &lt;&lt; endl; </span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">cout</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">type: </span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-special">\</span><span class="hl-string">t</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &lt;&lt; </span><span class="hl-quotes">&quot;</span><span class="hl-string">************size**************</span><span class="hl-quotes">&quot;</span><span class="hl-code">&lt;&lt; </span><span class="hl-identifier">endl</span><span class="hl-code">;
+</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">0</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>本实例使用了 <b>endl</b>，这将在每一行后插入一个换行符，&lt;&lt; 运算符用于向屏幕传多个值。我们也使用 <b>sizeof()</b> 函数来获取各种数据类型的大小。</p>
+<p>当上面的代码被编译和执行时，它会产生以下的结果，结果会根据所使用的计算机而有所不同：</p>
+<pre>
+type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;************size**************
+bool: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：1&nbsp;&nbsp;&nbsp;&nbsp;最大值：1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：0
+char: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：1&nbsp;&nbsp;&nbsp;&nbsp;最大值：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：?
+signed char: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：1&nbsp;&nbsp;&nbsp;&nbsp;最大值：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：?
+unsigned char: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：1&nbsp;&nbsp;&nbsp;&nbsp;最大值：?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：
+wchar_t: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：4&nbsp;&nbsp;&nbsp;&nbsp;最大值：2147483647&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：-2147483648
+short: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：2&nbsp;&nbsp;&nbsp;&nbsp;最大值：32767&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最小值：-32768
+int: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：4&nbsp;&nbsp;&nbsp;&nbsp;最大值：2147483647&nbsp;&nbsp;&nbsp;&nbsp;最小值：-2147483648
+unsigned: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：4&nbsp;&nbsp;&nbsp;&nbsp;最大值：4294967295&nbsp;&nbsp;&nbsp;&nbsp;最小值：0
+long: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：8&nbsp;&nbsp;&nbsp;&nbsp;最大值：9223372036854775807&nbsp;&nbsp;&nbsp;&nbsp;最小值：-9223372036854775808
+unsigned long: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：8&nbsp;&nbsp;&nbsp;&nbsp;最大值：18446744073709551615&nbsp;&nbsp;&nbsp;&nbsp;最小值：0
+double: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：8&nbsp;&nbsp;&nbsp;&nbsp;最大值：1.79769e+308&nbsp;&nbsp;&nbsp;&nbsp;最小值：2.22507e-308
+long double: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：16&nbsp;&nbsp;&nbsp;&nbsp;最大值：1.18973e+4932&nbsp;&nbsp;&nbsp;&nbsp;最小值：3.3621e-4932
+float: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所占字节数：4&nbsp;&nbsp;&nbsp;&nbsp;最大值：3.40282e+38&nbsp;&nbsp;&nbsp;&nbsp;最小值：1.17549e-38
+size_t: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：8&nbsp;&nbsp;&nbsp;&nbsp;最大值：18446744073709551615&nbsp;&nbsp;&nbsp;&nbsp;最小值：0
+string: &nbsp;&nbsp;&nbsp;&nbsp;所占字节数：24
+type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;************size**************
+</pre>
+<h2 class="tutheader">typedef 声明</h2>
+<p>您可以使用 <b>typedef</b> 为一个已有的类型取一个新的名字。下面是使用 typedef 定义一个新类型的语法：</p>
+<pre>
+typedef type newname; 
+</pre>
+<p>例如，下面的语句会告诉编译器，feet 是 int 的另一个名称：</p>
+<pre>
+typedef int feet;
+</pre>
+<p>现在，下面的声明是完全合法的，它创建了一个整型变量 distance：</p>
+<pre>
+feet distance;
+</pre>
+<h2 class="tutheader">枚举类型</h2>
+<p>枚举类型(enumeration)是C++中的一种派生数据类型，它是由用户定义的若干枚举常量的集合。</p>
+<p>如果一个变量只有几种可能的值，可以定义为枚举(enumeration)类型。所谓"枚举"是指将变量的值一一列举出来，变量的值只能在列举出来的值的范围内。</p>
+<p>创建枚举，需要使用关键字 <b>enum</b>。枚举类型的一般形式为：</p>
+<pre>
+enum 枚举名{ 
+     标识符[=整型常数], 
+     标识符[=整型常数], 
+... 
+    标识符[=整型常数]
+} 枚举变量;
+    
+</pre>
+<p>如果枚举没有初始化, 即省掉"=整型常数"时, 则从第一个标识符开始。</p>
+<p>例如，下面的代码定义了一个颜色枚举，变量 c 的类型为 color。最后，c 被赋值为 "blue"。</p>
+<pre>
+enum color { red, green, blue } c;
+c = blue;
+</pre>
+<p>默认情况下，第一个名称的值为 0，第二个名称的值为 1，第三个名称的值为 2，以此类推。但是，您也可以给名称赋予一个特殊的值，只需要添加一个初始值即可。例如，在下面的枚举中，<b>green</b> 的值为 5。</p>
+<pre>
+enum color { red, green=5, blue };
+</pre>
+<p>在这里，<b>blue</b> 的值为 6，因为默认情况下，每个名称都会比它前面一个名称大 1，但 red 的值依然为 0。</p>
+<br /> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/cplusplus/cpp-comments.html" rel="prev"> C++ 注释</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/cplusplus/cpp-variable-types.html" rel="next"> C++ 变量类型</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">8 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-11618"><span class="comt-f">#8</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;公司软测的女生好凶</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;hui***an@reallytek.com</p></div></div><div class="comt-main" id="div-comment-11618"><p>枚举实例测试：</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+&nbsp;&nbsp;&nbsp;&nbsp;enum days{one, two, three}day;
+&nbsp;&nbsp;&nbsp;&nbsp;day = one;
+&nbsp;&nbsp;&nbsp;&nbsp;switch(day){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case one:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "one" &lt;&lt; endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case two:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "two" &lt;&lt; endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "three" &lt;&lt; endl;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+}
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">公司软测的女生好凶</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;公司软测的女生好凶</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;hui***an@reallytek.com</p></div></span>2年前 (2017-05-03)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12632"><span class="comt-f">#7</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;000</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;000***0.com</p></div></div><div class="comt-main" id="div-comment-12632"><p>枚举类型不一定要在 main 中定义:
+</p><pre>
+#include &lt;iostream&gt;
+using namespace std;
+enum time 
+{ 
+    first,second,
+    third,forth,fifth
+};
+
+int main()
+{
+    enum time a=fifth;
+    if (a==fifth) 
+    {
+        cout &lt;&lt; "Succeed!";
+    }
+    return 0;
+}
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">000</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;000</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;000***0.com</p></div></span>2年前 (2017-06-04)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-15329"><span class="comt-f">#6</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;风写月</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;www***s@qq.com</p></div></div><div class="comt-main" id="div-comment-15329"><p>枚举和switch随便做一个判断名次的举例</p><pre>
+#include&lt;iostream&gt;
+using namespace std;
+
+int  main()
+{
+&nbsp;&nbsp;&nbsp;&nbsp;enum rank
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first,second,third
+&nbsp;&nbsp;&nbsp;&nbsp;};
+
+&nbsp;&nbsp;&nbsp;&nbsp;int nRank=1;
+&nbsp;&nbsp;&nbsp;&nbsp;switch (nRank)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case first:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "第一名";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case second:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "第二名";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case third:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "第三名";
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;// system("pause");
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+}
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">风写月</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;风写月</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;www***s@qq.com</p></div></span>2年前 (2017-07-24)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-25219"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;knight</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;106***3973@qq.com</p></div></div><div class="comt-main" id="div-comment-25219"><p><b>关于 typedef 的几点说明：</b></p><ol><li>typedef 可以声明各种类型名，但不能用来定义变量。用 typedef 可以声明数组类型、字符串类型，使用比较方便。</li><li>用typedef只是对已经存在的类型增加一个类型名，而没有创造新的类型。</li><li>当在不同源文件中用到同一类型数据（尤其是像数组、指针、结构体、共用体等类型数据）时，常用 typedef 声明一些数据类型，把它们单独放在一个头文件中，然后在需要用到它们的文件中用 ＃include 命令把它们包含进来，以提高编程效率。</li><li>使用 typedef 有利于程序的通用与移植。有时程序会依赖于硬件特性，用 typedef 便于移植。</li></ol><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">knight</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;knight</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;106***3973@qq.com</p></div></span>1年前 (2018-03-19)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-25630"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;突然的幸福</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;292***0456@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://baike.baidu.com/item/size_t">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-25630"><p>size_t 在 C 语言中就有了。</p>
+<p>它是一种 <span class="marked">整型</span> 类型，里面保存的是一个整数，就像 int, long 那样。这种整数用来记录一个大小(size)。size_t 的全称应该是 size type，就是说 <span class="marked">一种用来记录大小的数据类型</span>。</p>
+<p>通常我们用 <span class="marked">sizeof(XXX)</span> 操作，这个操作所得到的结果就是 size_t 类型。</p>
+<p>因为 size_t 类型的数据其实是保存了一个整数，所以它也可以做加减乘除，也可以转化为 int 并赋值给 int 类型的变量。</p>
+<p>类似的还有 <strong>wchar_t, ptrdiff_t</strong>。</p>
+<p><strong>wchar_t</strong> 就是 wide char type， 一种用来记录一个宽字符的数据类型 。</p>
+<p>ptrdiff_t 就是 pointer difference type， 一种用来记录两个指针之间的距离的数据类型 。</p>
+<p>通常，size_t 和 ptrdiff_t 都是用 typedef 来实现的。你可能在某个头文件里面找到类似的语句：</p>
+<pre>typedef unsigned int size_t;</pre>
+<p>而 wchar_t 则稍有不同。在一些旧的编译器中，wchar_t 也可能是用 typedef 来实现，但是新的标准中 wchar_t 已经是 C/C++ 语言的关键字，wchar_t 类型的地位已经和 char, int 的地位等同了。</p>
+在标准 C/C++ 的语法中，只有 <strong>int float char bool</strong> 等基本的数据类型，至于 size_t, 或 size_type 都是以后的编程人员为了方便记忆所定义的一些便于理解的由基本数据类型的变体类型。
+<p>例如：<span class="marked">typedef int size_t;</span> 定义了 <strong>size_t</strong> 为整型。</p>
+<pre>int i;                   // 定义一个 int 类型的变量 i
+size_t size=sizeof(i);   // 用 sizeof 操作得到变量i的类型的大小
+// 这是一个size_t类型的值
+// 可以用来对一个size_t类型的变量做初始化
+
+i=(int)size;             // size_t 类型的值可以转化为 int 类型的值
+char c='a';              // c 保存了字符 a，占一个字节
+wchar_t wc=L'a';         // wc 保存了宽字符 a，占两个字节
+// 注意 'a' 表示字符 a，L'a' 表示宽字符 a
+
+int arr[]={1,2,3,4,5};   // 定义一个数组
+int *p1=&amp;arr[0];         // 取得数组中元素的地址，赋值给指针
+int *p2=&amp;arr[3];
+ptrdiff_t diff=p2-p1;    // 指针的减法可以计算两个指针之间相隔的元素个数
+// 所得结果是一个 ptrdiff_t 类型
+
+i=(int)diff;             // ptrdiff_t 类型的值可以转化为 int 类型的值</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">突然的幸福</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;突然的幸福</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;292***0456@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://baike.baidu.com/item/size_t">&nbsp;&nbsp;参考地址</a></p></div></span>12个月前 (03-28)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-28505"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;RealRookie</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;105***0686@qq.com</p></div></div><div class="comt-main" id="div-comment-28505"><p>1. 每个枚举元素在声明时被分配一个整型值，默认从 0 开始，逐个加 1。</p>
+<pre>#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+  enum Weekend{Zero,One,Two,Three,Four};
+  int a,b,c,d,e;
+  a=Zero;
+  b=One;
+  c=Two;
+  d=Three;
+  e=Four;
+  cout&lt;&lt;a&lt;&lt;","&lt;&lt;b&lt;&lt;","&lt;&lt;c&lt;&lt;","&lt;&lt;d&lt;&lt;","&lt;&lt;e&lt;&lt;endl;
+  return 0;
+}</pre>
+<p>2. 也可以在定义枚举类型时对枚举元素赋值，此时，赋值的枚举值为所赋的值，而其他没有赋值的枚举值在为前一个枚举值加 1。</p>
+<pre>#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+  enum Weekend{Zero,One,Two=555,Three,Four};
+  int a,b,c,d,e;
+  a=Zero;
+  b=One;
+  c=Two;
+  d=Three;
+  e=Four;
+  cout&lt;&lt;a&lt;&lt;","&lt;&lt;b&lt;&lt;","&lt;&lt;c&lt;&lt;","&lt;&lt;d&lt;&lt;","&lt;&lt;e&lt;&lt;endl;
+  return 0;
+}</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">RealRookie</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;RealRookie</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;105***0686@qq.com</p></div></span>9个月前 (06-18)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-33980"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Alvin</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;xix***aha.2008@163.com</p></div></div><div class="comt-main" id="div-comment-33980"><p><strong>typedef 与 #define 的区别</strong></p>
+<p><strong>1. 执行时间不同</strong></p>
+<p>关键字 typedef 在编译阶段有效，由于是在编译阶段，因此 typedef 有类型检查的功能。</p>
+<p>#define 则是宏定义，发生在预处理阶段，也就是编译之前，它只进行简单而机械的字符串替换，而不进行任何检查。</p>
+<p>【例1.1】typedef 会做相应的类型检查：</p>
+<pre>typedef unsigned int UINT;
+ 
+void func()
+{
+    UINT value = "abc"; // error C2440: 'initializing' : cannot convert from 'const char [4]' to 'UINT'
+    cout &lt;&lt; value &lt;&lt; endl;
+}</pre>
+<p>【例1.2】#define不做类型检查：</p>
+<pre>// #define用法例子：
+#define f(x) x*x
+int main()
+{
+    int a=6, b=2, c;
+    c=f(a) / f(b);
+    printf("%d\n", c);
+    return 0;
+}</pre>
+<p>程序的输出结果是: 36，根本原因就在于 #define 只是简单的字符串替换。</p>
+<p><strong>2、功能有差异</strong></p>
+<p>typedef 用来定义类型的别名，定义与平台无关的数据类型，与 struct 的结合使用等。</p>
+<p>#define 不只是可以为类型取别名，还可以定义常量、变量、编译开关等。</p>
+<p><strong>3、作用域不同</strong></p>
+<p>#define 没有作用域的限制，只要是之前预定义过的宏，在以后的程序中都可以使用。</p>
+<p>而 typedef 有自己的作用域。</p>
+<p>【例3.1】没有作用域的限制，只要是之前预定义过就可以</p>
+<pre>void func1()
+{
+    #define HW "HelloWorld";
+}
+ 
+void func2()
+{
+    string str = HW;
+    cout &lt;&lt; str &lt;&lt; endl;
+}</pre>
+<p>【例3.2】而typedef有自己的作用域</p>
+<pre>void func1()
+{
+    typedef unsigned int UINT;
+}
+ 
+void func2()
+{
+    UINT uValue = 5;//error C2065: 'UINT' : undeclared identifier
+}</pre>
+<p>【例3.3】</p>
+<pre>class A
+{
+    typedef unsigned int UINT;
+    UINT valueA;
+    A() : valueA(0){}
+};
+ 
+class B
+{
+    UINT valueB;
+    //error C2146: syntax error : missing ';' before identifier 'valueB'
+    //error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+};</pre>
+<p>上面例子在B类中使用UINT会出错，因为UINT只在类A的作用域中。此外，在类中用typedef定义的类型别名还具有相应的访问权限，【例3.4】：</p>
+<pre>class A
+{
+    typedef unsigned int UINT;
+    UINT valueA;
+    A() : valueA(0){}
+};
+ 
+void func3()
+{
+    A::UINT i = 1;
+    // error C2248: 'A::UINT' : cannot access private typedef declared in class 'A'
+}</pre>
+<p>而给UINT加上public访问权限后，则可编译通过。</p>
+<p>【例3.5】：</p>
+<pre>class A
+{
+public:
+    typedef unsigned int UINT;
+    UINT valueA;
+    A() : valueA(0){}
+};
+ 
+void func3()
+{
+    A::UINT i = 1;
+    cout &lt;&lt; i &lt;&lt; endl;
+}</pre>
+<p><strong>4、对指针的操作</strong></p>
+<p>二者修饰指针类型时，作用不同。</p>
+<pre>typedef int * pint;
+#define PINT int *
+ 
+int i1 = 1, i2 = 2;
+ 
+const pint p1 = &amp;i1;    //p不可更改，p指向的内容可以更改，相当于 int * const p;
+const PINT p2 = &amp;i2;    //p可以更改，p指向的内容不能更改，相当于 const int *p；或 int const *p；
+ 
+pint s1, s2;    //s1和s2都是int型指针
+PINT s3, s4;    //相当于int * s3，s4；只有一个是指针。
+ 
+void TestPointer()
+{
+    cout &lt;&lt; "p1:" &lt;&lt; p1 &lt;&lt; "  *p1:" &lt;&lt; *p1 &lt;&lt; endl;
+    //p1 = &amp;i2; //error C3892: 'p1' : you cannot assign to a variable that is const
+    *p1 = 5;
+    cout &lt;&lt; "p1:" &lt;&lt; p1 &lt;&lt; "  *p1:" &lt;&lt; *p1 &lt;&lt; endl;
+ 
+    cout &lt;&lt; "p2:" &lt;&lt; p2 &lt;&lt; "  *p2:" &lt;&lt; *p2 &lt;&lt; endl;
+    //*p2 = 10; //error C3892: 'p2' : you cannot assign to a variable that is const
+    p2 = &amp;i1;
+    cout &lt;&lt; "p2:" &lt;&lt; p2 &lt;&lt; "  *p2:" &lt;&lt; *p2 &lt;&lt; endl;
+}</pre>
+<p>结果：</p>
+<pre>p1:00EFD094  *p1:1
+p1:00EFD094  *p1:5
+p2:00EFD098  *p2:2
+p2:00EFD094  *p2:5</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Alvin</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Alvin</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;xix***aha.2008@163.com</p></div></span>7个月前 (08-13)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-34597"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;pjs9115916</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;pan***ongcumt@126.com</p></div></div><div class="comt-main" id="div-comment-34597">还可以用 typedef 来定义与平台无关的类型。
+<p>比如定义一个叫 FALSE 的浮点类型，在目标平台一上，让它表示最高精度的类型为：</p>
+<pre>typedef long double FALSE; </pre>
+<p>在不支持 long double 的平台二上，改为：</p>
+<pre>typedef double FALSE; </pre>
+<p>在连 double 都不支持的平台三上，改为：</p>
+<pre>typedef float FALSE; </pre>
+<p>也就是说，当跨平台时，只要改下 typedef 本身就行，不用对其他源码做任何修改。</p>
+<p>标准库就广泛使用了这个技巧，比如 size_t。</p>
+<p>另外，因为 typedef 是定义了一种类型的新别名，不是简单的字符串替换，所以它比宏来得稳健（虽然用宏有时也可以完成以上的用途）。</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">pjs9115916</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;pjs9115916</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;pan***ongcumt@126.com</p></div></span>7个月前 (08-30)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='11171' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  11171;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 11171;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

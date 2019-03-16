@@ -1,0 +1,925 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>设计模式简介 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="design-pattern-intro.html" />
+<meta name="keywords" content="设计模式简介">
+<meta name="description" content="设计模式简介   设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。 设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/design-pattern/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">设计模式 <a data-cate="145" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="145" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">
+设计模式 </a>
+<a target="_top" title="设计模式简介" href="design-pattern-intro.html">
+设计模式简介 </a>
+<a target="_top" title="工厂模式" href="http://www.runoob.com/design-pattern/factory-pattern.html">
+工厂模式 </a>
+<a target="_top" title="抽象工厂模式" href="http://www.runoob.com/design-pattern/abstract-factory-pattern.html">
+抽象工厂模式 </a>
+<a target="_top" title="单例模式" href="http://www.runoob.com/design-pattern/singleton-pattern.html">
+单例模式 </a>
+<a target="_top" title="建造者模式" href="http://www.runoob.com/design-pattern/builder-pattern.html">
+建造者模式 </a>
+<a target="_top" title="原型模式" href="http://www.runoob.com/design-pattern/prototype-pattern.html">
+原型模式 </a>
+<a target="_top" title="适配器模式" href="http://www.runoob.com/design-pattern/adapter-pattern.html">
+适配器模式 </a>
+<a target="_top" title="桥接模式" href="http://www.runoob.com/design-pattern/bridge-pattern.html">
+桥接模式 </a>
+<a target="_top" title="过滤器模式" href="http://www.runoob.com/design-pattern/filter-pattern.html">
+过滤器模式 </a>
+<a target="_top" title="组合模式" href="http://www.runoob.com/design-pattern/composite-pattern.html">
+组合模式 </a>
+<a target="_top" title="装饰器模式" href="http://www.runoob.com/design-pattern/decorator-pattern.html">
+装饰器模式 </a>
+<a target="_top" title="外观模式" href="http://www.runoob.com/design-pattern/facade-pattern.html">
+外观模式 </a>
+<a target="_top" title="享元模式" href="http://www.runoob.com/design-pattern/flyweight-pattern.html">
+享元模式 </a>
+<a target="_top" title="代理模式" href="http://www.runoob.com/design-pattern/proxy-pattern.html">
+代理模式 </a>
+<a target="_top" title="责任链模式" href="http://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html">
+责任链模式 </a>
+<a target="_top" title="命令模式" href="http://www.runoob.com/design-pattern/command-pattern.html">
+命令模式 </a>
+<a target="_top" title="解释器模式" href="http://www.runoob.com/design-pattern/interpreter-pattern.html">
+解释器模式 </a>
+<a target="_top" title="迭代器模式" href="http://www.runoob.com/design-pattern/iterator-pattern.html">
+迭代器模式 </a>
+<a target="_top" title="中介者模式" href="http://www.runoob.com/design-pattern/mediator-pattern.html">
+中介者模式 </a>
+<a target="_top" title="备忘录模式" href="http://www.runoob.com/design-pattern/memento-pattern.html">
+备忘录模式 </a>
+<a target="_top" title="观察者模式" href="http://www.runoob.com/design-pattern/observer-pattern.html">
+观察者模式 </a>
+<a target="_top" title="状态模式" href="http://www.runoob.com/design-pattern/state-pattern.html">
+状态模式 </a>
+<a target="_top" title="空对象模式" href="http://www.runoob.com/design-pattern/null-object-pattern.html">
+空对象模式 </a>
+<a target="_top" title="策略模式" href="http://www.runoob.com/design-pattern/strategy-pattern.html">
+策略模式 </a>
+<a target="_top" title="模板模式" href="http://www.runoob.com/design-pattern/template-pattern.html">
+模板模式 </a>
+<a target="_top" title="访问者模式" href="http://www.runoob.com/design-pattern/visitor-pattern.html">
+访问者模式 </a>
+<a target="_top" title="MVC 模式" href="http://www.runoob.com/design-pattern/mvc-pattern.html">
+MVC 模式 </a>
+<a target="_top" title="业务代表模式" href="http://www.runoob.com/design-pattern/business-delegate-pattern.html">
+业务代表模式 </a>
+<a target="_top" title="组合实体模式" href="http://www.runoob.com/design-pattern/composite-entity-pattern.html">
+组合实体模式 </a>
+<a target="_top" title="数据访问对象模式" href="http://www.runoob.com/design-pattern/data-access-object-pattern.html">
+数据访问对象模式 </a>
+<a target="_top" title="前端控制器模式" href="http://www.runoob.com/design-pattern/front-controller-pattern.html">
+前端控制器模式 </a>
+<a target="_top" title="拦截过滤器模式" href="http://www.runoob.com/design-pattern/intercepting-filter-pattern.html">
+拦截过滤器模式 </a>
+<a target="_top" title="服务定位器模式" href="http://www.runoob.com/design-pattern/service-locator-pattern.html">
+服务定位器模式 </a>
+<a target="_top" title="传输对象模式" href="http://www.runoob.com/design-pattern/transfer-object-pattern.html">
+传输对象模式 </a>
+<br><h2 class="left">设计模式<span class="left_h2">其他</span></h2> <a target="_top" title="设计模式资源" href="http://www.runoob.com/design-pattern/design-pattern-resources.html">
+设计模式资源 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html" rel="prev"> 设计模式</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/design-pattern/factory-pattern.html" rel="next"> 工厂模式</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>设计模式简介</h1>
+<div class="tutintro">
+<p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。</p>
+<p>设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理地运用设计模式可以完美地解决很多问题，每种模式在现实中都有相应的原理来与之对应，每种模式都描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是设计模式能被广泛应用的原因。</p>
+</div>
+<h2 class="tutheader">什么是 GOF（四人帮，全拼 Gang of Four）？</h2>
+<p>在 1994 年，由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides 四人合著出版了一本名为 <b>Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用的面向对象软件元素）</b> 的书，该书首次提到了软件开发中设计模式的概念。</p>
+<p>四位作者合称 <b>GOF（四人帮，全拼 Gang of Four）</b>。他们所提出的设计模式主要是基于以下的面向对象设计原则。</p>
+<ul class="list">
+<li>对接口编程而不是对实现编程。</li>
+<li>优先使用对象组合而不是继承。</li>
+</ul>
+<h2 class="tutheader">设计模式的使用</h2>
+<p>设计模式在软件开发中的两个主要用途。</p>
+<h3>开发人员的共同平台</h3>
+<p>设计模式提供了一个标准的术语系统，且具体到特定的情景。例如，单例设计模式意味着使用单个对象，这样所有熟悉单例设计模式的开发人员都能使用单个对象，并且可以通过这种方式告诉对方，程序使用的是单例模式。</p>
+<h3>最佳的实践</h3>
+<p>设计模式已经经历了很长一段时间的发展，它们提供了软件开发过程中面临的一般问题的最佳解决方案。学习这些模式有助于经验不足的开发人员通过一种简单快捷的方式来学习软件设计。</p>
+<h2 class="tutheader">设计模式的类型</h2>
+<p>根据设计模式的参考书 <b>Design Patterns - Elements of Reusable Object-Oriented Software（中文译名：设计模式 - 可复用的面向对象软件元素）</b> 中所提到的，总共有 23 种设计模式。这些模式可以分为三大类：创建型模式（Creational Patterns）、结构型模式（Structural Patterns）、行为型模式（Behavioral Patterns）。当然，我们还会讨论另一类设计模式：J2EE 设计模式。</p>
+<table class="reference notranslate">
+<tr><th style="width:5%;">序号</th><th style="width:45%;">模式 &amp; 描述</th><th>包括</th></tr>
+<tr><td>1</td><td><b>创建型模式</b><br />这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。</td>
+<td>
+<ul>
+<li>工厂模式（Factory Pattern）</li>
+<li>抽象工厂模式（Abstract Factory Pattern）</li>
+<li>单例模式（Singleton Pattern）</li>
+<li>建造者模式（Builder Pattern）</li>
+<li>原型模式（Prototype Pattern）</li>
+</ul>
+</td>
+</tr>
+<tr><td>2</td><td><b>结构型模式</b><br />这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。</td>
+<td>
+<ul>
+<li>适配器模式（Adapter Pattern）</li>
+<li>桥接模式（Bridge Pattern）</li>
+<li>过滤器模式（Filter、Criteria Pattern）</li>
+<li>组合模式（Composite Pattern）</li>
+<li>装饰器模式（Decorator Pattern）</li>
+<li>外观模式（Facade Pattern）</li>
+<li>享元模式（Flyweight Pattern）</li>
+<li>代理模式（Proxy Pattern）</li>
+</ul>
+</td>
+</tr>
+<tr><td>3</td><td><b>行为型模式</b><br />这些设计模式特别关注对象之间的通信。</td>
+<td>
+<ul>
+<li>责任链模式（Chain of Responsibility Pattern）</li>
+<li>命令模式（Command Pattern）</li>
+<li>解释器模式（Interpreter Pattern）</li>
+<li>迭代器模式（Iterator Pattern）</li>
+<li>中介者模式（Mediator Pattern）</li>
+<li>备忘录模式（Memento Pattern）</li>
+<li>观察者模式（Observer Pattern）</li>
+<li>状态模式（State Pattern）</li>
+<li>空对象模式（Null Object Pattern）</li>
+<li>策略模式（Strategy Pattern）</li>
+<li>模板模式（Template Pattern）</li>
+<li>访问者模式（Visitor Pattern）</li>
+</ul>
+</td>
+</tr>
+<tr><td>4</td><td><b>J2EE 模式</b><br />这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。</td>
+<td>
+<ul>
+<li>MVC 模式（MVC Pattern）</li>
+<li>业务代表模式（Business Delegate Pattern）</li>
+<li>组合实体模式（Composite Entity Pattern）</li>
+<li>数据访问对象模式（Data Access Object Pattern）</li>
+<li>前端控制器模式（Front Controller Pattern）</li>
+<li>拦截过滤器模式（Intercepting Filter Pattern）</li>
+<li>服务定位器模式（Service Locator Pattern）</li>
+<li>传输对象模式（Transfer Object Pattern）</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>下面用一个图片来整体描述一下设计模式之间的关系：</p>
+<p><img class="magplus" title="设计模式之间的关系" src="http://www.runoob.com/wp-content/uploads/2014/08/the-relationship-between-design-patterns.jpg" alt="设计模式之间的关系" width="700" height="840" /></p>
+<h2 class="tutheader">设计模式的六大原则</h2>
+<p><span><strong>1、开闭原则（Open Close Principle）</strong></span></p>
+<p>开闭原则的意思是：<strong>对扩展开放，对修改关闭</strong>。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。简言之，是为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
+<p><span><strong>2、里氏代换原则（Liskov Substitution Principle）</strong></span></p>
+<p>里氏代换原则是面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏代换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
+<p><span><strong>3、依赖倒转原则（Dependence Inversion Principle）</strong></span></p>
+<p>这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。</p>
+<p><span><strong>4、接口隔离原则（Interface Segregation Principle）</strong></span></p>
+<p>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。它还有另外一个意思是：降低类之间的耦合度。由此可见，其实设计模式就是从大型软件架构出发、便于升级和维护的软件设计思想，它强调降低依赖，降低耦合。</p>
+<p><span><strong>5、迪米特法则，又称最少知道原则（Demeter Principle）</strong></span></p>
+<p>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
+<p><span><strong>6、合成复用原则（Composite Reuse Principle）</strong></span></p>
+<p>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</p> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html" rel="prev"> 设计模式</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/design-pattern/factory-pattern.html" rel="next"> 工厂模式</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">5 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-14053"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;漂流石</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;296***87@qq.com</p></div></div><div class="comt-main" id="div-comment-14053"><p>开闭原则：实现热插拔，提高扩展性。</p><p>里氏代换原则：实现抽象的规范，实现子父类互相替换；</p><p>依赖倒转原则：针对接口编程，实现开闭原则的基础；</p><p>接口隔离原则：降低耦合度，接口单独设计，互相隔离；</p><p>迪米特法则，又称不知道原则：功能模块尽量独立；</p><p>合成复用原则：尽量使用聚合，组合，而不是继承；</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">漂流石</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;漂流石</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;296***87@qq.com</p></div></span>2年前 (2017-07-14)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-18669"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Java就是要搞对象啊</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;107***9244@qq.com</p></div></div><div class="comt-main" id="div-comment-18669"><ol><li><b>创建型模式--&gt;</b>对象怎么来</li><li><b>结构型模式--&gt;</b>对象和谁有关</li><li><b>行为型模式--&gt;</b>对象与对象在干嘛</li><li><b>J2EE 模式--&gt;</b>对象合起来要干嘛（表现层,文中表示层个人感觉用的不准确）java是面向对象的语言,所以要搞好对象,模式（套路）就是用来更加好的搞对象滴。</li></ol><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Java就是要搞对象啊</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Java就是要搞对象啊</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;107***9244@qq.com</p></div></span>1年前 (2017-10-11)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-28130"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;tech_monkey</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;tec***onkey@hotmail.com</p></div></div><div class="comt-main" id="div-comment-28130"><p>在面向对象设计模式中存在的是五大原则和一个法则。</p>
+<p><strong>五大原则:</strong></p>
+<ul><li>
+单一职责 SRP(Single Responsibilities Principle)
+</li><li>
+开闭原则 OCP(Open Close Principle)
+</li><li>
+里氏代换 LSK(Liskov Substitution Principle)
+</li><li>
+倒转依赖 DIP(Dependence Inversion Principle)
+</li><li>
+接口隔离 ISP(Interface Segregation Principle)
+</li></ul>
+<p><strong一>个法则是：迪米特 DP (Demeter Principle)</strong></p>
+<p>迪米特法则是管理中涉及的一个术语，被引用到面向对象术语体系中，又称知识最少原则。Least Knowledge Principle正儿八经的翻译是就是知识最少原则，不知道哪个英文水平不济的把knowledge翻译成了知道，汗语中知道是动词没有名词的意思，而knowledge译成见闻也比相对好一点。虽然现在都知道“知道”的意思。另外，在一些台系的书中迪米特法则也被翻译成“德默特尔法则”，当你看到这个时不要奇怪——音译本就会出现多个译法的。</p>
+<p>其实在清华出版社中软件设计师书中，迪米特虽然被称为法则，但其与其他五大原则是同样的重要的，所以有些人会混称为面向对象六大原则，事实上在软件设计师考试中经常使用的面向对象五大原则。按清华出版社软件设计师体系来说，面向对象五大原则和一个法则（迪法特法则）。其他时候程序员也称为六大原则。</p>
+<p>在MSDN类库设计原则中提到“尽量少使用继承，而使用组合与聚合“，但其并没有说明原因。微软的惯例就是如此，只告诉你应该如何，不应该如何，尽量如何或尽量不如何，从来不会告诉你原则。在面向对象设计中（清华出版社软件设计师一书中）讲到五大原则与法则共同的目标就是高内聚低耦合的代码。</p>
+<p>其中高内聚指的是类内成员之间的关系，而低耦合则是类关系。要求就是类内各成员的关系尽量高，并按照一定的方式对内聚性进行排序。而讲到耦合关系，按照一定的方式也进行了排序；也就是内聚度与耦合度对这种关系进行了一定程度上量化。所以此处提到了继承——继承是耦合度最高的一种关系。所以提示了一句话是尽量使用组合或聚合的方式来代替继承，或者使用最简单的继承树关系，当然也提示了继承应该继承于抽象类，避免继承实现类。这个是对高内聚低耦合的一个补充说明，而且没有绝对的定义。所以并不是几大原则之中的事。而且有前提前条件，只是避免继承普通类！所以合成复用原则完全是某个人背完了原则忘记了而瞎编出来的（只是会背不会用或不理解，当然容易忘记了）！</p>
+<p>当然，单一职责原则其实就是为了提高内聚性一个说明，它的目的就保证了内聚性，只有一个引起变化的原因，说明类内成员之间的关系较高，内聚性不强的就不要写到一个类中。这就是单一职责的真正用意。事实上很多程序员爱写大类超多成员或爱用静态成员，都是对内聚性的一种破坏——所以这些人很难想起来还有一个单一职责的原则！慢慢的这个原则就是被忘记了！</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">tech_monkey</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;tech_monkey</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;tec***onkey@hotmail.com</p></div></span>9个月前 (06-06)</div></div></li>
+<li class="comment byuser comment-author-krion odd alt thread-odd thread-alt depth-1" id="comment-39073"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;krion</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;a92***5081@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.cnblogs.com/chenqionghe/p/4749996.html">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-39073"><h2 data-title>接口隔离原则(ISP)</h2>
+<p>设计应用程序的时候，如果一个模块包含多个子模块，那么我们应该小心对模块做出抽象。设想该模块由一个类实现，我们可以把系统抽象成一个接口。但是要添加一个新的模块扩展程序时，如果要添加的模块只包含原系统中的一些子模块，那么系统就会强迫我们实现接口中的所有方法，并且清寒要编写一些哑方法。这样的接口被称为肚胖接口或者被污染的接口，使用这样的接口将会给系统引入一些不当的行为，这些不当的行为可能导致不正确的结果，也可能导入资源浪费。</p>
+<h3>1.接口隔离</h3>
+<p>接口隔离原则（Interface Segregation Principle, ISP）表明客户端不应该被强迫实现一些他们不会使用的接口，应该把胖接口中的方法分组，然后用多个接口替代它，每个接口服务于一个子模块。简单地说，就是使用多个专门的接口比使用单个接口要好很多。</p>
+<p>ISP 的主要观点如下：</p>
+<p><strong>1）一个类对另外一个类的依赖性应当是建立在最小的接口上的。</strong></p>
+<p>ISP 可以达到不强迫客户（接口的使用方法）依赖于他们不用的方法，接口的实现类应该只呈现为单一职责的角色（遵循 SRP 原则）
+ISP 还可以降低客户之间的相互影响---当某个客户要求提供新的职责（需要变化）而迫使接口发生改变时，影响到其他客户程序的可能性最小。</p>
+<p><strong>2）客户端程序不应该依赖它不需要的接口方法（功能）。</strong></p>
+<p>客户端程序就应该依赖于它不需要的接口方法（功能），那依赖于什么？依赖它所需要的接口。客户端需要什么接口就是提供什么接口，把不需要的接口剔除，这就要求对接口进行细化，保证其纯洁性。</p>
+<p>比如在继承时，由于子类将继承父类中的所有可用方法；而父类中的某些方法，在子类中可能并不需要。例如，普通员工和经理都继承自雇员这个接口，员工需要每天写工作日志，而经理不需要。因此不能用工作日志来卡经理，也就是经理不应该依赖于提交工作日志这个方法。</p>
+<p>可以看出，ISP和SRP在概念上是有一定交叉的。事实上，很多设计模式在概念上都有交叉，甚至你很难判断一段代码属于哪一种设计模式。</p>
+<p>ISP强调的是接口对客户端的承诺越少越好，并且要做到专一。当某个客户程序的要求发生变化，而迫使接口发生改变时，影响到其他客户程序的可能性小。这实际上就是接口污染的问题。</p>
+<h3>2.对接口的污染</h3>
+<p>过于臃肿的接口设计是对接口的污染。所谓的接口污染就是为接口添加不必要的职责，如果开发人员在接口中增加一个新功能的目的只是减少接口实现类的数目，则此设计将导致接口被不断地“污染”并“变胖”。</p>
+<p>“接口隔离”其实就是定制化服务设计的原则。使用接口的多重继承实现对不同的接口的组合，从而对外提供组合功能---达到“按需提供服务”。
+接口即要拆，但也不能拆得太细，这就得有个标准，这就是高内聚。接口应该具备一些基本的功能，能独一完成一个基本的任务。</p>
+<p>在实际应用中，会遇到如下问题：比如，我需要一个能适配多种类型数据库的 DAO 实现，那么首先应实现一个数据库操作的接口，其中规定一些数据库操作的基本方法，比如连接数据库、增删改查、关闭数据库等。这是一个最少功能的接口。对于一些 MySQL 中特有的而其他数据库里并不存在的或性质不同的方法，如 PHP 里可能用到的 MySQL 的 pconnect 方法，其他数据库里并不存在和这个方法相同的概念，这个方法也就不应该出现在这个基本的接口里，那这个基本的接口应该有哪些基本的方法呢？PDO已经告诉你了。</p>
+<p>PDO 是一个抽象的数据库接口层，它告诉我们一个基本的数据库操作接口应该实现哪些基本的方法。接口是一个高层次的抽象，所以接口里的方法都应该是通用的、基本的、不易变化的。</p>
+<p>还有一个问题，那些特有的方法应该怎么实现？根据ISP原则，这些方法可以在别一个接口中存在，让这个“异类”同时实现这两个接口。</p>
+<p>对于接口的污染，可以考虑这两条处理方式：</p>
+<ul><li>
+利用委托分离接口。</li><li>
+利用多继承分离接口。</li></ul>
+<p>委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理，如策略模式、代理模式等中都应用到了委托的概念。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/39073">krion</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;krion</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;a92***5081@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.cnblogs.com/chenqionghe/p/4749996.html">&nbsp;&nbsp;参考地址</a></p></div></span>2个月前 (01-17)</div></div></li>
+<li class="comment byuser comment-author-krion even thread-even depth-1" id="comment-39075"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;krion</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;a92***5081@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.cnblogs.com/jony/articles/1805338.html">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-39075"><h2>设计模式类型事例</h2>
+<h3>1.创建型模式 </h3>
+<p>FACTORY？加工工厂：给它“M4A1”，它给你产把警枪，给它“AK47”，你就端了把匪枪。CS里买枪的程序一定是用这个模式的。</p><p>
+BUILDER？生产流水线：以前是手工业作坊式的人工单个单个的生产零件然后一步一步组装做，好比有了工业革命，现在都由生产流水线代替了。如要造丰田汽车，先制定汽车的构造如由车胎、方向盘、发动机组成。再以此构造标准生产丰田汽车的车胎、方向盘、发动机。然后进行组装。最后得到丰田汽车；</p><p>
+PROTOTYPE？印刷术的发明：以前只能临贴抄写费时费力，效率极低，有了印刷术，突突的； </p><p>
+SINGLETON？确保唯一：不是靠new的，是靠instance的，而且要instance地全世界就这么一个实例(这可怜的类，也配叫“类”)。 看SingleTon类代码。
+</p>
+<h3>2.结构型模式 </h3><p>
+ADAPTER？翻译官：胡哥只会汉语，布什只会美语，翻译官既通汉又通美，Adapter了 ；</p><p>
+DECORATOR？装饰：名字可以标识一个人，为了表示对一个人的尊重，一般会称其为“尊敬的”，有了装饰，好看多了； </p><p>
+BRIDGE？白马非马：马之颜色有黑白，马之性别有公母。我们说"这是马"太抽象，说"这是黑色的公马"又太死板，只有将颜色与性别和马动态组合，"这是（黑色的或白色的）（公或母）马"才显得灵活而飘逸，如此bridge模式精髓得矣。 </p><p>
+COMPOSITE？大家族：子又生孙，孙又生子，子子孙孙，无穷尽也，将众多纷杂的人口组织成一个按辈分排列的大家族即是此模式的实现； </p><p>
+FACADE？求同存异：高中毕业需读初中和高中，博士也需读初中和高中，因此国家将初中和高中普及成九年制义务教育； </p><p>
+FLYWEIGHT？一劳永逸：认识三千汉字，可以应付日常读书与写字，可见头脑中存在这个汉字库的重要； </p><p>
+PROXY？垂帘听政：犹如清朝康熙年间的四大府臣，很多权利不在皇帝手里，必须通过辅佐大臣去办；</p>
+<h3>3.行为模式 </h3><p>
+CHAIN OF RESPONSIBLEITY？租房：以前为了找房到处打听，效率低且找不到好的房源。现在有了房屋中介，于是向房屋中介提出租房请求，中介提供一个合适的房源，满意则不再请求，不满意继续看房，直到满意为止； </p><p>
+COMMAND？借刀杀人：以前是想杀谁就杀，但一段时间后领悟到，长此以往必将结仇太多，于是假手他人，挑拨他人之间的关系从而达到自己的目的； </p><p>
+INTERPRETER？文言文注释：一段文言文，将它翻译成白话文； </p><p>
+ITERATOR？赶尽杀绝：一个一个的搜索，绝不放掉一个； </p><p>
+MEDIATOR？三角债：本来千头万绪的债务关系，忽出来一中介，包揽其一切，于是三角关系变成了独立的三方找第四方中介的关系；</p><p>
+MEMENTO？有福同享：我有多少，你就有多少； </p><p>
+OBSERVER？看守者：一旦被看守者有什么异常情况，定会及时做出反应； </p><p>
+STATE？进出自由：如一扇门，能进能出，如果有很多人随时进进出出必定显得杂乱而安全，如今设一保安限制其进出，如此各人进出才显得规范； </p><p>
+STRATEGY？久病成良医：如人生病可以有各种症状，但经过长期摸索，就可以总结出感冒、肺病、肝炎等几种； </p><p>
+TEMPLATE METHOD？理论不一定要实践：教练的学生会游泳就行了，至于教练会不会则无关紧要； </p><p>
+VISITOR？依法治罪：因张三杀人要被处死，李四偷窃要被罚款。由此势必制定处罚制度，故制定法律写明杀人、放火、偷窃等罪要受什么处罚，经通过后须变动要小。今后有人犯罪不管是谁，按共条例处罚即是，这就是访问者模式诞生的全过程。 </p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">krion</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;krion</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;a92***5081@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://www.cnblogs.com/jony/articles/1805338.html">&nbsp;&nbsp;参考地址</a></p></div></span>2个月前 (01-17)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='8901' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  8901;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 8901;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

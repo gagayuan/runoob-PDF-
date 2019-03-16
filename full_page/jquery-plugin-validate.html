@@ -1,0 +1,1956 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>jQuery Validate | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="jquery-plugin-validate.html" />
+<meta name="keywords" content="jQuery Validate">
+<meta name="description" content="jQuery Validate  jQuery Validate 插件为表单提供了强大的验证功能，让客户端表单验证变得更简单，同时提供了大量的定制选项，满足应用程序各种需求。该插件捆绑了一套有用的验证方法，包括 URL 和电子邮件验证，同时提供了一个用来编写用户自定义方法的 API。所有的捆绑方法默认使用英语作为错误信息，且已翻译成其他 37 种语言。 该插件是由 Jörn Zaefferer 编写和维护的，他是 jQuery 团队的一..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/jquery/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">jQuery 教程 <a data-cate="9" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="9" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">
+jQuery 教程 </a>
+<a target="_top" title="jQuery 简介" href="http://www.runoob.com/jquery/jquery-intro.html">
+jQuery 简介 </a>
+<a target="_top" title="jQuery 安装" href="http://www.runoob.com/jquery/jquery-install.html">
+jQuery 安装 </a>
+<a target="_top" title="jQuery 语法" href="http://www.runoob.com/jquery/jquery-syntax.html">
+jQuery 语法 </a>
+<a target="_top" title="jQuery 选择器" href="http://www.runoob.com/jquery/jquery-selectors.html">
+jQuery 选择器 </a>
+<a target="_top" title="jQuery 事件" href="http://www.runoob.com/jquery/jquery-events.html">
+jQuery 事件 </a>
+<br><h2 class="left"><span class="left_h2">jQuery 效果</span></h2> <a target="_top" title="jQuery 效果 &#8211; 隐藏和显示" href="http://www.runoob.com/jquery/jquery-hide-show.html">
+jQuery 隐藏/显示 </a>
+<a target="_top" title="jQuery 效果 &#8211; 淡入淡出" href="http://www.runoob.com/jquery/jquery-fade.html">
+jQuery 淡入淡出 </a>
+<a target="_top" title="jQuery 效果 &#8211; 滑动" href="http://www.runoob.com/jquery/jquery-slide.html">
+jQuery 滑动 </a>
+<a target="_top" title="jQuery 效果 &#8211; 动画" href="http://www.runoob.com/jquery/jquery-animate.html">
+jQuery 动画 </a>
+<a target="_top" title="jQuery 效果 &#8211; 停止动画" href="http://www.runoob.com/jquery/jquery-stop.html">
+jQuery 停止动画 </a>
+<a target="_top" title="jQuery Callback 方法" href="http://www.runoob.com/jquery/jquery-callback.html">
+jQuery Callback </a>
+<a target="_top" title="jQuery 链" href="http://www.runoob.com/jquery/jquery-chaining.html">
+jQuery 链 </a>
+<br><h2 class="left"><span class="left_h2">jQuery HTML</span></h2> <a target="_top" title="jQuery 获取内容和属性" href="http://www.runoob.com/jquery/jquery-dom-get.html">
+jQuery 捕获 </a>
+<a target="_top" title="jQuery 设置内容和属性" href="http://www.runoob.com/jquery/jquery-dom-set.html">
+jQuery 设置 </a>
+<a target="_top" title="jQuery 添加元素" href="http://www.runoob.com/jquery/jquery-dom-add.html">
+jQuery 添加元素 </a>
+<a target="_top" title="jQuery 删除元素" href="http://www.runoob.com/jquery/jquery-dom-remove.html">
+jQuery 删除元素 </a>
+<a target="_top" title="jQuery 获取并设置 CSS 类" href="http://www.runoob.com/jquery/jquery-css-classes.html">
+jQuery CSS 类 </a>
+<a target="_top" title="jQuery css() 方法" href="http://www.runoob.com/jquery/jquery-css.html">
+jQuery css() 方法 </a>
+<a target="_top" title="jQuery 尺寸" href="http://www.runoob.com/jquery/jquery-dimensions.html">
+jQuery 尺寸 </a>
+<br><h2 class="left"><span class="left_h2">jQuery 遍历</span></h2> <a target="_top" title="jQuery 遍历" href="http://www.runoob.com/jquery/jquery-traversing.html">
+jQuery 遍历 </a>
+<a target="_top" title="jQuery 遍历 &#8211; 祖先" href="http://www.runoob.com/jquery/jquery-traversing-ancestors.html">
+jQuery 祖先 </a>
+<a target="_top" title="jQuery 遍历 &#8211; 后代" href="http://www.runoob.com/jquery/jquery-traversing-descendants.html">
+jQuery 后代 </a>
+<a target="_top" title="jQuery 遍历 &#8211; 同胞(siblings)" href="http://www.runoob.com/jquery/jquery-traversing-siblings.html">
+jQuery 同胞 </a>
+<a target="_top" title="jQuery 遍历 &#8211; 过滤" href="http://www.runoob.com/jquery/jquery-traversing-filtering.html">
+jQuery 过滤 </a>
+<br><h2 class="left"><span class="left_h2">jQuery Ajax</span></h2> <a target="_top" title="jQuery AJAX 简介" href="http://www.runoob.com/jquery/jquery-ajax-intro.html">
+jQuery AJAX 简介 </a>
+<a target="_top" title="jQuery &#8211; AJAX load() 方法" href="http://www.runoob.com/jquery/jquery-ajax-load.html">
+jQuery load() 方法 </a>
+<a target="_top" title="jQuery &#8211; AJAX get() 和 post() 方法" href="http://www.runoob.com/jquery/jquery-ajax-get-post.html">
+jQuery get()/post() 方法 </a>
+<br><h2 class="left"><span class="left_h2">jQuery 其他</span></h2> <a target="_top" title="jQuery noConflict() 方法" href="http://www.runoob.com/jquery/jquery-noconflict.html">
+jQuery noConflict() 方法 </a>
+<a target="_blank" title="jQuery JSONP" href="http://www.runoob.com/json/json-jsonp.html">jQuery JSONP </a>
+<br><h2 class="left"><span class="left_h2">jQuery 实例</span></h2> <a target="_top" title="jQuery 实例" href="http://www.runoob.com/jquery/jquery-examples.html">
+jQuery 实例 </a>
+<br><h2 class="left"><span class="left_h2">jQuery 参考手册</span></h2> <a target="_top" title="jQuery 选择器" href="http://www.runoob.com/jquery/jquery-ref-selectors.html">
+jQuery 选择器 </a>
+<a target="_top" title="jQuery 事件方法" href="http://www.runoob.com/jquery/jquery-ref-events.html">
+jQuery 事件方法 </a>
+<a target="_top" title="jQuery 效果方法" href="http://www.runoob.com/jquery/jquery-ref-effects.html">
+jQuery 效果方法 </a>
+<a target="_top" title="jQuery HTML / CSS 方法" href="http://www.runoob.com/jquery/jquery-ref-html.html">
+jQuery HTML / CSS 方法 </a>
+<a target="_top" title="jQuery 遍历方法" href="http://www.runoob.com/jquery/jquery-ref-traversing.html">
+jQuery 遍历方法 </a>
+<a target="_top" title="jQuery AJAX 方法" href="http://www.runoob.com/jquery/jquery-ref-ajax.html">
+jQuery AJAX 方法 </a>
+<a target="_top" title="jQuery 杂项方法" href="http://www.runoob.com/jquery/jquery-ref-misc.html">
+jQuery 杂项方法 </a>
+<a target="_top" title="jQuery 属性" href="http://www.runoob.com/jquery/jquery-ref-prop.html">
+jQuery 属性 </a>
+<br><h2 class="left">jQuery <span class="left_h2">插件</span></h2>
+<a target="_top" href="jquery-plugin-validate.html">
+jQuery Validate </a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-accordion.html">
+jQuery Accordion</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-autocomplete.html">
+jQuery Autocomplete</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-message.html">
+jQuery Growl</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-password-validation.html">
+jQuery 密码验证</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-prettydate.html">
+jQuery Prettydate</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-tooltip.html">
+jQuery Tooltip</a>
+<a target="_top" href="http://www.runoob.com/jquery/jquery-plugin-treeview.html">
+jQuery Treeview</a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/jquery/jquery-ref-prop.html" rel="prev"> jQuery 属性</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/jquery/jquery-plugin-accordion.html" rel="next"> jQuery Accordion</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>jQuery <span class="color_h1">Validate</span></h1>
+<div class="tutintro">
+<p>jQuery Validate 插件为表单提供了强大的验证功能，让客户端表单验证变得更简单，同时提供了大量的定制选项，满足应用程序各种需求。该插件捆绑了一套有用的验证方法，包括 URL 和电子邮件验证，同时提供了一个用来编写用户自定义方法的 API。所有的捆绑方法默认使用英语作为错误信息，且已翻译成其他 37 种语言。</p>
+<p>该插件是由 Jörn Zaefferer 编写和维护的，他是 jQuery 团队的一名成员，是 jQuery UI 团队的主要开发人员，是 QUnit 的维护人员。该插件在 2006 年 jQuery 早期的时候就已经开始出现，并一直更新至今。目前版本是 <strong>1.14.0</strong>。</p>
+<p>访问 <a href="http://jqueryvalidation.org/" target="_blank">jQuery Validate 官网</a>，下载最新版的 jQuery Validate 插件。</p>
+<p>菜鸟教程提供的 1.14.0 版本下载地址：<a href="http://static.runoob.com/download/jquery-validation-1.14.0.zip">http://static.runoob.com/download/jquery-validation-1.14.0.zip</a></p>
+</div>
+<h2>导入 js 库（使用菜鸟教程提供的CDN）</h2>
+<pre>
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"&gt;&lt;/script&gt;
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"&gt;&lt;/script&gt;
+</pre>
+<h2>默认校验规则</h2>
+<table class="reference">
+<tr>
+<th width="10%">序号</th>
+<th width="30%">规则</th>
+<th width="60%">描述</th>
+</tr>
+<tr>
+<td>1</td>
+<td>required:true</td>
+<td>必须输入的字段。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>remote:"check.php"</td>
+<td>使用 ajax 方法调用 check.php 验证输入值。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>email:true</td>
+<td>必须输入正确格式的电子邮件。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>url:true</td>
+<td>必须输入正确格式的网址。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>date:true</td>
+<td>必须输入正确格式的日期。日期校验 ie6 出错，慎用。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>dateISO:true</td>
+<td>必须输入正确格式的日期（ISO），例如：2009-06-23，1998/01/22。只验证格式，不验证有效性。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>number:true</td>
+<td>必须输入合法的数字（负数，小数）。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>digits:true</td>
+<td>必须输入整数。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>creditcard:</td>
+<td>必须输入合法的信用卡号。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>equalTo:"#field"</td>
+<td>输入值必须和 #field 相同。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>accept:</td>
+<td>输入拥有合法后缀名的字符串（上传文件的后缀）。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>maxlength:5</td>
+<td>输入长度最多是 5 的字符串（汉字算一个字符）。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>minlength:10</td>
+<td>输入长度最小是 10 的字符串（汉字算一个字符）。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>rangelength:[5,10]</td>
+<td>输入长度必须介于 5 和 10 之间的字符串（汉字算一个字符）。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>range:[5,10]</td>
+<td>输入值必须介于 5 和 10 之间。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>max:5</td>
+<td>输入值不能大于 5。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>min:10</td>
+<td>输入值不能小于 10。</td>
+</tr>
+</table>
+<h2>默认提示</h2>
+<pre>
+messages: {
+&nbsp;&nbsp;&nbsp;&nbsp;required: "This field is required.",
+&nbsp;&nbsp;&nbsp;&nbsp;remote: "Please fix this field.",
+&nbsp;&nbsp;&nbsp;&nbsp;email: "Please enter a valid email address.",
+&nbsp;&nbsp;&nbsp;&nbsp;url: "Please enter a valid URL.",
+&nbsp;&nbsp;&nbsp;&nbsp;date: "Please enter a valid date.",
+&nbsp;&nbsp;&nbsp;&nbsp;dateISO: "Please enter a valid date ( ISO ).",
+&nbsp;&nbsp;&nbsp;&nbsp;number: "Please enter a valid number.",
+&nbsp;&nbsp;&nbsp;&nbsp;digits: "Please enter only digits.",
+&nbsp;&nbsp;&nbsp;&nbsp;creditcard: "Please enter a valid credit card number.",
+&nbsp;&nbsp;&nbsp;&nbsp;equalTo: "Please enter the same value again.",
+&nbsp;&nbsp;&nbsp;&nbsp;maxlength: $.validator.format( "Please enter no more than {0} characters." ),
+&nbsp;&nbsp;&nbsp;&nbsp;minlength: $.validator.format( "Please enter at least {0} characters." ),
+&nbsp;&nbsp;&nbsp;&nbsp;rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
+&nbsp;&nbsp;&nbsp;&nbsp;range: $.validator.format( "Please enter a value between {0} and {1}." ),
+&nbsp;&nbsp;&nbsp;&nbsp;max: $.validator.format( "Please enter a value less than or equal to {0}." ),
+&nbsp;&nbsp;&nbsp;&nbsp;min: $.validator.format( "Please enter a value greater than or equal to {0}." )
+}
+</pre>
+<p>jQuery Validate提供了中文信息提示包，位于下载包的 dist/localization/messages_zh.js，内容如下：</p>
+<pre>
+(function( factory ) {
+&nbsp;&nbsp;&nbsp;&nbsp;if ( typeof define === "function" &amp;&amp; define.amd ) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;define( ["jquery", "../jquery.validate"], factory );
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factory( jQuery );
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}(function( $ ) {
+
+/*
+ * Translated default messages for the jQuery validation plugin.
+ * Locale: ZH (Chinese, 中文 (Zhōngw&eacute;n), 汉语, 漢語)
+ */
+$.extend($.validator.messages, {
+&nbsp;&nbsp;&nbsp;&nbsp;required: "这是必填字段",
+&nbsp;&nbsp;&nbsp;&nbsp;remote: "请修正此字段",
+&nbsp;&nbsp;&nbsp;&nbsp;email: "请输入有效的电子邮件地址",
+&nbsp;&nbsp;&nbsp;&nbsp;url: "请输入有效的网址",
+&nbsp;&nbsp;&nbsp;&nbsp;date: "请输入有效的日期",
+&nbsp;&nbsp;&nbsp;&nbsp;dateISO: "请输入有效的日期 (YYYY-MM-DD)",
+&nbsp;&nbsp;&nbsp;&nbsp;number: "请输入有效的数字",
+&nbsp;&nbsp;&nbsp;&nbsp;digits: "只能输入数字",
+&nbsp;&nbsp;&nbsp;&nbsp;creditcard: "请输入有效的信用卡号码",
+&nbsp;&nbsp;&nbsp;&nbsp;equalTo: "你的输入不相同",
+&nbsp;&nbsp;&nbsp;&nbsp;extension: "请输入有效的后缀",
+&nbsp;&nbsp;&nbsp;&nbsp;maxlength: $.validator.format("最多可以输入 {0} 个字符"),
+&nbsp;&nbsp;&nbsp;&nbsp;minlength: $.validator.format("最少要输入 {0} 个字符"),
+&nbsp;&nbsp;&nbsp;&nbsp;rangelength: $.validator.format("请输入长度在 {0} 到 {1} 之间的字符串"),
+&nbsp;&nbsp;&nbsp;&nbsp;range: $.validator.format("请输入范围在 {0} 到 {1} 之间的数值"),
+&nbsp;&nbsp;&nbsp;&nbsp;max: $.validator.format("请输入不大于 {0} 的数值"),
+&nbsp;&nbsp;&nbsp;&nbsp;min: $.validator.format("请输入不小于 {0} 的数值")
+});
+
+}));
+</pre>
+<p>你可以将该本地化信息文件 dist/localization/messages_zh.js 引入到页面：</p>
+<pre>
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"&gt;&lt;/script&gt;
+</pre>
+<h2>使用方式</h2>
+<h3>1、将校验规则写到控件中</h3>
+<pre>
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"&gt;&lt;/script&gt;
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$.validator.setDefaults({
+    submitHandler: function() {
+      alert("提交事件!");
+    }
+});
+$().ready(function() {
+    $("#commentForm").validate();
+});
+&lt;/script&gt;
+
+&lt;form class="cmxform" id="commentForm" method="get" action=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;输入您的名字，邮箱，URL，备注。&lt;/legend&gt;
+    &lt;p&gt;
+      &lt;label for="cname"&gt;Name (必需, 最小两个字母)&lt;/label&gt;
+      &lt;input id="cname" name="name" minlength="2" type="text" required&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="cemail"&gt;E-Mail (必需)&lt;/label&gt;
+      &lt;input id="cemail" type="email" name="email" required&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="curl"&gt;URL (可选)&lt;/label&gt;
+      &lt;input id="curl" type="url" name="url"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="ccomment"&gt;备注 (必需)&lt;/label&gt;
+      &lt;textarea id="ccomment" name="comment" required&gt;&lt;/textarea&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input class="submit" type="submit" value="Submit"&gt;
+    &lt;/p&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+<p>
+<a target="_blank" href="http://www.runoob.com/try/try.php?filename=jquery_validate_demo" class="tryitbtn">尝试一下 »</a>
+</p>
+<h3>2、将校验规则写到 js 代码中</h3>
+<pre>
+$().ready(function() {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#signupForm").validate({
+    rules: {
+      firstname: "required",
+      lastname: "required",
+      username: {
+        required: true,
+        minlength: 2
+      },
+      password: {
+        required: true,
+        minlength: 5
+      },
+      confirm_password: {
+        required: true,
+        minlength: 5,
+        equalTo: "#password"
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      topic: {
+        required: "#newsletter:checked",
+        minlength: 2
+      },
+      agree: "required"
+    },
+    messages: {
+      firstname: "请输入您的名字",
+      lastname: "请输入您的姓氏",
+      username: {
+        required: "请输入用户名",
+        minlength: "用户名必需由两个字母组成"
+      },
+      password: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 个字母"
+      },
+      confirm_password: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 个字母",
+        equalTo: "两次密码输入不一致"
+      },
+      email: "请输入一个正确的邮箱",
+      agree: "请接受我们的声明",
+      topic: "请选择两个主题"
+     }
+    })
+});
+</pre>
+<p>messages 处，如果某个控件没有 message，将调用默认的信息</p>
+<pre>
+&lt;form class="cmxform" id="signupForm" method="get" action=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;验证完整的表单&lt;/legend&gt;
+    &lt;p&gt;
+      &lt;label for="firstname"&gt;名字&lt;/label&gt;
+      &lt;input id="firstname" name="firstname" type="text"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="lastname"&gt;姓氏&lt;/label&gt;
+      &lt;input id="lastname" name="lastname" type="text"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="username"&gt;用户名&lt;/label&gt;
+      &lt;input id="username" name="username" type="text"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="password"&gt;密码&lt;/label&gt;
+      &lt;input id="password" name="password" type="password"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="confirm_password"&gt;验证密码&lt;/label&gt;
+      &lt;input id="confirm_password" name="confirm_password" type="password"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="email"&gt;Email&lt;/label&gt;
+      &lt;input id="email" name="email" type="email"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="agree"&gt;请同意我们的声明&lt;/label&gt;
+      &lt;input type="checkbox" class="checkbox" id="agree" name="agree"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="newsletter"&gt;我乐意接收新信息&lt;/label&gt;
+      &lt;input type="checkbox" class="checkbox" id="newsletter" name="newsletter"&gt;
+    &lt;/p&gt;
+    &lt;fieldset id="newsletter_topics"&gt;
+      &lt;legend&gt;主题 (至少选择两个) - 注意：如果没有勾选&ldquo;我乐意接收新信息&rdquo;以下选项会隐藏，但我们这里作为演示让它可见&lt;/legend&gt;
+      &lt;label for="topic_marketflash"&gt;
+        &lt;input type="checkbox" id="topic_marketflash" value="marketflash" name="topic"&gt;Marketflash
+      &lt;/label&gt;
+      &lt;label for="topic_fuzz"&gt;
+        &lt;input type="checkbox" id="topic_fuzz" value="fuzz" name="topic"&gt;Latest fuzz
+      &lt;/label&gt;
+      &lt;label for="topic_digester"&gt;
+        &lt;input type="checkbox" id="topic_digester" value="digester" name="topic"&gt;Mailing list digester
+      &lt;/label&gt;
+      &lt;label for="topic" class="error"&gt;Please select at least two topics you'd like to receive.&lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;p&gt;
+      &lt;input class="submit" type="submit" value="提交"&gt;
+    &lt;/p&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+<p>
+<a target="_blank" href="http://www.runoob.com/try/try.php?filename=jquery_validate_demo1" class="tryitbtn">尝试一下 »</a>
+</p>
+<p>
+<b>required: true</b> 值是必须的。<br />
+<b>required: "#aa:checked"</b> 表达式的值为真，则需要验证。<br />
+<b>required: function(){}</b> 返回为真，表示需要验证。
+</p>
+<p>后边两种常用于，表单中需要同时填或不填的元素。</p>
+<h2>常用方法及注意问题</h2>
+<h3>1、用其他方式替代默认的 SUBMIT</h3>
+<pre>
+$().ready(function() {
+ $("#signupForm").validate({
+        submitHandler:function(form){
+            alert("提交事件!");   
+            form.submit();
+        }    
+    });
+});
+</pre>
+<p>使用 ajax 方式</p>
+<pre>
+ $(".selector").validate({     
+ submitHandler: function(form) 
+   {      
+      $(form).ajaxSubmit();     
+   }  
+ }) 
+</pre>
+<p>可以设置 validate 的默认值，写法如下：</p>
+<pre>
+$.validator.setDefaults({
+  submitHandler: function(form) { alert("提交事件!");form.submit(); }
+});
+</pre>
+<p>如果想提交表单, 需要使用 form.submit()，而不要使用 $(form).submit()。</p>
+<h3>2、debug，只验证不提交表单</h3>
+<p>如果这个参数为true，那么表单不会提交，只进行检查，调试时十分方便。</p>
+<pre>
+$().ready(function() {
+ $("#signupForm").validate({
+        debug:true
+    });
+});
+</pre>
+<p>如果一个页面中有多个表单都想设置成为 debug，则使用：</p>
+<pre>
+$.validator.setDefaults({
+   debug: true
+})
+</pre>
+<h3>3、ignore：忽略某些元素不验证</h3>
+<pre>
+ignore: ".ignore"
+</pre>
+<h3>4、更改错误信息显示的位置</h3>
+<pre>
+errorPlacement：Callback
+</pre>
+<p>指明错误放置的位置，默认情况是：error.appendTo(element.parent());即把错误信息放在验证的元素后面。</p>
+<pre>
+errorPlacement: function(error, element) {  
+    error.appendTo(element.parent());  
+}
+</pre>
+<p><b>实例</b></p>
+<pre>
+&lt;p&gt;将错误信息放在 label 元素后并使用 span 元素包裹它&lt;/p&gt;
+
+&lt;form method="get" class="cmxform" id="form1" action=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Login Form&lt;/legend&gt;
+    &lt;p&gt;
+      &lt;label for="user"&gt;Username&lt;/label&gt;
+      &lt;input id="user" name="user" required minlength="3"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;label for="password"&gt;Password&lt;/label&gt;
+      &lt;input id="password" type="password" maxlength="12" name="password" required minlength="5"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;input class="submit" type="submit" value="Login"&gt;
+    &lt;/p&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+<p>
+<a target="_blank" href="http://www.runoob.com/try/try.php?filename=jquery_validate_demo2" class="tryitbtn">尝试一下 »</a>
+</p>
+<p>代码的作用是：一般情况下把错误信息显示在 &lt;td class="status"&gt;&lt;/td&gt; 中，如果是 radio 则显示在 &lt;td&gt;&lt;/td&gt; 中，如果是 checkbox 则显示在内容的后面。</p>
+<table class="reference notranslate">
+<tr>
+<th width="15%">参数</th>
+<th width="15%">类型</th>
+<th width="60%">描述</th>
+<th width="10%">默认值</th>
+</tr>
+<tr>
+<td>errorClass</td>
+<td>String</td>
+<td>指定错误提示的 css 类名，可以自定义错误提示的样式。</td>
+<td>"error"</td>
+</tr>
+<tr>
+<td>errorElement</td>
+<td>String</td>
+<td>用什么标签标记错误，默认是 label，可以改成 em。</td>
+<td>"label"</td>
+</tr>
+<tr>
+<td>errorContainer</td>
+<td>Selector</td>
+<td>显示或者隐藏验证信息，可以自动实现有错误信息出现时把容器属性变为显示，无错误时隐藏，用处不大。<br />errorContainer: "#messageBox1, #messageBox2"</td>
+<td></td>
+</tr>
+<tr>
+<td>errorLabelContainer</td>
+<td>Selector</td>
+<td>把错误信息统一放在一个容器里面。</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapper</td>
+<td>String</td>
+<td>用什么标签再把上边的 errorELement 包起来。</td>
+<td></td>
+</tr>
+</table>
+<p>一般这三个属性同时使用，实现在一个容器内显示所有错误提示的功能，并且没有信息时自动隐藏。</p>
+<pre>
+errorContainer: "div.error",
+errorLabelContainer: $("#signupForm div.error"),
+wrapper: "li"
+</pre>
+<h3>5、更改错误信息显示的样式</h3>
+<p>设置错误提示的样式，可以增加图标显示，在该系统中已经建立了一个 validation.css，专门用于维护校验文件的样式。</p>
+<pre style="white-space: pre-wrap;">
+input.error { border: 1px solid red; }
+label.error {
+  background:url("./demo/images/unchecked.gif") no-repeat 0px 0px;
+
+  padding-left: 16px;
+
+  padding-bottom: 2px;
+
+  font-weight: bold;
+
+  color: #EA5200;
+}
+label.checked {
+  background:url("./demo/images/checked.gif") no-repeat 0px 0px;
+}
+</pre>
+<h3>6、每个字段验证通过执行函数</h3>
+<pre style="white-space: pre-wrap;">success：String,Callback</pre>
+<p>要验证的元素通过验证后的动作，如果跟一个字符串，会当作一个 css 类，也可跟一个函数。</p>
+<pre style="white-space: pre-wrap;">
+success: function(label) {
+    // set &amp;nbsp; as text for IE
+    label.html("&amp;nbsp;").addClass("checked");
+    //label.addClass("valid").text("Ok!")
+}
+</pre>
+<p>添加 "valid" 到验证元素，在 CSS 中定义的样式 &lt;style&gt;label.valid {}&lt;/style&gt;。</p>
+<pre style="white-space: pre-wrap;">
+success: "valid"
+</pre>
+<h3>7、验证的触发方式修改</h3>
+<p>下面的虽然是 boolean 型的，但建议除非要改为 false，否则别乱添加。</p>
+<table class="reference notranslate">
+<tr>
+<th width="15%">触发方式</th>
+<th width="15%">类型</th>
+<th width="60%">描述</th>
+<th width="10%">默认值</th>
+</tr>
+<tr>
+<td>onsubmit</td>
+<td>Boolean</td>
+<td>提交时验证。设置为 false 就用其他方法去验证。</td>
+<td>true</td>
+</tr>
+<tr>
+<td>onfocusout</td>
+<td>Boolean</td>
+<td>失去焦点时验证（不包括复选框/单选按钮）。</td>
+<td>true</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>Boolean</td>
+<td>在 keyup 时验证。</td>
+<td>true</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td>Boolean</td>
+<td>在点击复选框和单选按钮时验证。</td>
+<td>true</td>
+</tr>
+<tr>
+<td>focusInvalid</td>
+<td>Boolean</td>
+<td>提交表单后，未通过验证的表单（第一个或提交之前获得焦点的未通过验证的表单）会获得焦点。</td>
+<td>true</td>
+</tr>
+<tr>
+<td>focusCleanup</td>
+<td>Boolean</td>
+<td>如果是 true 那么当未通过验证的元素获得焦点时，移除错误提示。避免和 focusInvalid 一起用。</td>
+<td>false</td>
+</tr>
+</table>
+<pre style="white-space: pre-wrap;">
+// 重置表单
+$().ready(function() {
+ var validator = $("#signupForm").validate({
+        submitHandler:function(form){
+            alert("submitted");   
+            form.submit();
+        }    
+    });
+    $("#reset").click(function() {
+        validator.resetForm();
+    });
+
+});
+</pre>
+<h3>8、异步验证</h3>
+<pre style="white-space: pre-wrap;">remote：URL</pre>
+<p>使用 ajax 方式进行验证，默认会提交当前验证的值到远程地址，如果需要提交其他的值，可以使用 data 选项。</p>
+<pre style="white-space: pre-wrap;">remote: "check-email.php"</pre>
+<pre style="white-space: pre-wrap;">
+remote: {
+    url: "check-email.php",     //后台处理程序
+    type: "post",               //数据发送方式
+    dataType: "json",           //接受数据格式   
+    data: {                     //要传递的数据
+        username: function() {
+            return $("#username").val();
+        }
+    }
+}
+</pre>
+<p>远程地址只能输出 "true" 或 "false"，不能有其他输出。</p>
+<h3>9、添加自定义校验</h3>
+<pre style="white-space: pre-wrap;">addMethod：name, method, message</pre>
+<p>自定义验证方法</p>
+<pre style="white-space: pre-wrap;">
+// 中文字两个字节
+jQuery.validator.addMethod("byteRangeLength", function(value, element, param) {
+    var length = value.length;
+    for(var i = 0; i &lt; value.length; i++){
+        if(value.charCodeAt(i) &gt; 127){
+            length++;
+        }
+    }
+  return this.optional(element) || ( length &gt;= param[0] &amp;&amp; length &lt;= param[1] );   
+}, $.validator.format("请确保输入的值在{0}-{1}个字节之间(一个中文字算2个字节)"));
+
+// 邮政编码验证   
+jQuery.validator.addMethod("isZipCode", function(value, element) {   
+    var tel = /^[0-9]{6}$/;
+    return this.optional(element) || (tel.test(value));
+}, "请正确填写您的邮政编码");
+</pre>
+<p><b>注意</b>：要在 additional-methods.js 文件中添加或者在 jquery.validate.js 文件中添加。建议一般写在 additional-methods.js 文件中。</p>
+<p><b>注意</b>：在 messages_cn.js 文件中添加：isZipCode: "只能包括中文字、英文字母、数字和下划线"。调用前要添加对 additional-methods.js 文件的引用。</p>
+<h3>10、radio 和 checkbox、select 的验证</h3>
+<p>radio 的 required 表示必须选中一个。</p>
+<pre style="white-space: pre-wrap;">
+&lt;input  type="radio" id="gender_male" value="m" name="gender" required /&gt;
+&lt;input  type="radio" id="gender_female" value="f" name="gender"/&gt;
+</pre>
+<p>checkbox 的 required 表示必须选中。</p>
+<pre style="white-space: pre-wrap;">
+&lt;input type="checkbox" class="checkbox" id="agree" name="agree" required /&gt;
+</pre>
+<p>checkbox 的 minlength 表示必须选中的最小个数，maxlength 表示最大的选中个数，rangelength:[2,3] 表示选中个数区间。</p>
+<pre style="white-space: pre-wrap;">
+&lt;input type="checkbox" class="checkbox" id="spam_email" value="email" name="spam[]" required minlength="2" /&gt;
+&lt;input type="checkbox" class="checkbox" id="spam_phone" value="phone" name="spam[]" /&gt;
+&lt;input type="checkbox" class="checkbox" id="spam_mail" value="mail" name="spam[]" /&gt;
+</pre>
+<p>select 的 required 表示选中的 value 不能为空。</p>
+<pre style="white-space: pre-wrap;">
+&lt;select id="jungle" name="jungle" title="Please select something!" required&gt;
+    &lt;option value=""&gt;&lt;/option&gt;
+    &lt;option value="1"&gt;Buga&lt;/option&gt;
+    &lt;option value="2"&gt;Baga&lt;/option&gt;
+    &lt;option value="3"&gt;Oi&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+<p>select 的 minlength 表示选中的最小个数（可多选的 select），maxlength 表示最大的选中个数，rangelength:[2,3] 表示选中个数区间。</p>
+<pre style="white-space: pre-wrap;">
+&lt;select id="fruit" name="fruit" title="Please select at least two fruits" class="{required:true, minlength:2}" multiple="multiple"&gt;
+    &lt;option value="b"&gt;Banana&lt;/option&gt;
+    &lt;option value="a"&gt;Apple&lt;/option&gt;
+    &lt;option value="p"&gt;Peach&lt;/option&gt;
+    &lt;option value="t"&gt;Turtle&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+<h2>jQuery.validate 中文 API</h2>
+<table class="reference notranslate">
+<tr>
+<th width="20%">名称</th>
+<th width="20%">返回类型</th>
+<th width="60%">描述</th>
+</tr>
+<tr>
+<td>validate(options)</td>
+<td>Validator</td>
+<td>验证所选的 FORM。</td>
+</tr>
+<tr>
+<td>valid()</td>
+<td>Boolean</td>
+<td>检查是否验证通过。</td>
+</tr>
+<tr>
+<td>rules()</td>
+<td>Options</td>
+<td>返回元素的验证规则。</td>
+</tr>
+<tr>
+<td>rules("add",rules)</td>
+<td>Options</td>
+<td>增加验证规则。</td>
+</tr>
+<tr>
+<td>rules("remove",rules)</td>
+<td>Options</td>
+<td>删除验证规则。</td>
+</tr>
+<tr>
+<td>removeAttrs(attributes)</td>
+<td>Options</td>
+<td>删除特殊属性并且返回它们。</td>
+</tr>
+<tr>
+<td colspan="3">自定义选择器</td>
+</tr>
+<tr>
+<td>:blank</td>
+<td>Validator</td>
+<td>没有值的筛选器。</td>
+</tr>
+<tr>
+<td>:filled</td>
+<td>Array &lt;Element&gt;</td>
+<td>有值的筛选器。</td>
+</tr>
+<tr>
+<td>:unchecked</td>
+<td>Array &lt;Element&gt;</td>
+<td>没选择的元素的筛选器。</td>
+</tr>
+<tr>
+<td colspan="3">实用工具</td>
+</tr>
+<tr>
+<td>jQuery.format(template,argument,argumentN...)</td>
+<td>String</td>
+<td>用参数代替模板中的 {n}。</td>
+</tr>
+</table>
+<h3>Validator</h3>
+<p>validate 方法返回一个 Validator 对象。Validator 对象有很多方法可以用来引发校验程序或者改变 form 的内容，下面列出几个常用的方法。</p>
+<table class="reference notranslate">
+<tr>
+<th width="20%">名称</th>
+<th width="20%">返回类型</th>
+<th width="60%">描述</th>
+</tr>
+<tr>
+<td>form()</td>
+<td>Boolean</td>
+<td>验证 form 返回成功还是失败。</td>
+</tr>
+<tr>
+<td>element(element)</td>
+<td>Boolean</td>
+<td>验证单个元素是成功还是失败。</td>
+</tr>
+<tr>
+<td>resetForm()</td>
+<td>undefined</td>
+<td>把前面验证的 FORM 恢复到验证前原来的状态。</td>
+</tr>
+<tr>
+<td>showErrors(errors)</td>
+<td>undefined</td>
+<td>显示特定的错误信息。</td>
+</tr>
+<tr>
+<td colspan="3">Validator 函数</td>
+</tr>
+<tr>
+<td>setDefaults(defaults)</td>
+<td>undefined</td>
+<td>改变默认的设置。</td>
+</tr>
+<tr>
+<td>addMethod(name,method,message)</td>
+<td>undefined</td>
+<td>添加一个新的验证方法。必须包括一个独一无二的名字，一个 JAVASCRIPT 的方法和一个默认的信息。</td>
+</tr>
+<tr>
+<td>addClassRules(name,rules)</td>
+<td>undefined</td>
+<td>增加组合验证类型，在一个类里面用多种验证方法时比较有用。</td>
+</tr>
+<tr>
+<td>addClassRules(rules)</td>
+<td>undefined</td>
+<td>增加组合验证类型，在一个类里面用多种验证方法时比较有用。这个是同时加多个验证方法。</td>
+</tr>
+</table>
+<h3>内置验证方式</h3>
+<table class="reference notranslate">
+<tr>
+<th width="20%">名称</th>
+<th width="20%">返回类型</th>
+<th width="60%">描述</th>
+</tr>
+<tr>
+<td>required()</td>
+<td>Boolean</td>
+<td>必填验证元素。</td>
+</tr>
+<tr>
+<td>required(dependency-expression)</td>
+<td>Boolean</td>
+<td>必填元素依赖于表达式的结果。</td>
+</tr>
+<tr>
+<td>required(dependency-callback)</td>
+<td>Boolean</td>
+<td>必填元素依赖于回调函数的结果。</td>
+</tr>
+<tr>
+<td>remote(url)</td>
+<td>Boolean</td>
+<td>请求远程校验。url 通常是一个远程调用方法。</td>
+</tr>
+<tr>
+<td>minlength(length)</td>
+<td>Boolean</td>
+<td>设置最小长度。</td>
+</tr>
+<tr>
+<td>maxlength(length)</td>
+<td>Boolean</td>
+<td>设置最大长度。</td>
+</tr>
+<tr>
+<td>rangelength(range)</td>
+<td>Boolean</td>
+<td>设置一个长度范围 [min,max]。</td>
+</tr>
+<tr>
+<td>min(value)</td>
+<td>Boolean</td>
+<td>设置最小值。</td>
+</tr>
+<tr>
+<td>max(value)</td>
+<td>Boolean</td>
+<td>设置最大值。</td>
+</tr>
+<tr>
+<td>email()</td>
+<td>Boolean</td>
+<td>验证电子邮箱格式。</td>
+</tr>
+<tr>
+<td>range(range)</td>
+<td>Boolean</td>
+<td>设置值的范围。</td>
+</tr>
+<tr>
+<td>url()</td>
+<td>Boolean</td>
+<td>验证 URL 格式。</td>
+</tr>
+<tr>
+<td>date()</td>
+<td>Boolean</td>
+<td>验证日期格式（类似 30/30/2008 的格式，不验证日期准确性只验证格式）。</td>
+</tr>
+<tr>
+<td>dateISO()</td>
+<td>Boolean</td>
+<td>验证 ISO 类型的日期格式。</td>
+</tr>
+<tr>
+<td>dateDE()</td>
+<td>Boolean</td>
+<td>验证德式的日期格式（29.04.1994 或 1.1.2006）。</td>
+</tr>
+<tr>
+<td>number()</td>
+<td>Boolean</td>
+<td>验证十进制数字（包括小数的）。</td>
+</tr>
+<tr>
+<td>digits()</td>
+<td>Boolean</td>
+<td>验证整数。</td>
+</tr>
+<tr>
+<td>creditcard()</td>
+<td>Boolean</td>
+<td>验证信用卡号。</td>
+</tr>
+<tr>
+<td>accept(extension)</td>
+<td>Boolean</td>
+<td>验证相同后缀名的字符串。</td>
+</tr>
+<tr>
+<td>equalTo(other)</td>
+<td>Boolean</td>
+<td>验证两个输入框的内容是否相同。</td>
+</tr>
+<tr>
+<td>phoneUS()</td>
+<td>Boolean</td>
+<td>验证美式的电话号码。</td>
+</tr>
+</table>
+<h3>validate ()的可选项</h3>
+<table class="reference notranslate">
+<tr>
+<th width="30%">描述</th>
+<th width="70%">代码</th>
+</tr>
+<tr>
+<td>debug：进行调试模式（表单不提交）。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate
+({
+&nbsp;&nbsp;&nbsp;&nbsp;debug:true
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>把调试设置为默认。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$.validator.setDefaults({
+&nbsp;&nbsp;&nbsp;&nbsp;debug:true
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>submitHandler：通过验证后运行的函数，里面要加上表单提交的函数，否则表单不会提交。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+&nbsp;&nbsp;&nbsp;&nbsp;submitHandler:function(form) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(form).ajaxSubmit();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>ignore：对某些元素不进行验证。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({
+&nbsp;&nbsp;&nbsp;&nbsp;ignore:".ignore"
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>rules：自定义规则，key:value 的形式，key 是要验证的元素，value 可以是字符串或对象。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+&nbsp;&nbsp;&nbsp;&nbsp;rules:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:"required",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required:true,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>messages：自定义的提示信息，key:value 的形式，key 是要验证的元素，value 可以是字符串或函数。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+&nbsp;&nbsp;&nbsp;&nbsp;rules:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:"required",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required:true,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:true
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;messages:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:"Name不能为空",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:{       
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required:"E-mail不能为空",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:"E-mail地址不正确"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>groups：对一组元素的验证，用一个错误提示，用 errorPlacement 控制把出错信息放在哪里。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({
+&nbsp;&nbsp;&nbsp;&nbsp;groups:{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username:"fname 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lname"
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;errorPlacement:function(error,element) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (element.attr("name") == "fname" || element.attr("name") == "lname")   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error.insertAfter("#lastname");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error.insertAfter(element);
+&nbsp;&nbsp;&nbsp;&nbsp;},
+   debug:true
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>OnSubmit：类型 Boolean，默认 true，指定是否提交时验证。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({  
+&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:false
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>onfocusout：类型 Boolean，默认 true，指定是否在获取焦点时验证。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({   
+&nbsp;&nbsp;&nbsp;&nbsp;onfocusout:false
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>onkeyup：类型 Boolean，默认 true，指定是否在敲击键盘时验证。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+   onkeyup:false
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>onclick：类型 Boolean，默认 true，指定是否在鼠标点击时验证（一般验证 checkbox、radiobox）。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+   onclick:false
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>focusInvalid：类型 Boolean，默认 true。提交表单后，未通过验证的表单（第一个或提交之前获得焦点的未通过验证的表单）会获得焦点。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+   focusInvalid:false
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>focusCleanup：类型 Boolean，默认 false。当未通过验证的元素获得焦点时，移除错误提示（避免和 focusInvalid 一起使用）。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+   focusCleanup:true
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>errorClass：类型 String，默认 "error"。指定错误提示的 css 类名，可以自定义错误提示的样式。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({ 
+&nbsp;&nbsp;&nbsp;&nbsp;errorClass:"invalid"
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>errorElement：类型 String，默认 "label"。指定使用什么标签标记错误。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate
+   errorElement:"em"
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>wrapper：类型 String，指定使用什么标签再把上边的 errorELement 包起来。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({
+   wrapper:"li"
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>errorLabelContainer：类型 Selector，把错误信息统一放在一个容器里面。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({   
+&nbsp;&nbsp;&nbsp;&nbsp;errorLabelContainer:"#messageBox",
+&nbsp;&nbsp;&nbsp;&nbsp;wrapper:"li",
+&nbsp;&nbsp;&nbsp;&nbsp;submitHandler:function() { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Submitted!") 
+&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>showErrors：跟一个函数，可以显示总共有多少个未通过验证的元素。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$(".selector").validate({  
+&nbsp;&nbsp;&nbsp;&nbsp;showErrors:function(errorMap,errorList) {
+        $("#summary").html("Your form contains " + this.numberOfInvalids() + " errors,see details below.");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.defaultShowErrors();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>errorPlacement：跟一个函数，可以自定义错误放到哪里。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({  
+&nbsp;&nbsp;&nbsp;&nbsp;errorPlacement:function(error,element) {  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error.appendTo(element.parent("td").next("td"));
+   },
+   debug:true
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>success：要验证的元素通过验证后的动作，如果跟一个字符串，会当作一个 css 类，也可跟一个函数。</td>
+<td>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({        
+&nbsp;&nbsp;&nbsp;&nbsp;success:"valid",
+        submitHandler:function() { 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Submitted!") 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+})
+</pre>
+</td>
+</tr>
+<tr>
+<td>highlight：可以给未通过验证的元素加效果、闪烁等。</td>
+<td></td>
+</tr>
+</table>
+<h3>addMethod(name,method,message)方法</h3>
+<p>参数 name 是添加的方法的名字。</p>
+<p>参数 method 是一个函数，接收三个参数 (value,element,param) 。<br />
+value 是元素的值，element 是元素本身，param 是参数。</p>
+<p>我们可以用 addMethod 来添加除内置的 Validation 方法之外的验证方法。比如有一个字段，只能输一个字母，范围是 a-f，写法如下：</p>
+<pre style="white-space: pre-wrap;">
+$.validator.addMethod("af",function(value,element,params){  
+&nbsp;&nbsp;&nbsp;&nbsp;if(value.length&gt;1){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+    if(value&gt;=params[0] &amp;&amp; value&lt;=params[1]){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;
+&nbsp;&nbsp;&nbsp;&nbsp;}else{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+},"必须是一个字母,且a-f");
+</pre>
+<p>如果有个表单字段的 name="username"，则在 rules 中写：</p>
+<pre style="white-space: pre-wrap;">
+username:{
+   af:["a","f"]
+}
+</pre>
+<p>
+addMethod 的第一个参数，是添加的验证方法的名字，这时是 af。<br />
+addMethod 的第三个参数，是自定义的错误提示，这里的提示为:"必须是一个字母,且a-f"。<br />
+addMethod 的第二个参数，是一个函数，这个比较重要，决定了用这个验证方法时的写法。
+</p>
+<p>如果只有一个参数，直接写，比如 af:"a"，那么 a 就是这个唯一的参数，如果多个参数，则写在 [] 里，用逗号分开。</p>
+<h3>meta String 方式</h3>
+<pre style="white-space: pre-wrap;">
+$("#myform").validate({
+
+   meta:"validate",
+
+   submitHandler:function() { 
+alert("Submitted!") }
+
+})
+</pre>
+<pre style="white-space: pre-wrap;">
+&lt;script type="text/javascript" 
+src="js/jquery.metadata.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" 
+src="js/jquery.validate.js"&gt;&lt;/script&gt;
+
+&lt;form id="myform"&gt;
+
+  &lt;input type="text" 
+name="email" class="{validate:{ required:true,email:true }}" /&gt;
+
+  &lt;input type="submit" 
+value="Submit" /&gt;
+
+&lt;/form&gt;
+</pre>
+<hr>
+<h2>实例演示</h2>
+<h3>虚构的实例</h3>
+<ul>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-errorcontainer" target="_blank">错误消息容器</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-custom-messages-data" target="_blank">自定义消息作为元素数据</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-radio-checkbox-select" target="_blank">radio（单选按钮）、checkbox（复选按钮）和 select（下拉框）</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-ajaxSubmit-integration" target="_blank">与表单（Form）插件的交互（AJAX 提交）</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-custom-methods" target="_blank">自定义方法和消息显示</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-dynamic-totals" target="_blank">动态表单</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-themerollered" target="_blank">使用 jQuery UI Themeroller 定义表单样式</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-tinymce" target="_blank">TinyMCE - 一个轻量级的基于浏览器的所见即所得编辑器</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-file-input" target="_blank">文件输入框</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-jquerymobile" target="_blank">jQuery Mobile 表单验证</a></li>
+</ul>
+<h3>现实世界的实例</h3>
+<ul>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-milk" target="_blank">Milk 注册表单</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-marketo-step1" target="_blank">Marketo 注册表单</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-multipart" target="_blank">房屋买卖折叠面板表单</a></li>
+<li><a href="http://www.runoob.com/try/tryit.php?filename=jquery-plugin-captcha" target="_blank">远程 CAPTCHA（验证码）验证</a></li>
+</ul>
+<h3>实例下载</h3>
+<p><a href="http://static.runoob.com/download/jquery-validation-1.14.0.zip" target="_blank"><button class="btn example-btn">点击下载</button></a>
+<a href="http://static.runoob.com/assets/jquery-validation-1.14.0/demo/index.html" target="_blank"><button class="btn">官方实例</button></a>
+</p> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/jquery/jquery-ref-prop.html" rel="prev"> jQuery 属性</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/jquery/jquery-plugin-accordion.html" rel="next"> jQuery Accordion</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style=" padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='6443' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  6443;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 6443;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

@@ -1,0 +1,1569 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python3 基本数据类型 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="python3-data-type.html" />
+<meta name="keywords" content="Python3 基本数据类型">
+<meta name="description" content="Python3 基本数据类型  Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。 在 Python 中，变量就是变量，它没有类型，我们所说的“类型”是变量所指的内存中对象的类型。 等号（=）用来给变量赋值。 等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。例如：   实例(Python 3.0+)   [mycode3 type=&#039;python&#039;]..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/python3/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">Python 3 教程 <a data-cate="124" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="124" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">
+Python3 教程 </a>
+<a target="_top" title=" Python3 环境搭建" href="http://www.runoob.com/python3/python3-install.html"> Python3 环境搭建</a>
+<a target="_top" title=" Python3 基础语法" href="http://www.runoob.com/python3/python3-basic-syntax.html"> Python3 基础语法 </a>
+<a target="_top" title=" Python3 基本数据类型" href="python3-data-type.html"> Python3 基本数据类型 </a> <a target="_top" title="Python3 解释器" href="http://www.runoob.com/python3/python3-interpreter.html">
+Python3 解释器 </a>
+<a target="_top" title="Python3 注释" href="http://www.runoob.com/python3/python3-comment.html">
+Python3 注释 </a>
+<a target="_top" title="Python3 运算符" href="http://www.runoob.com/python3/python3-basic-operators.html"> Python3 运算符 </a> <a target="_top" title="Python3 数字(Number)" href="http://www.runoob.com/python3/python3-number.html">
+Python3 数字(Number) </a>
+<a target="_top" title="Python3 字符串" href="http://www.runoob.com/python3/python3-string.html">
+Python3 字符串 </a>
+<a target="_top" title="Python3 列表" href="http://www.runoob.com/python3/python3-list.html">
+Python3 列表 </a>
+<a target="_top" title="Python3 元组" href="http://www.runoob.com/python3/python3-tuple.html"> Python3 元组 </a>
+<a target="_top" title="Python3 字典" href="http://www.runoob.com/python3/python3-dictionary.html"> Python3 字典</a>
+<a target="_top" title="Python3 集合" href="http://www.runoob.com/python3/python3-set.html"> Python3 集合</a> <a target="_top" title="Python3 编程第一步" href="http://www.runoob.com/python3/python3-step1.html">
+Python3 编程第一步 </a>
+<a target="_top" title="Python3 条件控制" href="http://www.runoob.com/python3/python3-conditional-statements.html">
+Python3 条件控制 </a>
+<a target="_top" title="Python3 循环语句" href="http://www.runoob.com/python3/python3-loop.html">
+Python3 循环语句 </a>
+<a target="_top" title="Python3 迭代器与生成器" href="http://www.runoob.com/python3/python3-iterator-generator.html"> Python3 迭代器与生成器</a> <a target="_top" title="Python3 函数" href="http://www.runoob.com/python3/python3-function.html">
+Python3 函数 </a>
+<a target="_top" title="Python3 数据结构" href="http://www.runoob.com/python3/python3-data-structure.html">
+Python3 数据结构 </a>
+<a target="_top" title="Python3 模块" href="http://www.runoob.com/python3/python3-module.html">
+Python3 模块 </a>
+<a target="_top" title="Python3 输入和输出" href="http://www.runoob.com/python3/python3-inputoutput.html">
+Python3 输入和输出 </a>
+<a target="_top" title="Python3 File" href="http://www.runoob.com/python3/python3-file-methods.html"> Python3 File </a>
+<a target="_top" title="Python3 OS" href="http://www.runoob.com/python3/python3-os-file-methods.html"> Python3 OS </a> <a target="_top" title="Python3 错误和异常" href="http://www.runoob.com/python3/python3-errors-execptions.html">
+Python3 错误和异常 </a>
+<a target="_top" title="Python3 面向对象" href="http://www.runoob.com/python3/python3-class.html">
+Python3 面向对象 </a>
+<a target="_top" title="Python3 标准库概览" href="http://www.runoob.com/python3/python3-stdlib.html">
+Python3 标准库概览 </a>
+<a target="_top" title="Python3 实例" href="http://www.runoob.com/python3/python3-examples.html">
+Python3 实例 </a>
+<a target="_blank" title="Python 测验" href="http://www.runoob.com/quiz/python-quiz.html"> Python 测验 </a>
+<br><h2 class="left"><span class="left_h2">Python3</span> 高级教程</h2> <a target="_top" title="Python3 正则表达式" href="http://www.runoob.com/python3/python3-reg-expressions.html">
+Python3 正则表达式 </a>
+<a target="_top" title="Python3 CGI编程" href="http://www.runoob.com/python3/python3-cgi-programming.html">
+Python3 CGI编程 </a>
+<a target="_top" title="Python MySQL - mysql-connector 驱动" href="http://www.runoob.com/python3/python-mysql-connector.html">Python3 MySQL(mysql-connector)</a> <a target="_top" title="Python3 MySQL 数据库连接 &#8211; PyMySQL 驱动" href="http://www.runoob.com/python3/python3-mysql.html">
+Python3 MySQL(PyMySQL) </a>
+<a target="_top" title="Python3 网络编程" href="http://www.runoob.com/python3/python3-socket.html">
+Python3 网络编程 </a>
+<a target="_top" title="Python3 SMTP发送邮件" href="http://www.runoob.com/python3/python3-smtp.html">
+Python3 SMTP发送邮件 </a>
+<a target="_top" title="Python3 多线程" href="http://www.runoob.com/python3/python3-multithreading.html">
+Python3 多线程 </a>
+<a target="_top" title="Python3 XML 解析" href="http://www.runoob.com/python3/python3-xml-processing.html">
+Python3 XML 解析 </a>
+<a target="_top" title="Python3 JSON 数据解析" href="http://www.runoob.com/python3/python3-json.html">
+Python3 JSON </a>
+<a target="_top" title="Python3 日期和时间" href="http://www.runoob.com/python3/python3-date-time.html">
+Python3 日期和时间 </a>
+<a target="_top" title="Python3 内置函数" href="http://www.runoob.com/python3/python3-built-in-functions.html">
+Python3 内置函数 </a>
+<a target="_top" title="Python MongoDB" href="http://www.runoob.com/python3/python-mongodb.html">
+Python MongoDB </a>
+<a target="_top" title="Python uWSGI  安装配置" href="http://www.runoob.com/python3/python-uwsgi.html">
+Python uWSGI 安装配置 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-basic-syntax.html" rel="prev"> Python3 基础语法</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-examples.html" rel="next"> Python3 实例</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>Python3 基本数据类型</h1>
+<p>
+Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</p>
+<p>在 Python 中，变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。</p>
+<p>等号（=）用来给变量赋值。</p><p>
+等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。例如：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">counter</span><span class="hl-code"> = </span><span class="hl-number">100</span><span class="hl-code"> </span><span class="hl-comment"># 整型变量</span><span class="hl-code">
+</span><span class="hl-identifier">miles</span><span class="hl-code"> = </span><span class="hl-number">1000.0</span><span class="hl-code"> </span><span class="hl-comment"># 浮点型变量</span><span class="hl-code">
+</span><span class="hl-identifier">name</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">runoob</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-comment"># 字符串</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">counter</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">miles</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">name</span><span class="hl-brackets">)</span></div>
+</div><br>
+<a target="_blank" href="http://www.runoob.com/try/runcode.php?filename=basic_data_type1&amp;type=python3" class="showbtn">运行实例 »</a>
+</div>
+<p>执行以上程序会输出如下结果：</p>
+<pre>
+100
+1000.0
+runoob
+</pre>
+<h3>多个变量赋值</h3>
+<p>
+Python允许你同时为多个变量赋值。例如：</p>
+<pre>
+a = b = c = 1
+</pre>
+<p>
+以上实例，创建一个整型对象，值为 1，从后向前赋值，三个变量被赋予相同的数值。
+</p><p>
+您也可以为多个对象指定多个变量。例如：</p><pre>
+a, b, c = 1, 2, "runoob"</pre><p>
+以上实例，两个整型对象 1 和 2 的分配给变量 a 和 b，字符串对象 "runoob" 分配给变量 c。</p>
+<hr>
+<h2>标准数据类型</h2>
+<p>Python3 中有六个标准的数据类型：
+</p>
+<ul>
+<li>Number（数字）</li>
+<li>String（字符串）</li>
+<li>List（列表）</li>
+<li>Tuple（元组）</li>
+<li>Set（集合）</li>
+<li>Dictionary（字典）</li>
+</ul>
+<p>Python3 的六个标准数据类型中：</p><ul><li>
+<strong>不可变数据（3 个）：</strong>Number（数字）、String（字符串）、Tuple（元组）；</li><li>
+<strong>可变数据（3 个）：</strong>List（列表）、Dictionary（字典）、Set（集合）。
+</li></ul>
+<hr>
+<h2>Number（数字）</h2>
+<p>Python3 支持 <b>int、float、bool、complex（复数）</b>。
+</p>
+<p>在Python 3里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</p>
+<p>像大多数语言一样，数值类型的赋值和计算都是很直观的。</p>
+<p>内置的 type() 函数可以用来查询变量所指的对象类型。</p>
+<pre>
+&gt;&gt;&gt; a, b, c, d = 20, 5.5, True, 4+3j
+&gt;&gt;&gt; print(type(a), type(b), type(c), type(d))
+&lt;class 'int'&gt; &lt;class 'float'&gt; &lt;class 'bool'&gt; &lt;class 'complex'&gt;
+</pre>
+<p>此外还可以用 isinstance 来判断：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-number">111</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-builtin">isinstance</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-code">, </span><span class="hl-identifier">int</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">True</span><span class="hl-code">
+&gt;&gt;&gt;</span></div>
+</div>
+</div>
+<p>
+isinstance 和 type 的区别在于：</p>
+<ul><li>
+type()不会认为子类是一种父类类型。</li><li>
+isinstance()会认为子类是一种父类类型。</li></ul>
+<pre>
+&gt;&gt;&gt; class A:
+...     pass
+... 
+&gt;&gt;&gt; class B(A):
+...     pass
+... 
+&gt;&gt;&gt; isinstance(A(), A)
+True
+&gt;&gt;&gt; type(A()) == A 
+True
+&gt;&gt;&gt; isinstance(B(), A)
+True
+&gt;&gt;&gt; type(B()) == A
+False
+</pre>
+<blockquote>
+<p><b>注意：</b>在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。</p>
+</blockquote>
+<p>当你指定一个值时，Number 对象就会被创建：</p>
+<pre>
+var1 = 1
+var2 = 10
+</pre><p>
+您也可以使用del语句删除一些对象引用。</p><p>
+del语句的语法是：</p>
+<pre>
+del var1[,var2[,var3[....,varN]]]
+</pre>
+<p>您可以通过使用del语句删除单个或多个对象。例如：</p>
+<pre>
+del var
+del var_a, var_b</pre>
+<h3>数值运算</h3>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-number">5</span><span class="hl-code"> + </span><span class="hl-number">4</span><span class="hl-code"> </span><span class="hl-comment"># 加法</span><span class="hl-code">
+</span><span class="hl-number">9</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">4.3</span><span class="hl-code"> - </span><span class="hl-number">2</span><span class="hl-code"> </span><span class="hl-comment"># 减法</span><span class="hl-code">
+</span><span class="hl-number">2.3</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">3</span><span class="hl-code"> * </span><span class="hl-number">7</span><span class="hl-code"> </span><span class="hl-comment"># 乘法</span><span class="hl-code">
+</span><span class="hl-number">21</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">2</span><span class="hl-code"> / </span><span class="hl-number">4</span><span class="hl-code"> </span><span class="hl-comment"># 除法，得到一个浮点数</span><span class="hl-code">
+</span><span class="hl-number">0.5</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">2</span><span class="hl-code"> // </span><span class="hl-number">4</span><span class="hl-code"> </span><span class="hl-comment"># 除法，得到一个整数</span><span class="hl-code">
+</span><span class="hl-number">0</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">17</span><span class="hl-code"> % </span><span class="hl-number">3</span><span class="hl-code"> </span><span class="hl-comment"># 取余 </span><span class="hl-code">
+</span><span class="hl-number">2</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-number">2</span><span class="hl-code"> ** </span><span class="hl-number">5</span><span class="hl-code"> </span><span class="hl-comment"># 乘方</span><span class="hl-code">
+</span><span class="hl-number">32</span></div>
+</div>
+</div>
+<p><b>注意：</b></p>
+<ul>
+<li>1、Python可以同时为多个变量赋值，如a, b = 1, 2。</li><li>
+2、一个变量可以通过赋值指向不同类型的对象。</li><li>
+3、数值的除法包含两个运算符：<span class="marked">/</span> 返回一个浮点数，<span class="marked">//</span> 返回一个整数。</li><li>
+4、在混合计算时，Python会把整型转换成为浮点数。
+</li>
+</ul>
+<h3>数值类型实例</h3>
+<table class="reference">
+<tbody><tr><th>int</th><th>float</th><th>complex</th></tr>
+<tr><td>10</td><td>0.0</td><td>3.14j</td></tr>
+<tr><td>100</td><td>15.20</td><td>45.j</td></tr>
+<tr><td>-786</td><td>-21.9</td><td>9.322e-36j</td></tr>
+<tr><td>080</td><td>32.3e+18</td><td>.876j</td></tr>
+<tr><td>-0490</td><td>-90.</td><td>-.6545+0J</td></tr>
+<tr><td>-0x260</td><td>-32.54e100</td><td>3e+26J</td></tr>
+<tr><td>0x69</td><td>70.2E-12</td><td>4.53e-7j</td></tr>
+</tbody></table>
+<p>Python还支持复数，复数由实数部分和虚数部分构成，可以用a + bj,或者complex(a,b)表示， 复数的实部a和虚部b都是浮点型</p>
+<hr>
+<h2>String（字符串）</h2>
+<p>Python中的字符串用单引号 <span class="marked">'</span> 或双引号 <span class="marked">"</span> 括起来，同时使用反斜杠 <span class="marked">\</span> 转义特殊字符。</p>
+<p>字符串的截取的语法格式如下：</p> <pre>变量[头下标:尾下标]</pre><p>索引值以 0 为开始值，-1 为从末尾的开始位置。</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/11/o99aU.png"></p>
+<p>加号 <span class="marked">+</span> 是字符串的连接符， 星号 <span class="marked">*</span> 表示复制当前字符串，紧跟的数字为复制的次数。实例如下：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">str</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Runoob</span><span class="hl-quotes">'</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出字符串</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-code">:-</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出第一个到倒数第二个的所有字符</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出字符串第一个字符</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第三个开始到第五个的字符</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第三个开始的后的所有字符</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code"> * </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出字符串两次</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">TEST</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 连接字符串</span></div>
+</div>
+</div>
+<p>执行以上程序会输出如下结果：</p>
+<pre>
+Runoob
+Runoo
+R
+noo
+noob
+RunoobRunoob
+RunoobTEST
+</pre>
+<p>Python 使用反斜杠(\)转义特殊字符，如果你不想让反斜杠发生转义，可以在字符串前面添加一个 r，表示原始字符串：</p>
+<pre>
+&gt;&gt;&gt; print('Ru\noob')
+Ru
+oob
+&gt;&gt;&gt; print(r'Ru\noob')
+Ru\noob
+&gt;&gt;&gt; 
+</pre>
+<p>
+另外，反斜杠(\)可以作为续行符，表示下一行是上一行的延续。也可以使用 <b>"""..."""</b> 或者 <b>'''...'''</b> 跨越多行。
+</p>
+<p>注意，Python 没有单独的字符类型，一个字符就是长度为1的字符串。
+</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-identifier">word</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Python</span><span class="hl-quotes">'</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">word</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">, </span><span class="hl-identifier">word</span><span class="hl-brackets">[</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">P</span><span class="hl-code"> </span><span class="hl-identifier">n</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">word</span><span class="hl-brackets">[</span><span class="hl-code">-</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-code">, </span><span class="hl-identifier">word</span><span class="hl-brackets">[</span><span class="hl-code">-</span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">n</span><span class="hl-code"> </span><span class="hl-identifier">P</span></div>
+</div>
+</div>
+<p>与 C 字符串不同的是，Python 字符串不能被改变。向一个索引位置赋值，比如word[0] = 'm'会导致错误。
+</p>
+<p>
+<b>注意：</b></p>
+<ul>
+<li>
+1、反斜杠可以用来转义，使用r可以让反斜杠不发生转义。</li><li>
+2、字符串可以用+运算符连接在一起，用*运算符重复。</li><li>
+3、Python中的字符串有两种索引方式，从左往右以0开始，从右往左以-1开始。</li><li>
+4、Python中的字符串不能改变。</li></ul>
+<hr>
+<h2>List（列表）</h2>
+<p>List（列表） 是 Python 中使用最频繁的数据类型。</p>
+<p>列表可以完成大多数集合类的数据结构实现。列表中元素的类型可以不相同，它支持数字，字符串甚至可以包含列表（所谓嵌套）。</p>
+<p>列表是写在方括号 <span class="marked">[]</span> 之间、用逗号分隔开的元素列表。</p>
+<p>
+和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。
+</p>
+<p>列表截取的语法格式如下：</p> <pre>变量[头下标:尾下标]</pre><p>索引值以 0 为开始值，-1 为从末尾的开始位置。</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/11/list_slicing1.png"></p>
+<p>加号 <span class="marked">+</span> 是列表连接运算符，星号 <span class="marked">*</span> 是重复操作。如下实例：
+</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">list</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">abcd</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">786</span><span class="hl-code"> , </span><span class="hl-number">2.23</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">70.2</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-identifier">tinylist</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-number">123</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">list</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出完整列表</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">list</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出列表第一个元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">list</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">:</span><span class="hl-number">3</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 从第二个开始输出到第三个元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">list</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第三个元素开始的所有元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tinylist</span><span class="hl-code"> * </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出两次列表</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">list</span><span class="hl-code"> + </span><span class="hl-identifier">tinylist</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 连接列表</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+['abcd', 786, 2.23, 'runoob', 70.2]
+abcd
+[786, 2.23]
+[2.23, 'runoob', 70.2]
+[123, 'runoob', 123, 'runoob']
+['abcd', 786, 2.23, 'runoob', 70.2, 123, 'runoob']
+</pre>
+<p>与Python字符串不一样的是，列表中的元素是可以改变的：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">3</span><span class="hl-code">, </span><span class="hl-number">4</span><span class="hl-code">, </span><span class="hl-number">5</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">a</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-number">9</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">a</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-number">13</span><span class="hl-code">, </span><span class="hl-number">14</span><span class="hl-code">, </span><span class="hl-number">15</span><span class="hl-brackets">]</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">a</span><span class="hl-code">
+</span><span class="hl-brackets">[</span><span class="hl-number">9</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">13</span><span class="hl-code">, </span><span class="hl-number">14</span><span class="hl-code">, </span><span class="hl-number">15</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">a</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-brackets">]</span><span class="hl-code"> </span><span class="hl-comment"># 将对应的元素值设置为 [] </span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">a</span><span class="hl-code">
+</span><span class="hl-brackets">[</span><span class="hl-number">9</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">]</span></div>
+</div>
+</div>
+<p>List 内置了有很多方法，例如 append()、pop() 等等，这在后面会讲到。</p>
+<p><b>注意：</b></p>
+<ul><li>
+1、List写在方括号之间，元素用逗号隔开。</li><li>
+2、和字符串一样，list可以被索引和切片。</li><li>
+3、List可以使用+操作符进行拼接。</li><li>
+4、List中的元素是可以改变的。</li>
+</ul>
+<p>Python 列表截取可以接收第三个参数，参数作用是截取的步长，以下实例在索引 1 到索引 4 的位置并设置为步长为 2（间隔一个位置）来截取字符串：</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/11/python_list_slice_2.png"></p>
+<hr><h2>Tuple（元组）</h2>
+<p>元组（tuple）与列表类似，不同之处在于元组的元素不能修改。元组写在小括号 <span class="marked">()</span> 里，元素之间用逗号隔开。
+</p><p>元组中的元素类型也可以不相同：
+</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">tuple</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">abcd</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">786</span><span class="hl-code"> , </span><span class="hl-number">2.23</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">70.2</span><span class="hl-code"> </span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">tinytuple</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-number">123</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tuple</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出完整元组</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tuple</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出元组的第一个元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tuple</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">:</span><span class="hl-number">3</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第二个元素开始到第三个元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tuple</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第三个元素开始的所有元素</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tinytuple</span><span class="hl-code"> * </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出两次元组</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tuple</span><span class="hl-code"> + </span><span class="hl-identifier">tinytuple</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 连接元组</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+('abcd', 786, 2.23, 'runoob', 70.2)
+abcd
+(786, 2.23)
+(2.23, 'runoob', 70.2)
+(123, 'runoob', 123, 'runoob')
+('abcd', 786, 2.23, 'runoob', 70.2, 123, 'runoob')
+</pre>
+<p>元组与字符串类似，可以被索引且下标索引从0开始，-1 为从末尾开始的位置。也可以进行截取（看上面，这里不再赘述）。</p>
+<p>其实，可以把字符串看作一种特殊的元组。
+</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-identifier">tup</span><span class="hl-code"> = </span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">3</span><span class="hl-code">, </span><span class="hl-number">4</span><span class="hl-code">, </span><span class="hl-number">5</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">tup</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-number">1</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">tup</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">(</span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">3</span><span class="hl-code">, </span><span class="hl-number">4</span><span class="hl-code">, </span><span class="hl-number">5</span><span class="hl-brackets">)</span><span class="hl-code">
+&gt;&gt;&gt; </span><span class="hl-identifier">tup</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-number">11</span><span class="hl-code"> </span><span class="hl-comment"># 修改元组元素的操作是非法的</span><span class="hl-code">
+</span><span class="hl-identifier">Traceback</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">most</span><span class="hl-code"> </span><span class="hl-identifier">recent</span><span class="hl-code"> </span><span class="hl-identifier">call</span><span class="hl-code"> </span><span class="hl-identifier">last</span><span class="hl-brackets">)</span><span class="hl-code">:
+</span><span class="hl-identifier">File</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">&lt;stdin&gt;</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">line</span><span class="hl-code"> </span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-reserved">in</span><span class="hl-code"> &lt;</span><span class="hl-identifier">module</span><span class="hl-code">&gt;
+</span><span class="hl-reserved">TypeError</span><span class="hl-code">: </span><span class="hl-quotes">'</span><span class="hl-string">tuple</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-identifier">object</span><span class="hl-code"> </span><span class="hl-identifier">does</span><span class="hl-code"> </span><span class="hl-reserved">not</span><span class="hl-code"> </span><span class="hl-identifier">support</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> </span><span class="hl-identifier">assignment</span><span class="hl-code">
+&gt;&gt;&gt;</span></div>
+</div>
+</div>
+<p>虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表。
+</p><p>
+构造包含 0 个或 1 个元素的元组比较特殊，所以有一些额外的语法规则：
+</p>
+<pre>
+tup1 = ()    # 空元组
+tup2 = (20,) # 一个元素，需要在元素后添加逗号
+</pre>
+<p>string、list 和 tuple 都属于 sequence（序列）。</p>
+<p><b>注意：</b></p>
+<ul><li>
+1、与字符串一样，元组的元素不能修改。</li><li>
+2、元组也可以被索引和切片，方法一样。</li><li>
+3、注意构造包含 0 或 1 个元素的元组的特殊语法规则。</li><li>
+4、元组也可以使用+操作符进行拼接。</li></ul>
+<hr><h2>Set（集合）</h2>
+<p>
+集合（set）是由一个或数个形态各异的大小整体组成的，构成集合的事物或对象称作元素或是成员。</p>
+<p>基本功能是进行成员关系测试和删除重复元素。</p>
+<p>可以使用大括号 <span class="marked">{ }</span> 或者 <span class="marked">set()</span> 函数创建集合，注意：创建一个空集合必须用<span class="marked"> set()</span> 而不是 <span class="marked">{ }</span>，因为 <span class="marked">{ }</span> 是用来创建一个空字典。
+</p>
+<p>创建格式：</p>
+<pre>parame = {value01,value02,...}
+或者
+set(value)</pre>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">student</span><span class="hl-code"> = {</span><span class="hl-quotes">'</span><span class="hl-string">Tom</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Jim</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Mary</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Tom</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Jack</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Rose</span><span class="hl-quotes">'</span><span class="hl-code">}
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">student</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出集合，重复的元素被自动去掉</span><span class="hl-code">
+</span><span class="hl-comment"># 成员测试</span><span class="hl-code">
+</span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-quotes">'</span><span class="hl-string">Rose</span><span class="hl-quotes">'</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">student</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Rose 在集合中</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Rose 不在集合中</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-comment"># set可以进行集合运算</span><span class="hl-code">
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-identifier">set</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">abracadabra</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">b</span><span class="hl-code"> = </span><span class="hl-identifier">set</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">alacazam</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-code"> - </span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># a 和 b 的差集</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-code"> | </span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># a 和 b 的并集</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-code"> &amp; </span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># a 和 b 的交集</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">a</span><span class="hl-code"> ^ </span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># a 和 b 中不同时存在的元素</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+{'Mary', 'Jim', 'Rose', 'Jack', 'Tom'}
+Rose 在集合中
+{'b', 'a', 'c', 'r', 'd'}
+{'b', 'd', 'r'}
+{'l', 'r', 'a', 'c', 'z', 'm', 'b', 'd'}
+{'a', 'c'}
+{'l', 'r', 'z', 'm', 'b', 'd'}
+</pre>
+<hr><h2>Dictionary（字典）</h2>
+<p>
+字典（dictionary）是Python中另一个非常有用的内置数据类型。</p>
+<p>列表是有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。</p>
+<p>字典是一种映射类型，字典用 <span class="marked">{ }</span> 标识，它是一个无序的 <b>键(key) : 值(value)</b> 的集合。</p>
+<p>键(key)必须使用不可变类型。</p>
+<p>在同一个字典中，键(key)必须是唯一的。
+</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">dict</span><span class="hl-code"> = {}
+</span><span class="hl-identifier">dict</span><span class="hl-brackets">[</span><span class="hl-quotes">'</span><span class="hl-string">one</span><span class="hl-quotes">'</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">1 - 菜鸟教程</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">dict</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">2 - 菜鸟工具</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">tinydict</span><span class="hl-code"> = {</span><span class="hl-quotes">'</span><span class="hl-string">name</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-quotes">'</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">code</span><span class="hl-quotes">'</span><span class="hl-code">:</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">site</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-quotes">'</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">'</span><span class="hl-code">}
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">dict</span><span class="hl-brackets">[</span><span class="hl-quotes">'</span><span class="hl-string">one</span><span class="hl-quotes">'</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出键为 'one' 的值</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">dict</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出键为 2 的值</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tinydict</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出完整的字典</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tinydict</span><span class="hl-code">.</span><span class="hl-identifier">keys</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出所有键</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">tinydict</span><span class="hl-code">.</span><span class="hl-identifier">values</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出所有值</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+1 - 菜鸟教程
+2 - 菜鸟工具
+{'name': 'runoob', 'code': 1, 'site': 'www.runoob.com'}
+dict_keys(['name', 'code', 'site'])
+dict_values(['runoob', 1, 'www.runoob.com'])
+</pre>
+<p>构造函数 dict() 可以直接从键值对序列中构建字典如下：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-code">&gt;&gt;&gt;</span><span class="hl-builtin">dict</span><span class="hl-brackets">(</span><span class="hl-brackets">[</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Runoob</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">, </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Google</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code">, </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Taobao</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">3</span><span class="hl-brackets">)</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+{</span><span class="hl-quotes">'</span><span class="hl-string">Taobao</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">3</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Runoob</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Google</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">2</span><span class="hl-code">}
+&gt;&gt;&gt; {</span><span class="hl-identifier">x</span><span class="hl-code">: </span><span class="hl-identifier">x</span><span class="hl-code">**</span><span class="hl-number">2</span><span class="hl-code"> </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code"> </span><span class="hl-identifier">in</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-number">4</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">}
+{</span><span class="hl-number">2</span><span class="hl-code">: </span><span class="hl-number">4</span><span class="hl-code">, </span><span class="hl-number">4</span><span class="hl-code">: </span><span class="hl-number">16</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-code">: </span><span class="hl-number">36</span><span class="hl-code">}
+&gt;&gt;&gt; </span><span class="hl-builtin">dict</span><span class="hl-brackets">(</span><span class="hl-identifier">Runoob</span><span class="hl-code">=</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-identifier">Google</span><span class="hl-code">=</span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-identifier">Taobao</span><span class="hl-code">=</span><span class="hl-number">3</span><span class="hl-brackets">)</span><span class="hl-code">
+{</span><span class="hl-quotes">'</span><span class="hl-string">Runoob</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Google</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">Taobao</span><span class="hl-quotes">'</span><span class="hl-code">: </span><span class="hl-number">3</span><span class="hl-code">}</span></div>
+</div>
+</div>
+<p>另外，字典类型也有一些内置的函数，例如clear()、keys()、values()等。</p>
+<p><b>注意：</b></p>
+<ul><li>
+1、字典是一种映射类型，它的元素是键值对。</li><li>
+2、字典的关键字必须为不可变类型，且不能重复。</li><li>
+3、创建空字典使用 <b>{ }</b>。</li></ul>
+<hr>
+<h2>Python数据类型转换</h2>
+<p>
+有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。</p>
+<p>
+以下几个内置的函数可以执行数据类型之间的转换。这些函数返回一个新的对象，表示转换的值。</p>
+<table class="reference">
+<tbody><tr><th>函数</th><th>描述</th></tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-int.html" target="_blank">int(x [,base])</a></p>
+</td>
+<td>
+<p>将x转换为一个整数</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-float.html" target="_blank">float(x)</a></p>
+</td>
+<td>
+<p>将x转换到一个浮点数</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-complex.html" target="_blank">complex(real [,imag])</a></p>
+</td>
+<td>
+<p>创建一个复数</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-str.html" target="_blank">str(x)</a></p>
+</td>
+<td>
+<p>将对象 x 转换为字符串</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-repr.html" target="_blank">repr(x)</a></p>
+</td>
+<td>
+<p>将对象 x 转换为表达式字符串</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-eval.html" target="_blank">eval(str)</a></p>
+</td>
+<td>
+<p>用来计算在字符串中的有效Python表达式,并返回一个对象</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python3-func-tuple.html" target="_blank">tuple(s)</a></p>
+</td>
+<td>
+<p>将序列 s 转换为一个元组</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python3-att-list-list.html" target="_blank">list(s)</a></p>
+</td>
+<td>
+<p>将序列 s 转换为一个列表</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-set.html" target="_blank">set(s)</a></p>
+</td>
+<td>
+<p>转换为可变集合</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-dict.html" target="_blank">dict(d)</a></p>
+</td>
+<td>
+<p>创建一个字典。d 必须是一个序列 (key,value)元组。</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-frozenset.html" target="_blank">frozenset(s)</a></p>
+</td>
+<td>
+<p>转换为不可变集合</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-chr.html" target="_blank">chr(x)</a></p>
+</td>
+<td>
+<p> 将一个整数转换为一个字符</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-ord.html" target="_blank">ord(x)</a></p>
+</td>
+<td>
+<p> 将一个字符转换为它的整数值</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-hex.html" target="_blank">hex(x)</a></p>
+</td>
+<td>
+<p> 将一个整数转换为一个十六进制字符串</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><a href="http://www.runoob.com/python3/python-func-oct.html" target="_blank">oct(x)</a></p>
+</td>
+<td>
+<p> 将一个整数转换为一个八进制字符串</p>
+</td>
+</tr>
+</tbody></table> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-basic-syntax.html" rel="prev"> Python3 基础语法</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-examples.html" rel="next"> Python3 实例</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">14 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-11702"><span class="comt-f">#14</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;荆棘乱</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;llc***n@gmail.com</p></div></div><div class="comt-main" id="div-comment-11702"><h2>元组（小拓展）
+</h2><p>
+一般来说，函数的返回值一般为一个。
+</p><p>
+而函数返回多个值的时候，是以元组的方式返回的。
+</p><p>
+示例（命令行下）：
+</p><pre>
+&gt;&gt;&gt;def example(a,b):
+...     return (a,b)
+...
+&gt;&gt;&gt;type(example(3,4))
+&lt;class 'tuple'&gt;
+&gt;&gt;&gt;</pre><p>
+python中的函数还可以接收可变长参数，比如以 "*" 开头的的参数名，会将所有的参数收集到一个元组上。
+</p><p>
+例如：</p><pre>
+def test(*args):
+    print(args)
+    return args
+
+print(type(test(1,2,3,4)))    #可以看见其函数的返回值是一个元组
+</pre><h2>
+字典（小拓展）</h2>
+<p>
+python中的字典是使用了一个称为散列表（hashtable）的算法（不具体展开），
+</p><p>
+其特点就是：不管字典中有多少项，in操作符花费的时间都差不多。
+</p><p>
+如果把一个字典对象作为for的迭代对象，那么这个操作将会遍历字典的键：
+</p><pre>
+def example(d):
+    # d 是一个字典对象
+    for c in d:
+        print(c)
+        #如果调用函数试试的话，会发现函数会将d的所有键打印出来;
+        #也就是遍历的是d的键，而不是值.</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">荆棘乱</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;荆棘乱</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;llc***n@gmail.com</p></div></span>2年前 (2017-05-05)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13437"><span class="comt-f">#13</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;我去咬你啦</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;815***114@qq.com</p></div></div><div class="comt-main" id="div-comment-13437"><p>针对楼上的 字典 拓展，做测试的时候，想要输出 kye:value的组合发现可以这样：
+</p><pre>
+for c in dict:
+    print(c,':',dict[c])
+</pre><p>
+或者</p>
+<pre>
+for c in dict:
+    print(c,end=':');
+    print(dict[c])
+</pre><p>
+于是发现 print()函数 其实可以 添加多个参数，用逗号 隔开。
+</p><p>
+本来想要用
+</p><pre>
+for c in dict:
+    print(c+':');
+    print(dict[c])
+</pre>
+<p>
+这样的方式打印 key：value结果发现其实 key不一定是 string类型，所以 用+ 号会出问题。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">我去咬你啦</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;我去咬你啦</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;815***114@qq.com</p></div></span>2年前 (2017-06-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-13572"><span class="comt-f">#12</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;愤怒的胸毛毛</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;zha***aijun2013@foxmail.com</p></div></div><div class="comt-main" id="div-comment-13572"><p>在list的使用中，开始时很容易忽视的一点是：
+</p><pre>
+list = [ 'abcd', 786 , 2.23, 'runoob', 70.2 ]
+print (list[1:3])       # 从第二个开始输出到第三个元素</pre><p>
+list[1:3] 其实输出的只有两个变量，即list中第二个元素到第三个元素，并不是第1 第2 第3三个元素，而且要注意的是
+</p><pre>
+print (list[2])
+print (list[2:3])</pre><p>
+这两句话打印的内容其实是一样的，
+</p><pre>
+2.23
+[2.23]</pre><p>
+但是第二句话有中括号</p>
+<p>------------------------------------------------------</p>
+<p>以下是网友 <a href="mailto:temmple_wang@qq.com" rel="nofollow">temmple_wang@qq.com</a> 的补充：</p>
+<pre>list = [ 'abcd', 786 , 2.23, 'runoob', 70.2 ]
+print (list[1:3])       # 从第二个开始输出到第三个元素
+# 获得结果 [786, 2.23]</pre>
+<p>其实我觉得可以这样理解：</p>
+<pre>print (list[1:3])       # 从数组下标为1的数开始获取直到数组下标为3（但不包含3）的数为止，输出这段
+# 获得结果 [786, 2.23]
+</pre>
+<p>其实我们可以试验一下：</p>
+<pre>print (list[1:0])       # 没有输出的值
+# 获得结果 []
+
+print (list[1:1])       # 没有输出的值
+# 获得结果 []
+
+print (list[0:1])       # 没有输出的值
+# 获得结果 ['abcd']
+</pre>
+<p>其实中括号里的值还可以为负数：</p>
+<pre>
+&gt;&gt;&gt; print(arrtest[1:-1])    # 从下标为1的数开始，输出到下标为4但不包含4的所有值
+[786, 2.23, 'runoob']
+&gt;&gt;&gt; print(arrtest[-3:-2])   # 从下标为2的数开始，输出到下标为3但不包含3的所有值
+[2.23]
+</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">愤怒的胸毛毛</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;愤怒的胸毛毛</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;zha***aijun2013@foxmail.com</p></div></span>2年前 (2017-07-02)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13835"><span class="comt-f">#11</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hellowqp</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wqp***a@foxmail.com</p></div></div><div class="comt-main" id="div-comment-13835"><p>python 与 C 语言和 Java 语言的一点不同，表现在它的变量不需要声明变量类型，这是因为像 C 语言和 Java 语言来说，它们是静态的，而 python 是动态的，变量的类型由赋予它的值来决定，例如：</p><pre>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; a = 1.001
+&gt;&gt;&gt; a = "python"
+&gt;&gt;&gt; print(a)
+python
+&gt;&gt;&gt; </pre><p>第一次为变量 a 赋值为整型，第二次赋值是浮点数，第三次是一个字符串，最后输出时只保留了最后一次的赋值。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">hellowqp</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hellowqp</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wqp***a@foxmail.com</p></div></span>2年前 (2017-07-08)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-17628"><span class="comt-f">#10</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;燕春</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;zqs***306010@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://blog.csdn.net/cn_wk/article/details/51314238">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-17628"><p>type 是用于求一个未知数据类型对象，而 isinstance 是用于判断一个对象是否是已知类型。</p>
+<p>type 不认为子类是父类的一种类型，而isinstance会认为子类是父类的一种类型。</p>
+<p>可以用 isinstance 判断子类对象是否继承于父类，type 不行。</p>
+<p>综合以上几点，type 与 isinstance 虽然都与数据类型相关，但两者其实用法不同，type 主要用于判断未知数据类型，isinstance 主要用于判断 A 类是否继承于 B 类：</p>
+<pre># 判断子类对象是否继承于父类
+class father(object):
+    pass
+class son(father):
+    pass
+if __name__ == '__main__':
+    print (type(son())==father)
+    print (isinstance(son(),father))
+    print (type(son()))
+    print (type(son))</pre>
+<p>运行结果：</p>
+<pre>False
+True
+&lt;class '__main__.son'&gt;
+&lt;type 'type'&gt;</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">燕春</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;燕春</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;zqs***306010@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://blog.csdn.net/cn_wk/article/details/51314238">&nbsp;&nbsp;参考地址</a></p></div></span>2年前 (2017-09-15)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-21310"><span class="comt-f">#9</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;妞妞</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;704***556@qq.com</p></div></div><div class="comt-main" id="div-comment-21310"><p><strong>字典（小拓展）</strong></p>
+<p>输入 dict 的键值对，可直接用 <span class="marked">items()</span> 函数：</p>
+<pre>dict1 = {'abc':1,"cde":2,"d":4,"c":567,"d":"key1"}
+for k,v in dict1.items():
+    print(k,":",v)</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">妞妞</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;妞妞</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;704***556@qq.com</p></div></span>1年前 (2017-12-07)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-21432"><span class="comt-f">#8</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hjc132</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;huj***heng132@gmail.com</p></div></div><div class="comt-main" id="div-comment-21432"><p><strong>字典（小拓展）</strong></p>
+<p>原文说 dict(d)创建一个字典。d 必须是一个序列 (key,value)元组。</p>
+<p>其实d不一定必须为一个序列元组，如下：</p>
+<pre>&gt;&gt;&gt; dict_1 = dict([('a',1),('b',2),('c',3)]) #元素为元组的列表
+&gt;&gt;&gt; dict_1
+{'a': 1, 'b': 2, 'c': 3}
+&gt;&gt;&gt; dict_2 = dict({('a',1),('b',2),('c',3)})#元素为元组的集合
+&gt;&gt;&gt; dict_2
+{'b': 2, 'c': 3, 'a': 1}
+&gt;&gt;&gt; dict_3 = dict([['a',1],['b',2],['c',3]])#元素为列表的列表
+&gt;&gt;&gt; dict_3
+{'a': 1, 'b': 2, 'c': 3}
+&gt;&gt;&gt; dict_4 = dict((('a',1),('b',2),('c',3)))#元素为元组的元组
+&gt;&gt;&gt; dict_4
+{'a': 1, 'b': 2, 'c': 3}</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">hjc132</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hjc132</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;huj***heng132@gmail.com</p></div></span>1年前 (2017-12-10)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-24483"><span class="comt-f">#7</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;好好学习天天向上</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;522***154@qq.com</p></div></div><div class="comt-main" id="div-comment-24483"><p><strong>集合与字典</strong></p>
+<p><strong>无序：</strong>集合是无序的，所以不支持索引；字典同样也是无序的，但由于其元素是由键（key）和值（value）两个属性组成的键值对，可以通过键（key）来进行索引</p>
+<p><strong>元素唯一性：</strong>集合是无重复元素的序列，会自动去除重复元素；字典因为其key唯一性，所以也不会出现相同元素</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">好好学习天天向上</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;好好学习天天向上</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;522***154@qq.com</p></div></span>1年前 (2018-03-01)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-24865"><span class="comt-f">#6</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Lonapse</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;270***302@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://blog.csdn.net/henni_719/article/details/56665254">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-24865"><pre>#coding=utf8  
+''''' 
+复数是由一个实数和一个虚数组合构成，表示为：x+yj 
+一个负数时一对有序浮点数(x,y)，其中x是实数部分，y是虚数部分。 
+Python语言中有关负数的概念： 
+1、虚数不能单独存在，它们总是和一个值为0.0的实数部分一起构成一个复数 
+2、复数由实数部分和虚数部分构成 
+3、表示虚数的语法：real+imagej 
+4、实数部分和虚数部分都是浮点数 
+5、虚数部分必须有后缀j或J 
+ 
+复数的内建属性： 
+复数对象拥有数据属性，分别为该复数的实部和虚部。 
+复数还拥有conjugate方法，调用它可以返回该复数的共轭复数对象。 
+复数属性：real(复数的实部)、imag(复数的虚部)、conjugate()（返回复数的共轭复数） 
+'''  
+class Complex(object):  
+    '''''创建一个静态属性用来记录类版本号'''  
+    version=1.0  
+    '''''创建个复数类，用于操作和初始化复数'''  
+    def __init__(self,rel=15,img=15j):  
+        self.realPart=rel  
+        self.imagPart=img  
+         
+    #创建复数  
+    def creatComplex(self):  
+        return self.realPart+self.imagPart  
+    #获取输入数字部分的虚部  
+    def getImg(self):  
+        #把虚部转换成字符串  
+        img=str(self.imagPart)  
+        #对字符串进行切片操作获取数字部分  
+        img=img[:-1]   
+        return float(img)    
+                         
+def test():  
+    print "run test..........."  
+    com=Complex()  
+    Cplex= com.creatComplex()  
+    if Cplex.imag==com.getImg():  
+        print com.getImg()  
+    else:  
+        pass  
+    if Cplex.real==com.realPart:  
+        print com.realPart  
+    else:  
+        pass  
+    #原复数  
+    print "the religion complex is :",Cplex  
+    #求取共轭复数  
+    print "the conjugate complex is :",Cplex.conjugate()  
+      
+if __name__=="__main__":  
+    test()</pre> <div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Lonapse</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Lonapse</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;270***302@qq.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://blog.csdn.net/henni_719/article/details/56665254">&nbsp;&nbsp;参考地址</a></p></div></span>1年前 (2018-03-11)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-28132"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;符号</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;974***897@QQ.com</p></div></div><div class="comt-main" id="div-comment-28132"><p data-title="python 切片步长">切片还可以设置步长</p>
+<pre>
+demo = [1,2,3,4,5,6]
+
+new_demo = demo[1::2]  # 2 就是步长 意思是从索引为 1 的元素开始 每隔2个元素取一次元素
+new_demo = [2,4,6] 
+
+# 以索引为列  [索引] 和 [索引:索引:步长] 的区别
+# demo[索引] 取出的原列表中索引对应的元素
+# demo[索引:索引:步长] 切片得到的是一个新列表</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/28132">符号</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;符号</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;974***897@QQ.com</p></div></span>9个月前 (06-06)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-30201"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;王二的弟弟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;182***56065@163.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://blog.csdn.net/fei_gao/article/details/5914759">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-30201">
+<p data-title="Python3 布尔(bool)类型详解"><strong>bool 型</strong></p>
+<p>Python 中布尔值使用常量 <strong>True</strong> 和 <strong>False</strong> 来表示。</p>
+<p>1、在数值上下文环境中，<strong>True</strong> 被当作 <strong>1</strong>，<strong>False</strong> 被当作 <strong>0</strong>，例如：</p>
+<pre>&gt;&gt;&gt; True+3
+4
+&gt;&gt;&gt; False+2
+2
+</pre>
+<p>2、其他类型值转换 <strong>bool</strong> 值时除了 <span class="marked">''、""、''''''、""""""、0、()、[]、{}、None、0.0、0L、0.0+0.0j、False</span> 为 <strong>False</strong> 外，其他都为 <strong>True</strong> 例如：</p>
+<pre>&gt;&gt;&gt; bool(-2)
+True
+&gt;&gt;&gt; bool('')
+False</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/30201">王二的弟弟</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;王二的弟弟</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;182***56065@163.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://blog.csdn.net/fei_gao/article/details/5914759">&nbsp;&nbsp;参考地址</a></p></div></span>8个月前 (07-25)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-38332"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;健子</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;136***9943@qq.com</p></div></div><div class="comt-main" id="div-comment-38332"><p>对应<span class="marked"><a href="python3-data-type.html#11702" rel="nofollow">一楼</a></span>，函数的参数为多个时，不一定是以元组的形式返回的，还是要看自己定义的返回形式是什么:</p>
+<pre>&gt;&gt;&gt; def example(a,b):
+...     return (a,b)
+... 
+&gt;&gt;&gt; type(example(3,4))
+&lt;type 'tuple'&gt;
+&gt;&gt;&gt; def example(a,b):
+...     return a,b
+... 
+&gt;&gt;&gt; type(example(3,4))
+&lt;type 'tuple'&gt;
+&gt;&gt;&gt; def example(a,b):
+...     return [a,b]
+... 
+&gt;&gt;&gt; type(example(3,4))
+&lt;type 'list'&gt;</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">健子</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;健子</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;136***9943@qq.com</p></div></span>3个月前 (12-25)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-39122"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;went000</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;751***610@qq.com</p></div></div><div class="comt-main" id="div-comment-39122"><p>针对楼上对一楼的观点提出的不同意见，但是一楼实际说的是返回值有多个时，而非楼上说的参数为多个。</p>
+<pre>&gt;&gt;&gt; type(example(3,4))
+&lt;type 'tuple'&gt;
+&gt;&gt;&gt; def example(a,b):
+...     return [a,b]
+... 
+&gt;&gt;&gt; type(example(3,4))
+&lt;type 'list'&gt;</pre>
+<p>以上实际返回值也只有一个，一个 List 类型的参数。</p>
+<p>一楼所说的返回值为多个是：</p>
+<pre>&gt;&gt;&gt; type(example(3,4))
+&lt;type 'tuple'&gt;
+&gt;&gt;&gt; def example(a,b):
+...     return a,b
+... 
+&gt;&gt;&gt; type(example(3,4))
+&lt;type 'tuple'&gt;</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">went000</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;went000</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;751***610@qq.com</p></div></span>2个月前 (01-18)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-40449"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;flaray</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;144***3921@qq.com</p></div></div><div class="comt-main" id="div-comment-40449"><p><strong>Bool 型小知识 :</strong></p>
+<ul><li>
+Python2 支持：int、float、long、complex（复数）</li><li>
+Python3 支持：int、float、bool、complex（复数）</li></ul>
+<p>Python3 废除了 long 类型，将 0 和 1 独立出来组成判断对错的 Bool 型，即 0 和 1 可以用来判断 flase 和 true。但是根本上并没有修改原则。这里的 Bool 型依然是 int 型的一部分，所以依然能当做数字参与运算，所以 Python3 里的 Bool 型是 int 型的一个特例而不是一个独立的类型。</p>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">flaray</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;flaray</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;144***3921@qq.com</p></div></span>1周前 (03-06)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='9367' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  9367;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 9367;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

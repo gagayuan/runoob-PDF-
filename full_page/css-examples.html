@@ -1,0 +1,1064 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CSS 实例 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="css-examples.html" />
+<meta name="keywords" content="CSS 实例">
+<meta name="description" content="CSS 实例 CSS背景 设置页面的背景颜色 设置不同元素的背景颜色 设置一个图像作为页面的背景 错误的背景图片 如何在水平方向重复背景图像 如何定位背景图像 一个固定的背景图片（这个图片不会随页面的其余部分滚动） 声明背景属性 高级的背景例子 背景属性的解释 CSS文本 设置不同元素的文本颜色 文本对齐 移除链接下划线 装饰文字 控制文本中的字母 缩进文本 指定了字符之间的空间 指定了行与行之间的空间 设置元素的文本方向 增加单词之间..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/css/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">CSS 教程 <a data-cate="5" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="5" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">
+CSS 教程 </a>
+<a target="_top" title="CSS 简介" href="http://www.runoob.com/css/css-intro.html">
+CSS 简介 </a>
+<a target="_top" title="CSS 语法" href="http://www.runoob.com/css/css-syntax.html">
+CSS 语法 </a>
+<a target="_top" title="CSS Id 和 Class选择器" href="http://www.runoob.com/css/css-id-class.html">
+CSS Id 和 Class选择器 </a>
+<a target="_top" title="CSS 创建" href="http://www.runoob.com/css/css-howto.html">
+CSS 创建 </a>
+<a target="_top" title="CSS Backgrounds(背景)" href="http://www.runoob.com/css/css-background.html">
+CSS Backgrounds(背景) </a>
+<a target="_top" title="CSS Text(文本)" href="http://www.runoob.com/css/css-text.html">
+CSS Text(文本) </a>
+<a target="_top" title="CSS Fonts(字体)" href="http://www.runoob.com/css/css-font.html">
+CSS Fonts(字体) </a>
+<a target="_top" title="CSS 链接(link)" href="http://www.runoob.com/css/css-link.html">
+CSS 链接(link) </a>
+<a target="_top" title="CSS 列表样式(ul)" href="http://www.runoob.com/css/css-list.html">
+CSS 列表样式(ul) </a>
+<a target="_top" title="CSS Table(表格)" href="http://www.runoob.com/css/css-table.html">
+CSS Table(表格) </a>
+<a target="_top" title="CSS 盒子模型" href="http://www.runoob.com/css/css-boxmodel.html">
+CSS 盒子模型 </a>
+<a target="_top" title="CSS Border(边框)" href="http://www.runoob.com/css/css-border.html">
+CSS Border(边框) </a>
+<a target="_top" title="CSS 轮廓（outline）属性" href="http://www.runoob.com/css/css-outline.html">
+CSS 轮廓（outline）属性 </a>
+<a target="_top" title="CSS margin(外边距)" href="http://www.runoob.com/css/css-margin.html">
+CSS margin(外边距) </a>
+<a target="_top" title="CSS padding（填充）" href="http://www.runoob.com/css/css-padding.html">
+CSS padding（填充） </a>
+<a target="_top" title="CSS 分组和嵌套" href="http://www.runoob.com/css/css-grouping-nesting.html">
+CSS 分组和嵌套 </a>
+<a target="_top" title="CSS 尺寸 (Dimension)" href="http://www.runoob.com/css/css-dimension.html">
+CSS 尺寸 (Dimension) </a>
+<a target="_top" title="CSS Display(显示) 与 Visibility（可见性）" href="http://www.runoob.com/css/css-display-visibility.html">
+CSS Display(显示) </a>
+<a target="_top" title="CSS Position(定位)" href="http://www.runoob.com/css/css-positioning.html">
+CSS Position(定位) </a>
+<a target="_top" title="CSS Overflow" href="http://www.runoob.com/css/css-overflow.html">CSS Overflow </a> <a target="_top" title="CSS Float（浮动）" href="http://www.runoob.com/css/css-float.html">
+CSS Float（浮动） </a>
+<a target="_top" title="CSS 布局 &#8211; 水平 &#038; 垂直对齐" href="http://www.runoob.com/css/css-align.html">
+CSS 对齐 </a>
+<a target="_top" href="http://www.runoob.com/css/css-combinators.html">
+CSS 组合选择符 </a> <a target="_top" title="CSS 伪类" href="http://www.runoob.com/css/css-pseudo-classes.html">
+CSS 伪类 </a>
+<a target="_top" title="CSS 伪元素" href="http://www.runoob.com/css/css-pseudo-elements.html">
+CSS 伪元素 </a>
+<a target="_top" title="CSS 导航栏" href="http://www.runoob.com/css/css-navbar.html">
+CSS 导航栏 </a>
+<a target="_top" title="CSS 下拉菜单" href="http://www.runoob.com/css/css-dropdowns.html"> CSS 下拉菜单 </a>
+<a target="_top" title="CSS 提示工具(Tooltip)" href="http://www.runoob.com/css/css-tooltip.html"> CSS 提示工具</a> <a target="_top" title="CSS 图片廊" href="http://www.runoob.com/css/css-image-gallery.html">
+CSS 图片廊 </a>
+<a target="_top" title="CSS 图像透明/不透明" href="http://www.runoob.com/css/css-image-transparency.html">
+CSS 图像透明/不透明 </a>
+<a target="_top" title="CSS 图像拼合技术" href="http://www.runoob.com/css/css-image-sprites.html">
+CSS 图像拼合技术 </a>
+<a target="_top" title="CSS 媒体类型" href="http://www.runoob.com/css/css-mediatypes.html">
+CSS 媒体类型 </a>
+<a target="_top" title="CSS 属性选择器" href="http://www.runoob.com/css/css-attribute-selectors.html">
+CSS 属性选择器 </a>
+<a target="_top" title="CSS 总结" href="http://www.runoob.com/css/css-summary.html">
+CSS 总结 </a>
+<a target="_top" title="CSS 实例" href="css-examples.html">
+CSS 实例 </a>
+<br><h2 class="left"><span class="left_h2">CSS3</span> 教程</h2>
+<a target="_top" href="http://www.runoob.com/css3/css3-tutorial.html">
+CSS3 教程 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-intro.html">
+CSS3 简介 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-borders.html">
+CSS3 边框（Borders） </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-backgrounds.html">
+CSS3 背景 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-gradients.html">
+CSS3 渐变 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-text-effects.html">
+CSS3 文本效果 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-fonts.html">
+CSS3 字体 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-2dtransforms.html">
+CSS3 2D 转换 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-3dtransforms.html">
+CSS3 3D 转换 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-transitions.html">
+CSS3 过渡 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-animations.html">
+CSS3 动画 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-multiple-columns.html">
+CSS3 多列 </a>
+<a target="_top" href="http://www.runoob.com/css3/css3-user-interface.html">
+CSS3 用户界面 </a>
+<br>
+<h2 class="left"><span class="left_h2">CSS</span> 响应式设计</h2>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-viewport.html">Viewport</a>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-grid.html"> 网格视图</a>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-mediaqueries.html">媒体查询</a>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-images.html">图片</a>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-videos.html">视频(Video)</a>
+<a target="_top" href="http://www.runoob.com/css/css-rwd-frameworks.html">框架</a>
+<br>
+<h2 class="left"><span class="left_h2">CSS</span> 参考手册</h2>
+<a target="_top" href="http://www.runoob.com/cssref/css-reference.html">CSS 参考手册</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-selectors.html">CSS 选择器</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-ref-aural.html">CSS 语音参考</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-websafe-fonts.html">CSS Web安全字体</a>
+<a target="_top" title="CSS 动画" href="http://www.runoob.com/cssref/css-animatable.html"> CSS 动画 </a>
+<a target="_top" href="http://www.runoob.com/cssref/css-units.html">CSS 单位</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-colors.html">CSS 颜色</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-colors-legal.html">CSS 颜色值</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-colornames.html">CSS 颜色名</a>
+<a target="_top" href="http://www.runoob.com/cssref/css-colorsfull.html">CSS 十六进制颜色</a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/css/css-summary.html" rel="prev"> CSS 总结</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/css/css-combinators.html" rel="next"> CSS 组合选择符</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>CSS <span class="color_h1">实例</span></h1>
+<h2 class="tutheader">CSS背景</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-color_body" target="_blank">设置页面的背景颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-color_elements" target="_blank">设置不同元素的背景颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-image" target="_blank">设置一个图像作为页面的背景</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-image_bad" target="_blank">错误的背景图片</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-image_gradient2" target="_blank">如何在水平方向重复背景图像</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-image_position" target="_blank">如何定位背景图像</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background-attachment" target="_blank">一个固定的背景图片（这个图片不会随页面的其余部分滚动）</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background_shorthand" target="_blank">声明背景属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_background_shorthand2" target="_blank">高级的背景例子</a></p>
+<p><a href="http://www.runoob.com/css/css-background.html"><b>背景属性的解释</b></a></p>
+<h2 class="tutheader">CSS文本</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_color" target="_blank">设置不同元素的文本颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-align_all" target="_blank">文本对齐</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-decoration_link" target="_blank">移除链接下划线</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-decoration" target="_blank">装饰文字</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-transform" target="_blank">控制文本中的字母</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-indent" target="_blank">缩进文本</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_letter-spacing" target="_blank">指定了字符之间的空间</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_line-height" target="_blank">指定了行与行之间的空间</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-direction" target="_blank">设置元素的文本方向</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-word-spacing" target="_blank">增加单词之间的空格</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_text-white-space" target="_blank">在一个元素内禁用文字换行</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_vertical-align" target="_blank">内部文字图像的垂直对齐</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-text.html" target="_blank"><b>Text属性的解释</b></a></p>
+<h2 class="tutheader">CSS的字体</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-family" target="_blank">设置文本的字体</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-size" target="_blank">设置字体大小</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-size_px" target="_blank">用px设置的字体的大小</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-size_em" target="_blank">用em设置的字体的大小</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-size_percent_em" target="_blank">用百分比和em设置字体的大小</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-style" target="_blank">设置字体样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-variant" target="_blank">设置字体的异体</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font-weight" target="_blank">设置字体的粗细</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_font" target="_blank">在一个声明的所有字体属性</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-font.html" target="_blank"><b>Font属性的解释</b></a></p>
+<h2 class="tutheader">CSS链接</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link" target="_blank">为访问/未访问链接添加不同的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link_decoration" target="_blank">在链接上使用文本装饰</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link_background" target="_blank">指定链接的背景颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link2" target="_blank">超链接添加其他样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link_advanced" target="_blank">高级 - 创建链接框</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-link.html" target="_blank"><b>链接属性的解释</b></a></p>
+<h2 class="tutheader">CSS列表</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_list-style-type_all" target="_blank">列表中所有不同的列表项标记</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_list-style-image" target="_blank">设置作为列表项标记的图像</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_list-style-image_crossbrow" target="_blank">使用跨浏览器解决方案设置一个列表项标记的图像</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_list-style" target="_blank">在一个声明中的所有列表属性</a></p>
+<p><a href="https://c.runoob.com/codedemo/5390" target="_blank">css 移除列表项 li 默认样式</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-list.html" target="_blank"><b>列表属性的解释</b></a></p>
+<h2 class="tutheader">CSS表格</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_border" target="_blank">指定一个表的Th，TD元素和黑色边框</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_border-collapse" target="_blank">使用border-collapse</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_width" target="_blank">指定表格的宽度和高度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_align" target="_blank">设置内容的水平对齐方式（文本对齐）</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_vertical-align" target="_blank">设置内容的垂直对齐（垂直对齐）</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_padding" target="_blank">指定TH和TD元素的填充</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_color" target="_blank">指定表格边框的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_caption-side" target="_blank">设置表格标题的位置</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_table_fancy" target="_blank">创建一个奇特的表</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-table.html" target="_blank"><b>表格属性的解释</b></a></p>
+<h2 class="tutheader">CSS盒模型</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_boxmodel_width" target="_blank">指定元素的总宽度为250像素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_boxmodel_width_doctype" target="_blank">使用跨浏览器的解决方案指定元素的总宽度为250像素的 </a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-boxmodel.html" target="_blank"><b>盒模型的解释</b></a></p>
+<h2 class="tutheader">CSS边框</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-width" target="_blank">设置四个边框的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-top-width" target="_blank">设置上边框的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-bottom-width" target="_blank">设置底部边框的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-left-width" target="_blank">设置左边框的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-right-width" target="_blank">设置右边框的宽度</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-style" target="_blank">设置四个边框的样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-top-style" target="_blank">设置上边框的样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-bottom-style" target="_blank">设置下边框的样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-left-style" target="_blank">设置左边框的样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-right-style" target="_blank">设置右边框的样式</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-color" target="_blank">设置四个边框的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-top-color" target="_blank">设置上边框的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-bottom-color" target="_blank">设置下边框的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-left-color" target="_blank">设置左边框的颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-right-color" target="_blank">设置右边框的颜色</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border" target="_blank">在一个声明中的所有边框属性</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-style2" target="_blank">每边设置不同的边框</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-top" target="_blank">在一个声明中的所有顶部边框属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-bottom" target="_blank">在一个声明中的所有下边框属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-left" target="_blank">在一个声明中的所有左边框属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_border-right" target="_blank">在一个声明中的所有右边框属性</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-border.html" target="_blank"><b>边框属性的解释</b></a></p>
+<h2 class="tutheader">CSS轮廓</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_outline" target="_blank">围绕一个元素（outline），绘制一条线</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_outline-style" target="_blank">设置轮廓的样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_outline-color" target="_blank">设置轮廓颜色</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_outline-width" target="_blank">设置轮廓的宽度</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-outline.html" target="_blank"><b>轮廓属性的解释</b></a></p>
+<h2 class="tutheader">CSS边距</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_margin_sides" target="_blank">指定一个元素的边距</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_margin_shorthand" target="_blank">边距缩写属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_margin-top" target="_blank">文本顶部边距设置的值使用厘米</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_margin-bottom_percent" target="_blank">使用百分比值设置文本的底部边缘</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_margin-left" target="_blank">使用厘米值设置文本的左边距</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-margin.html" target="_blank"><b>Margin属性的解释</b></a></p>
+<h2 class="tutheader">CSS填充</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_padding-left" target="_blank">设置元素的左部填充</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_padding-right" target="_blank">设置元素的右部填充</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_padding-top" target="_blank">设置元素的顶部填充</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_padding-bottom" target="_blank">设置元素的底部填充</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_padding" target="_blank">在一个声明中的所有填充属性</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-padding.html" target="_blank"><b>padding属性的解释</b></a></p>
+<h2 class="tutheader">CSS分组和嵌套</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_grouping" target="_blank">组选择器</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_nesting" target="_blank">嵌套选择器</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-grouping-nesting.html" target="_blank"><b>分组和嵌套解释</b></a></p>
+<h2 class="tutheader">CSS尺寸</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_height" target="_blank">使用像素值设置图像的高度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_height_percent" target="_blank">使用百分比设置图像的高度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_width" target="_blank">使用像素值来设置元素的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_width_percent" target="_blank">使用百分比来设置元素的宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_max-height" target="_blank">设置元素的最大高度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_max-width" target="_blank">使用像素值设置元素的最大宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_max-width_percent" target="_blank">使用百分比来设置元素的最大宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_min-height" target="_blank">设置元素的最低高度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_min-width" target="_blank">使用像素值来设置元素的最小宽度</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_dim_min-width_percent" target="_blank">使用百分比来设置元素的最小宽度</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-dimension.html" target="_blank"><b>尺寸属性的解释</b></a></p>
+<h2 class="tutheader">CSS显示</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_visibility_hidden" target="_blank">如何隐藏一个元素(visibility:hidden)</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_display_none" target="_blank">如何不显示元素(display:none)</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_display" target="_blank">如何显示一个元素的内联元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_display_block" target="_blank">如何显示一个元素的块元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_visibility_collapse" target="_blank">如何使用表格的collapse属性</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-display-visibility.html" target="_blank"><b>Display属性的解释</b></a></p>
+<h2 class="tutheader">CSS定位</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_fixed" target="_blank">元素相对浏览器窗口的位置</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_relative" target="_blank">元素的相对定位</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_absolute" target="_blank">元素的绝对定位</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_zindex" target="_blank">重叠的元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_clip" target="_blank">设置元素的形状</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_overflow" target="_blank">如何使用滚动条来显示元素内溢出的内容</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_pos_overflow_auto" target="_blank">如何设置浏览器自动溢出处理</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_top" target="_blank">使用像素值设置图像的顶部</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_bottom" target="_blank">使用像素值设置图像的底部</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_left" target="_blank">使用像素值设置图像的左边</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_position_right" target="_blank">使用像素值设置图像的右边</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_cursor" target="_blank">更改光标</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-positioning.html" target="_blank"><b>定位属性的解释</b></a></p>
+<h2 class="tutheader">CSS浮动</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float" target="_blank">简单的使用float属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float2" target="_blank">为图像添加边框和边距并浮动到段落的左侧</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float3" target="_blank">标题和图片向右侧浮动</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float4" target="_blank">让段落的第一个字母浮动到左侧</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float_elements" target="_blank">使用float属性创建一个图片廊</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float_clear" target="_blank">开启float - clear属性</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float5" target="_blank">创建一个水平菜单</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_float6" target="_blank">创建一个没有表格的网页</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-float.html" target="_blank"><b>Float属性的解释</b></a></p>
+<h2 class="tutheader">CSS对齐元素</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_align_container" target="_blank">使用margin的中间调整</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_align_pos" target="_blank">左/右位置对齐</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_align_pos_crossbrowser" target="_blank">使用跨浏览器解决方案，设置左/右位置对齐</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_align_float" target="_blank">左/右对齐，浮动</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_align_float_crossbrowser" target="_blank">使用跨浏览器解决方案，设置左/右位置对齐，浮动</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-align.html" target="_blank"><b>对齐属性解释</b></a></p>
+<h2 class="tutheader">CSS生成的内容</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_gen_content" target="_blank">把括号内的URL用content属性插入到每个链接后面</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_gen_counter-reset" target="_blank">章节和分节的编号是"第1节"，"1.1"，"1.2"等</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_gen_quotes" target="_blank">quotes 属性指定了引号</a></p>
+<h2 class="tutheader">CSS伪类</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link" target="_blank">添加不同颜色的超链接</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link2" target="_blank">给超链接添加其他样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_link_focus" target="_blank">使用：焦点</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_first-child1" target="_blank">:first-child - 匹配了第一个 p 元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_first-child2" target="_blank">:first-child - 匹配了 p 元素中的第一个 i 元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_first-child3" target="_blank">:first-child - 匹配了第一个p元素中的所有I元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_lang" target="_blank">使用:lang</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-pseudo-classes.html" target="_blank"><b>伪类的解释</b></a></p>
+<h2 class="tutheader">CSS伪元素</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_firstletter" target="_blank">把文本的第一个字母设为特殊的字母</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_firstline" target="_blank">把第一行文字设置为特殊</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_firstline_letter" target="_blank">把第一行文字的第一个字母设置为特殊</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_before" target="_blank">使用：在一个元素之前插入一些内容</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_after" target="_blank">使用：在一个元素之后插入一些内容</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-pseudo-elements.html" target="_blank"><b>伪元素的解释</b></a></p>
+<h2 class="tutheader">CSS导航栏</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_navbar_vertical_advanced" target="_blank">垂直导航栏的全样式</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_navbar_horizontal_float_advanced" target="_blank">水平导航栏的全样式</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-navbar.html" target="_blank"><b>导航栏的解释</b></a></p>
+<h2 class="tutheader">CSS图片廊</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_image_gallery" target="_blank">图片廊</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-image-gallery.html" target="_blank"><b>图片廊解释</b></a></p>
+<h2 class="tutheader">CSS图像的不透明度</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_image_transparency" target="_blank">创建透明图像 - 鼠标悬停效果</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_transparency" target="_blank">创建一个背景图像与文本的透明框</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-image-transparency.html" target="_blank"><b>图像的不透明度解释</b></a></p>
+<h2 class="tutheader">CSS图像拼合</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_sprites_img" target="_blank">图像拼合</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_sprites_nav" target="_blank">图像拼合-导航列表</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_sprites_hover_nav" target="_blank">悬停效果与图像拼合</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-image-sprites.html" target="_blank"><b>图像拼合解释</b></a></p>
+<h2 class="tutheader">CSS属性选择器</h2>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_attselector_att" target="_blank">选择具有title属性的元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_attselector_value" target="_blank">选择标题=一个特定值的元素</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_attselector_valuelist_space" target="_blank">选择标题=一个特定值的元素(使用（~）分隔属性和值)</a></p>
+<p><a href="http://www.runoob.com/try/try.php?filename=trycss_attselector_valuelist_hyphen" target="_blank">选择标题=一个特定值的元素(使用（|）分隔属性和值)</a></p>
+<p>&nbsp;</p>
+<p><a href="http://www.runoob.com/css/css-attribute-selectors.html" target="_blank"><b>属性选择器解释</b></a></p>
+<hr>
+<h2>CSS 应用实例</h2>
+<ul>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3095">CSS 加载进度条</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3098">CSS 分页样式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3105">CSS 进度条</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3106">CSS 提示信息实例</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3110">CSS 文字覆盖图像悬停效果</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3111">CSS 文字覆盖图像悬停效果 - 从上至下</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3112">CSS 文字覆盖图像悬停效果 – 从下至上</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3113">CSS 文字覆盖图像悬停效果 – 从右至左</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3114">CSS 文字覆盖图像悬停效果 – 从左至右</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3115">CSS 文字覆盖图像悬停效果 – 淡入透明</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3117">CSS 垂直按钮组</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3118">CSS 按钮组</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3134">CSS Loading(加载) 动画效果</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3135">CSS Loading(加载) 动画效果2</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3136">CSS Loading(加载) 动画效果3</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3137">CSS Loading(加载) 动画效果4</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3140"> CSS 动态搜索框</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3139"> CSS 用户信息卡片</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3138"> CSS 卡片样式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3143">CSS 上一页、下一页样式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3142"> CSS 各种提示信息框</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3147">CSS 三种价格表样式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3146"> CSS 开关样式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5378"> CSS 让 DIV 水平居中显示</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3151">CSS 上下左右四个方向箭头</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3150">CSS 反馈信息表单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3155"> CSS font-awesome 图标菜单栏</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3165"> CSS 顶部导航样式实例</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3174"> CSS 便签样式效果</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3175">CSS 水平滚动菜单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3176">CSS 垂直菜单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3177">CSS 垂直滚动菜单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3178">CSS 固定菜单栏</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5380">CSS 响应式登陆表单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/3179">CSS 固定底部菜单栏</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/161">CSS 下拉菜单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/450">CSS 下拉内容的对齐方式</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/162">CSS 导航条下拉菜单</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5410">CSS 带搜索框的导航栏</a></li>
+<li><a target="_blank" href="http://www.runoob.com/try/try.php?filename=css_searchbar2">CSS 带搜索导航栏 - 带提交按钮</a></li>
+<li><a target="_blank" href="http://www.runoob.com/try/try.php?filename=css_searchbar3">CSS 带搜索导航栏 - 带提搜索图标</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5411">CSS 固定左侧导航栏</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5412">CSS 固定左侧导航栏 – 高度自适应</a></li>
+<li><a target="_blank" href="https://c.runoob.com/codedemo/5379">HTML/CSS/JS 联系我们表单模板(带百度地图)</a></li>
+<li><a target="_blank" href="http://www.runoob.com/w3cnote/htmlcss-make-a-website.html">CSS 设计一个网页</a></li>
+</ul> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/css/css-summary.html" rel="prev"> CSS 总结</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/css/css-combinators.html" rel="next"> CSS 组合选择符</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style=" padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='797' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  797;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Firebug 教程" href="http://www.runoob.com/firebug/firebug-tutorial.html">Firebug 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 797;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-tutorial.html" title="Markdown 教程">Markdown 教程</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/cpp-header.html" title="理解 C++ 中的头文件和源文件的作用">理解 C++ 中的头...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/w3c-webauthn.html" title="W3C 宣布：WebAuthn 成为正式 Web 标准">W3C 宣布：WebAu...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/knowledge-start.html" title="2019，建个圈子">2019，建个圈子</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/linux-command-full-fight.html" title="Linux 常用命令全拼">Linux 常用命令全拼</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/octotree-github-repo.html" title="octotree &#8212; 树形展示 Github 项目代码">octotree &#8212...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/php/func-string-mb_substr.html" title="PHP mb_substr() 函数">PHP mb_substr()...</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

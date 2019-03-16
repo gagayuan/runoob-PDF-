@@ -1,0 +1,899 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Composer 安装与使用 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="composer-install-and-usage.html" />
+<meta name="keywords" content="Composer 安装与使用">
+<meta name="description" content="Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮你安装这些依赖的库文件，有了它，我们就可以很轻松的使用一个命令将其他人的优秀代码引用到我们的项目中来。 Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。 Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl。  Composer 可运行在 W..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/w3cnote/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav" id="note-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/w3cnote">笔记首页</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/android" title="Android 基础入门教程">Android</a></li>
+<li><a href="http://www.runoob.com/w3cnote/es6-tutorial.html" title="ES6 教程">ES6 教程</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/coderlife" title="程序员人生">程序员人生</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/joke" title="程序员笑话">程序员笑话</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/code" title="编程技术">编程技术</a></li>
+<li><a href="http://www.runoob.com/w3cnote/knowledge-start.html" style="font-weight: bold;"onclick="_hmt.push(['_trackEvent', '星球', 'click', 'start'])" title="我的圈子">我的圈子</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/w3cnote">首页</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/android" target="_blank" title="Android 基础入门教程">Android</a></li>
+<li><a href="http://www.runoob.com/w3cnote/es6-tutorial.html" target="_blank" title="ES6 教程">ES6</a></li>
+<li><a href="http://www.runoob.com/w3cnote_genre/joke" target="_blank" title="程序员笑话">逗乐</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col middle-column big-middle-column">
+<div class="article">
+<div class="article-heading">
+<h2>Composer 安装与使用</h2> <h3><em>分类</em> <a href="http://www.runoob.com/w3cnote_genre/code" title="编程技术">编程技术</a> </h3>
+</div>
+<div class="article-body note-body">
+<div class="article-intro">
+<p>Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮你安装这些依赖的库文件，有了它，我们就可以很轻松的使用一个命令将其他人的优秀代码引用到我们的项目中来。</p>
+<p>Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。</p>
+<p>Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl。</p>
+<p>Composer 可运行在 Windows 、 Linux 以及 OSX 平台上。</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2018/10/composer-logo.png"></p></p>
+<hr><h2>Composer 的安装</h2>
+<h3>Wondows 平台</h3>
+<p>Wondows 平台上，我们只需要下载 <a target="_blank" download href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a> 后，一步步安装即可。</p>
+<p>需要注意的是你需要开启 openssl 配置，我们打开 php 目录下的 php.ini，将 <span class="marked">extension=php_openssl.dll</span> 前面的分号去掉就可以了。</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2018/10/How-to-Install-Composer-on-Windows-Specify-PHP-File-Location.png"></p>
+<p>安装成功后，我们可以通过命令窗口(cmd) 输入 <span class="marked">composer --version</span> 命令来查看是否安装成功：</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2018/10/Test-Whether-The-Composer-is-Successfully-Installed.png"></p>
+<p>接下来我们可以更改 Packagist 为国内镜像：</p>
+<pre>composer config -g repo.packagist composer https://packagist.phpcomposer.com</pre>
+<h3>Linux 平台</h3>
+<p>Linux 平台可以使用以下命令来安装：</p>
+<pre># php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+# php composer-setup.php
+
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.6.5) successfully installed to: /root/composer.phar
+Use it: php composer.phar</pre>
+<p>移动 composer.phar，这样 composer 就可以进行全局调用：</p>
+<pre># mv composer.phar /usr/local/bin/composer</pre>
+<p>切换为国内镜像：</p>
+<pre># composer config -g repo.packagist composer https://packagist.phpcomposer.com</pre>
+<p>更新 composer：</p>
+<pre># composer selfupdate</pre>
+<h3>Mac OS 系统</h3>
+<p>Mac OS 系统可以使用以下命令来安装：</p>
+<pre>$ curl -sS https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer
+$ composer --version
+Composer version 1.7.2 2018-08-16 16:57:12</pre>
+<p>切换为国内镜像：</p>
+<pre>$ composer config -g repo.packagist composer https://packagist.phpcomposer.com</pre>
+<p>更新 composer：</p>
+<pre>$ composer selfupdate</pre>
+<hr>
+<h2>Composer 的使用</h2>
+<p>要使用 Composer，我们需要先在项目的目录下创建一个 composer.json 文件，文件描述了项目的依赖关系。</p>
+<p>文件格式如下：</p>
+<pre>{
+    "require": {
+        "monolog/monolog": "1.2.*"
+    }
+}</pre>
+<p>以上文件说明我们需要下载从 1.2 开始的任何版本的 monolog。</p>
+<p>接下来只要运行以下命令即可安装依赖包：</p>
+<pre>composer install</pre>
+<h3>require 命令</h3>
+<p>除了使用 install 命令外，我们也可以使用 require 命令快速的安装一个依赖而不需要手动在 composer.json 里添加依赖信息：</p>
+<pre>$ composer require monolog/monolog</pre>
+<p>Composer 会先找到合适的版本，然后更新composer.json文件，在 require 那添加 monolog/monolog 包的相关信息，再把相关的依赖下载下来进行安装，最后更新 composer.lock 文件并生成 php 的自动加载文件。</p>
+<h3>update 命令</h3>
+<p>update 命令用于更新项目里所有的包，或者指定的某些包：</p>
+<pre># 更新所有依赖
+$ composer update
+
+# 更新指定的包
+$ composer update monolog/monolog
+
+# 更新指定的多个包
+$ composer update monolog/monolog symfony/dependency-injection
+
+# 还可以通过通配符匹配包
+$ composer update monolog/monolog symfony/*</pre>
+<p>需要注意的时，包能升级的版本会受到版本约束的约束，包不会升级到超出约束的版本的范围。例如如果 composer.json 里包的版本约束为 ^1.10，而最新版本为 2.0。那么 update 命令是不能把包升级到 2.0 版本的，只能最高升级到 1.x 版本。关于版本约束请看后面的介绍。</p>
+<h3>remove 命令
+</h3>
+<p>remove 命令用于移除一个包及其依赖（在依赖没有被其他包使用的情况下），如果依赖被其他包使用，则无法移除：</p>
+<pre>$ composer remove monolog/monolog
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 0 installs, 0 updates, 2 removals
+  - Removing psr/log (1.0.2)
+  - Removing monolog/monolog (1.23.0)
+Generating autoload files</pre>
+<h3>search 命令</h3>
+<p>search 命令可以搜索包：</p>
+<pre>$ composer search monolog</pre>
+<p>该命令会输出包及其描述信息，如果只想输出包名可以使用 <span class="marked">--only-name</span> 参数：</p>
+<pre>$ composer search --only-name monolog</pre>
+<h3>show 命令</h3>
+<p>show 命令可以列出当前项目使用到包的信息：</p>
+<pre># 列出所有已经安装的包
+$ composer show
+
+# 可以通过通配符进行筛选
+$ composer show monolog/*
+
+# 显示具体某个包的信息
+$ composer show monolog/monolog</pre>
+<hr>
+<h2>基本约束
+</h2>
+<h3>
+精确版本</h3>
+<p>我们可以告诉 Composer 安装的具体版本，例如：1.0.2，指定 1.0.2 版本。</p>
+<h3>
+范围
+</h3><p>通过使用比较操作符来指定包的范围。这些操作符包括：<span class="marked">&gt;，&gt;=，&lt;，&lt;=，!=</span>。</p>
+<p>你可以定义多个范围，使用空格或者逗号 , 表示逻辑上的与，使用双竖线 || 表示逻辑上的或。其中与的优先级会大于或。
+实例：</p>
+<ul>
+<li>&gt;=1.0</li>
+<li>&gt;=1.0 &lt;2.0</li>
+<li>&gt;=1.0 &lt;1.1 || &gt;=1.2</li>
+</ul>
+<p>我们也可以通过使用连字符 <span class="marked">-</span> 来指定版本范围。</p>
+<p>连字符的左边表明了 <code>&gt;=</code> 的版本，如果右边的版本不是完整的版本号，则会被使用通配符进行补全。例如<code>1.0 - 2.0</code>等同于<code>&gt;=1.0.0 &lt;2.1</code>（<code>2.0</code>相当于<code>2.0.*</code>），而<code>1.0.0 - 2.1.0</code>则等同于<code>&gt;=1.0.0 &lt;=2.1.0</code>。</p>
+<h3>通配符</h3>
+<p>可以使用通配符来设置版本。<code>1.0.*</code>相当于<code>&gt;=1.0 &lt;1.1</code>。 <br>
+例子：<code>1.0.*</code></p>
+<h3>波浪号 ~</h3>
+<p>我们先通过后面这个例子去解释~操作符的用法：<code>~1.2</code>相当于<code>&gt;=1.2 &lt;2.0.0</code>，而<code>~1.2.3</code>相当于<code>&gt;=1.2.3 &lt;1.3.0</code>。对于使用<a href="http://semver.org/" rel="nofollow" target="_blank"><code>Semantic Versioning</code></a>作为版本号标准的项目来说，这种版本约束方式很实用。例如<code>~1.2</code>定义了最小的小版本号，然后你可以升级2.0以下的任何版本而不会出问题，因为按照<code>Semantic Versioning</code>的版本定义，小版本的升级不应该有兼容性的问题。简单来说，<code>~</code>定义了最小的版本，并且允许版本的最后一位版本号进行升级（没懂得话，请再看一边前面的例子）。 <br>
+例子：<code>~1.2</code></p>
+<blockquote>
+<p>需要注意的是，如果~作用在主版本号上，例如<code>~1</code>，按照上面的说法，Composer可以安装版本1以后的主版本，但是事实上是<code>~1</code>会被当作<code>~1.0</code>对待，只能增加小版本，不能增加主版本。</p>
+</blockquote>
+<h3>折音号 ^</h3>
+<p><code>^</code>操作符的行为跟<code>Semantic Versioning</code>有比较大的关联，它允许升级版本到安全的版本。例如，<code>^1.2.3</code>相当于<code>&gt;=1.2.3 &lt;2.0.0</code>，因为在2.0版本前的版本应该都没有兼容性的问题。而对于1.0之前的版本，这种约束方式也考虑到了安全问题，例如<code>^0.3</code>会被当作<code>&gt;=0.3.0 &lt;0.4.0</code>对待。 <br>
+例子：<code>^1.2.3</code></p>
+<hr>
+<h2>版本稳定性</h2>
+<p>如果你没有显式的指定版本的稳定性，Composer会根据使用的操作符，默认在内部指定为<code>-dev</code>或者<code>-stable</code>。例如：</p>
+<table class="reference">
+<thead>
+<tr>
+<th>约束</th>
+<th>内部约束</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>1.2.3</code></td>
+<td><code>=1.2.3.0-stable</code></td>
+</tr>
+<tr>
+<td><code>&gt;1.2</code></td>
+<td><code>&gt;1.2.0.0-stable</code></td>
+</tr>
+<tr>
+<td><code>&gt;=1.2</code></td>
+<td><code>&gt;=1.2.0.0-dev</code></td>
+</tr>
+<tr>
+<td><code>&gt;=1.2-stable</code></td>
+<td><code>&gt;=1.2.0.0-stable</code></td>
+</tr>
+<tr>
+<td><code>&lt;1.3</code></td>
+<td><code>&lt;1.3.0.0-dev</code></td>
+</tr>
+<tr>
+<td><code>&lt;=1.3</code></td>
+<td><code>&lt;=1.3.0.0-stable</code></td>
+</tr>
+<tr>
+<td><code>1 - 2</code></td>
+<td><code>&gt;=1.0.0.0-dev &lt;3.0.0.0-dev</code></td>
+</tr>
+<tr>
+<td><code>~1.3</code></td>
+<td><code>&gt;=1.3.0.0-dev &lt;2.0.0.0-dev</code></td>
+</tr>
+<tr>
+<td><code>1.4.*</code></td>
+<td><code>&gt;=1.4.0.0-dev &lt;1.5.0.0-dev</code></td>
+</tr>
+</tbody></table>
+例子：<code>1.0 - 2.0</code></p <p>如果你想指定版本只要稳定版本，你可以在版本后面添加后缀<code>-stable</code>。</p>
+<p><code>minimum-stability</code> 配置项定义了包在选择版本时对稳定性的选择的默认行为。默认是<code>stable</code>。它的值如下（按照稳定性排序）：<code>dev</code>，<code>alpha</code>，<code>beta</code>，<code>RC</code>和<code>stable</code>。除了修改这个配置去修改这个默认行为，我们还可以通过<a href="https://getcomposer.org/doc/04-schema.md#package-links" rel="nofollow" target="_blank">稳定性标识</a>（例如<code>@stable</code>和<code>@dev</code>）来安装一个相比于默认配置不同稳定性的版本。例如：</p>
+<pre>
+{
+    "require": {
+        "monolog/monolog": "1.0.*@beta",
+        "acme/foo": "@dev"
+    }
+}
+</pre> </div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link">← <a href="http://www.runoob.com/w3cnote/const-char.html" rel="prev"> const char*, char const*, char*const 的区别</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/w3cnote/matplotlib-tutorial.html" rel="next"> Matplotlib 教程</a> →</div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style=" padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='20867' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  20867;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="article-heading-ad" id="w3cnote-ad728">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;min-width:300px;max-width:970px;width:100%;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="horizontal"></ins>
+<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+</div>
+<style>
+@media screen and (max-width: 768px) {
+	#w3cnote-ad728 {
+		display: none;
+	}
+}
+p.note-author {
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    font-weight: bold;
+    color: #78a15a;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+}
+</style>
+<script>
+var aid = 20867;
+</script>
+</div>
+</div>
+<div class="listcol last right-column">
+<div class="sidebar-box cate-list">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="sidebar-box cate-list">
+<div class="sidebar-box advertise-here list-link">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;">教程列表</a>
+</div>
+<div class="cate-items">
+<a href="http://www.runoob.com/ado" title="ADO，即 ActiveX 数据对象（ActiveX Data Objects），是微软公司提出的应用程序接口，用于访问关系或非关系数据库中的数据。">ADO 教程</a>
+<a href="http://www.runoob.com/ajax" title="Ajax，即 Asynchronous JavaScript and XML（异步的 JavaScript 和 XML），是一项在不重新加载整个页面的情况下与服务器交换数据并更新部分网页的技术。">Ajax 教程</a>
+<a href="http://www.runoob.com/android" title="Android是一种基于Linux的自由及开放源代码的操作系统，主要使用于移动设备，如智能手机和平板电脑，由Google公司和开放手机联盟领导及开发。">Android 教程</a>
+<a href="http://www.runoob.com/angularjs2" title="AngularJS 2 是一款开源JavaScript库，由Google维护，用来协助单一页面应用程序运行。">Angular2 教程</a>
+<a href="http://www.runoob.com/angularjs" title="AngularJS 是 Google 开发的纯客户端 JavaScript 技术的 WEB 框架，用于扩展、增强 HTML 功能，它专为构建强大的 WEB 应用而设计。">AngularJS 教程</a>
+<a href="http://www.runoob.com/appml" title="AppML 是一个为 Web 应用程序设计的 HTML 扩展框架。AppML 结合了最新的技术和现代 Web 开发想法，使用了低消耗高速简单的架构，易于学习。">AppML 教程</a>
+<a href="http://www.runoob.com/asp" title="ASP，即动态服务器页面（Active Server Pages），是微软公司提出的一项生成动态交互性网页的技术。ASP 是在 IIS 中运行的程序，ASP 文件中的脚本可在服务器上执行。">ASP 教程</a>
+<a href="http://www.runoob.com/aspnet" title="ASP.NET 是微软公司提出的一个使用 HTML、CSS、JavaScript 和服务器脚本创建网页和网站的开发框架。ASP.NET 支持三种不同的开发模式：单页面模式、MVC 模式、事件驱动模式。">ASP.NET 教程</a>
+<a href="http://www.runoob.com/bootstrap" title="Bootstrap 是 Twitter 推出的一款开源的基于 HTML、CSS、JAVASCRIPT 的前端开发框架，用于快速开发 Web 应用程序和网站。">Bootstrap 教程</a>
+<a href="http://www.runoob.com/bootstrap4" title="Bootstrap4 目前是 Bootstrap 的最新版本，是一套用于 HTML、CSS 和 JS 开发的开源工具集。">Bootstrap4 教程</a>
+<a href="http://www.runoob.com/cprogramming" title="C 语言是一种通用的、面向过程式的计算机程序设计语言，广泛用于系统与应用软件的开发。具有高效、灵活、功能丰富、表达力强和较高的可移植性等特点，在程序员中备受青睐。">C 教程</a>
+<a href="http://www.runoob.com/csharp" title="C# 是微软公司发布的一种面向对象的、专为公共语言基础结构（CLI）而设计的、运行于 .NET Framework 之上的高级程序设计语言。">C# 教程</a>
+<a href="http://www.runoob.com/cplusplus" title="C++ 进一步扩充和完善了 C 语言，是一种面向对象的程序设计语言，可运行于多种平台上。C++ 支持多种编程范式——面向对象编程、泛型编程和过程化编程。">C++ 教程</a>
+<a href="http://www.runoob.com/cssref" title="CSS 参考手册提供了完整的 CSS 属性列表，每个属性都配有语法说明及实例演示，另外还讲解了 CSS 选择器、颜色值及浏览器支持等相关内容。">CSS 参考手册</a>
+<a href="http://www.runoob.com/css" title="CSS，即级联样式表（Cascading Style Sheets），是一种用于表现 HTML（标准通用标记语言的一个应用）或 XML（标准通用标记语言的一个子集）等文件样式和布局的计算机语言。">CSS 教程</a>
+<a href="http://www.runoob.com/css3" title="CSS3 是最新的 CSS 标准。CSS，即级联样式表（Cascading Style Sheets），用于表现 HTML 或 XML 等文件的样式和布局。">CSS3 教程</a>
+<a href="http://www.runoob.com/django" title="Django是一个开放源代码的Web应用框架，由Python写成。采用了MVC的软件设计模式，即模型M，视图V和控制器C。">Django 教程</a>
+<a href="http://www.runoob.com/docker" title="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中。">Docker 教程</a>
+<a href="http://www.runoob.com/dtd" title="DTD，即文档类型定义，用于定义 XML 文档的合法构建模块。DTD 使用一系列合法的元素来定义文档的结构，可被成行地声明于 XML 文档中，也可作为一个外部引用。">DTD 教程</a>
+<a href="http://www.runoob.com/eclipse" title="Eclipse 是一个开放源代码的、基于 Java 的可扩展开发平台。">Eclipse 教程</a>
+<a href="http://www.runoob.com/firebug" title="Firebug 是 网页浏览器 Mozilla Firefox 下的一款开发类插件，集 HTML 查看和编辑、Javascript 控制台、网络状况监视器于一体，是开发JavaScript、CSS、HTML 和 Ajax 的得力助手。">Firebug 教程</a>
+<a href="http://www.runoob.com/font-awesome" title="Font Awesome 是一套绝佳的图标字体库和CSS框架。">Font Awesome 图标</a>
+<a href="http://www.runoob.com/foundation" title="Foundation 是一个易用、强大而且灵活的框架,用于构建基于任何设备上的 Web 应用。">Foundation 教程</a>
+<a href="http://www.runoob.com/git" title="Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">Git 教程</a>
+<a href="http://www.runoob.com/go" title="Go 是一个开源的编程语言，它能让构造简单、可靠且高效的软件变得容易。">Go 语言教程</a>
+<a href="http://www.runoob.com/googleapi" title="Google 地图 API 是 Google 为开发者提供的创建交互式地图的应用程序编程接口。Google  地图 API 是一项免费的服务，任何非盈利性网站均可使用。">Google 地图 API 教程</a>
+<a href="http://www.runoob.com/highcharts" title="Highcharts 是一个用纯JavaScript编写的一个图表库">Highcharts 教程</a>
+<a href="http://www.runoob.com/htmldom" title="HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法。换言之，HTML DOM 是关于如何获取、修改、添加或删除 HTML 元素的标准。">HTML DOM 教程</a>
+<a href="http://www.runoob.com/tags" title="HTML 参考手册提供了完整的 HTML 标签、属性、事件列表，并配有具体的实例演示，另外还讲解了拾色器、字符集等相关内容。">HTML 参考手册</a>
+<a href="http://www.runoob.com/charsets" title="要正确显示HTML页面，浏览器必须知道页面使用的字符集（字符编码）是什么。">HTML 字符集</a>
+<a href="http://www.runoob.com/html" title="HTML，即超文本标记语言（Hyper Text Markup Language），是一种用于描述网页的标记语言，通过标记符号来标记要显示的网页中的各个部分。">HTML 教程</a>
+<a href="http://www.runoob.com/http" title="超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络协议。">HTTP 教程</a>
+<a href="http://www.runoob.com/ionic" title="ionic 是一个强大的 HTML5 应用程序开发框架(HTML5 Hybrid Mobile App Framework )。">ionic 教程</a>
+<a href="http://www.runoob.com/ios" title="IOS 是苹果公司研发的一款手机操作系统。IOS 具有简单易用的界面、令人惊叹的功能，以及超强的稳定性，是 iPad、iPhone、iPod touch和 Apple TV 的操作系统。">iOS 教程</a>
+<a href="http://www.runoob.com/java" title="Java 是一种跨平台的面向对象的高级程序设计语言，是由 Sun Microsystems 公司推出的 Java 程序设计语言和 Java 平台（即 JavaEE、JavaME、JavaSE）的总称。">Java 教程</a>
+<a href="http://www.runoob.com/jsref" title="JavaScript 参考手册提供了完整的 JavaScript 对象、浏览器对象、HTML DOM 对象手册。手册包含了每个对象、属性、方法的实例。">JavaScript 参考手册</a>
+<a href="http://www.runoob.com/js" title="JS，即 Javascript，是一种轻量级的编程语言，可插入 HTML 页面，由所有的现代浏览器执行。JS 可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。">Javascript 教程</a>
+<a href="http://www.runoob.com/jeasyui" title="jQuery EasyUI 是一个基于 jQuery 的框架，集成了各种用户界面插件。jQuery EasyUI 框架提供了创建网页所需的一切，帮助您轻松建立站点。">jQuery EasyUI 教程</a>
+<a href="http://www.runoob.com/jquerymobile" title="jQuery Mobile 是用于创建移动 Web 应用的前端开发框架。jQuery Mobile 使用 HTML5 &amp; CSS3 最小的脚本来布局网页，可以应用于智能手机与平板电脑。">jQuery Mobile 教程</a>
+<a href="http://www.runoob.com/jqueryui" title="jQuery UI 是建立在 jQuery JavaScript 库上的一组用户界面交互、特效、小部件及主题，可用于创建高度交互的 Web 应用程序。">jQuery UI 教程</a>
+<a href="http://www.runoob.com/jquery" title="jQuery 是目前最流行的一个轻量级的兼容多浏览器的 JavaScript  框架。jQuery 提供了大量的插件，极大地简化了 JavaScript 编程。">jQuery 教程</a>
+<a href="http://www.runoob.com/json" title="JSON，即 JavaScript Object Notation（JavaScript 对象表示法），是存储和交换文本信息的语法。JSON 类似 XML，但比 XML 更小、更快，更易解析。">JSON 教程</a>
+<a href="http://www.runoob.com/jsp" title="JSP，即 Java Server Pages，是由 Sun Microsystems 公司倡导和许多公司参与共同创建的一种使软件开发者可以响应客户端请求，而动态生成 HTML、XML 或其他格式文档的 Web 网页的技术标准。">JSP 教程</a>
+<a href="http://www.runoob.com/kotlin" title="Kotlin 是一个基于 JVM 的新的编程语言，由 JetBrains 开发。Kotlin可以编译成Java字节码，也可以编译成JavaScript，方便在没有JVM的设备上运行。">Kotlin 教程</a>
+<a href="http://www.runoob.com/linux" title="Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的UNIX工具软件、应用程序和网络协议。">Linux 教程</a>
+<a href="http://www.runoob.com/lua" title="Lua 是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放。">Lua 教程</a>
+<a href="http://www.runoob.com/markdown" title="Markdown是一种轻量级标记语言，它允许人们“使用易读易写的纯文本格式编写文档。">Markdown 教程</a>
+<a href="http://www.runoob.com/maven" title="Maven 是 Apache 下的一个纯 Java 开发的开源项目。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。">Maven 教程</a>
+<a href="http://www.runoob.com/memcached" title="Memcached是一个自由开源的，高性能，分布式内存对象缓存系统。它很普通，却可以用来减轻数据库负载，从而为动态web应用加速。">Memcached 教程</a>
+<a href="http://www.runoob.com/mongodb" title="MongoDB 是由 C++ 语言编写的开源数据库系统，是一个基于分布式文件存储的数据库，旨在为 Web 应用提供可扩展的高性能数据存储解决方案。">MongoDB 教程</a>
+<a href="http://www.runoob.com/mysql" title="MySQL 是一个开源的小型关系型数据库管理系统。在 Web 应用方面，MySQL是最好的 RDBMS（关系数据库管理系统）应用软件之一。">MySQL 教程</a>
+<a href="http://www.runoob.com/nodejs" title="Node.js 是一个基于 Chrome JavaScript 运行时建立的一个平台，是一个基于 Google 的 V8 引擎的事件驱动 I/O 服务端 JavaScript 环境。">Node.js 教程</a>
+<a href="http://www.runoob.com/numpy" title="NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算。">NumPy 教程</a>
+<a href="http://www.runoob.com/perl" title="Perl，一种功能丰富的计算机程序语言，运行在超过100种计算机平台上，适用广泛，从大型机到便携设备，从快速原型创建到大规模可扩展开发。">Perl 教程</a>
+<a href="http://www.runoob.com/php" title="PHP，即 PHP: Hypertext Preprocessor，是一种创建动态交互性站点的强有力的服务器端脚本语言。PHP 是开源的，可免费下载使用。">PHP 教程</a>
+<a href="http://www.runoob.com/python3" title="Python的3.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下兼容。">Python 3 教程</a>
+<a href="http://www.runoob.com/python" title="Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。Python 支持从简单的文字处理到 WWW 浏览器再到游戏等应用程序的开发。">Python 基础教程</a>
+<a href="http://www.runoob.com/rdf" title="RDF，即资源描述框架（Resource Description Framework），是用于描述网络资源的 W3C 标准，比如网页的标题、作者、修改日期、内容以及版权信息。">RDF 教程</a>
+<a href="http://www.runoob.com/react" title="React 是一个用于构建用户界面的 JAVASCRIPT 库。">React 教程</a>
+<a href="http://www.runoob.com/redis" title="Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。">Redis 教程</a>
+<a href="http://www.runoob.com/rss" title="RSS，即真正简易联合（Really Simple Syndication），是一种使用 XML 编写的描述和同步网站内容的格式，定义了非常简单的方法来共享和查看标题和内容。">RSS 教程</a>
+<a href="http://www.runoob.com/ruby" title="Ruby 是一种开源的面向对象程序设计的服务器端脚本语言，在 20 世纪 90 年代中期由日本的松本行弘设计并开发。Ruby 可用于编写通用网关接口（CGI）脚本，可用于开发 Internet 和 Intranet 应用。">Ruby 教程</a>
+<a href="http://www.runoob.com/scala" title="Scala 是一门多范式（multi-paradigm）的编程语言，设计初衷是要集成面向对象编程和函数式编程的各种特性。">Scala 教程</a>
+<a href="http://www.runoob.com/servlet" title="Servlet（Server Applet），全称 Java Servlet，是用 Java 编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态 Web 内容。Servlet 运行于支持 Java 的应用服务器中，它最常见的用途是扩展 Web 服务器。">Servlet 教程</a>
+<a href="http://www.runoob.com/soap" title="SOAP，即简易对象访问协议，是基于 XML 的简易协议，可使应用程序在 HTTP 之上进行信息交换。简单地说，SOAP 是用于访问网络服务的协议。">SOAP 教程</a>
+<a href="http://www.runoob.com/sql" title="SQL，即结构化查询语言（Structured Query Language），是一种 ANSI 标准的计算机语言，用于访问和处理数据库。">SQL 教程</a>
+<a href="http://www.runoob.com/sqlite" title="SQLite 是一款轻型的关系型数据库管理系统，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。SQLite 是在世界上最广泛部署的 SQL 数据库引擎。">SQLite 教程</a>
+<a href="http://www.runoob.com/svg" title="SVG，即可缩放矢量图形（Scalable Vector Graphics），是一种使用 XML 来描述二维图形和绘图程序的语言。SVG 是 W3C 推荐标准。">SVG 教程</a>
+<a href="http://www.runoob.com/svn" title="SVN是Subversion的简称，是一个开放源代码的版本控制系统，相较于RCS、CVS，它采用了分支管理系统，它的设计目标就是取代CVS。">SVN 教程</a>
+<a href="http://www.runoob.com/swift" title="Swift 是一种支持多编程范式和编译式的编程语言,苹果于2014年WWDC（苹果开发者大会）发布，用于开发 iOS，OS X 和 watchOS应用程序。">Swift 教程</a>
+<a href="http://www.runoob.com/tcpip" title="TCP/IP 是因特网的通信协议，是对计算机必须遵守的规则的描述，只有遵守这些规则，计算机之间才能进行通信。浏览器与服务器是使用 TCP/IP 协议来链接因特网的。">TCP/IP 教程</a>
+<a href="http://www.runoob.com/typescript" title="TypeScript 是 JavaScript 的一个超集，支持 ECMAScript 6 标准。">TypeScript 教程</a>
+<a href="http://www.runoob.com/vbscript" title="VBScript，即 Visual Basic Script，是微软公司开发的一种解析型的服务端（也支持客户端）脚本语言，可以看作是 VB 语言的简化版。">VBScript 教程</a>
+<a href="http://www.runoob.com/vue2" title="Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的渐进式框架。">Vue.js 教程</a>
+<a href="http://www.runoob.com/w3c" title="W3C，即万维网联盟，创建于 1994 年，是 Web 技术领域最具权威和影响力的国际中立性技术标准机构。W3C 让每个人都能在互联网上分享资源。">W3C 教程</a>
+<a href="http://www.runoob.com/webservices" title="Web Service 是使用开放协议进行通信的可重复使用的应用程序组件。通过使用 Web services，您可以在不同的应用程序与平台之间来交换数据。">Web Service 教程</a>
+<a href="http://www.runoob.com/wsdl" title="WSDL，即网络服务描述语言（Web Services Description Language），是一门基于 XML 的语言，用于描述 Web Services 以及如何对它们进行访问。">WSDL 教程</a>
+<a href="http://www.runoob.com/xlink" title="XLink 定义在 XML 文档中创建超级链接的标准方法。XPointer 允许这些超级链接指向 XML 文档中的更多具体部分（片断）。XLink 和 XPointer 是 W3C 推荐标准。">XLink 教程</a>
+<a href="http://www.runoob.com/dom" title="XML DOM 定义了所有 XML 元素的对象和属性，以及访问它们的方法。换言之，XML DOM 是用于获取、更改、添加或删除 XML 元素的标准。">XML DOM 教程</a>
+<a href="http://www.runoob.com/schema" title="XML Schema 是基于 XML（可扩展标记语言），描述了 XML 文档的合法构建模块，可替代 DTD（文档类型定义）。XML Schema 是 W3C 的推荐标准。">XML Schema 教程</a>
+<a href="http://www.runoob.com/xml" title="XML，即可扩展标记语言（eXtensible Markup Language），用来传输和存储数据。XML 是一个 W3C 推荐标准。">XML 教程</a>
+<a href="http://www.runoob.com/xpath" title="XPath，即 XML 路径语言，是 XSLT 中的主要元素，是一种在 XML 文档中查找信息的语言。XPath 是一个 W3C 推荐标准。">XPath 教程</a>
+<a href="http://www.runoob.com/xquery" title="XQuery 是建立在 XPath 表达式之上，用于 XML 数据查询的语言。XQuery 对 XML 的作用类似 SQL 对数据库的作用。XQuery 是一个 W3C 推荐标准。">XQuery 教程</a>
+<a href="http://www.runoob.com/xslfo" title="XSL-FO，即可扩展样式表语言格式化对象（Extensible Stylesheet Language Formatting Objects），是用于格式化 XML 数据的语言。XSL-FO 是一个 W3C 推荐标准。">XSLFO 教程</a>
+<a href="http://www.runoob.com/xsl" title="XSLT，即 XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。XSL 指扩展样式表语言，是一种 XML 文档的样式表语言。XSLT 是一个 W3C 推荐标准。">XSLT 教程</a>
+<a href="http://www.runoob.com/regexp" title="正则表达式，又称正规表示法、常规表示法，使用单个字符串来描述、匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式的文本。">正则表达式</a>
+<a href="http://www.runoob.com/quiz" title="测验">测验</a>
+<a href="http://www.runoob.com/browsers" title="浏览器是用于显示网页服务器或档案系统内的文件，并让用户与这些文件互动的一种软件。目前主流浏览器包括 Internet Explorer、Firefox、Chrome、Safari、Opera 等。">浏览器</a>
+<a href="http://www.runoob.com/quality" title="通过学习重要的 Web 标准，根据 Web 标准编写页面，有助于改善网站品质，创建高质量的 Web 网站，让网站更加简易且可读性更强。">网站品质</a>
+<a href="http://www.runoob.com/web" title="网站建设指南介绍了一个网站开发人员建设一个专业的网站必须掌握的知识，同时还讲解了网站验证、Web 语义化、搜索引擎优化等相关内容。">网站建设指南</a>
+<a href="http://www.runoob.com/hosting" title="Web 服务器可存放网站，只有将存放在服务器上的网站进行发布，用户才能在客户端上浏览网站。网站主机服务通常包括了域名注册、电子邮件等。">网站服务器教程</a>
+<a href="http://www.runoob.com/design-pattern" title="设计模式（Design pattern）是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 ">设计模式</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-title.html" title="Markdown  标题">Markdown 标题</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-tutorial.html" title="Markdown 教程">Markdown 教程</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/cpp-header.html" title="理解 C++ 中的头文件和源文件的作用">理解 C++ 中的头...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/w3c-webauthn.html" title="W3C 宣布：WebAuthn 成为正式 Web 标准">W3C 宣布：WebAu...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/knowledge-start.html" title="2019，建个圈子">2019，建个圈子</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/linux-command-full-fight.html" title="Linux 常用命令全拼">Linux 常用命令全拼</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/octotree-github-repo.html" title="octotree &#8212; 树形展示 Github 项目代码">octotree &#8212...</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

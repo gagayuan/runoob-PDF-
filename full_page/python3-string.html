@@ -1,0 +1,1230 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python3 字符串 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="python3-string.html" />
+<meta name="keywords" content="Python3 字符串">
+<meta name="description" content="Python3 字符串 字符串是 Python 中最常用的数据类型。我们可以使用引号( &#039; 或 &#039; )来创建字符串。  创建字符串很简单，只要为变量分配一个值即可。例如：   [mycode3 type=&#039;python&#039;] var1 = &#039;Hello World!&#039; var2 = &#039;Runoob&#039; [/mycode3]    Python 访问字符串中的值 ..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/python3/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">Python 3 教程 <a data-cate="124" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="124" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">
+Python3 教程 </a>
+<a target="_top" title=" Python3 环境搭建" href="http://www.runoob.com/python3/python3-install.html"> Python3 环境搭建</a>
+<a target="_top" title=" Python3 基础语法" href="http://www.runoob.com/python3/python3-basic-syntax.html"> Python3 基础语法 </a>
+<a target="_top" title=" Python3 基本数据类型" href="http://www.runoob.com/python3/python3-data-type.html"> Python3 基本数据类型 </a> <a target="_top" title="Python3 解释器" href="http://www.runoob.com/python3/python3-interpreter.html">
+Python3 解释器 </a>
+<a target="_top" title="Python3 注释" href="http://www.runoob.com/python3/python3-comment.html">
+Python3 注释 </a>
+<a target="_top" title="Python3 运算符" href="http://www.runoob.com/python3/python3-basic-operators.html"> Python3 运算符 </a> <a target="_top" title="Python3 数字(Number)" href="http://www.runoob.com/python3/python3-number.html">
+Python3 数字(Number) </a>
+<a target="_top" title="Python3 字符串" href="python3-string.html">
+Python3 字符串 </a>
+<a target="_top" title="Python3 列表" href="http://www.runoob.com/python3/python3-list.html">
+Python3 列表 </a>
+<a target="_top" title="Python3 元组" href="http://www.runoob.com/python3/python3-tuple.html"> Python3 元组 </a>
+<a target="_top" title="Python3 字典" href="http://www.runoob.com/python3/python3-dictionary.html"> Python3 字典</a>
+<a target="_top" title="Python3 集合" href="http://www.runoob.com/python3/python3-set.html"> Python3 集合</a> <a target="_top" title="Python3 编程第一步" href="http://www.runoob.com/python3/python3-step1.html">
+Python3 编程第一步 </a>
+<a target="_top" title="Python3 条件控制" href="http://www.runoob.com/python3/python3-conditional-statements.html">
+Python3 条件控制 </a>
+<a target="_top" title="Python3 循环语句" href="http://www.runoob.com/python3/python3-loop.html">
+Python3 循环语句 </a>
+<a target="_top" title="Python3 迭代器与生成器" href="http://www.runoob.com/python3/python3-iterator-generator.html"> Python3 迭代器与生成器</a> <a target="_top" title="Python3 函数" href="http://www.runoob.com/python3/python3-function.html">
+Python3 函数 </a>
+<a target="_top" title="Python3 数据结构" href="http://www.runoob.com/python3/python3-data-structure.html">
+Python3 数据结构 </a>
+<a target="_top" title="Python3 模块" href="http://www.runoob.com/python3/python3-module.html">
+Python3 模块 </a>
+<a target="_top" title="Python3 输入和输出" href="http://www.runoob.com/python3/python3-inputoutput.html">
+Python3 输入和输出 </a>
+<a target="_top" title="Python3 File" href="http://www.runoob.com/python3/python3-file-methods.html"> Python3 File </a>
+<a target="_top" title="Python3 OS" href="http://www.runoob.com/python3/python3-os-file-methods.html"> Python3 OS </a> <a target="_top" title="Python3 错误和异常" href="http://www.runoob.com/python3/python3-errors-execptions.html">
+Python3 错误和异常 </a>
+<a target="_top" title="Python3 面向对象" href="http://www.runoob.com/python3/python3-class.html">
+Python3 面向对象 </a>
+<a target="_top" title="Python3 标准库概览" href="http://www.runoob.com/python3/python3-stdlib.html">
+Python3 标准库概览 </a>
+<a target="_top" title="Python3 实例" href="http://www.runoob.com/python3/python3-examples.html">
+Python3 实例 </a>
+<a target="_blank" title="Python 测验" href="http://www.runoob.com/quiz/python-quiz.html"> Python 测验 </a>
+<br><h2 class="left"><span class="left_h2">Python3</span> 高级教程</h2> <a target="_top" title="Python3 正则表达式" href="http://www.runoob.com/python3/python3-reg-expressions.html">
+Python3 正则表达式 </a>
+<a target="_top" title="Python3 CGI编程" href="http://www.runoob.com/python3/python3-cgi-programming.html">
+Python3 CGI编程 </a>
+<a target="_top" title="Python MySQL - mysql-connector 驱动" href="http://www.runoob.com/python3/python-mysql-connector.html">Python3 MySQL(mysql-connector)</a> <a target="_top" title="Python3 MySQL 数据库连接 &#8211; PyMySQL 驱动" href="http://www.runoob.com/python3/python3-mysql.html">
+Python3 MySQL(PyMySQL) </a>
+<a target="_top" title="Python3 网络编程" href="http://www.runoob.com/python3/python3-socket.html">
+Python3 网络编程 </a>
+<a target="_top" title="Python3 SMTP发送邮件" href="http://www.runoob.com/python3/python3-smtp.html">
+Python3 SMTP发送邮件 </a>
+<a target="_top" title="Python3 多线程" href="http://www.runoob.com/python3/python3-multithreading.html">
+Python3 多线程 </a>
+<a target="_top" title="Python3 XML 解析" href="http://www.runoob.com/python3/python3-xml-processing.html">
+Python3 XML 解析 </a>
+<a target="_top" title="Python3 JSON 数据解析" href="http://www.runoob.com/python3/python3-json.html">
+Python3 JSON </a>
+<a target="_top" title="Python3 日期和时间" href="http://www.runoob.com/python3/python3-date-time.html">
+Python3 日期和时间 </a>
+<a target="_top" title="Python3 内置函数" href="http://www.runoob.com/python3/python3-built-in-functions.html">
+Python3 内置函数 </a>
+<a target="_top" title="Python MongoDB" href="http://www.runoob.com/python3/python-mongodb.html">
+Python MongoDB </a>
+<a target="_top" title="Python uWSGI  安装配置" href="http://www.runoob.com/python3/python-uwsgi.html">
+Python uWSGI 安装配置 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-number.html" rel="prev"> Python3 数字(Number)</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-list.html" rel="next"> Python3 列表</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>Python3 <span class="color_h1">字符串</span></h1>
+<p>字符串是 Python 中最常用的数据类型。我们可以使用引号( <span class="marked">'</span> 或 <span class="marked">"</span> )来创建字符串。</p>
+<p>创建字符串很简单，只要为变量分配一个值即可。例如：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-identifier">var1</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Hello World!</span><span class="hl-quotes">'</span><span class="hl-code">
+</span><span class="hl-identifier">var2</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">Runoob</span><span class="hl-quotes">&quot;</span></div>
+</div>
+</div>
+<hr>
+<h2>Python 访问字符串中的值</h2>
+<p>Python 不支持单字符类型，单字符在 Python 中也是作为一个字符串使用。</p>
+<p>Python 访问子字符串，可以使用方括号来截取字符串，如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">var1</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Hello World!</span><span class="hl-quotes">'</span><span class="hl-code">
+</span><span class="hl-identifier">var2</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">Runoob</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">var1[0]: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">var1</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">var2[1:5]: </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">var2</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例执行结果：</p>
+<pre>
+var1[0]:  H
+var2[1:5]:  unoo
+</pre>
+<hr>
+<h2>Python 字符串更新</h2>
+<p>你可以截取字符串的一部分并与其他字段拼接，如下实例：</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">var1</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">Hello World!</span><span class="hl-quotes">'</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">已更新字符串 : </span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">var1</span><span class="hl-brackets">[</span><span class="hl-code">:</span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">Runoob!</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例执行结果</p>
+<pre>
+已更新字符串 :  Hello Runoob!
+</pre><hr>
+<h2>Python转义字符</h2>
+<p>在需要在字符中使用特殊字符时，python用反斜杠(\)转义字符。如下表：</p>
+<table class="reference">
+<thead>
+<tr>
+<th>转义字符</th><th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(在行尾时)</td>
+<td>续行符</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜杠符号</td>
+</tr>
+<tr>
+<td>\'</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\"</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(Backspace)</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>\000</td>
+<td>空</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>纵向制表符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\oyy</td>
+<td>八进制数，yy代表的字符，例如：\o12代表换行</td>
+</tr>
+<tr>
+<td>\xyy</td>
+<td>十六进制数，yy代表的字符，例如：\x0a代表换行</td>
+</tr>
+<tr>
+<td>\other</td>
+<td>其它的字符以普通格式输出</td>
+</tr>
+</tbody>
+</table><hr>
+<h2>Python字符串运算符</h2>
+<p>下表实例变量a值为字符串 "Hello"，b变量值为 "Python"：</p>
+<table class="reference">
+<tbody><tr>
+<th width="10%">操作符</th><th>描述</th><th width="20%">实例</th>
+</tr>
+<tr>
+<td>+</td><td>字符串连接</td><td> a + b 输出结果： HelloPython</td>
+</tr>
+<tr>
+<td>*</td><td>重复输出字符串</td><td> a*2 输出结果：HelloHello</td>
+</tr>
+<tr>
+<td>[]</td><td>通过索引获取字符串中字符</td><td> a[1] 输出结果 <b>e</b></td>
+</tr>
+<tr>
+<td>[ : ]</td><td>截取字符串中的一部分，遵循<strong>左闭右开</strong>原则，str[0,2] 是不包含第 3 个字符的。</td><td> a[1:4] 输出结果 <b>ell</b></td>
+</tr>
+<tr>
+<td>in</td><td>成员运算符 - 如果字符串中包含给定的字符返回 True </td><td> <b>'H' in a</b> 输出结果 True</td>
+</tr>
+<tr>
+<td>not in </td><td>成员运算符 - 如果字符串中不包含给定的字符返回 True </td><td> <b>'M' not in a</b> 输出结果 True</td>
+</tr>
+<tr>
+<td>r/R</td><td>原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。
+原始字符串除在字符串的第一个引号前加上字母 <span class="marked">r</span>（可以大小写）以外，与普通字符串有着几乎完全相同的语法。</td><td><pre>
+print( r'\n' )
+print( R'\n' )
+</pre></td>
+</tr>
+<tr>
+<td>%</td><td>格式字符串</td><td>请看下一节内容。</td>
+</tr>
+</tbody></table>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">a</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">Hello</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">b</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">Python</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">a + b 输出结果：</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">a</span><span class="hl-code"> + </span><span class="hl-identifier">b</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">a * 2 输出结果：</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">a</span><span class="hl-code"> * </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">a[1] 输出结果：</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">a</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">a[1:4] 输出结果：</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">a</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-code">:</span><span class="hl-number">4</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">if</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">H</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">H 在变量 a 中</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">H 不在变量 a 中</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">if</span><span class="hl-brackets">(</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">M</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-reserved">not</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">a</span><span class="hl-brackets">)</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">M 不在变量 a 中</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code"> :
+</span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">M 在变量 a 中</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">r</span><span class="hl-quotes">'</span><span class="hl-special">\n</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">R</span><span class="hl-quotes">'</span><span class="hl-special">\n</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果为：</p>
+<pre>
+a + b 输出结果： HelloPython
+a * 2 输出结果： HelloHello
+a[1] 输出结果： e
+a[1:4] 输出结果： ell
+H 在变量 a 中
+M 不在变量 a 中
+\n
+\n</pre>
+<hr>
+<h2>Python字符串格式化</h2>
+<p>Python 支持格式化字符串的输出 。尽管这样可能会用到非常复杂的表达式，但最基本的用法是将一个值插入到一个有字符串格式符 %s 的字符串中。</p>
+<p>在 Python 中，字符串格式化使用与 C 中 sprintf 函数一样的语法。</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">我叫 %s 今年 %d 岁!</span><span class="hl-quotes">&quot;</span><span class="hl-code"> % </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">小明</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-number">10</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例输出结果：</p>
+<pre>
+我叫 小明 今年 10 岁!
+</pre>
+<p>python字符串格式化符号:</p>
+<table class="reference">
+<tbody<tr><th>
+&nbsp;&nbsp;&nbsp; 符&nbsp;&nbsp; 号</th>
+<th>描述</th></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %c</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化字符及其ASCII码</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化字符串</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %d</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化整数</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %u</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化无符号整型</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %o</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化无符号八进制数</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %x</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化无符号十六进制数</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %X</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化无符号十六进制数（大写）</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %f</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;格式化浮点数字，可指定小数点后的精度</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %e</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;用科学计数法格式化浮点数</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %E</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;作用同%e，用科学计数法格式化浮点数</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %g</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;%f和%e的简写</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %G</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;%f 和 %E 的简写</font></td></tr><tr><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %p</font></td><td><font face="宋体" size="2" style="line-height: 23px; ">&nbsp;用十六进制数格式化变量的地址</font></td></tr></tbody></table>
+<p>格式化操作符辅助指令:</p>
+<table class="reference">
+<tbody><tr>
+<th>符号</th><th>功能</th>
+</tr>
+<tr><td>*</td><td>定义宽度或者小数点精度 </td></tr>
+<tr><td>-</td><td>用做左对齐 </td></tr>
+<tr><td>+</td><td>在正数前面显示加号( + ) </td></tr>
+<tr><td>&lt;sp&gt;</td><td>在正数前面显示空格 </td></tr>
+<tr><td>#</td><td> 在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')</td></tr>
+<tr><td>0</td><td> 显示的数字前面填充'0'而不是默认的空格 </td></tr>
+<tr><td>%</td><td> '%%'输出一个单一的'%' </td></tr>
+<tr><td>(var)</td><td>映射变量(字典参数) </td></tr>
+<tr><td>m.n.</td><td> m 是显示的最小总宽度,n 是小数点后的位数(如果可用的话)</td></tr>
+</tbody></table><p>Python2.6 开始，新增了一种格式化字符串的函数 <a target="_blank" href="http://www.runoob.com/python/att-string-format.html">str.format()</a>，它增强了字符串格式化的功能。</p>
+<hr>
+<h2>Python三引号 </h2>
+<p>python三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符。实例如下</p>
+<div class="example">
+<h2 class="example">实例(Python 3.0+)</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+</span><span class="hl-identifier">para_str</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;&quot;&quot;</span><span class="hl-string">这是一个多行字符串的实例
+多行字符串可以使用制表符
+TAB ( </span><span class="hl-special">\t</span><span class="hl-string"> )。
+也可以使用换行符 [ </span><span class="hl-special">\n</span><span class="hl-string"> ]。
+</span><span class="hl-quotes">&quot;&quot;&quot;</span><span class="hl-code">
+</span><span class="hl-identifier">print</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">para_str</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<p>以上实例执行结果为：</p>
+<pre>
+这是一个多行字符串的实例
+多行字符串可以使用制表符
+TAB (    )。
+也可以使用换行符 [ 
+ ]。
+</pre>
+<p>三引号让程序员从引号和特殊字符串的泥潭里面解脱出来，自始至终保持一小块字符串的格式是所谓的WYSIWYG（所见即所得）格式的。</p>
+<p>一个典型的用例是，当你需要一块HTML或者SQL时，这时用字符串组合，特殊字符串转义将会非常的繁琐。</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-identifier">errHTML</span><span class="hl-code"> = </span><span class="hl-quotes">'''</span><span class="hl-string">
+&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;
+Friends CGI Demo&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;&lt;H3&gt;ERROR&lt;/H3&gt;
+&lt;B&gt;%s&lt;/B&gt;&lt;P&gt;
+&lt;FORM&gt;&lt;INPUT TYPE=button VALUE=Back
+ONCLICK=&quot;window.history.back()&quot;&gt;&lt;/FORM&gt;
+&lt;/BODY&gt;&lt;/HTML&gt;
+</span><span class="hl-quotes">'''</span><span class="hl-code">
+</span><span class="hl-identifier">cursor</span><span class="hl-code">.</span><span class="hl-identifier">execute</span><span class="hl-brackets">(</span><span class="hl-quotes">'''</span><span class="hl-string">
+CREATE TABLE users (
+login VARCHAR(8),
+uid INTEGER,
+prid INTEGER)
+</span><span class="hl-quotes">'''</span><span class="hl-brackets">)</span></div>
+</div>
+</div>
+<hr>
+<h2>Unicode 字符串</h2>
+<p>
+在Python2中，普通字符串是以8位ASCII码进行存储的，而Unicode字符串则存储为16位unicode字符串，这样能够表示更多的字符集。使用的语法是在字符串前面加上前缀 <b>u</b>。
+</p><p>
+在Python3中，所有的字符串都是Unicode字符串。
+</p>
+<hr>
+<h2>Python 的字符串内建函数</h2>
+<p>Python 的字符串常用内建函数如下：</p>
+</p>
+<table class="reference">
+<tbody><tr>
+<th style="width:5%">序号</th><th>方法及描述</th></tr>
+<tr><td>1</td><td><p><a href="http://www.runoob.com/python3/python3-string-capitalize.html">capitalize()</a><br>将字符串的第一个字符转换为大写</p></td></tr>
+<tr><td>2</td><td><p><a href="http://www.runoob.com/python3/python3-string-center.html">center(width, fillchar)</a></p><br>
+返回一个指定的宽度 width 居中的字符串，fillchar 为填充的字符，默认为空格。</td>
+</tr>
+<tr><td>3</td><td><p><a href="http://www.runoob.com/python3/python3-string-count.html">count(str, beg= 0,end=len(string))</a></p><br>返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数</td></tr>
+<tr><td>4</td><td><p><a href="http://www.runoob.com/python3/python3-string-decode.html">bytes.decode(encoding="utf-8", errors="strict")</a></p><br>Python3 中没有 decode 方法，但我们可以使用 bytes 对象的 decode() 方法来解码给定的 bytes 对象，这个 bytes 对象可以由 str.encode() 来编码返回。</td></tr>
+<tr><td>5</td><td><p><a href="http://www.runoob.com/python3/python3-string-encode.html">encode(encoding='UTF-8',errors='strict')</a></p><br>以 encoding 指定的编码格式编码字符串，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace'</td></tr>
+<tr><td>6</td><td><p><a href="http://www.runoob.com/python3/python3-string-endswith.html">endswith(suffix, beg=0, end=len(string))</a><br>检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.</p></td></tr>
+<tr><td>7</td><td><p><a href="http://www.runoob.com/python3/python3-string-expandtabs.html">expandtabs(tabsize=8)</a></p><br>把字符串 string 中的 tab 符号转为空格，tab 符号默认的空格数是 8 。</td></tr>
+<tr><td>8</td><td><p><a href="http://www.runoob.com/python3/python3-string-find.html">find(str, beg=0 end=len(string))</a></p><br>检测 str 是否包含在字符串中，如果指定范围 beg 和 end ，则检查是否包含在指定范围内，如果包含返回开始的索引值，否则返回-1</td></tr>
+<tr><td>9</td><td><p><a href="http://www.runoob.com/python3/python3-string-index.html">index(str, beg=0, end=len(string))</a></p><br>跟find()方法一样，只不过如果str不在字符串中会报一个异常.</td></tr>
+<tr><td>10</td><td><p><a href="http://www.runoob.com/python3/python3-string-isalnum.html">isalnum()</a></p><br>如果字符串至少有一个字符并且所有字符都是字母或数字则返
+回 True,否则返回 False</td></tr>
+<tr><td>11</td><td><p><a href="http://www.runoob.com/python3/python3-string-isalpha.html">isalpha()</a></p><br>如果字符串至少有一个字符并且所有字符都是字母则返回 True,
+否则返回 False</td></tr>
+<tr><td>12</td><td><p><a href="http://www.runoob.com/python3/python3-string-isdigit.html">isdigit()</a></p><br>如果字符串只包含数字则返回 True 否则返回 False..</td></tr>
+<tr><td>13</td><td><p><a href="http://www.runoob.com/python3/python3-string-islower.html">islower()</a></p><br>如果字符串中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回 True，否则返回 False</td></tr>
+<tr><td>14</td><td><p><a href="http://www.runoob.com/python3/python3-string-isnumeric.html">isnumeric()</a></p><br>如果字符串中只包含数字字符，则返回 True，否则返回 False</td></tr>
+<tr><td>15</td><td><p><a href="http://www.runoob.com/python3/python3-string-isspace.html">isspace()</a></p><br>如果字符串中只包含空白，则返回 True，否则返回 False.</td></tr>
+<tr><td>16</td><td><p><a href="http://www.runoob.com/python3/python3-string-istitle.html">istitle()</a></p><br>
+如果字符串是标题化的(见 title())则返回 True，否则返回 False</td></tr>
+<tr><td>17</td><td><p><a href="http://www.runoob.com/python3/python3-string-isupper.html">isupper()</a></p><br>如果字符串中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回 True，否则返回 False</td></tr>
+<tr><td>18</td><td><p><a href="http://www.runoob.com/python3/python3-string-join.html">join(seq)</a></p><br>以指定字符串作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串</td></tr>
+<tr><td>19</td><td><p><a href="http://www.runoob.com/python3/python3-string-len.html">len(string)</a></p><br>返回字符串长度</td></tr>
+<tr><td>20</td><td><p><a href="http://www.runoob.com/python3/python3-string-ljust.html">ljust(width[, fillchar])</a></p><br>返回一个原字符串左对齐,并使用 fillchar 填充至长度 width 的新字符串，fillchar 默认为空格。</td></tr>
+<tr><td>21</td><td><p><a href="http://www.runoob.com/python3/python3-string-lower.html">lower()</a></p><br>转换字符串中所有大写字符为小写.</td></tr>
+<tr><td>22</td><td><p><a href="http://www.runoob.com/python3/python3-string-lstrip.html">lstrip()</a></p><br>截掉字符串左边的空格或指定字符。</td></tr>
+<tr><td>23</td><td><p><a href="http://www.runoob.com/python3/python3-string-maketrans.html">maketrans()</a></p><br>创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</td></tr>
+<tr><td>24</td><td><p><a href="http://www.runoob.com/python3/python3-string-max.html">max(str)</a></p><br>返回字符串 str 中最大的字母。</td></tr>
+<tr><td>25</td><td><p><a href="http://www.runoob.com/python3/python3-string-min.html">min(str)</a></p><br>返回字符串 str 中最小的字母。</td></tr>
+<tr><td>26</td><td><p><a href="http://www.runoob.com/python3/python3-string-replace.html">replace(old, new [, max])</a></p><br>把 将字符串中的 str1 替换成 str2,如果 max 指定，则替换不超过 max 次。</td></tr>
+<tr><td>27</td><td><p><a href="http://www.runoob.com/python3/python3-string-rfind.html">rfind(str, beg=0,end=len(string))</a></p><br>类似于 find()函数，不过是从右边开始查找.</td></tr>
+<tr><td>28</td><td><p><a href="http://www.runoob.com/python3/python3-string-rindex.html">rindex( str, beg=0, end=len(string))</a></p><br>类似于 index()，不过是从右边开始.</td></tr>
+<tr><td>29</td><td><p><a href="http://www.runoob.com/python3/python3-string-rjust.html">rjust(width,[, fillchar])</a></p><br>返回一个原字符串右对齐,并使用fillchar(默认空格）填充至长度 width 的新字符串</td></tr>
+<tr><td>30</td><td><p><a href="http://www.runoob.com/python3/python3-string-rstrip.html">rstrip()</a></p><br>删除字符串字符串末尾的空格.</td></tr>
+<tr><td>31</td><td><p><a href="http://www.runoob.com/python3/python3-string-split.html">split(str="", num=string.count(str))</a></p><br>num=string.count(str))
+以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num+1 个子字符串</td></tr>
+<tr><td>32</td><td><p><a href="http://www.runoob.com/python3/python3-string-splitlines.html">splitlines([keepends])</a></p><br>按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。</td></tr>
+<tr><td>33</td><td><p><a href="http://www.runoob.com/python3/python3-string-startswith.html">startswith(substr, beg=0,end=len(string))</a></p><br>检查字符串是否是以指定子字符串 substr 开头，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查。</td></tr>
+<tr><td>34</td><td><p><a href="http://www.runoob.com/python3/python3-string-strip.html">strip([chars])</a></p><br>在字符串上执行 lstrip()和 rstrip()</td></tr>
+<tr><td>35</td><td><p><a href="http://www.runoob.com/python3/python3-string-swapcase.html">swapcase()</a></p><br>将字符串中大写转换为小写，小写转换为大写</td></tr>
+<tr><td>36</td><td><p><a href="http://www.runoob.com/python3/python3-string-title.html">title()</a></p><br>返回"标题化"的字符串,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())</td></tr>
+<tr><td>37</td><td><p><a href="http://www.runoob.com/python3/python3-string-translate.html">translate(table, deletechars="")</a></p><br>根据 str 给出的表(包含 256 个字符)转换 string 的字符,
+要过滤掉的字符放到 deletechars 参数中</td></tr>
+<tr><td>38</td><td><p><a href="http://www.runoob.com/python3/python3-string-upper.html">upper()</a></p><br>
+转换字符串中的小写字母为大写</td></tr>
+<tr><td>39</td><td><p><a href="http://www.runoob.com/python3/python3-string-zfill.html">zfill (width)</a></p><br>返回长度为 width 的字符串，原字符串右对齐，前面填充0</td></tr>
+<tr><td>40</td><td><p><a href="http://www.runoob.com/python3/python3-string-isdecimal.html">isdecimal()</a></p><br>
+检查字符串是否只包含十进制字符，如果是返回 true，否则返回 false。</td></tr>
+</tbody></table> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/python3/python3-number.html" rel="prev"> Python3 数字(Number)</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/python3/python3-list.html" rel="next"> Python3 列表</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-plus-square" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">10 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments" style="display:none;">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-12232"><span class="comt-f">#10</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;江寒</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;jhl***hf@163.com</p></div></div><div class="comt-main" id="div-comment-12232"><p>字符串截取字符补充：
+</p><pre>
+# 0、a,b为参数。从字符串指针为a的地方开始截取字符，到b的前一个位置（因为不包含b）
+var1 = "hello world";
+print(var1[a: b]);
+
+# 1、如果a,b均不填写，默认取全部字符。即，下面这两个打印结果是一样的
+print(var1[: ]);  # hello world
+print(var1);      # hello world
+
+# 2、如果a填写，b不填写（或填写的值大于指针下标），默认从a开始截取，至字符串最后一个位置
+print(var1[3: ]); # lo world
+
+# 3、如果a不填写， b填写，默认从0位置开始截取，至b的前一个位置
+print(var1[: 8]); # hello wo
+
+# 4、如果a为负数，默认从尾部某一位置，开始向后截取
+print(var1[-2: ]); # ld
+
+# 5、如果a&gt;=b, 默认输出为空。
+print(var1[3: 3]);
+print(var1[3: 2]);</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">江寒</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;江寒</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;jhl***hf@163.com</p></div></span>2年前 (2017-05-21)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13867"><span class="comt-f">#9</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Micachen</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;811***747@qq.com</p></div></div><div class="comt-main" id="div-comment-13867"><p>python字符串格式化符号 %f 可指定小数点后的精度。</p>
+<pre>
+&gt;&gt;&gt; num=18.7254
+&gt;&gt;&gt; print("the price  is  %.2f" %num)
+the price  is  18.73
+&gt;&gt;&gt; </pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Micachen</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Micachen</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;811***747@qq.com</p></div></span>2年前 (2017-07-09)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-17200"><span class="comt-f">#8</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Stone_Fly</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;fei***_abc@163.com</p></div></div><div class="comt-main" id="div-comment-17200"><p><strong>python字符串格式化符号:</strong></p>
+<p>%g 是 %f 和 %e 的简写是什么意思？到底是 %f 还是 %e？</p>
+<p>对此我用代码测试了一下：</p>
+<pre>&gt;&gt;&gt; a=100000
+&gt;&gt;&gt; print("%g"%(a))
+100000
+&gt;&gt;&gt; a=10000000
+&gt;&gt;&gt; print("%g"%(a))
+1e+07
+&gt;&gt;&gt; a=1000000
+&gt;&gt;&gt; print("%g"%(a))
+1e+06</pre>
+<p>可以发现，%g 是自动选择输出格式的，在六位数的情况下就会以科学计数法方式输出，文章中说 %g 是 %f 和 %e 的简写，但是我发现上述不是科学计数法方式输出的时候输出的是一个整数，于是又进行了如下测试：</p>
+<pre>&gt;&gt;&gt; a=100000.0
+&gt;&gt;&gt; print("%g"%(a))
+100000
+&gt;&gt;&gt; print("%f"%(a))
+100000.000000
+&gt;&gt;&gt;</pre>
+<p>发现 %g 在不是用 %e 输出的情况下和%f还是有区别的</p>
+<p>对此我又做了如下测试：</p>
+<pre>&gt;&gt;&gt; a=100000.1
+&gt;&gt;&gt; print("%g"%(a))
+100000
+&gt;&gt;&gt; a=1.0
+&gt;&gt;&gt; print("%g"%(a))
+1
+&gt;&gt;&gt; a=1.1
+&gt;&gt;&gt; print("%g"%(a))
+1.1</pre>
+<p>发现在 a=100000.1 的时候输出的数并没有小数点后面的 1，对此我对比了 C 语言 %g 的格式输出，猜想 python 中应该如同 C 语言一样，%g 用于打印数据时，会去掉多余的零，至多保留六位有效数字。</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">Stone_Fly</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Stone_Fly</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;fei***_abc@163.com</p></div></span>2年前 (2017-09-06)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-17476"><span class="comt-f">#7</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hackmeng</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;715***8@qq.com</p></div></div><div class="comt-main" id="div-comment-17476"><p><strong>使用格式化符号进行进制转换</strong></p>
+<pre>&gt;&gt;&gt; num=10
+&gt;&gt;&gt; print('十六进制：%#x' % num)    #使用%x将十进制num格式化为十六进制
+十六进制：0xa
+&gt;&gt;&gt; print('二进制:', bin(num))      #使用bin将十进制num格式化为二进制
+二进制: 0b1010
+&gt;&gt;&gt; print('八进制：%#o' % num)      #使用%o将十进制num格式化为八进制
+八进制：0o12</pre>
+<p>上面使用格式化符号进行进制转换中，多加入了一个#号，目的是在转换结果头部显示当前进制类型，如不需要，可将#号去除，如下</p>
+<pre>&gt;&gt;&gt; print('八进制：%o' % num)
+八进制：12
+&gt;&gt;&gt; print('十六进制：%x' % num)
+十六进制：a</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">hackmeng</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;hackmeng</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;715***8@qq.com</p></div></span>2年前 (2017-09-13)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-18975"><span class="comt-f">#6</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;kukerzzz</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;150***9106@qq.com</p></div></div><div class="comt-main" id="div-comment-18975"><p>字符串截取字符继续补充:</p>
+<p><span class="marked">[::2]</span> 表示的是从头到尾，步长为2。第一个冒号两侧的数字是指截取字符串的范围,第二个冒号后面是指截取的步长。</p>
+<pre>&gt;&gt;&gt; L=['a','b','c','d','e','f','g']
+&gt;&gt;&gt; print(L[::2]) 
+['a', 'c', 'e', 'g']</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">kukerzzz</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;kukerzzz</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;150***9106@qq.com</p></div></span>1年前 (2017-10-17)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-20035"><span class="comt-f">#5</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;我无所谓</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;125***6252@qq.com</p></div></div><div class="comt-main" id="div-comment-20035"><p>可以使用负数从字符串右边末尾向左边反向索引，最右侧索引值是 <strong>-1</strong>:</p>
+<pre>&gt;&gt;&gt; str = "runoob"
+&gt;&gt;&gt; str[-4]
+'n'
+&gt;&gt;&gt; </pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">我无所谓</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;我无所谓</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;125***6252@qq.com</p></div></span>1年前 (2017-11-08)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-20092"><span class="comt-f">#4</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;jaycn06010</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;jay***6010@hotmail.com</p></div></div><div class="comt-main" id="div-comment-20092"><p>字符串的分割还有partition()这种方式。</p>
+<pre>partition(sep)  --&gt; (head,sep,tail)</pre>
+<p>从左向右遇到分隔符把字符串分割成两部分，返回头、分割符、尾三部分的三元组。如果没有找到分割符，就返回头、尾两个空元素的三元组。</p>
+<pre>s1 = "I'm a good sutdent."
+#以'good'为分割符，返回头、分割符、尾三部分。
+s2 = s1.partition('good')
+#没有找到分割符'abc'，返回头、尾两个空元素的元组。
+s3 = s1.partition('abc')
+
+print(s1)
+print(s2)
+print(s3)</pre>
+<p>结果如下：</p>
+<pre>
+I'm a good sutdent.
+("I'm a ", 'good', ' sutdent.')
+("I'm a good sutdent.", '', '')
+</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">jaycn06010</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;jaycn06010</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;jay***6010@hotmail.com</p></div></span>1年前 (2017-11-09)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-22246"><span class="comt-f">#3</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;thestarinsky</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;the***rinsky@163.com</p></div></div><div class="comt-main" id="div-comment-22246"><p>针对 Counter 的升级使用，示例如下：</p>
+<pre>#必须引用如下库
+from collections import Counter
+
+#定义两个字符串变量
+Var1 = "1116122137143151617181920849510"
+Var2 = "1987262819009787718192084951"
+
+#以字典的形式，输出每个字符串中出现的字符及其数量
+print (Counter(Var1))
+print (Counter(Var2))</pre>
+<p>输出如下：</p>
+<pre>Counter({'1': 12, '2': 3, '6': 2, '3': 2, '7': 2, '4': 2, '5': 2, '8': 2, '9': 2, '0': 2})
+Counter({'1': 5, '9': 5, '8': 5, '7': 4, '2': 3, '0': 3, '6': 1, '4': 1, '5': 1})</pre>
+<p>针对输出的结果，可以根据字典的定义进行其他必要的操作</p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">thestarinsky</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;thestarinsky</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;the***rinsky@163.com</p></div></span>1年前 (2017-12-28)</div></div></li>
+<li class="comment even thread-even depth-1" id="comment-28804"><span class="comt-f">#2</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;逗号不是很逗</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wqx***991@126.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://bbs.fishc.com/forum.php?mod=viewthread&amp;tid=80863&amp;typeid=392">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-28804"><p data-title="Python isdigit 和 isnumeric 的区别?"><strong>isdigit 和 isnumeric的区别?</strong></p>
+<pre>def dn():
+    dgt=[]
+    num=[]
+    c=0
+    for c in range(2**16):
+            ch=chr(c)
+            if ch.isdigit():dgt.append(ch)
+            if ch.isnumeric():num.append(ch)
+    print('digits:',dgt)
+    print('numeric:',num)
+dn()</pre>
+<p>以上代码执行输出结果为：</p>
+<pre>digits: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '&sup2;', '&sup3;', '&sup1;', '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩', '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '߀', '߁', '߂', '߃', '߄', '߅', '߆', '߇', '߈', '߉', '०', '१', '२', '३', '४', '५', '६', '७', '८', '९', '০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯', '૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯', '୦', '୧', '୨', '୩', '୪', '୫', '୬', '୭', '୮', '୯', '௦', '௧', '௨', '௩', '௪', '௫', '௬', '௭', '௮', '௯', '౦', '౧', '౨', '౩', '౪', '౫', '౬', '౭', '౮', '౯', '೦', '೧', '೨', '೩', '೪', '೫', '೬', '೭', '೮', '೯', '൦', '൧', '൨', '൩', '൪', '൫', '൬', '൭', '൮', '൯', '෦', '෧', '෨', '෩', '෪', '෫', '෬', '෭', '෮', '෯', '๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙', '໐', '໑', '໒', '໓', '໔', '໕', '໖', '໗', '໘', '໙', '༠', '༡', '༢', '༣', '༤', '༥', '༦', '༧', '༨', '༩', '၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉', '႐', '႑', '႒', '႓', '႔', '႕', '႖', '႗', '႘', '႙', '፩', '፪', '፫', '፬', '፭', '፮', '፯', '፰', '፱', '០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩', '᠐', '᠑', '᠒', '᠓', '᠔', '᠕', '᠖', '᠗', '᠘', '᠙', '᥆', '᥇', '᥈', '᥉', '᥊', '᥋', '᥌', '᥍', '᥎', '᥏', '᧐', '᧑', '᧒', '᧓', '᧔', '᧕', '᧖', '᧗', '᧘', '᧙', '᧚', '᪀', '᪁', '᪂', '᪃', '᪄', '᪅', '᪆', '᪇', '᪈', '᪉', '᪐', '᪑', '᪒', '᪓', '᪔', '᪕', '᪖', '᪗', '᪘', '᪙', '᭐', '᭑', '᭒', '᭓', '᭔', '᭕', '᭖', '᭗', '᭘', '᭙', '᮰', '᮱', '᮲', '᮳', '᮴', '᮵', '᮶', '᮷', '᮸', '᮹', '᱀', '᱁', '᱂', '᱃', '᱄', '᱅', '᱆', '᱇', '᱈', '᱉', '᱐', '᱑', '᱒', '᱓', '᱔', '᱕', '᱖', '᱗', '᱘', '᱙', '⁰', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑴', '⑵', '⑶', '⑷', '⑸', '⑹', '⑺', '⑻', '⑼', '⒈', '⒉', '⒊', '⒋', '⒌', '⒍', '⒎', '⒏', '⒐', '⓪', '⓵', '⓶', '⓷', '⓸', '⓹', '⓺', '⓻', '⓼', '⓽', '⓿', '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾', '➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➊', '➋', '➌', '➍', '➎', '➏', '➐', '➑', '➒', '꘠', '꘡', '꘢', '꘣', '꘤', '꘥', '꘦', '꘧', '꘨', '꘩', '꣐', '꣑', '꣒', '꣓', '꣔', '꣕', '꣖', '꣗', '꣘', '꣙', '꤀', '꤁', '꤂', '꤃', '꤄', '꤅', '꤆', '꤇', '꤈', '꤉', '꧐', '꧑', '꧒', '꧓', '꧔', '꧕', '꧖', '꧗', '꧘', '꧙', '꧰', '꧱', '꧲', '꧳', '꧴', '꧵', '꧶', '꧷', '꧸', '꧹', '꩐', '꩑', '꩒', '꩓', '꩔', '꩕', '꩖', '꩗', '꩘', '꩙', '꯰', '꯱', '꯲', '꯳', '꯴', '꯵', '꯶', '꯷', '꯸', '꯹', '０', '１', '２', '３', '４', '５', '６', '７', '８', '９']
+numeric: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '&sup2;', '&sup3;', '&sup1;', '&frac14;', '&frac12;', '&frac34;', '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩', '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '߀', '߁', '߂', '߃', '߄', '߅', '߆', '߇', '߈', '߉', '०', '१', '२', '३', '४', '५', '६', '७', '८', '९', '০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯', '৴', '৵', '৶', '৷', '৸', '৹', '੦', '੧', '੨', '੩', '੪', '੫', '੬', '੭', '੮', '੯', '૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯', '୦', '୧', '୨', '୩', '୪', '୫', '୬', '୭', '୮', '୯', '୲', '୳', '୴', '୵', '୶', '୷', '௦', '௧', '௨', '௩', '௪', '௫', '௬', '௭', '௮', '௯', '௰', '௱', '௲', '౦', '౧', '౨', '౩', '౪', '౫', '౬', '౭', '౮', '౯', '౸', '౹', '౺', '౻', '౼', '౽', '౾', '೦', '೧', '೨', '೩', '೪', '೫', '೬', '೭', '೮', '೯', '൘', '൙', '൚', '൛', '൜', '൝', '൞', '൦', '൧', '൨', '൩', '൪', '൫', '൬', '൭', '൮', '൯', '൰', '൱', '൲', '൳', '൴', '൵', '൶', '൷', '൸', '෦', '෧', '෨', '෩', '෪', '෫', '෬', '෭', '෮', '෯', '๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙', '໐', '໑', '໒', '໓', '໔', '໕', '໖', '໗', '໘', '໙', '༠', '༡', '༢', '༣', '༤', '༥', '༦', '༧', '༨', '༩', '༪', '༫', '༬', '༭', '༮', '༯', '༰', '༱', '༲', '༳', '၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉', '႐', '႑', '႒', '႓', '႔', '႕', '႖', '႗', '႘', '႙', '፩', '፪', '፫', '፬', '፭', '፮', '፯', '፰', '፱', '፲', '፳', '፴', '፵', '፶', '፷', '፸', '፹', '፺', '፻', '፼', 'ᛮ', 'ᛯ', 'ᛰ', '០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩', '៰', '៱', '៲', '៳', '៴', '៵', '៶', '៷', '៸', '៹', '᠐', '᠑', '᠒', '᠓', '᠔', '᠕', '᠖', '᠗', '᠘', '᠙', '᥆', '᥇', '᥈', '᥉', '᥊', '᥋', '᥌', '᥍', '᥎', '᥏', '᧐', '᧑', '᧒', '᧓', '᧔', '᧕', '᧖', '᧗', '᧘', '᧙', '᧚', '᪀', '᪁', '᪂', '᪃', '᪄', '᪅', '᪆', '᪇', '᪈', '᪉', '᪐', '᪑', '᪒', '᪓', '᪔', '᪕', '᪖', '᪗', '᪘', '᪙', '᭐', '᭑', '᭒', '᭓', '᭔', '᭕', '᭖', '᭗', '᭘', '᭙', '᮰', '᮱', '᮲', '᮳', '᮴', '᮵', '᮶', '᮷', '᮸', '᮹', '᱀', '᱁', '᱂', '᱃', '᱄', '᱅', '᱆', '᱇', '᱈', '᱉', '᱐', '᱑', '᱒', '᱓', '᱔', '᱕', '᱖', '᱗', '᱘', '᱙', '⁰', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉', '⅐', '⅑', '⅒', '⅓', '⅔', '⅕', '⅖', '⅗', '⅘', '⅙', '⅚', '⅛', '⅜', '⅝', '⅞', '⅟', 'Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ', 'Ⅸ', 'Ⅹ', 'Ⅺ', 'Ⅻ', 'Ⅼ', 'Ⅽ', 'Ⅾ', 'Ⅿ', 'ⅰ', 'ⅱ', 'ⅲ', 'ⅳ', 'ⅴ', 'ⅵ', 'ⅶ', 'ⅷ', 'ⅸ', 'ⅹ', 'ⅺ', 'ⅻ', 'ⅼ', 'ⅽ', 'ⅾ', 'ⅿ', 'ↀ', 'ↁ', 'ↂ', 'ↅ', 'ↆ', 'ↇ', 'ↈ', '↉', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩', '⑪', '⑫', '⑬', '⑭', '⑮', '⑯', '⑰', '⑱', '⑲', '⑳', '⑴', '⑵', '⑶', '⑷', '⑸', '⑹', '⑺', '⑻', '⑼', '⑽', '⑾', '⑿', '⒀', '⒁', '⒂', '⒃', '⒄', '⒅', '⒆', '⒇', '⒈', '⒉', '⒊', '⒋', '⒌', '⒍', '⒎', '⒏', '⒐', '⒑', '⒒', '⒓', '⒔', '⒕', '⒖', '⒗', '⒘', '⒙', '⒚', '⒛', '⓪', '⓫', '⓬', '⓭', '⓮', '⓯', '⓰', '⓱', '⓲', '⓳', '⓴', '⓵', '⓶', '⓷', '⓸', '⓹', '⓺', '⓻', '⓼', '⓽', '⓾', '⓿', '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾', '❿', '➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉', '➊', '➋', '➌', '➍', '➎', '➏', '➐', '➑', '➒', '➓', '⳽', '〇', '〡', '〢', '〣', '〤', '〥', '〦', '〧', '〨', '〩', '〸', '〹', '〺', '㆒', '㆓', '㆔', '㆕', '㈠', '㈡', '㈢', '㈣', '㈤', '㈥', '㈦', '㈧', '㈨', '㈩', '㉈', '㉉', '㉊', '㉋', '㉌', '㉍', '㉎', '㉏', '㉑', '㉒', '㉓', '㉔', '㉕', '㉖', '㉗', '㉘', '㉙', '㉚', '㉛', '㉜', '㉝', '㉞', '㉟', '㊀', '㊁', '㊂', '㊃', '㊄', '㊅', '㊆', '㊇', '㊈', '㊉', '㊱', '㊲', '㊳', '㊴', '㊵', '㊶', '㊷', '㊸', '㊹', '㊺', '㊻', '㊼', '㊽', '㊾', '㊿', '㐅', '㒃', '㠪', '㭍', '一', '七', '万', '三', '九', '二', '五', '亖', '亿', '什', '仟', '仨', '伍', '佰', '億', '兆', '兩', '八', '六', '十', '千', '卄', '卅', '卌', '叁', '参', '參', '叄', '四', '壱', '壹', '幺', '廾', '廿', '弌', '弍', '弎', '弐', '拾', '捌', '柒', '漆', '玖', '百', '肆', '萬', '貮', '貳', '贰', '阡', '陆', '陌', '陸', '零', '꘠', '꘡', '꘢', '꘣', '꘤', '꘥', '꘦', '꘧', '꘨', '꘩', 'ꛦ', 'ꛧ', 'ꛨ', 'ꛩ', 'ꛪ', 'ꛫ', 'ꛬ', 'ꛭ', 'ꛮ', 'ꛯ', '꠰', '꠱', '꠲', '꠳', '꠴', '꠵', '꣐', '꣑', '꣒', '꣓', '꣔', '꣕', '꣖', '꣗', '꣘', '꣙', '꤀', '꤁', '꤂', '꤃', '꤄', '꤅', '꤆', '꤇', '꤈', '꤉', '꧐', '꧑', '꧒', '꧓', '꧔', '꧕', '꧖', '꧗', '꧘', '꧙', '꧰', '꧱', '꧲', '꧳', '꧴', '꧵', '꧶', '꧷', '꧸', '꧹', '꩐', '꩑', '꩒', '꩓', '꩔', '꩕', '꩖', '꩗', '꩘', '꩙', '꯰', '꯱', '꯲', '꯳', '꯴', '꯵', '꯶', '꯷', '꯸', '꯹', '參', '拾', '兩', '零', '六', '陸', '什', '０', '１', '２', '３', '４', '５', '６', '７', '８', '９']</pre><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="http://www.runoob.com/note/28804">逗号不是很逗</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;逗号不是很逗</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;wqx***991@126.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="http://bbs.fishc.com/forum.php?mod=viewthread&amp;tid=80863&amp;typeid=392">&nbsp;&nbsp;参考地址</a></p></div></span>9个月前 (06-27)</div></div></li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-40000"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;woiflower</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;woi***wer@163.com</p></div></div><div class="comt-main" id="div-comment-40000"><p><strong>IP 掩码换算</strong></p>
+<p>代码：</p>
+<pre>b = '1'
+bs_len = len(b)
+while bs_len &lt; 9:
+    #global b
+    b_b=b.ljust(8,'0')
+    d=int(b_b,2)
+    print('二进制 %s 相当于十进制 %s' %(b_b,d))
+    b = b +"1"
+    bs_len=len(b)</pre>
+<p>输出:</p>
+<pre>二进制 10000000 相当于十进制 128
+二进制 11000000 相当于十进制 192
+二进制 11100000 相当于十进制 224
+二进制 11110000 相当于十进制 240
+二进制 11111000 相当于十进制 248
+二进制 11111100 相当于十进制 252
+二进制 11111110 相当于十进制 254
+二进制 11111111 相当于十进制 255</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">woiflower</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;woiflower</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;woi***wer@163.com</p></div></span>3周前 (02-22)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='7284' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  7284;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Firebug 教程" href="http://www.runoob.com/firebug/firebug-tutorial.html">Firebug 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 7284;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/cpp-header.html" title="理解 C++ 中的头文件和源文件的作用">理解 C++ 中的头...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/w3c-webauthn.html" title="W3C 宣布：WebAuthn 成为正式 Web 标准">W3C 宣布：WebAu...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/knowledge-start.html" title="2019，建个圈子">2019，建个圈子</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/linux-command-full-fight.html" title="Linux 常用命令全拼">Linux 常用命令全拼</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/octotree-github-repo.html" title="octotree &#8212; 树形展示 Github 项目代码">octotree &#8212...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/php/func-string-mb_substr.html" title="PHP mb_substr() 函数">PHP mb_substr()...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/factory-pattern.html" title="设计模式 &#8211; 工厂模式">设计模式 &#8211...</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

@@ -1,0 +1,2228 @@
+<!Doctype html>
+<html>
+<head>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var t_h = $("div.article").html();
+    var wi = $("div.article").width();
+    $("body").find("*").removeAttr("width");
+    $("body").empty().html("<div>"+t_h+"</div>");
+    $("body").empty().width(wi).html("<div>"+t_h+"</div>");
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MySQL 函数 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="mysql-functions.html" />
+<meta name="keywords" content="MySQL 函数">
+<meta name="description" content="MySQL 函数  MySQL 有很多内置的函数，以下列出了这些函数的说明。  MySQL 字符串函数    函数 描述 实例   ASCII(s) 返回字符串 s 的第一个字符的 ASCII 码。  返回 CustomerName 字段第一个字母的 ASCII 码： SELECT ASCII(CustomerName) AS NumCodeOfFirstChar FROM Customers;   CHAR_LENGTH(s) 返回字..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/mysql/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">MySQL 教程 <a data-cate="57" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="57" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="MySQL 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">
+MySQL 教程 </a>
+<a target="_top" title="MySQL 安装" href="http://www.runoob.com/mysql/mysql-install.html">
+MySQL 安装 </a>
+<a target="_top" title="MySQL 管理" href="http://www.runoob.com/mysql/mysql-administration.html">
+MySQL 管理 </a>
+<a target="_top" title="MySQL PHP 语法" href="http://www.runoob.com/mysql/mysql-php-syntax.html">
+MySQL PHP 语法 </a>
+<a target="_top" title="MySQL 连接" href="http://www.runoob.com/mysql/mysql-connection.html">
+MySQL 连接 </a>
+<a target="_top" title="MySQL 创建数据库" href="http://www.runoob.com/mysql/mysql-create-database.html">
+MySQL 创建数据库 </a>
+<a target="_top" title="MySQL 删除数据库" href="http://www.runoob.com/mysql/mysql-drop-database.html">
+MySQL 删除数据库 </a>
+<a target="_top" title="MySQL 选择数据库" href="http://www.runoob.com/mysql/mysql-select-database.html">
+MySQL 选择数据库 </a>
+<a target="_top" title="MySQL 数据类型" href="http://www.runoob.com/mysql/mysql-data-types.html">
+MySQL 数据类型 </a>
+<a target="_top" title="MySQL 创建数据表" href="http://www.runoob.com/mysql/mysql-create-tables.html">
+MySQL 创建数据表 </a>
+<a target="_top" title="MySQL 删除数据表" href="http://www.runoob.com/mysql/mysql-drop-tables.html">
+MySQL 删除数据表 </a>
+<a target="_top" title="MySQL 插入数据" href="http://www.runoob.com/mysql/mysql-insert-query.html">
+MySQL 插入数据 </a>
+<a target="_top" title="MySQL 查询数据" href="http://www.runoob.com/mysql/mysql-select-query.html">
+MySQL 查询数据 </a>
+<a target="_top" title="MySQL WHERE 子句" href="http://www.runoob.com/mysql/mysql-where-clause.html">
+MySQL WHERE 子句 </a>
+<a target="_top" title="MySQL UPDATE 查询" href="http://www.runoob.com/mysql/mysql-update-query.html">
+MySQL UPDATE 查询 </a>
+<a target="_top" title="MySQL DELETE 语句" href="http://www.runoob.com/mysql/mysql-delete-query.html">
+MySQL DELETE 语句 </a>
+<a target="_top" title="MySQL LIKE 子句" href="http://www.runoob.com/mysql/mysql-like-clause.html">
+MySQL LIKE 子句 </a>
+<a target="_top" title="MySQL UNION 语句" href="http://www.runoob.com/mysql/mysql-union-operation.html">
+MySQL UNION </a> <a target="_top" title="MySQL 排序" href="http://www.runoob.com/mysql/mysql-order-by.html">
+MySQL 排序 </a>
+<a target="_top" title="MySQL Group by 语句" href="http://www.runoob.com/mysql/mysql-group-by-statement.html"> MySQL 分组 </a> <a target="_top" title="Mysql 连接的使用" href="http://www.runoob.com/mysql/mysql-join.html">
+Mysql 连接的使用 </a>
+<a target="_top" title="MySQL NULL 值处理" href="http://www.runoob.com/mysql/mysql-null.html">
+MySQL NULL 值处理 </a>
+<a target="_top" title="MySQL 正则表达式" href="http://www.runoob.com/mysql/mysql-regexp.html">
+MySQL 正则表达式 </a>
+<a target="_top" title="MySQL 事务" href="http://www.runoob.com/mysql/mysql-transaction.html">
+MySQL 事务 </a>
+<a target="_top" title="MySQL ALTER命令" href="http://www.runoob.com/mysql/mysql-alter.html">
+MySQL ALTER命令 </a>
+<a target="_top" title="MySQL 索引" href="http://www.runoob.com/mysql/mysql-index.html">
+MySQL 索引 </a>
+<a target="_top" title="MySQL 临时表" href="http://www.runoob.com/mysql/mysql-temporary-tables.html">
+MySQL 临时表 </a>
+<a target="_top" title="MySQL 复制表" href="http://www.runoob.com/mysql/mysql-clone-tables.html">
+MySQL 复制表 </a>
+<a target="_top" title="MySQL 元数据" href="http://www.runoob.com/mysql/mysql-database-info.html">
+MySQL 元数据 </a>
+<a target="_top" title="MySQL 序列使用" href="http://www.runoob.com/mysql/mysql-using-sequences.html">
+MySQL 序列使用 </a>
+<a target="_top" title="MySQL 处理重复数据" href="http://www.runoob.com/mysql/mysql-handling-duplicates.html">
+MySQL 处理重复数据 </a>
+<a target="_top" title="MySQL 及 SQL 注入" href="http://www.runoob.com/mysql/mysql-sql-injection.html">
+MySQL 及 SQL 注入 </a>
+<a target="_top" title="MySQL 导出数据" href="http://www.runoob.com/mysql/mysql-database-export.html">
+MySQL 导出数据 </a>
+<a target="_top" title="MySQL 导入数据" href="http://www.runoob.com/mysql/mysql-database-import.html">
+MySQL 导入数据 </a>
+<a target="_top" title="MySQL 函数" href="mysql-functions.html">
+MySQL 函数 </a>
+<a target="_top" title="MySQL 运算符" href="http://www.runoob.com/mysql/mysql-operator.html">
+MySQL 运算符 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/mysql/mysql-union-operation.html" rel="prev"> MySQL UNION 操作符</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/mysql/mysql-func-ifnull.html" rel="next"> MySQL IFNULL() 函数</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>MySQL 函数
+</h1>
+<p>MySQL 有很多内置的函数，以下列出了这些函数的说明。</p>
+<hr>
+<h2>MySQL 字符串函数</h2>
+<table class="reference">
+<tbody><tr>
+<th style="width:12%">函数</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ASCII(s)</td>
+<td>返回字符串 s 的第一个字符的 ASCII 码。</td>
+<td>
+<p>返回 CustomerName 字段第一个字母的 ASCII 码：</p>
+<pre>SELECT ASCII(CustomerName) AS NumCodeOfFirstChar
+FROM Customers;</pre></td>
+</tr>
+<tr>
+<td>CHAR_LENGTH(s)</td>
+<td>返回字符串 s 的字符数</td>
+<td>
+<p>返回字符串 RUNOOB 的字符数</p>
+<pre>
+SELECT CHAR_LENGTH("RUNOOB") AS LengthOfString;
+</pre>
+</td>
+</tr>
+<tr>
+<td>CHARACTER_LENGTH(s)</td>
+<td>返回字符串 s 的字符数</td>
+<td>
+<p>返回字符串 RUNOOB 的字符数</p>
+<pre>
+SELECT CHARACTER_LENGTH("RUNOOB") AS LengthOfString;
+</pre>
+</td>
+</tr>
+<tr>
+<td>CONCAT(s1,s2...sn)</td>
+<td>字符串 s1,s2 等多个字符串合并为一个字符串</td>
+<td>
+<p>合并多个字符串</p>
+<pre>
+SELECT CONCAT("SQL ", "Runoob ", "Gooogle ", "Facebook") AS ConcatenatedString;
+</pre>
+</td>
+</tr>
+<tr>
+<td>CONCAT_WS(x, s1,s2...sn)</td>
+<td>同 CONCAT(s1,s2,...) 函数，但是每个字符串直接要加上 x，x 可以是分隔符</td>
+<td>
+<p>合并多个字符串，并添加分隔符：</p>
+<pre>
+SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!")AS ConcatenatedString;
+</pre>
+</td>
+</tr>
+<tr>
+<td>FIELD(s,s1,s2...)</td>
+<td>返回第一个字符串 s 在字符串列表(s1,s2...)中的位置</td>
+<td>
+<p>返回字符串 c 在列表值中的位置：</p>
+<pre>
+SELECT FIELD("c", "a", "b", "c", "d", "e");
+</pre>
+</td>
+</tr>
+<tr>
+<td>FIND_IN_SET(s1,s2)</td>
+<td>返回在字符串s2中与s1匹配的字符串的位置</td>
+<td>
+<p>返回字符串 c 在指定字符串中的位置：</p>
+<pre>
+SELECT FIND_IN_SET("c", "a,b,c,d,e");
+</pre>
+</td>
+</tr>
+<tr>
+<td>FORMAT(x,n)</td>
+<td>函数可以将数字 x 进行格式化 "#,###.##", 将 x 保留到小数点后 n 位，最后一位四舍五入。
+</td>
+<td>
+<p>格式化数字 "#,###.##" 形式：</p>
+<pre>
+SELECT FORMAT(250500.5634, 2);     -- 输出 250,500.56
+</pre>
+</td>
+</tr>
+<tr>
+<td>INSERT(s1,x,len,s2)</td>
+<td>字符串 s2 替换 s1 的 x 位置开始长度为 len 的字符串</td>
+<td>
+<p>从字符串第一个位置开始的 6 个字符替换为 runoob：</p>
+<pre>
+SELECT INSERT("google.com", 1, 6, "runnob");  -- 输出：runoob.com
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOCATE(s1,s)</td>
+<td>从字符串 s 中获取 s1 的开始位置</td>
+<td>
+<p>获取 b 在字符串 abc 中的位置：</p>
+<pre>
+SELECT LOCATE('st','myteststring');  -- 5
+</pre>
+</td>
+</tr>
+<tr>
+<td>LCASE(s)</td>
+<td>将字符串 s 的所有字母变成小写字母</td>
+<td>
+<p>字符串 RUNOOB 转换为小写：</p>
+<pre>
+SELECT LOWER('RUNOOB') -- runoob
+</pre>
+</td>
+</tr>
+<tr>
+<td>LEFT(s,n)</td>
+<td>返回字符串 s 的前 n 个字符</td>
+<td>
+<p>返回字符串 runoob 中的前两个字符：</p>
+<pre>
+SELECT LEFT('runoob',2) -- ru
+</pre>
+</td>
+</tr>
+<tr>
+<td>LEFT(s,n)</td>
+<td>返回字符串 s 的前 n 个字符</td>
+<td>
+<p>返回字符串 abcde 的前两个字符：</p>
+<pre>
+SELECT LEFT('abcde',2) -- ab
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOCATE(s1,s)</td>
+<td>从字符串 s 中获取 s1 的开始位置</td>
+<td>
+<p>返回字符串 abc 中 b 的位置：</p>
+<pre>
+SELECT LOCATE('b', 'abc') -- 2
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOWER(s)</td>
+<td>将字符串 s 的所有字母变成小写字母</td>
+<td>
+<p>字符串 RUNOOB 转换为小写：</p>
+<pre>
+SELECT LOWER('RUNOOB') -- runoob
+</pre>
+</td>
+</tr>
+<tr>
+<td>LPAD(s1,len,s2)</td>
+<td>在字符串 s1 的开始处填充字符串 s2，使字符串长度达到 len</td>
+<td>
+<p>将字符串 xx 填充到 abc 字符串的开始处：</p>
+<pre>
+SELECT LPAD('abc',5,'xx') -- xxabc
+</pre>
+</td>
+</tr>
+<tr>
+<td>LTRIM(s)</td>
+<td>去掉字符串 s 开始处的空格</td>
+<td>
+<p>去掉字符串 RUNOOB开始处的空格：</p>
+<pre>
+SELECT LTRIM("    RUNOOB") AS LeftTrimmedString;-- RUNOOB
+</pre>
+</td>
+</tr>
+<tr>
+<td>MID(s,n,len)</td>
+<td>从字符串 s 的 start 位置截取长度为 length 的子字符串，同 SUBSTRING(s,n,len)</td>
+<td>
+<p>从字符串 RUNOOB 中的第 2 个位置截取 3个 字符：</p>
+<pre>
+SELECT MID("RUNOOB", 2, 3) AS ExtractString; -- UNO
+</pre>
+</td>
+</tr>
+<tr>
+<td>POSITION(s1 IN s)</td>
+<td>从字符串 s 中获取 s1 的开始位置</td>
+<td>
+<p>返回字符串 abc 中 b 的位置：</p>
+<pre>
+SELECT POSITION('b' in 'abc') -- 2
+</pre>
+</td>
+</tr>
+<tr>
+<td>REPEAT(s,n)</td>
+<td>将字符串 s 重复 n 次 </td>
+<td>
+<p>将字符串 runoob 重复三次：</p>
+<pre>
+SELECT REPEAT('runoob',3) -- runoobrunoobrunoob
+</pre>
+</td>
+</tr>
+<tr>
+<td>REPLACE(s,s1,s2)</td>
+<td>将字符串 s2 替代字符串 s 中的字符串 s1</td>
+<td>
+<p>将字符串 abc 中的字符 a 替换为字符 x：</p>
+<pre>
+SELECT REPLACE('abc','a','x') --xbc
+</pre>
+</td>
+</tr>
+<tr>
+<td>REVERSE(s)</td>
+<td>将字符串s的顺序反过来</td>
+<td>
+<p>将字符串 abc 的顺序反过来：</p>
+<pre>
+SELECT REVERSE('abc') -- cba
+</pre>
+</td>
+</tr>
+<tr>
+<td>RIGHT(s,n)</td>
+<td>返回字符串 s 的后 n 个字符</td>
+<td>
+<p>返回字符串 runoob 的后两个字符：</p>
+<pre>
+SELECT RIGHT('runoob',2) -- ob
+</pre>
+</td>
+</tr>
+<tr>
+<td>RPAD(s1,len,s2)</td>
+<td>在字符串 s1 的结尾处添加字符串 s2，使字符串的长度达到 len</td>
+<td>
+<p>将字符串 xx 填充到 abc 字符串的结尾处：</p>
+<pre>
+SELECT RPAD('abc',5,'xx') -- abcxx
+</pre>
+</td>
+</tr>
+<tr>
+<td>RTRIM(s)</td>
+<td>去掉字符串 s 结尾处的空格</td>
+<td>
+<p>去掉字符串 RUNOOB 的末尾空格：</p>
+<pre>
+SELECT RTRIM("RUNOOB     ") AS RightTrimmedString;   -- RUNOOB
+</pre>
+</td>
+</tr>
+<tr>
+<td>SPACE(n)</td>
+<td>返回 n 个空格</td>
+<td>
+<p>返回 10 个空格：</p>
+<pre>
+SELECT SPACE(10);
+</pre>
+</td>
+</tr>
+<tr>
+<td>STRCMP(s1,s2)</td>
+<td>比较字符串 s1 和 s2，如果 s1 与 s2 相等返回 0 ，如果 s1&gt;s2 返回 1，如果 s1&lt;s2 返回 -1</td>
+<td>
+<p>比较字符串：</p>
+<pre>
+SELECT STRCMP("runoob", "runoob");  -- 0
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUBSTR(s, start, length)</td>
+<td>从字符串 s 的 start 位置截取长度为 length 的子字符串</td>
+<td>
+<p>从字符串 RUNOOB 中的第 2 个位置截取 3个 字符：</p>
+<pre>
+SELECT SUBSTR("RUNOOB", 2, 3) AS ExtractString; -- UNO
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUBSTRING(s, start, length)</td>
+<td>从字符串 s 的 start 位置截取长度为 length 的子字符串</td>
+<td>
+<p>从字符串 RUNOOB 中的第 2 个位置截取 3个 字符：</p>
+<pre>
+SELECT SUBSTRING("RUNOOB", 2, 3) AS ExtractString; -- UNO
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUBSTRING_INDEX(s, delimiter, number)</td>
+<td>返回从字符串 s 的第 number 个出现的分隔符 delimiter 之后的子串。<br>
+如果 number 是正数，返回第 number 个字符左边的字符串。<br>
+如果 number 是负数，返回第(number 的绝对值(从右边数))个字符右边的字符串。
+</td>
+<td>
+<pre>
+SELECT SUBSTRING_INDEX('a*b','*',1) -- a
+SELECT SUBSTRING_INDEX('a*b','*',-1)&nbsp;&nbsp;&nbsp;&nbsp;-- b
+SELECT SUBSTRING_INDEX(SUBSTRING_INDEX('a*b*c*d*e','*',3),'*',-1)&nbsp;&nbsp;&nbsp;&nbsp;-- c
+</pre>
+</td>
+</tr>
+<tr>
+<td>TRIM(s)</td>
+<td>去掉字符串 s 开始和结尾处的空格</td>
+<td>
+<p>去掉字符串 RUNOOB 的首尾空格：</p>
+<pre>
+SELECT TRIM('    RUNOOB    ') AS TrimmedString;
+</pre>
+</td>
+</tr>
+<tr>
+<td>UCASE(s)</td>
+<td>将字符串转换为大写</td>
+<td>
+<p>将字符串 runoob 转换为大写：</p>
+<pre>
+SELECT UCASE("runoob"); -- RUNOOB
+</pre>
+</td>
+</tr>
+<tr>
+<td>UPPER(s)</td>
+<td>将字符串转换为大写</td>
+<td>
+<p>将字符串 runoob 转换为大写：</p>
+<pre>
+SELECT UPPER("runoob"); -- RUNOOB
+</pre>
+</td>
+</tr>
+</tbody></table>
+<hr><h2>
+MySQL 数字函数</h2>
+<table class="reference">
+<tbody><tr>
+<th style="width:25%">函数名</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ABS(x)</td>
+<td>返回 x 的绝对值　　</td>
+<td>
+<p>返回 -1 的绝对值：</p>
+<pre>
+SELECT ABS(-1) -- 返回1
+</pre>
+</td>
+</tr>
+<tr>
+<td>ACOS(x)</td>
+<td>求 x 的反余弦值(参数是弧度)</td>
+<td>
+<pre>
+SELECT ACOS(0.25);
+</pre>
+</td>
+</tr>
+<tr>
+<td>ASIN(x)</td>
+<td>求反正弦值(参数是弧度)</td>
+<td>
+<pre>
+SELECT ASIN(0.25);
+</pre>
+</td>
+</tr>
+<tr>
+<td>ATAN(x)</td>
+<td>求反正切值(参数是弧度)</td>
+<td>
+<pre>
+SELECT ATAN(2.5);
+</pre>
+</td>
+</tr>
+<tr>
+<td>ATAN2(n, m)</td>
+<td>求反正切值(参数是弧度)</td>
+<td>
+<pre>
+SELECT ATAN2(-0.8, 2);
+</pre>
+</td>
+</tr>
+<tr>
+<td>AVG(expression)</td>
+<td>返回一个表达式的平均值，expression 是一个字段</td>
+<td>
+<p>返回 Products 表中Price 字段的平均值：</p>
+<pre>
+SELECT AVG(Price) AS AveragePrice FROM Products;
+</pre>
+</td>
+</tr>
+<tr>
+<td>CEIL(x)</td>
+<td>返回大于或等于 x 的最小整数　</td>
+<td>
+<pre>
+SELECT CEIL(1.5) -- 返回2
+</pre>
+</td>
+</tr>
+<tr>
+<td>CEILING(x)
+</td>
+<td>返回大于或等于 x 的最小整数　</td>
+<td>
+<pre>
+SELECT CEIL(1.5) -- 返回2
+</pre>
+</td>
+</tr>
+<tr>
+<td>COS(x)</td>
+<td>求余弦值(参数是弧度)</td>
+<td>
+<pre>
+SELECT COS(2);
+</pre>
+</td>
+</tr>
+<tr>
+<td>COT(x)</td>
+<td>求余切值(参数是弧度)</td>
+<td>
+<pre>
+SELECT COT(6);
+</pre>
+</td>
+</tr>
+<tr>
+<td>COUNT(expression)</td>
+<td>返回查询的记录总数，expression 参数是一个字段或者 * 号</td>
+<td>
+<p>返回 Products 表中 products 字段总共有多少条记录：</p>
+<pre>
+SELECT COUNT(ProductID) AS NumberOfProducts FROM Products;
+</pre>
+</td>
+</tr>
+<tr>
+<td>DEGREES(x)</td>
+<td>将弧度转换为角度　　</td>
+<td>
+<pre>
+SELECT DEGREES(3.1415926535898) -- 180
+</pre>
+</td>
+</tr>
+<tr>
+<td>n DIV m</td>
+<td>整除，n 为被除数，m 为除数</td>
+<td>
+<p>计算 10 除于 5：</p>
+<pre>
+SELECT 10 DIV 5;  -- 2
+</pre>
+</td>
+</tr>
+<tr>
+<td>EXP(x)</td>
+<td>返回 e 的 x 次方　　</td>
+<td>
+<p>计算 e 的三次方：</p>
+<pre>
+SELECT EXP(3) -- 20.085536923188
+</pre>
+</td>
+</tr>
+<tr>
+<td>FLOOR(x)</td>
+<td>返回小于或等于 x 的最大整数　　</td>
+<td>
+<p>小于或等于 1.5 的整数：</p>
+<pre>
+SELECT FLOOR(1.5) -- 返回1
+</pre>
+</td>
+</tr>
+<tr>
+<td>GREATEST(expr1, expr2, expr3, ...)</td>
+<td>返回列表中的最大值</td>
+<td>
+<p>返回以下数字列表中的最大值：</p>
+<pre>
+SELECT GREATEST(3, 12, 34, 8, 25); -- 34
+</pre>
+<p>返回以下字符串列表中的最大值：</p><pre>
+SELECT GREATEST("Google", "Runoob", "Apple");   -- Runoob
+</pre>
+</td>
+</tr>
+<tr>
+<td>LEAST(expr1, expr2, expr3, ...)</td>
+<td>返回列表中的最小值</td>
+<td>
+<p>返回以下数字列表中的最小值：</p>
+<pre>
+SELECT LEAST(3, 12, 34, 8, 25); -- 3
+</pre>
+<p>返回以下字符串列表中的最小值：</p><pre>
+SELECT LEAST("Google", "Runoob", "Apple");   -- Apple
+</pre>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.runoob.com/mysql/func_mysql_ln.asp">LN</a></td>
+<td>返回数字的自然对数</td>
+<td>
+<p>返回 2 的自然对数：</p>
+<pre>
+SELECT LN(2);  -- 0.6931471805599453
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOG(x)</td>
+<td>返回自然对数(以 e 为底的对数)　　</td>
+<td>
+<pre>
+SELECT LOG(20.085536923188) -- 3
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOG10(x)</td>
+<td>返回以 10 为底的对数　　</td>
+<td>
+<pre>
+SELECT LOG10(100) -- 2</pre>
+</td>
+</tr>
+<tr>
+<td>LOG2(x)</td>
+<td>返回以 2 为底的对数</td>
+<td>
+<p>返回以 2 为底 6 的对数：</p>
+<pre>
+SELECT LOG2(6);  -- 2.584962500721156
+</pre>
+</td>
+</tr>
+<tr>
+<td>MAX(expression)</td>
+<td>返回字段 expression 中的最大值</td>
+<td>
+<p>返回数据表 Products 中字段 Price 的最大值：</p>
+<pre>
+SELECT MAX(Price) AS LargestPrice FROM Products;
+</pre>
+</td>
+</tr>
+<tr>
+<td>MIN(expression)</td>
+<td>返回字段 expression 中的最小值</td>
+<td>
+<p>返回数据表 Products 中字段 Price 的最小值：</p>
+<pre>
+SELECT MIN(Price) AS LargestPrice FROM Products;
+</pre>
+</tr>
+<tr>
+<td>MOD(x,y)</td>
+<td>返回 x 除以 y 以后的余数　</td>
+<td>
+<p>5 除于 2 的余数：</p>
+<pre>
+SELECT MOD(5,2) -- 1
+</pre>
+</td>
+</tr>
+<tr>
+<td>PI()</td>
+<td>返回圆周率(3.141593）　　</td>
+<td>
+<pre>
+SELECT PI() --3.141593
+</pre>
+</td>
+</tr>
+<tr>
+<td>POW(x,y)</td>
+<td>返回 x 的 y 次方　</td>
+<td>
+<p>2 的 3 次方：</p>
+<pre>
+SELECT POW(2,3) -- 8
+</pre>
+</td>
+</tr>
+<tr>
+<td>POWER(x,y)</td>
+<td>返回 x 的 y 次方　</td>
+<td>
+<p>2 的 3 次方：</p>
+<pre>
+SELECT POWER(2,3) -- 8
+</pre>
+</tr>
+<tr>
+<td>RADIANS(x)</td>
+<td>将角度转换为弧度　　</td>
+<td>
+<p>180 度转换为弧度：</p>
+<pre>
+SELECT RADIANS(180) -- 3.1415926535898
+</pre>
+</td>
+</tr>
+<tr>
+<td>RAND()</td>
+<td>返回 0 到 1 的随机数　　</td>
+<td>
+<pre>
+SELECT RAND() --0.93099315644334
+</pre>
+</td>
+</tr>
+<tr>
+<td>ROUND(x)</td>
+<td>返回离 x 最近的整数</td>
+<td>
+<pre>
+SELECT ROUND(1.23456) --1
+</pre>
+</td>
+</tr>
+<tr>
+<td>SIGN(x)</td>
+<td>返回 x 的符号，x 是负数、0、正数分别返回 -1、0 和 1　</td>
+<td>
+<pre>
+SELECT SIGN(-10) -- (-1)
+</pre>
+</td>
+</tr>
+<tr>
+<td>SIN(x)</td>
+<td>求正弦值(参数是弧度)　　</td>
+<td>
+<pre>
+SELECT SIN(RADIANS(30)) -- 0.5
+</pre>
+</td>
+</tr>
+<tr>
+<td>SQRT(x)</td>
+<td>返回x的平方根　　</td>
+<td>
+<p>25 的平方根：</p>
+<pre>
+SELECT SQRT(25) -- 5
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUM(expression)</td>
+<td>返回指定字段的总和</td>
+<td>
+<p>计算 OrderDetails 表中字段 Quantity 的总和：</p>
+<pre>
+SELECT SUM(Quantity) AS TotalItemsOrdered FROM OrderDetails;
+</pre>
+</td>
+</tr>
+<tr>
+<td>TAN(x)</td>
+<td>求正切值(参数是弧度)</td>
+<td>
+<pre>
+SELECT TAN(1.75);  -- -5.52037992250933
+</pre>
+</td>
+</tr>
+<tr>
+<td>TRUNCATE(x,y)</td>
+<td>返回数值 x 保留到小数点后 y 位的值（与 ROUND 最大的区别是不会进行四舍五入）</td>
+<td>
+<pre>
+SELECT TRUNCATE(1.23456,3) -- 1.234
+</pre>
+</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>MySQL 日期函数</h2>
+<table class="reference">
+<tbody><tr>
+<th style="width:25%">函数名</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ADDDATE(d,n)</td>
+<td>计算起始日期 d 加上 n 天的日期</td>
+<td>
+<pre>
+SELECT ADDDATE("2017-06-15", INTERVAL 10 DAY);
+-&gt;2017-06-25
+</pre>
+</td>
+</tr>
+<tr>
+<td>ADDTIME(t,n)</td>
+<td>时间 t 加上 n 秒的时间</td>
+<td>
+<pre>
+SELECT ADDTIME('2011-11-11 11:11:11', 5)
+-&gt;2011-11-11 11:11:16 (秒)
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURDATE()</td>
+<td>返回当前日期</td>
+<td>
+<pre>
+SELECT CURDATE();
+-&gt; 2018-09-19
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURRENT_DATE()</td>
+<td>返回当前日期</td>
+<td>
+<pre>
+SELECT CURRENT_DATE();
+-&gt; 2018-09-19
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURRENT_TIME</td>
+<td>返回当前时间</td>
+<td>
+<pre>
+SELECT CURRENT_TIME();
+-&gt; 19:59:02
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURRENT_TIMESTAMP()</td>
+<td>返回当前日期和时间</td>
+<td>
+<pre>
+SELECT CURRENT_TIMESTAMP()
+-&gt; 2018-09-19 20:57:43
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURTIME()</td>
+<td>返回当前时间</td>
+<td>
+<pre>
+SELECT CURTIME();
+-&gt; 19:59:02
+</pre>
+</tr>
+<tr>
+<td>DATE()</td>
+<td>从日期或日期时间表达式中提取日期值</td>
+<td>
+<pre>
+SELECT DATE("2017-06-15");    
+-&gt; 2017-06-15
+</pre>
+</td>
+</tr>
+<tr>
+<td>DATEDIFF(d1,d2)</td>
+<td>计算日期 d1-&gt;d2 之间相隔的天数</td>
+<td>
+<pre>
+SELECT DATEDIFF('2001-01-01','2001-02-02')
+-&gt; -32
+</pre>
+</td>
+</tr>
+<tr>
+<td>DATE_ADD(d，INTERVAL expr type)</td>
+<td>计算起始日期 d 加上一个时间段后的日期</td>
+<td>
+<pre>
+SELECT ADDDATE('2011-11-11 11:11:11',1)
+-&gt; 2011-11-12 11:11:11&nbsp;&nbsp;&nbsp;&nbsp;(默认是天)
+
+SELECT ADDDATE('2011-11-11 11:11:11', INTERVAL 5 MINUTE)
+-&gt; 2011-11-11 11:16:11 (TYPE的取值与上面那个列出来的函数类似)
+</pre>
+</td>
+</tr>
+<tr>
+<td>DATE_FORMAT(d,f)</td>
+<td>按表达式 f的要求显示日期 d</td>
+<td>
+<pre>
+SELECT DATE_FORMAT('2011-11-11 11:11:11','%Y-%m-%d %r')
+-&gt; 2011-11-11 11:11:11 AM
+</pre>
+</td>
+</tr>
+<tr>
+<td>DATE_SUB(date,INTERVAL expr type)</td>
+<td>函数从日期减去指定的时间间隔。</td>
+<td>
+<p>Orders 表中 OrderDate 字段减去 2 天：</p>
+<pre>
+SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 2 DAY) AS OrderPayDate
+FROM Orders
+</pre>
+</td>
+</tr>
+<tr>
+<td>DAY(d)</td>
+<td>返回日期值 d 的日期部分</td>
+<td>
+<pre>
+SELECT DAY("2017-06-15");  
+-&gt; 15
+</pre>
+</td>
+</tr>
+<tr>
+<td>DAYNAME(d)</a></td>
+<td>返回日期 d 是星期几，如 Monday,Tuesday</td>
+<td>
+<pre>
+SELECT DAYNAME('2011-11-11 11:11:11')
+-&gt;Friday
+</pre>
+</td>
+</tr>
+<tr>
+<td>DAYOFMONTH(d)</td>
+<td>计算日期 d 是本月的第几天</td>
+<td>
+<pre>
+SELECT DAYOFMONTH('2011-11-11 11:11:11')
+-&gt;11
+</pre>
+</td>
+</tr>
+<tr>
+<td>DAYOFWEEK(d)</td>
+<td>日期 d 今天是星期几，1 星期日，2 星期一，以此类推</td>
+<td>
+<pre>
+SELECT DAYOFWEEK('2011-11-11 11:11:11')
+-&gt;6
+</pre>
+</td>
+</tr>
+<tr>
+<td>DAYOFYEAR(d)</td>
+<td>计算日期 d 是本年的第几天</td>
+<td>
+<pre>
+SELECT DAYOFYEAR('2011-11-11 11:11:11')
+-&gt;315
+</pre>
+</td>
+</tr>
+<tr>
+<td>EXTRACT(type FROM d)</td>
+<td>从日期 d 中获取指定的值，type 指定返回的值。
+<br>
+type可取值为：
+<br><ul><li>
+MICROSECOND</li><li>
+SECOND</li><li>
+MINUTE</li><li>
+HOUR</li><li>
+DAY</li><li>
+WEEK</li><li>
+MONTH</li><li>
+QUARTER</li><li>
+YEAR</li><li>
+SECOND_MICROSECOND</li><li>
+MINUTE_MICROSECOND</li><li>
+MINUTE_SECOND</li><li>
+HOUR_MICROSECOND</li><li>
+HOUR_SECOND</li><li>
+HOUR_MINUTE</li><li>
+DAY_MICROSECOND</li><li>
+DAY_SECOND</li><li>
+DAY_MINUTE</li><li>
+DAY_HOUR</li><li>
+YEAR_MONTH</li></ul></td>
+<td>
+<pre>
+SELECT EXTRACT(MINUTE FROM '2011-11-11 11:11:11') 
+-&gt; 11
+</pre>
+</td>
+</tr>
+<tr>
+<td>FROM_DAYS(n)</a></td>
+<td>计算从 0000 年 1 月 1 日开始 n 天后的日期</td>
+<td>
+<pre>
+SELECT FROM_DAYS(1111)
+-&gt; 0003-01-16
+</pre>
+</td>
+</tr>
+<tr>
+<td>HOUR(t)</td>
+<td>返回 t 中的小时值</td>
+<td>
+<pre>
+SELECT HOUR('1:2:3')
+-&gt; 1
+</pre>
+</td>
+</tr>
+<tr>
+<td>LAST_DAY(d)</td>
+<td>返回给给定日期的那一月份的最后一天</td>
+<td>
+<pre>
+SELECT LAST_DAY("2017-06-20");
+-&gt; 2017-06-30
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOCALTIME()</td>
+<td>返回当前日期和时间</td>
+<td>
+<pre>
+SELECT LOCALTIME()
+-&gt; 2018-09-19 20:57:43
+</pre>
+</td>
+</tr>
+<tr>
+<td>LOCALTIMESTAMP()</td>
+<td>返回当前日期和时间</td>
+<td>
+<pre>
+SELECT LOCALTIMESTAMP()
+-&gt; 2018-09-19 20:57:43
+</pre>
+</td>
+</tr>
+<tr>
+<td>MAKEDATE(year, day-of-year)</td>
+<td>基于给定参数年份 year 和所在年中的天数序号 day-of-year 返回一个日期</td>
+<td>
+<pre>
+SELECT MAKEDATE(2017, 3);
+-&gt; 2017-01-03
+</pre>
+</td>
+</tr>
+<tr>
+<td>MAKETIME(hour, minute, second)</td>
+<td>组合时间，参数分别为小时、分钟、秒</td>
+<td>
+<pre>
+SELECT MAKETIME(11, 35, 4);
+-&gt; 11:35:04
+</pre>
+</td>
+</tr>
+<tr>
+<td>MICROSECOND(date)</td>
+<td>返回日期参数所对应的毫秒数</td>
+<td>
+<pre>
+SELECT MICROSECOND("2017-06-20 09:34:00.000023");
+-&gt; 23
+</pre>
+</td>
+</tr>
+<tr>
+<td>MINUTE(t)</td>
+<td>返回 t 中的分钟值</td>
+<td>
+<pre>
+SELECT MINUTE('1:2:3')
+-&gt; 2
+</pre>
+</td>
+</tr>
+<tr>
+<td>MONTHNAME(d)</td>
+<td>返回日期当中的月份名称，如 Janyary</td>
+<td>
+<pre>
+SELECT MONTHNAME('2011-11-11 11:11:11')
+-&gt; November
+</pre>
+</td>
+</tr>
+<tr>
+<td>MONTH(d)</td>
+<td>返回日期d中的月份值，1 到 12</td>
+<td>
+<pre>
+SELECT MONTH('2011-11-11 11:11:11')
+-&gt;11
+</pre>
+</td>
+</tr>
+<tr>
+<td>NOW()</td>
+<td>返回当前日期和时间</td>
+<td>
+<pre>
+SELECT NOW()
+-&gt; 2018-09-19 20:57:43
+</pre>
+</td>
+</tr>
+<tr>
+<td>PERIOD_ADD(period, number)</td>
+<td>为 年-月 组合日期添加一个时段</td>
+<td>
+<pre>
+SELECT PERIOD_ADD(201703, 5);   
+-&gt; 201708
+</pre>
+</td>
+</tr>
+<tr>
+<td>PERIOD_DIFF(period1, period2)</td>
+<td>返回两个时段之间的月份差值</td>
+<td>
+<pre>
+SELECT PERIOD_DIFF(201710, 201703);
+-&gt; 7
+</pre>
+</td>
+</tr>
+<tr>
+<td>QUARTER(d)</td>
+<td>返回日期d是第几季节，返回 1 到 4</td>
+<td>
+<pre>
+SELECT QUARTER('2011-11-11 11:11:11')
+-&gt; 4
+</pre>
+</td>
+</tr>
+<tr>
+<td>SECOND(t)</td>
+<td>返回 t 中的秒钟值</td>
+<td>
+<pre>
+SELECT SECOND('1:2:3')
+-&gt; 3
+</pre>
+</td>
+</tr>
+<tr>
+<td>SEC_TO_TIME(s)</td>
+<td>将以秒为单位的时间 s 转换为时分秒的格式</td>
+<td>
+<pre>
+SELECT SEC_TO_TIME(4320)
+-&gt; 01:12:00
+</pre>
+</td>
+</tr>
+<tr>
+<td>STR_TO_DATE(string, format_mask)</td>
+<td>将字符串转变为日期</td>
+<td>
+<pre>
+SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
+-&gt; 2017-08-10
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUBDATE(d,n)</td>
+<td>日期 d 减去 n 天后的日期</td>
+<td>
+<pre>
+SELECT SUBDATE('2011-11-11 11:11:11', 1)
+-&gt;2011-11-10 11:11:11 (默认是天)
+</pre>
+</td>
+</tr>
+<tr>
+<td>SUBTIME(t,n)</td>
+<td>时间 t 减去 n 秒的时间</td>
+<td>
+<pre>
+SELECT SUBTIME('2011-11-11 11:11:11', 5)
+-&gt;2011-11-11 11:11:06 (秒)
+</pre>
+</td>
+</tr>
+<tr>
+<td>SYSDATE()</td>
+<td>返回当前日期和时间</td>
+<td>
+<pre>
+SELECT SYSDATE()
+-&gt; 2018-09-19 20:57:43
+</pre>
+</td>
+</tr>
+<tr>
+<td>TIME(expression)</td>
+<td>提取传入表达式的时间部分</td>
+<td>
+<pre>
+SELECT TIME("19:30:10");
+-&gt; 19:30:10
+</pre>
+</td>
+</tr>
+<tr>
+<td>TIME_FORMAT(t,f)</td>
+<td>按表达式 f 的要求显示时间 t</td>
+<td>
+<pre>
+SELECT TIME_FORMAT('11:11:11','%r')
+11:11:11 AM
+</pre>
+</td>
+</tr>
+<tr>
+<td>TIME_TO_SEC(t)</td>
+<td>将时间 t 转换为秒</td>
+<td>
+<pre>
+SELECT TIME_TO_SEC('1:12:00')
+-&gt; 4320
+</pre>
+</td>
+</tr>
+<tr>
+<td>TIMEDIFF(time1, time2)</td>
+<td>计算时间差值</td>
+<td>
+<pre>
+SELECT TIMEDIFF("13:10:11", "13:10:10");
+-&gt; 00:00:01
+</pre>
+</td>
+</tr>
+<tr>
+<td>TIMESTAMP(expression, interval)</td>
+<td>单个参数时，函数返回日期或日期时间表达式；有2个参数时，将参数加和</td>
+<td>
+<pre>
+SELECT TIMESTAMP("2017-07-23",  "13:10:11");
+-&gt; 2017-07-23 13:10:11
+</pre>
+</td>
+</tr>
+<tr>
+<td>TO_DAYS(d)</td>
+<td>计算日期 d 距离 0000 年 1 月 1 日的天数</td>
+<td>
+<pre>
+SELECT TO_DAYS('0001-01-01 01:01:01')
+-&gt; 366
+</pre>
+</td>
+</tr>
+<tr>
+<td>WEEK(d)</td>
+<td>计算日期 d 是本年的第几个星期，范围是 0 到 53</td>
+<td>
+<pre>
+SELECT WEEK('2011-11-11 11:11:11')
+-&gt; 45
+</pre>
+</td>
+</tr>
+<tr>
+<td>WEEKDAY(d)</td>
+<td>日期 d 是星期几，0 表示星期一，1 表示星期二</td>
+<td>
+<pre>
+SELECT WEEKDAY("2017-06-15");
+-&gt; 3
+</pre>
+</td>
+</tr>
+<tr>
+<td>WEEKOFYEAR(d)</td>
+<td>计算日期 d 是本年的第几个星期，范围是 0 到 53</td>
+<td>
+<pre>
+SELECT WEEKOFYEAR('2011-11-11 11:11:11')
+-&gt; 45
+</pre>
+</td>
+</tr>
+<tr>
+<td>YEAR(d)</td>
+<td>返回年份</td>
+<td>
+<pre>
+SELECT YEAR("2017-06-15");
+-&gt; 2017
+</pre>
+</td>
+</tr>
+<tr>
+<td>YEARWEEK(date, mode)</td>
+<td>返回年份及第几周（0到53），mode 中 0 表示周天，1表示周一，以此类推</td>
+<td>
+<pre>
+SELECT YEARWEEK("2017-06-15");
+-&gt; 201724
+</pre>
+</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>MySQL 高级函数</h2>
+<table class="reference">
+<tbody><tr>
+<th style="width:25%">函数名</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>BIN(x)</td>
+<td> 返回 x 的二进制编码</td>
+<td>
+<p> 15 的 2 进制编码:</p>
+<pre>
+SELECT BIN(15); -- 1111
+</pre>
+</td>
+</tr>
+<tr>
+<td>BINARY(s)</td>
+<td>将字符串 s 转换为二进制字符串</td>
+<td>
+<pre>
+SELECT BINARY "RUNOOB";
+-&gt; RUNOOB
+</pre>
+</td>
+</tr>
+<tr>
+<td><pre>
+CASE expression
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+   ...
+    WHEN conditionN THEN resultN
+    ELSE result
+END</pre>
+</td>
+<td>CASE 表示函数开始，END 表示函数结束。如果 condition1 成立，则返回 result1, 如果 condition2 成立，则返回 result2，当全部不成立则返回 result，而当有一个成立之后，后面的就不执行了。</td>
+<td>
+<pre>
+SELECT CASE 
+　　WHEN 1 &gt; 0
+　　THEN '1 &gt; 0'
+　　WHEN 2 &gt; 0
+　　THEN '2 &gt; 0'
+　　ELSE '3 &gt; 0'
+　　END
+-&gt;1 &gt; 0
+</pre>
+</td>
+</tr>
+<tr>
+<td>CAST(x AS type)</td>
+<td>转换数据类型</td>
+<td>
+<p>字符串日期转换为日期：</p>
+<pre>
+SELECT CAST("2017-08-29" AS DATE);
+-&gt; 2017-08-29
+</pre>
+</td>
+</tr>
+<tr>
+<td>COALESCE(expr1, expr2, ...., expr_n)</td>
+<td>返回参数中的第一个非空表达式（从左向右）</td>
+<td>
+<pre>
+SELECT COALESCE(NULL, NULL, NULL, 'runoob.com', NULL, 'google.com');
+-&gt; runoob.com
+</pre>
+</td>
+</tr>
+<tr>
+<td>CONNECTION_ID()</td>
+<td>返回服务器的连接数</td>
+<td>
+<pre>
+SELECT CONNECTION_ID();
+-&gt; 4292835
+</pre>
+</td>
+</tr>
+<tr>
+<td>CONV(x,f1,f2)</td>
+<td>返回 f1 进制数变成 f2 进制数</td>
+<td>
+<pre>
+SELECT CONV(15, 10, 2);
+-&gt; 1111
+</pre>
+</td>
+</tr>
+<tr>
+<td>CONVERT(s USING cs)</td>
+<td>函数将字符串 s 的字符集变成 cs</td>
+<td>
+<pre>
+SELECT CHARSET('ABC')
+-&gt;utf-8    
+
+SELECT CHARSET(CONVERT('ABC' USING gbk))
+-&gt;gbk
+</pre>
+</td>
+</tr>
+<tr>
+<td>CURRENT_USER()</td>
+<td>返回当前用户</td>
+<td>
+<pre>
+SELECT CURRENT_USER();
+-&gt; guest@%
+</pre>
+</td>
+</tr>
+<tr>
+<td>DATABASE()</td>
+<td>返回当前数据库名</td>
+<td>
+<pre>
+SELECT DATABASE();   
+-&gt; runoob
+</pre>
+</td>
+</tr>
+<tr>
+<td>IF(expr,v1,v2)</td>
+<td>如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2。</td>
+<td>
+<pre>
+SELECT IF(1 &gt; 0,'正确','错误')    
+-&gt;正确
+</pre>
+</td>
+</tr>
+<tr>
+<td><a href="http://www.runoob.com/mysql/mysql-func-ifnull.html" rel="noopener" target="_blank">IFNULL(v1,v2)</a></td>
+<td>如果 v1 的值不为 NULL，则返回 v1，否则返回 v2。</td>
+<td>
+<pre>
+SELECT IFNULL(null,'Hello Word')
+-&gt;Hello Word
+</pre>
+</td>
+</tr>
+<tr>
+<td>ISNULL(expression)</td>
+<td>判断表达式是否为 NULL</td>
+<td>
+<pre>
+SELECT ISNULL(NULL);
+-&gt;1
+</pre>
+</td>
+</tr>
+<tr>
+<td>LAST_INSERT_ID()</td>
+<td>返回最近生成的 AUTO_INCREMENT 值</td>
+<td>
+<pre>
+SELECT LAST_INSERT_ID();
+-&gt;6
+</pre>
+</td>
+</tr>
+<tr>
+<td>NULLIF(expr1, expr2)</td>
+<td>比较两个字符串，如果字符串 expr1 与 expr2 相等 返回 NULL，否则返回 expr1 </td>
+<td>
+<pre>
+SELECT NULLIF(25, 25);
+-&gt;
+</pre>
+</td>
+</tr>
+<tr>
+<td>SESSION_USER()</td>
+<td>返回当前用户</td>
+<td>
+<pre>
+SELECT SESSION_USER();
+-&gt; guest@%
+</pre>
+</tr>
+<tr>
+<td>SYSTEM_USER()</td>
+<td>返回当前用户</td>
+<td>
+<pre>
+SELECT SYSTEM_USER();
+-&gt; guest@%
+</pre>
+</tr>
+<tr>
+<td>USER()</td>
+<td>返回当前用户</td>
+<td>
+<pre>
+SELECT USER();
+-&gt; guest@%
+</pre>
+</tr>
+<tr>
+<td>VERSION()</td>
+<td>返回数据库的版本号</td>
+<td>
+<pre>
+SELECT VERSION()
+-&gt; 5.6.34
+</pre>
+</td>
+</tr>
+</tbody></table> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/mysql/mysql-union-operation.html" rel="prev"> MySQL UNION 操作符</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/mysql/mysql-func-ifnull.html" rel="next"> MySQL IFNULL() 函数</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">1 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-40404"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;宋新峰</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;son***nfeng1024@126.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://blog.csdn.net/songxinfeng1989/article/details/81906713">&nbsp;&nbsp;参考地址</a></p></div></div><div class="comt-main" id="div-comment-40404"><p><strong>需求：</strong>将数据库中每分钟一条的数据表，从 9:30 取到 22:00 ，以半小时为单位汇总，并输出 Excel。</p>
+<p>数据表字段：id（序号）、incount（计数）、cdate（数据时间）</p>
+<p>表名：m_temp</p>
+<p>难点：时间处理</p>
+<p>解决办法：使用 DATE_FORMAT、CONCAT、Date、Hour、Minute、Floor 函数将时间处理成半小时，在将这段时间的数据查询时 输出 cdate 统一变为  09:30，然后在 group by cdate ，用 sum（incount）求和。</p>
+<p>1.处理时间：</p>
+<p>示例：2018-08-21 09:30:00   至 2018-08-21 22:00:00</p>
+<p>第一个半小时 09:30 至 10:00</p>
+<p>将这段时间的数据查询时 输出 cdate 统一变为 09:30，然后在 group by cdate ，sum（incount）</p>
+<p>将分钟取出 /30  , 0-29 分结果为 0 ，30-59分结果为 1 再乘以 30 分钟即变为 00 或者 30</p>
+<p>date(cdate)，取出年月日；</p>
+<p>hour(cdate)，取出小时；</p>
+<p>minute(cdate)，取出分钟；</p>
+<p>计算（minute(cdate)）/30 )*30，结果为 0 或30；</p>
+<p>floor( （minute(cdate)）/30 )*30)， 处理成整数；</p>
+<p>concat(date(cdate),' ',hour(cdate),':',floor( （minute(cdate)）/30 )*30) ，按照日期格式进行拼接</p>
+<p>DATE_FORMAT( concat(date(cdate),' ',hour(cdate),':',floor( minute(cdate)/30 )*30+12) ,'%Y-%m-%d %H:%i') ，转换成date类型</p>
+<p>完整 SQL：</p>
+<pre>select sum(incount),dataStartTime from (
+select incount, DATE_FORMAT( concat(date(cdate),' ',hour(cdate),':',floor( minute(cdate)/30 )*30+12) ,'%Y-%m-%d %H:%i')  as dataStartTime   
+ from m_temp WHERE cdate&gt;='2018-08-21 09:30' and cdate&lt;='2018-08-21 22:00'  ORDER BY dataStartTime
+) a
+group by DATE_FORMAT( dataStartTime ,'%Y-%m-%d %H:%i')
+into outfile('c:/2018-08-21Data.xls');</pre>
+<div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">宋新峰</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;宋新峰</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;son***nfeng1024@126.com</p><p><i class="fa fa-external-link" aria-hidden="true"></i> <a rel="nofollow" target="_blank" href="https://blog.csdn.net/songxinfeng1989/article/details/81906713">&nbsp;&nbsp;参考地址</a></p></div></span>2周前 (03-05)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='20753' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  20753;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Markdown 教程" href="http://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 20753;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-advance.html" title="Markdown 高级技巧">Markdown 高级技巧</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-table.html" title="Markdown 表格">Markdown 表格</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-image.html" title="Markdown 图片">Markdown 图片</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-link.html" title="Markdown 链接">Markdown 链接</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-code.html" title="Markdown 代码">Markdown 代码</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-block.html" title="Markdown 区块">Markdown 区块</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-lists.html" title="Markdown 列表">Markdown 列表</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>

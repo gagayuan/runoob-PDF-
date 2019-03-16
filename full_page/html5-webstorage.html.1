@@ -1,0 +1,1044 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta property="qc:admins" content="465267610762567726375" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HTML5 Web 存储 | 菜鸟教程</title>
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel='stylesheet' id='wp-block-library-css' href='http://www.runoob.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel="canonical" href="html5-webstorage.html.1" />
+<meta name="keywords" content="HTML5 Web 存储">
+<meta name="description" content="HTML5 Web 存储   HTML5 web 存储,一个比cookie更好的本地存储方式。  什么是 HTML5 Web 存储? 使用HTML5可以在本地存储用户的浏览数据。 早些时候,本地存储使用的是 cookie。但是Web 存储需要更加的安全与快速. 这些数据不会被保存在服务器上，但是这些数据只用于用户请求网站数据上.它也可以存储大量的数据，而不影响网站的性能. 数据以 键/值 对存在, web网页的数据只允许该网页访问使用。..">
+<link rel="shortcut icon" href="http://static.runoob.com/images/favicon.ico" mce_href="//static.runoob.com/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/style.css?v=1.149" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<!--[if gte IE 9]><!-->
+  <script src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+  <!--<![endif]-->
+<!--[if lt IE 9]>
+     <script src="//cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+     <script src="//cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+<link rel="apple-touch-icon" href="http://static.runoob.com/images/icon/mobile-icon.png"/>
+<meta name="apple-mobile-web-app-title" content="菜鸟教程">
+</head>
+<body>
+<div class="container logo-search">
+<div class="col search row-search-mobile">
+<form action="http://www.runoob.com/html/index.php">
+<input class="placeholder" placeholder="搜索……" name="s" autocomplete="off">
+</form>
+</div>
+<div class="row">
+<div class="col logo">
+<h1><a href="http://www.runoob.com/">菜鸟教程 -- 学的不仅是技术，更是梦想！</a></h1>
+</div>
+<div class="col right-list">
+<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style=""> <i class="fa fa-navicon"></i> </button>
+</div>
+<div class="col search search-desktop last">
+<form action="http://www.runoob.com/" target="_blank">
+<input class="placeholder" id="s" name="s" placeholder="搜索……" autocomplete="off">
+</form>
+</div>
+</div>
+</div>
+<div class="container navigation">
+<div class="row">
+<div class="col nav">
+<ul class="pc-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JavaScript</a></li>
+<li><a href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery</a></li>
+<li><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap</a></li>
+<li><a href="http://www.runoob.com/sql/sql-tutorial.html">SQL</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html">MySQL</a></li>
+<li><a href="http://www.runoob.com/php/php-tutorial.html">PHP</a></li>
+<li><a href="http://www.runoob.com/python/python-tutorial.html">Python2</a></li>
+<li><a href="http://www.runoob.com/python3/python3-tutorial.html">Python3</a></li>
+<li><a href="http://www.runoob.com/cprogramming/c-tutorial.html">C</a></li>
+<li><a href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++</a></li>
+<li><a href="http://www.runoob.com/csharp/csharp-tutorial.html">C#</a></li>
+<li><a href="http://www.runoob.com/java/java-tutorial.html">Java</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+</ul>
+<ul class="mobile-nav">
+<li><a href="http://www.runoob.com/">首页</a></li>
+<li><a href="http://www.runoob.com/html/html-tutorial.html">HTML</a></li>
+<li><a href="http://www.runoob.com/css/css-tutorial.html">CSS</a></li>
+<li><a href="http://www.runoob.com/js/js-tutorial.html">JS</a></li>
+<li><a href="http://www.runoob.com/browser-history">本地书签</a></li>
+<a href="javascript:void(0)" class="search-reveal">Search</a>
+</ul>
+</div>
+</div>
+</div>
+<div class="container main">
+<div class="row">
+<div class="col left-column">
+<div class="tab">HTML 教程 <a data-cate="1" href="javascript:void(0);" title="夜间模式" id="moon"><i class="fa fa-moon-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+<a data-cate="1" style="display:none;" href="javascript:void(0);" title="日间模式" id="sun"><i class="fa fa-sun-o" aria-hidden="true" style="font-size: 1.4em;float: right;margin: 4px 6px 0;"></i></a>
+</div>
+<div class="sidebar-box gallery-list">
+<div class="design" id="leftcolumn">
+<a target="_top" title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">
+HTML 教程 </a>
+<a target="_top" title="HTML 简介" href="http://www.runoob.com/html/html-intro.html">
+HTML 简介 </a>
+<a target="_top" title="HTML 编辑器" href="http://www.runoob.com/html/html-editors.html">
+HTML 编辑器 </a>
+<a target="_top" title="HTML 基础" href="http://www.runoob.com/html/html-basic.html">
+HTML 基础 </a>
+<a target="_top" title="HTML 元素" href="http://www.runoob.com/html/html-elements.html">
+HTML 元素 </a>
+<a target="_top" title="HTML 属性" href="http://www.runoob.com/html/html-attributes.html">
+HTML 属性 </a>
+<a target="_top" title="HTML 标题" href="http://www.runoob.com/html/html-headings.html">
+HTML 标题 </a>
+<a target="_top" title="HTML 段落" href="http://www.runoob.com/html/html-paragraphs.html">
+HTML 段落 </a>
+<a target="_top" title="HTML 文本格式化" href="http://www.runoob.com/html/html-formatting.html">
+HTML 文本格式化 </a>
+<a target="_top" title="HTML 链接" href="http://www.runoob.com/html/html-links.html">
+HTML 链接 </a>
+<a target="_top" title="HTML 头部" href="http://www.runoob.com/html/html-head.html">
+HTML 头部 </a>
+<a target="_top" title="HTML CSS" href="http://www.runoob.com/html/html-css.html">
+HTML CSS </a>
+<a target="_top" title="HTML 图像" href="http://www.runoob.com/html/html-images.html">
+HTML 图像 </a>
+<a target="_top" title="HTML 表格" href="http://www.runoob.com/html/html-tables.html">
+HTML 表格 </a>
+<a target="_top" title="HTML 列表" href="http://www.runoob.com/html/html-lists.html">
+HTML 列表 </a>
+<a target="_top" title="HTML 区块" href="http://www.runoob.com/html/html-blocks.html">
+HTML 区块 </a>
+<a target="_top" title="HTML 布局" href="http://www.runoob.com/html/html-layouts.html">
+HTML 布局 </a>
+<a target="_top" title="HTML 表单" href="http://www.runoob.com/html/html-forms.html">
+HTML 表单 </a>
+<a target="_top" title="HTML 框架" href="http://www.runoob.com/html/html-iframes.html">
+HTML 框架 </a>
+<a target="_top" title="HTML 颜色" href="http://www.runoob.com/html/html-colors.html">
+HTML 颜色 </a>
+<a target="_top" title="HTML 颜色名" href="http://www.runoob.com/html/html-colornames.html">
+HTML 颜色名 </a>
+<a target="_top" title="HTML 颜色值" href="http://www.runoob.com/html/html-colorvalues.html">
+HTML 颜色值 </a>
+<a target="_top" title="HTML 脚本" href="http://www.runoob.com/html/html-scripts.html">
+HTML 脚本 </a>
+<a target="_top" title="HTML 字符实体" href="http://www.runoob.com/html/html-entities.html">
+HTML 字符实体 </a>
+<a target="_top" title="HTML URL" href="http://www.runoob.com/html/html-url.html">
+HTML URL </a>
+<a target="_top" title="HTML 速查列表" href="http://www.runoob.com/html/html-quicklist.html">
+HTML 速查列表 </a>
+<a target="_top" title="HTML 总结" href="http://www.runoob.com/html/html-summary.html">
+HTML 总结 </a>
+<a target="_top" title="XHTML 简介" href="http://www.runoob.com/html/html-xhtml.html">
+XHTML 简介 </a>
+<br/><h2 class="left"><span class="left_h2">HTML5</span></h2> <a target="_top" title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">
+HTML5 教程 </a>
+<a target="_top" title="HTML5 浏览器支持" href="http://www.runoob.com/html/html5-browsers.html"> HTML5 浏览器支持 </a> <a target="_top" title="HTML5 新元素" href="http://www.runoob.com/html/html5-new-element.html">
+HTML5 新元素 </a>
+<a target="_top" title="HTML5 Canvas" href="http://www.runoob.com/html/html5-canvas.html">
+HTML5 Canvas </a>
+<a target="_top" title="HTML5 内联 SVG" href="http://www.runoob.com/html/html5-svg.html">
+HTML5 内联 SVG </a>
+<a target="_top" title="HTML5 MathML" href="http://www.runoob.com/html/html5-mathml.html"> HTML5 MathML </a> <a target="_top" title="HTML5 拖放" href="http://www.runoob.com/html/html5-draganddrop.html">
+HTML5 拖放 </a>
+<a target="_top" title="HTML5 地理定位" href="http://www.runoob.com/html/html5-geolocation.html">
+HTML5 地理定位 </a>
+<a target="_top" title="HTML5 Video(视频)" href="http://www.runoob.com/html/html5-video.html">
+HTML5 Video(视频) </a>
+<a target="_top" title="HTML5 Audio(音频)" href="http://www.runoob.com/html/html5-audio.html">
+HTML5 Audio(音频) </a>
+<a target="_top" title="HTML5 Input 类型" href="http://www.runoob.com/html/html5-form-input-types.html">
+HTML5 Input 类型 </a>
+<a target="_top" title="HTML5 表单元素" href="http://www.runoob.com/html/html5-form-elements.html">
+HTML5 表单元素 </a>
+<a target="_top" title="HTML5 表单属性" href="http://www.runoob.com/html/html5-form-attributes.html">
+HTML5 表单属性 </a>
+<a target="_top" title="HTML5 语义元素" href="http://www.runoob.com/html/html5-semantic-elements.html">
+HTML5 语义元素 </a>
+<a target="_top" title="HTML5 Web 存储" href="html5-webstorage.html.1">
+HTML5 Web 存储 </a>
+<a target="_top" title="HTML5 Web SQL" href="http://www.runoob.com/html/html5-web-sql.html"> HTML5 Web SQL </a> <a target="_top" title="HTML5 应用程序缓存" href="http://www.runoob.com/html/html5-app-cache.html">
+HTML5 应用程序缓存 </a>
+<a target="_top" title="HTML5 Web Workers" href="http://www.runoob.com/html/html5-webworkers.html">
+HTML5 Web Workers </a>
+<a target="_top" title="HTML5 服务器发送事件(Server-Sent Events)" href="http://www.runoob.com/html/html5-serversentevents.html">
+HTML5 SSE </a>
+<a target="_top" title="HTML5 WebSocket" href="http://www.runoob.com/html/html5-websocket.html"> HTML5 WebSocket </a>
+<a target="_top" title="HTML5 测验" href="http://www.runoob.com/quiz/html5-quiz.html"> HTML5 测验 </a>
+<a target="_top" title="HTML(5) 代码规范" href="http://www.runoob.com/html/html5-syntax.html">HTML(5) 代码规范 </a>
+<br/><h2 class="left"><span class="left_h2">HTML</span> 媒体</h2> <a target="_top" title="HTML 媒体(Media)" href="http://www.runoob.com/html/html-media.html">
+HTML 媒体(Media) </a>
+<a target="_top" title="HTML 插件" href="http://www.runoob.com/html/html-object.html">
+HTML 插件 </a>
+<a target="_top" title="HTML 音频(Audio)" href="http://www.runoob.com/html/html-sounds.html">
+HTML 音频(Audio) </a>
+<a target="_top" title="HTML视频（Videos）播放" href="http://www.runoob.com/html/html-videos.html">
+HTML视频（Videos）播放 </a>
+<a target="_top" title="HTML 实例" href="http://www.runoob.com/html/html-examples.html">
+HTML 实例 </a>
+<br><h2 class="left"><span class="left_h2">HTML</span> 参考手册</h2>
+<a target="_top" href="http://www.runoob.com/tags/html-reference.html">
+HTML 标签列表(字母排序) </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-byfunc.html">
+HTML 标签列表（功能排序） </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-standardattributes.html">
+HTML 属性 </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-eventattributes.html">
+HTML 事件 </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-canvas.html">
+HTML 画布 </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-av-dom.html">
+HTML 音频/视频 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-elementsdoctypes.html">
+HTML 有效DOCTYPES </a>
+<a target="_top" href="http://www.runoob.com/tags/html-colorname.html">
+HTML 颜色名 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-colorpicker.html">
+HTML 拾色器 </a>
+<a target="_top" href="http://www.runoob.com/charsets/html-charsets.html">
+HTML 字符集 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-ascii.html">
+HTML ASCII </a>
+<a target="_top" href="http://www.runoob.com/tags/ref-entities.html">
+HTML ISO-8859-1 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-symbols.html">
+HTML 符号 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-urlencode.html">
+HTML URL 编码 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-language-codes.html">
+HTML 语言代码 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-httpmessages.html">
+HTTP 消息 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-httpmethods.html">
+HTTP 方法 </a>
+<a target="_top" href="http://www.runoob.com/tags/html-keyboardshortcuts.html">
+键盘快捷键 </a>
+</div>
+</div>
+</div> <div class="col middle-column">
+<div class="article">
+<div class="article-heading-ad" style="display: none;">
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/html/html5-semantic-elements.html" rel="prev"> HTML5 语义元素</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/html/html5-app-cache.html" rel="next"> HTML5 应用程序缓存</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<div class="article-body">
+<div class="article-intro" id="content">
+<h1>HTML5 <span class="color_h1">Web 存储</span>
+</h1>
+<hr>
+<p class="intro">HTML5 web 存储,一个比cookie更好的本地存储方式。</p>
+<hr>
+<h2>什么是 HTML5 Web 存储?</h2>
+<p>使用HTML5可以在本地存储用户的浏览数据。</p>
+<p>早些时候,本地存储使用的是 cookie。但是Web 存储需要更加的安全与快速. 这些数据不会被保存在服务器上，但是这些数据只用于用户请求网站数据上.它也可以存储大量的数据，而不影响网站的性能.</p>
+<p>数据以 键/值 对存在, web网页的数据只允许该网页访问使用。</p>
+<hr>
+<h2>浏览器支持</h2>
+<p>
+<img src="http://www.runoob.com/images/compatible_ie.gif" width="31" height="30" alt="Internet Explorer" title="Internet Explorer"><img src="http://www.runoob.com/images/compatible_firefox.gif" width="31" height="30" alt="Firefox" title="Firefox"><img src="http://www.runoob.com/images/compatible_opera.gif" width="28" height="30" alt="Opera" title="Opera"><img src="http://www.runoob.com/images/compatible_chrome.gif" width="31" height="30" alt="Google Chrome" title="Google Chrome"><img src="http://www.runoob.com/images/compatible_safari.gif" width="28" height="30" alt="Safari" title="Safari"></p>
+<p> Internet Explorer 8+, Firefox, Opera, Chrome, 和 Safari支持Web 存储。</p>
+<p><b>注意:</b> Internet Explorer 7 及更早IE版本不支持web 存储.</p>
+<hr>
+<h2>localStorage 和 sessionStorage </h2>
+<p>客户端存储数据的两个对象为：</p>
+<ul>
+<li>localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。</li>
+<li>sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</li>
+</ul>
+<p>在使用 web 存储前,应检查浏览器是否支持 localStorage 和sessionStorage:</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-reserved">typeof</span><span class="hl-brackets">(</span><span class="hl-identifier">Storage</span><span class="hl-brackets">)</span><span class="hl-code">!==</span><span class="hl-quotes">&quot;</span><span class="hl-string">undefined</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment"> 是的! 支持 localStorage sessionStorage 对象!</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment"> 一些代码.....</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment"> 抱歉! 不支持 web 存储。</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<br><hr>
+<h2>localStorage 对象</h2>
+<p>localStorage 对象存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">网站名：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code">;</span></div>
+</div>
+<br><a target="_blank" href="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_local" class="tryitbtn">尝试一下 »</a>
+</div>
+<p>实例解析：</p>
+<ul>
+<li>使用 key="sitename" 和 value="菜鸟教程" 创建一个 localStorage 键/值对。</li>
+<li>检索键值为"sitename" 的值然后将数据插入 id="result"的元素中。</li>
+</ul>
+<p>以上实例也可以这么写：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment"> 存储</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code"> = </span><span class="hl-quotes">&quot;</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment"> 查找</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code">;</span></div>
+</div>
+</div><p>移除 localStorage 中的 "sitename" :</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">removeItem</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
+</div>
+</div>
+<p>
+不管是 localStorage，还是 sessionStorage，可使用的API都相同，常用的有如下几个（以localStorage为例）：</p>
+<ul><li>
+保存数据：localStorage.setItem(key,value);</li><li>
+读取数据：localStorage.getItem(key);</li><li>
+删除单个数据：localStorage.removeItem(key);</li><li>
+删除所有数据：localStorage.clear();</li><li>
+得到某个索引的key：localStorage.key(index);</li></ul>
+<p><strong>提示:</strong> 键/值对通常以字符串存储，你可以按自己的需要转换该格式。</p>
+<p>下面的实例展示了用户点击按钮的次数。</p><p>
+代码中的字符串值转换为数字类型:</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code">=</span><span class="hl-builtin">Number</span><span class="hl-brackets">(</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-number">1</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code">=</span><span class="hl-number">1</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string"> 你已经点击了按钮 </span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string"> 次 </span><span class="hl-quotes">&quot;</span><span class="hl-code">;</span></div>
+</div>
+<br><a class="tryitbtn" href="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_local_clickcount" target="_blank">尝试一下 »</a>
+</div>
+<br><hr>
+<h2> sessionStorage 对象</h2>
+<p>sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。</p>
+<p>如何创建并访问一个 sessionStorage：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">sessionStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-identifier">sessionStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code">=</span><span class="hl-builtin">Number</span><span class="hl-brackets">(</span><span class="hl-identifier">sessionStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-brackets">)</span><span class="hl-code">+</span><span class="hl-number">1</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-identifier">sessionStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code">=</span><span class="hl-number">1</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">在这个会话中你已经点击了该按钮 </span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">sessionStorage</span><span class="hl-code">.</span><span class="hl-identifier">clickcount</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string"> 次 </span><span class="hl-quotes">&quot;</span><span class="hl-code">;</span></div>
+</div>
+<br><a class="tryitbtn" href="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_session" target="_blank">尝试一下 »</a>
+</div>
+<hr>
+<h2>Web Storage 开发一个简单的网站列表程序</h2>
+<p>网站列表程序实现以下功能：</p>
+<ul><li>
+可以输入网站名，网址，以网站名作为key存入localStorage；</li><li>
+根据网站名，查找网址；</li><li>
+列出当前已保存的所有网站；</li>
+</ul>
+<p>以下代码用于保存于查找数据：</p>
+<div class="example">
+<h2 class="example">save() 与 find() 方法</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">保存数据 </span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">save</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">siteurl</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">sitename</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">setItem</span><span class="hl-brackets">(</span><span class="hl-identifier">sitename</span><span class="hl-code">, </span><span class="hl-identifier">siteurl</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">alert</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">添加成功</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">查找数据 </span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">find</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">search_site</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">sitename</span><span class="hl-code"> = </span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-identifier">search_site</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">find_result</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">find_result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">find_result</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">search_site</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">的网址是：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">sitename</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>完整实例演示如下：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">border: 2px dashed #ccc;width:320px;text-align:center;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">网站名(key)：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">网 址(value)：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">button</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">onclick</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">save()</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">新增记录</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">hr</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">输入网站名：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">button</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">onclick</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">find()</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">查找网站</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">find_result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span></div>
+</div><br>
+<a target="_blank" class="tryitbtn" href="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_demo">尝试一下 »</a>
+</div>
+<p>实现效果截图：</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/07/local11.png" width="50%"></p>
+<p>以上实例只是演示了简单的 localStorage 存储与查找，更多情况下我们存储的数据会更复杂。</p>
+<p>接下来我们将使用 <a href="http://www.runoob.com/js/javascript-json-stringify.html" target="_blank">JSON.stringify</a> 来存储对象数据，<a href="http://www.runoob.com/js/javascript-json-stringify.html" target="_blank">JSON.stringify</a> 可以将对象转换为字符串。</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">site</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Object</span><span class="hl-code">;
+...
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">site</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment"> 将对象转换为字符串</span><span class="hl-comment"></span></div>
+</div></div>
+<p>之后我们使用 <a href="http://www.runoob.com/js/javascript-json-parse.html" target="_blank">JSON.parse</a> 方法将字符串转换为 JSON 对象：</p>
+<div class="example">
+<div class="example_code">
+<div class="hl-main"><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">site</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">;</span></div>
+</div>
+</div>
+<p>JavaScript 实现代码：</p>
+<div class="example">
+<h2 class="example">save() 与 find() 方法</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-comment">//</span><span class="hl-comment">保存数据 </span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">save</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">site</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">Object</span><span class="hl-code">;
+</span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">keyname</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">keyname</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">siteurl</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">site</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment"> 将对象转换为字符串</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">setItem</span><span class="hl-brackets">(</span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">keyname</span><span class="hl-code">,</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">alert</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">保存成功</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment">查找数据 </span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">find</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">search_site</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">str</span><span class="hl-code"> = </span><span class="hl-identifier">localStorage</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-identifier">search_site</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">find_result</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">find_result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">site</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">find_result</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">search_site</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">的网站名是：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">sitename</span><span class="hl-code"> + </span><span class="hl-quotes">&quot;</span><span class="hl-string">，网址是：</span><span class="hl-quotes">&quot;</span><span class="hl-code"> + </span><span class="hl-identifier">site</span><span class="hl-code">.</span><span class="hl-identifier">siteurl</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></div>
+</div>
+</div>
+<p>完整实例如下：</p>
+<div class="example">
+<h2 class="example">实例</h2>
+<div class="example_code">
+<div class="hl-main"><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">border: 2px dashed #ccc;width:320px;text-align:center;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">keyname</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">别名(key):</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">keyname</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">keyname</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">网站名：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sitename</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">网 址：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">siteurl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">button</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">onclick</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">save()</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">新增记录</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">hr</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">label</span><span class="hl-code"> </span><span class="hl-var">for</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">输入别名(key)：</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">label</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">search_site</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">button</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">onclick</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">find()</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">查找网站</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">find_result</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-brackets">/&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span></div>
+</div><br>
+<a target="_blank" class="tryitbtn" href="http://www.runoob.com/try/try.php?filename=tryhtml5_webstorage_demo2">尝试一下 »</a>
+</div>
+<p>实例中的 loadAll 输出了所有存储的数据，你需要确保 localStorage 存储的数据都为 JSON 格式，否则 JSON.parse(str) 将会报错。</p>
+<p>输出结果演示：</p>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/07/08572F9A-A2E7-4752-BE1B-D66E2C3B36C9.jpg" width="50%"></p> 
+</div>
+</div>
+<div class="previous-next-links">
+<div class="previous-design-link"><i style="font-size:16px;" class="fa fa-arrow-left" aria-hidden="true"></i> <a href="http://www.runoob.com/html/html5-semantic-elements.html" rel="prev"> HTML5 语义元素</a> </div>
+<div class="next-design-link"><a href="http://www.runoob.com/html/html5-app-cache.html" rel="next"> HTML5 应用程序缓存</a> <i style="font-size:16px;" class="fa fa-arrow-right" aria-hidden="true"></i></div>
+</div>
+<style>
+.wrapper {
+  /*text-transform: uppercase; */
+  background: #ececec;
+  color: #555;
+  cursor: help;
+  font-family: "Gill Sans", Impact, sans-serif;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0); /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+}
+
+.wrapper .tooltip {
+  white-space: nowrap;
+  font-size: 14px;
+  text-align: left;
+  background: #96b97d;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: -25px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 14px;
+  pointer-events: none;
+  position: absolute;
+  
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+.tooltip a {
+	color:#fff;
+}
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+
+/* CSS Triangles - see Trevor's post */
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #96b97d 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 20%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+.wrapper .tooltip1 {
+	margin-left: 50px;
+	padding-top: 0px;
+}
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+/* IE can just show/hide with no transition */
+.lte8 .wrapper .tooltip {
+  display: none;
+}
+
+.lte8 .wrapper:hover .tooltip {
+  display: block;
+}
+
+</style>
+<div class="title" id="comments">
+<h2 class="">
+<div class="altblock">
+<i style="font-size:28px;margin-top: 8px;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</div>
+<span class="mw-headline" id="qa_headline">1 篇笔记</span>
+<span class="mw-headline" id="user_add_note" style="float:right;line-height: 62px;padding-right: 14px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 写笔记</span>
+</h2>
+</div>
+<div id="postcomments">
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-28670"><span class="comt-f">#1</span><div class="comt-avatar wrapper"><i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i><div class="tooltip"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;笑醉踏歌行</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;750***319@qq.com</p></div></div><div class="comt-main" id="div-comment-28670"><p>增加了删除方法，并简单优化了添加和删除，每次执行完都会刷新页面显示最新操作的数据：</p>
+<pre>//删除数据   
+function del(name) {
+  localStorage.removeItem(name);
+  alert("删除成功!");
+  loadAll();
+}</pre>
+<p><a target="_blank" href="https://c.runoob.com/codedemo/5397" class="tryitbtn" rel="nofollow">尝试一下 »</a></p><div class="comt-meta wrapper"><span class="comt-author"><a target="_blank" href="javascript:;">笑醉踏歌行</a><div class="tooltip tooltip1"><p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;笑醉踏歌行</p><p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;750***319@qq.com</p></div></span>9个月前 (06-23)</div></div></li>
+</ol>
+<div class="pagenav">
+</div>
+</div>
+<div id="respond" class="no_webshot">
+<div class="comment-signarea" style="display:none; padding: 20px 20px;">
+<h3 class="text-muted" id="share_code" style="color: #799961;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 点我分享笔记</h3>
+</div>
+<form action="http://www.runoob.com/wp-content/themes/runoob/option/addnote.php" method="post" id="commentform" style="display:none;">
+<div class="comt">
+<div class="comt-title">
+<i style="font-size:36px;" class="fa fa-user-circle" aria-hidden="true"></i> <p><a id="cancel-comment-reply-link" href="javascript:;">取消</a></p>
+</div>
+<div class="comt-box">
+<div id="mded"></div>
+<div class="comt-ctrl">
+<div class="comt-tips"><input type='hidden' name='comment_post_ID' value='380' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+<button type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-pencil" aria-hidden="true"></i> 分享笔记</button>
+</div>
+</div>
+<div class="comt-comterinfo">
+<ul id="comment-author-info">
+<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="昵称"><span class="text-muted">昵称 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="邮箱"><span class="text-muted">邮箱 (必填)</span></li>
+<li class="form-inline"><label class="hide" for="url">引用地址</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="引用地址"><span class="text-muted">引用地址</span></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+$(function() {
+	//初始化编辑器
+	
+	var editor = new Simditor({
+	  textarea: $('#mded'),
+	  placeholder: '写笔记...',
+	  upload:false,
+	 // upload: {url:'/api/comment_upload_file.php',params: null,fileKey: 'upload_file',connectionCount: 1,leaveConfirm: '文件正在上传，您确定离开?'},
+	  defaultImage: 'http://www.runoob.com/images/logo.png',
+	  codeLanguages: '',
+	  toolbar: [  'bold','code','ul','ol','image' ]
+	});
+	editor.on('selectionchanged', function() {
+		$(".code-popover").hide();
+	});
+
+	// 提交数据
+	$("#share_code").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		
+	});
+	$("#user_add_note").click(function() {
+		$(".comment-signarea").hide();
+		$("#commentform").show();
+		$('html, body').animate({
+       	    scrollTop: $("#respond").offset().top
+    	}, 200);
+	});
+
+	// 提交笔记
+	var commentform=$('#commentform');
+	commentform.prepend('<div id="comment-status" style="display:none;" ></div>');
+	var statusdiv=$('#comment-status');
+	
+	commentform.submit(function(e){
+		e.preventDefault();
+		var noteContent = editor.getValue();
+		// console.log(noteContent);
+		noteContent = noteContent.replace(/<pre><code>/g,"<pre>");
+		noteContent = noteContent.replace(/<\/code><\/pre>/g,"</pre>");
+		
+		// 系列化表单数据
+		var comment_parent = 0;
+		var is_user_logged_in = $("#is_user_logged_in").val();
+		var comment_post_ID =  380;
+		var _wp_unfiltered_html_comment = $("#_wp_unfiltered_html_comment").val();
+		var comment = noteContent;
+		var author = $("#author").val();
+		var url = $("#url").val();
+		var email = $("#email").val();
+		if(isBlank(author) && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入昵称！</p>').show();
+		} else if(isBlank(email)  && is_user_logged_in==0) {
+			statusdiv.html('<p  class="ajax-error">请输入邮箱！</p>').show();
+		} else {
+			// var formdata=commentform.serialize() + "&comment=" + noteContent ;
+			// 添加状态信息
+			statusdiv.html('<p>Processing...</p>').show();
+			// 获取表单提交地址
+			var formurl=commentform.attr('action');
+			
+			// 异步提交
+			$.ajax({
+					type: 'post',
+					url: formurl,
+					dataType:'json',
+					data: {"comment_parent":comment_parent,"comment_post_ID":comment_post_ID, "_wp_unfiltered_html_comment":_wp_unfiltered_html_comment,"comment":comment,"url":url, "email":email,"author":author},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+					statusdiv.html('<p class="ajax-error" >数据不完整或表单提交太快了！</p>').show();
+				},
+				success: function(data, textStatus){
+					if(data.errorno=="0") {
+						$("#submit").prop('disabled', true);
+						statusdiv.html('<p class="ajax-success" >笔记已提交审核，感谢分享笔记！</p>').show();
+						alert('笔记已提交审核，感谢分享笔记！');
+					}else{
+						statusdiv.html('<p class="ajax-error" >'+data.msg+'</p>').show();
+					}
+					commentform.find('textarea[name=comment]').val('');
+				}
+			});
+			setTimeout(function(){
+		        $("#submit").prop('disabled', false);
+		    }, 10*1000);
+		}
+		return false;
+
+	});
+	
+});
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+</script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/css/qa.css?1.42">
+<link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/simditor/2.3.6/styles/simditor.min.css" />
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/simditor/2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="http://cdn.staticfile.org/simditor/2.3.6/lib/simditor.min.js"></script> <div class="sidebar-box ad-box ad-box-large">
+<div id="ad-336280">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5751451760833794" data-ad-slot="1691338467" data-ad-format="auto"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div>
+</div>
+<div class="fivecol last right-column">
+<style>
+.sidebar-tree .double-li {
+	width:300px;
+}
+.sidebar-tree .double-li li {
+    width: 44%;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    display: inline;
+}
+</style>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here" style="margin: 0 auto;">
+<a href="javascript:void(0);" style="font-size: 16px; color:#64854c;font-weight:bold;"> <i class="fa fa-list" aria-hidden="true"></i> 分类导航</a>
+</div>
+<div class="sidebar-box sidebar-cate">
+<div class="sidebar-tree">
+<ul><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> HTML / CSS</a><ul class="double-li"><li><a title="HTML 教程" href="http://www.runoob.com/html/html-tutorial.html">HTML 教程</a></li><li><a title="HTML5 教程" href="http://www.runoob.com/html/html5-intro.html">HTML5 教程</a></li><li><a title="CSS 教程" href="http://www.runoob.com/css/css-tutorial.html">CSS 教程</a></li><li><a title="CSS3 教程" href="http://www.runoob.com/css3/css3-tutorial.html">CSS3 教程</a></li><li><a title="Bootstrap3 教程" href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html">Bootstrap3 教程</a></li><li><a title="Bootstrap4 教程" href="http://www.runoob.com/bootstrap4/bootstrap4-tutorial.html">Bootstrap4 教程</a></li><li><a title="Font Awesome 教程" href="http://www.runoob.com/font-awesome/fontawesome-tutorial.html">Font Awesome 教程</a></li><li><a title="Foundation 教程" href="http://www.runoob.com/foundation/foundation-tutorial.html">Foundation 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> JavaScript</a><ul class="double-li"><li><a title="JavaScript 教程" href="http://www.runoob.com/js/js-tutorial.html">JavaScript 教程</a></li><li><a title="HTML DOM 教程" href="http://www.runoob.com/htmldom/htmldom-tutorial.html">HTML DOM 教程</a></li><li><a title="jQuery 教程" href="http://www.runoob.com/jquery/jquery-tutorial.html">jQuery 教程</a></li><li><a title="AngularJS 教程" href="http://www.runoob.com/angularjs/angularjs-tutorial.html">AngularJS 教程</a></li><li><a title="AngularJS2 教程" href="http://www.runoob.com/angularjs2/angularjs2-tutorial.html">AngularJS2 教程</a></li><li><a title="Vue.js 教程" href="http://www.runoob.com/vue2/vue-tutorial.html">Vue.js 教程</a></li><li><a title="React 教程" href="http://www.runoob.com/react/react-tutorial.html">React 教程</a></li><li><a title="TypeScript 教程" href="http://www.runoob.com/typescript/ts-tutorial.html">TypeScript 教程</a></li><li><a title="jQuery UI 教程" href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html">jQuery UI 教程</a></li><li><a title="jQuery EasyUI 教程" href="http://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html">jQuery EasyUI 教程</a></li><li><a title="Node.js 教程" href="http://www.runoob.com/nodejs/nodejs-tutorial.html">Node.js 教程</a></li><li><a title="AJAX 教程" href="http://www.runoob.com/ajax/ajax-tutorial.html">AJAX 教程</a></li><li><a title="JSON 教程" href="http://www.runoob.com/json/json-tutorial.html">JSON 教程</a></li><li><a title="Highcharts 教程" href="http://www.runoob.com/highcharts/highcharts-tutorial.html">Highcharts 教程</a></li><li><a title="Google 地图 教程" href="http://www.runoob.com/googleapi/google-maps-basic.html">Google 地图 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 服务端</a><ul class="double-li"><li><a title="PHP 教程" href="http://www.runoob.com/php/php-tutorial.html">PHP 教程</a></li><li><a title="Python 教程" href="http://www.runoob.com/python/python-tutorial.html">Python 教程</a></li><li><a title="Python3 教程" href="http://www.runoob.com/python3/python3-tutorial.html">Python3 教程</a></li><li><a title="Django 教程" href="http://www.runoob.com/django/django-tutorial.html">Django 教程</a></li><li><a title="Linux 教程" href="http://www.runoob.com/linux/linux-tutorial.html">Linux 教程</a></li><li><a title="Docker 教程" href="http://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a></li><li><a title="Ruby 教程" href="http://www.runoob.com/ruby/ruby-tutorial.html">Ruby 教程</a></li><li><a title="Java 教程" href="http://www.runoob.com/java/java-tutorial.html">Java 教程</a></li><li><a title="C 教程" href="http://www.runoob.com/c/c-tutorial.html">C 教程</a></li><li><a title="C++ 教程" href="http://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程</a></li><li><a title="Perl 教程" href="http://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></li><li><a title="Servlet 教程" href="http://www.runoob.com/servlet/servlet-tutorial.html">Servlet 教程</a></li><li><a title="JSP 教程" href="http://www.runoob.com/jsp/jsp-tutorial.html">JSP 教程</a></li><li><a title="Lua 教程" href="http://www.runoob.com/lua/lua-tutorial.html">Lua 教程</a></li><li><a title="Scala 教程" href="http://www.runoob.com/scala/scala-tutorial.html">Scala 教程</a></li><li><a title="Go 教程" href="http://www.runoob.com/go/go-tutorial.html">Go 教程</a></li><li><a title="设计模式" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li><li><a title="正则表达式" href="http://www.runoob.com/regexp/regexp-tutorial.html">正则表达式</a></li><li><a title="Maven 教程" href="http://www.runoob.com/maven/maven-tutorial.html">Maven 教程</a></li><li><a title="NumPy 教程" href="http://www.runoob.com/numpy/numpy-tutorial.html">NumPy 教程</a></li><li><a title="ASP 教程" href="http://www.runoob.com/asp/asp-tutorial.html">ASP 教程</a></li><li><a title="AppML 教程" href="http://www.runoob.com/appml/appml-tutorial.html">AppML 教程</a></li><li><a title="VBScript 教程" href="http://www.runoob.com/vbscript/vbscript-tutorial.html">VBScript 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 数据库</a><ul class="double-li"><li><a title="SQL 教程" href="http://www.runoob.com/sql/sql-tutorial.html">SQL 教程</a></li><li><a title="Mysql 教程" href="http://www.runoob.com/mysql/mysql-tutorial.html">Mysql 教程</a></li><li><a title="SQLite 教程" href="http://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程</a></li><li><a title="MongoDB 教程" href="http://www.runoob.com/mongodb/mongodb-tutorial.html">MongoDB 教程</a></li><li><a title="Redis 教程" href="http://www.runoob.com/redis/redis-tutorial.html">Redis 教程</a></li><li><a title="Memcached 教程" href="http://www.runoob.com/Memcached/Memcached-tutorial.html">Memcached 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 移动端</a><ul class="double-li"><li><a title="Android 教程" href="http://www.runoob.com/w3cnote/android-tutorial-intro.html">Android 教程</a></li><li><a title="Swift 教程" href="http://www.runoob.com/swift/swift-tutorial.html">Swift 教程</a></li><li><a title="jQuery Mobile 教程" href="http://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">jQuery Mobile 教程</a></li><li><a title="ionic 教程" href="http://www.runoob.com/ionic/ionic-tutorial.html">ionic 教程</a></li><li><a title="Kotlin 教程" href="http://www.runoob.com/kotlin/kotlin-tutorial.html">Kotlin 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> XML 教程</a><ul class="double-li"><li><a title="XML 教程" href="http://www.runoob.com/xml/xml-tutorial.html">XML 教程</a></li><li><a title="DTD 教程" href="http://www.runoob.com/dtd/dtd-tutorial.html">DTD 教程</a></li><li><a title="XML DOM 教程" href="http://www.runoob.com/dom/dom-tutorial.html">XML DOM 教程</a></li><li><a title="XSLT 教程" href="http://www.runoob.com/xsl/xsl-tutorial.html">XSLT 教程</a></li><li><a title="XPath 教程" href="http://www.runoob.com/xpath/xpath-tutorial.html">XPath 教程</a></li><li><a title="XQuery 教程" href="http://www.runoob.com/xquery/xquery-tutorial.html">XQuery 教程</a></li><li><a title="XLink 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XLink 教程</a></li><li><a title="XPointer 教程" href="http://www.runoob.com/xlink/xlink-tutorial.html">XPointer 教程</a></li><li><a title="XML Schema 教程" href="http://www.runoob.com/schema/schema-tutorial.html">XML Schema 教程</a></li><li><a title="XSL-FO 教程" href="http://www.runoob.com/xslfo/xslfo-tutorial.html">XSL-FO 教程</a></li><li><a title="SVG 教程" href="http://www.runoob.com/svg/svg-tutorial.html">SVG 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> ASP.NET</a><ul class="double-li"><li><a title="ASP.NET 教程" href="http://www.runoob.com/aspnet/aspnet-tutorial.html">ASP.NET 教程</a></li><li><a title="C# 教程" href="http://www.runoob.com/csharp/csharp-tutorial.html">C# 教程</a></li><li><a title="Web Pages 教程" href="http://www.runoob.com/aspnet/webpages-intro.html">Web Pages 教程</a></li><li><a title="Razor 教程" href="http://www.runoob.com/aspnet/razor-intro.html">Razor 教程</a></li><li><a title="MVC 教程" href="http://www.runoob.com/aspnet/mvc-intro.html">MVC 教程</a></li><li><a title="Web Forms 教程" href="http://www.runoob.com/aspnet/aspnet-intro.html">Web Forms 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> Web Service</a><ul class="double-li"><li><a title="Web Service 教程" href="http://www.runoob.com/webservices/webservices-tutorial.html">Web Service 教程</a></li><li><a title="WSDL 教程" href="http://www.runoob.com/wsdl/wsdl-tutorial.html">WSDL 教程</a></li><li><a title="SOAP 教程" href="http://www.runoob.com/soap/soap-tutorial.html">SOAP 教程</a></li><li><a title="RSS 教程" href="http://www.runoob.com/rss/rss-tutorial.html">RSS 教程</a></li><li><a title="RDF 教程" href="http://www.runoob.com/rdf/rdf-tutorial.html">RDF 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 开发工具</a><ul class="double-li"><li><a title="Eclipse 教程" href="http://www.runoob.com/eclipse/eclipse-tutorial.html">Eclipse 教程</a></li><li><a title="Git 教程" href="http://www.runoob.com/git/git-tutorial.html">Git 教程</a></li><li><a title="Svn 教程" href="http://www.runoob.com/svn/svn-tutorial.html">Svn 教程</a></li><li><a title="Firebug 教程" href="http://www.runoob.com/firebug/firebug-tutorial.html">Firebug 教程</a></li></ul></li><li style="margin: 0;"><a href="javascript:void(0);" class="tit"> 网站建设</a><ul class="double-li"><li><a title="HTTP 教程" href="http://www.runoob.com/http/http-tutorial.html">HTTP 教程</a></li><li><a title="网站建设指南" href="http://www.runoob.com/web/web-buildingprimer.html">网站建设指南</a></li><li><a title="浏览器信息" href="http://www.runoob.com/browsers/browser-information.html">浏览器信息</a></li><li><a title="网站主机教程" href="http://www.runoob.com/hosting/hosting-tutorial.html">网站主机教程</a></li><li><a title="阿里云" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=i5mn5r7m">阿里云</a></li><li><a title="TCP/IP 教程" href="http://www.runoob.com/tcpip/tcpip-tutorial.html">TCP/IP 教程</a></li><li><a title="W3C 教程" href="http://www.runoob.com/w3c/w3c-tutorial.html">W3C 教程</a></li><li><a title="网站品质" href="http://www.runoob.com/quality/quality-tutorial.html">网站品质</a></li></ul></li></ul> </div>
+</div>
+</div>
+<br>
+<div class="sidebar-box ad-box ad-box-large">
+<div class="sidebar-box advertise-here">
+<a href="javascript:void(0);">Advertisement</a>
+</div>
+<div class="ad-600160" id="sidebar-right-ads">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins>
+<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+</div>
+</div>
+</div></div>
+</div>
+<script>
+var aid = 380;
+function coll() {
+	$.post( '/wp-content/themes/runoob/option/user/userinfo.php', {aid:aid, action:"collarticle", opt:'add'},function( data ) {
+		if(data.error==0) {
+			$("#content").find("h1:first").find("a").attr("href","javascript:void(0);");
+			$("#content").find("h1:first").find("img").attr("src","http://www.runoob.com/wp-content/themes/runoob/assets/img/coll2.png").css({width:32+"px",height:32+"px"});
+		}
+		alert(data.msg);
+	},'json');
+}
+</script>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.js?1.0"></script>
+<link rel="stylesheet" href="http://www.runoob.com/wp-content/themes/runoob/assets/feedback/stable/2.0/feedback.css?1.0" />
+<script type="text/javascript">
+$.feedback({
+    ajaxURL: '/feedback/runoob_feedback.php',
+    html2canvasURL: '/wp-content/themes/runoob/assets/feedback/stable/2.0/html2canvas.js'
+});
+</script>
+<button class="feedback-btn feedback-btn-gray">反馈/建议</button>
+<div id="footer" class="mar-t50">
+<div class="runoob-block">
+<div class="runoob cf">
+<dl>
+<dt>
+在线实例
+</dt>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/html/html-examples.html">HTML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/css/css-examples.html">CSS 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/js/js-examples.html">JavaScript 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/ajx/ajax-examples.html">Ajax 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/jquery/jquery-examples.html">jQuery 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/xml/xml-examples.html">XML 实例</a>
+</dd>
+<dd>
+&middot;<a target="_blank" href="http://www.runoob.com/java/java-examples.html">Java 实例</a>
+</dd>
+</dl>
+<dl>
+<dt>
+字符集&工具
+</dt>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/charsets/html-charsets.html">HTML 字符集设置</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-ascii.html">HTML ASCII 字符集</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/ref-entities.html">HTML ISO-8859-1</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-symbols.html">HTML 实体符号</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://www.runoob.com/tags/html-colorpicker.html">HTML 拾色器</a>
+</dd>
+<dd>
+&middot; <a target="_blank" href="http://c.runoob.com/front-end/53">JSON 格式化工具</a>
+</dd>
+</dl>
+<dl>
+<dt>
+最新更新
+</dt>
+<dd>
+&middot;
+<a href="http://www.runoob.com/markdown/md-tutorial.html" title="Markdown 教程">Markdown 教程</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/cpp-header.html" title="理解 C++ 中的头文件和源文件的作用">理解 C++ 中的头...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/w3c-webauthn.html" title="W3C 宣布：WebAuthn 成为正式 Web 标准">W3C 宣布：WebAu...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/knowledge-start.html" title="2019，建个圈子">2019，建个圈子</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/linux-command-full-fight.html" title="Linux 常用命令全拼">Linux 常用命令全拼</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/w3cnote/octotree-github-repo.html" title="octotree &#8212; 树形展示 Github 项目代码">octotree &#8212...</a>
+</dd>
+<dd>
+&middot;
+<a href="http://www.runoob.com/php/func-string-mb_substr.html" title="PHP mb_substr() 函数">PHP mb_substr()...</a>
+</dd>
+</dl>
+<dl>
+<dt>
+站点信息
+</dt>
+<dd>
+&middot;
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=ssbDyoOAgfLU3crf09venNHd3w" rel="external nofollow">意见反馈</a>
+</dd>
+<dd>
+&middot;
+<a class="wxpopup" onclick="popFunction()">合作联系
+<span class="popuptext" id="myPopup">微信(注明来意)：<strong>centos5</strong></span>
+</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/disclaimer">免责声明</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/aboutus">关于我们</a>
+</dd>
+<dd>
+&middot;
+<a target="_blank" href="http://www.runoob.com/archives">文章归档</a>
+</dd>
+</dl>
+<div class="search-share">
+<div class="app-download">
+<div>
+<strong>关注微信</strong>
+</div>
+</div>
+<div class="share">
+<img width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="w-1000 copyright">
+Copyright &copy; 2013-2019 <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+<strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+</div>
+</div>
+<div class="fixed-btn">
+<a class="go-top" href="javascript:void(0)" title="返回顶部"> <i class="fa fa-angle-up"></i></a>
+<a class="qrcode" href="javascript:void(0)" title="关注我们"><i class="fa fa-qrcode"></i></a>
+<a class="writer" style="display:none" href="javascript:void(0)" title="标记/收藏"><i class="fa fa-star" aria-hidden="true"></i></a>
+<div id="bottom-qrcode" class="modal panel-modal hide fade in">
+<h4>微信关注</h4>
+<div class="panel-body"><img alt="微信关注" width="128" height="128" src="http://www.runoob.com/wp-content/themes/runoob/assets/images/qrcode.png"></div>
+</div>
+</div>
+<div class="hide_box"></div>
+<div class="shang_box">
+<a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="http://static.runoob.com/images/dashang/close.jpg" alt="取消" /></a>
+<div class="shang_tit">
+<p>感谢您的支持，我会继续努力的!</p>
+</div>
+<div class="shang_payimg">
+<img src="http://static.runoob.com/images/dashang/weipayimg.png" alt="扫码支持" title="扫一扫" />
+</div>
+<div class="pay_explain">扫码打赏，你说多少就多少</div>
+<div class="shang_payselect">
+<div class="pay_item  checked" data-id="weipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/wechat.jpg" alt="微信" /></span>
+</div>
+<div class="pay_item" data-id="alipay">
+<span class="radiobox"></span>
+<span class="pay_logo"><img src="http://static.runoob.com/images/dashang/alipay.jpg" alt="支付宝" /></span>
+</div>
+</div>
+<div class="shang_info">
+<p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+<p><a href="http://c.runoob.com/codedemo/5348" target="_blank"><span style=" font-size: 14px;color: #000;font-weight: bold;">点我查看本站打赏源码！</span></a></p>
+</div>
+</div>
+<div id="testClick"></div>
+<div style="display:none;">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3eec0b7da6548cf07db3bc477ea905ee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84264393-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84264393-2');
+</script>
+</div>
+<script>
+window.jsui={
+    www: '//wwww.runoob.com',
+    uri: '//www.runoob.com/wp-content/themes/runoob'
+};
+</script>
+<style>
+ol,ul{list-style:none}.cd-switcher a{text-decoration:none;outline:0}.cd-switcher a:hover{text-decoration:underline}a:focus{outline:0;-moz-outline:0}.main_nav{width:300px;height:60px;margin:60px auto 10px auto}.main_nav li{float:left;width:60px;margin-right:10px;font-size:16px;padding:.6em 1em;border-radius:3em;background:#2f889a;text-align:center}.main_nav li a{color:#fff}.errtip{background-color:#fceaea;color:#db5353;padding:8px 15px;font-size:14px;border:1px solid #fc9797;border-radius:5px}.cd-user-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(52,54,66,0.9);z-index:3;overflow-y:auto;cursor:pointer;visibility:hidden;opacity:0;-webkit-transition:opacity .3s 0,visibility 0 .3s;-moz-transition:opacity .3s 0,visibility 0 .3s;transition:opacity .3s 0,visibility 0 .3s}.cd-user-modal.is-visible{visibility:visible;opacity:1;-webkit-transition:opacity .3s 0,visibility 0 0;-moz-transition:opacity .3s 0,visibility 0 0;transition:opacity .3s 0,visibility 0 0}.cd-user-modal.is-visible .cd-user-modal-container{-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}.cd-user-modal-container{position:relative;width:90%;max-width:500px;background:#FFF;margin:3em auto 4em;cursor:auto;border-radius:.25em;-webkit-transform:translateY(-30px);-moz-transform:translateY(-30px);-ms-transform:translateY(-30px);-o-transform:translateY(-30px);transform:translateY(-30px);-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;transition-property:transform;-webkit-transition-duration:.3s;-moz-transition-duration:.3s;transition-duration:.3s}.cd-user-modal-container .cd-switcher:after{content:"";display:table;clear:both}.cd-user-modal-container .cd-switcher li{width:50%;float:left;text-align:center}.cd-user-modal-container .cd-switcher li:first-child a{border-radius:.25em 0 0 0}.cd-user-modal-container .cd-switcher li:last-child a{border-radius:0 .25em 0 0}.cd-user-modal-container .cd-switcher a{font-size:1.2em;font-weight:bold;display:block;width:100%;height:50px;line-height:50px;background:#e8f1e2;color:#96b880}.cd-user-modal-container .cd-switcher a.selected{background:#FFF;color:#505260}@media only screen and (min-width:600px){.cd-user-modal-container{margin:4em auto}.cd-user-modal-container .cd-switcher a{height:70px;line-height:70px}}.cd-form{padding:1.4em}.cd-form .fieldset{position:relative;margin:1.4em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form label{font-size:16px;font-size:.875rem}.cd-form label.image-replace{display:inline-block;position:absolute;left:15px;top:50%;bottom:auto;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);height:20px;width:20px;overflow:hidden;text-indent:100%;white-space:nowrap;color:transparent;text-shadow:none;background-repeat:no-repeat;background-position:50% 0}.cd-form label.cd-username{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-username.svg")}.cd-form label.cd-email{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-email.svg")}.cd-form label.cd-password{background-image:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-password.svg")}.cd-form input{margin:0;padding:0;border-radius:.25em}.cd-form input.full-width{width:80%}.cd-form input.full-width2{width:94%}.cd-form input.has-padding{padding:12px 20px 12px 50px}.cd-form input.has-border{border:1px solid #d2d8d8;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}.cd-form input.has-border:focus{border-color:#98b880;box-shadow:0 0 5px rgba(52,54,66,0.1);outline:0}.cd-form input.has-error{border:1px solid #d76666}.cd-form input[type=password]{padding-right:65px}.cd-form input[type=submit]{padding:16px 0;cursor:pointer;background:#96b97d;color:#FFF;font-weight:bold;border:0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;font-size:1.2em;font-weight:bold}.no-touch .cd-form input[type=submit]:hover,.no-touch .cd-form input[type=submit]:focus{background:#3599ae;outline:0}@media only screen and (min-width:600px){.cd-form{padding:2em}.cd-form .fieldset{margin:2em 0}.cd-form .fieldset:first-child{margin-top:0}.cd-form .fieldset:last-child{margin-bottom:0}.cd-form input.has-padding{padding:16px 20px 16px 50px}.cd-form input[type=submit]{padding:16px 0}}.cd-close-form{display:block;position:absolute;width:40px;height:40px;right:0;top:-40px;background:url("http://www.runoob.com/wp-content/themes/runoob/assets/img/cd-icon-close.svg") no-repeat center center;text-indent:100%;white-space:nowrap;overflow:hidden}@media only screen and (min-width:1170px){}#cd-login,#cd-signup,#cd-reset-password{display:none}#cd-login.is-selected,#cd-signup.is-selected,#cd-reset-password.is-selected{display:block}
+</style>
+<div class="cd-user-modal">
+<div class="cd-user-modal-container">
+<ul class="cd-switcher">
+<li><a href="javascript:;">用户登录</a></li>
+<li><a href="javascript:;">注册新用户</a></li>
+</ul>
+<div id="cd-login"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-username" for="signin-username">用户名</label>
+<input class="full-width has-padding has-border" id="signin-username" name=username type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signin-password">密码</label>
+<input class="full-width has-padding has-border" id="signin-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<input type="checkbox" id="remember-me" checked>
+<label for="remember-me">记住登录状态</label>
+<a href="http://www.runoob.com/reset-password" style="float: right;padding-right: 20px;" target="_blank">忘记密码？</a>
+</p>
+<input type="hidden" name="action" value="signin">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="登 录">
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<div id="cd-signup"> 
+<div class="cd-form">
+<p class="fieldset">
+<label class="image-replace cd-password" for="verifycode">邀请码</label>
+<input class="full-width has-padding has-border" id="signup-verifycode" name="verifycode" type="text" placeholder="输入邀请码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-username" for="signup-username">用户名</label>
+<input class="full-width has-padding has-border" id="signup-username" name="name" type="text" placeholder="输入用户名">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-email" for="signup-email">邮箱</label>
+<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="输入mail">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password">密码</label>
+<input class="full-width has-padding has-border" id="signup-password" name="password" type="password" placeholder="输入密码">
+</p>
+<p class="fieldset">
+<label class="image-replace cd-password" for="signup-password2">重复输入密码</label>
+<input class="full-width has-padding has-border" id="signup-password2" name="password2" type="password" placeholder="重复输入密码">
+</p>
+<input type="hidden" name="action" value="signup">
+<p class="fieldset">
+<input class="full-width2" type="submit" value="注册新用户">
+</p>
+<p class="fieldset">
+<a href="http://www.runoob.com/w3cnote/runoob-user-test-intro.html#invite" target="_blank">如何获取邀请码？</a>
+</p>
+<div class="err-msg"></div>
+</div>
+</div>
+<a href="javascript:;" class="cd-close-form">关闭</a>
+</div>
+</div>
+<script src="http://www.runoob.com/wp-content/themes/runoob/assets/js/main.min.js?v=1.189"></script>
+<script src="http://static.runoob.com/assets/libs/hl/run_prettify.js"></script>
+</body>
+</html>
