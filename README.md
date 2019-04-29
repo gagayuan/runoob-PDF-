@@ -19,6 +19,10 @@
 
 7,有四五个教程貌似什么原因解析错误中断了下载,又手动下载了下.
 
+8，谢谢@flyfreeme的提醒，导致消失的原因是jquery，加了一行
+sed -i '/<script.jquery.</script>/d' ./full_page/$page_pr.html
+解决了这个问题。
+
 
 
 
