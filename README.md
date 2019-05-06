@@ -9,7 +9,7 @@
 
 3,merge_pdf_with_toc.py可用来合并pdf,并添加TOC,非常强大.(copy自国外的牛人)
 
-4,可以在js.txt设置html的字体,宽度,样式,再保存到pdf
+4,可以在clean.js设置html的字体,宽度,样式,再保存到pdf
 
 5,保存html网页至pdf的一些尝试:
          ①:用selenium只能下载一张长图pdf,很不完美.
