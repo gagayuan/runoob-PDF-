@@ -13,7 +13,7 @@
 
 5,保存html网页至pdf的一些尝试:
          ①:用selenium只能下载一张长图pdf,很不完美.
-         ②:用phantomjs可以下载可编辑的pdf,但是 不能分页,pdf高度难以设置
+         ②:用phantomjs可以下载文字可选中的的pdf,但是不能分页,pdf高度也难以设置
 
 6,google-chrome --print-to-pdf 保存pdf非常好用,pdf会自动分页.
 
