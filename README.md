@@ -11,7 +11,7 @@
 
 4,可以在clean.js设置html的字体,宽度,样式,再保存到pdf
 
-5,保存html网页至pdf的一些尝试:
+5,html网页转换至pdf的一些尝试:
          ①:用selenium只能下载一张长图pdf,很不完美.
          ②:用phantomjs可以下载文字可选中的的pdf,但是不能分页,pdf高度也难以设置
 
