@@ -9,10 +9,6 @@
    `ERROR:gpu_process_transport_factory.cc(967)] Lost UI shared context`
    这是chrome内在一个小bug,新版本已经修复.
 
-## 合并pdf
-   利用`merge_pdf_with_toc.py`,并可添加TOC,非常强大.(copy自国外的牛人)
-
-
 
 ## html网页转换至pdf的一些尝试:
    - 用selenium只能下载一张长图pdf,很不完美.
