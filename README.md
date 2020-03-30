@@ -14,7 +14,7 @@
    - 用selenium只能下载一张长图pdf,很不完美.
    - 用phantomjs可以下载文字可选中的pdf,但是不能分页,pdf高度也难以设置
    - google-chrome --print-to-pdf 保存pdf非常好用,pdf会自动分页.
-   - 用`merge_pdf_with_toc.py`来合并pdf,并可添加TOC,非常强大.(copy自国外的牛人)
+   - 用`merge_pdf_with_toc.py`来合并pdf,并可添加TOC,非常强大.(参考的国外牛人)
    - 谢谢@flyfreeme的提醒，导致消失的原因是jquery，加了行`sed -i '/<script.jquery.</script>/d' ./full_page/$page_pr.html`解决了。
 
 
